@@ -1,0 +1,4 @@
+# Force HTTPS and www redirect
+http://atteste.art/* https://atteste.art/:splat 301!
+http://www.atteste.art/* https://atteste.art/:splat 301!
+https://www.atteste.art/* https://atteste.art/:splat 301!
