@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attesté — Your Art Collection Deserves a Memory</title>
+<meta name="description" content="The Strava for Art Collectors. Capture, document, and share your art journey with AI-powered provenance, discovery trails, and a community of collectors.">
+<meta name="theme-color" content="#1A1A2E">
+<meta property="og:title" content="Attesté — Your Art Collection Deserves a Memory">
+<meta property="og:description" content="AI-powered art collection platform. Provenance. Discovery. Community.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   ATTESTÉ MARKETING SITE
+   Design system: Dark #1A1A2E + Gold #C9A96E
+   Fonts: Playfair Display (headings), Inter (body)
+   ======================================== */
+
+:root {
+  --navy: #1A1A2E;
+  --navy-mid: #232340;
+  --navy-light: #2A2A4A;
+  --gold: #C9A96E;
+  --gold-light: #E0CFA6;
+  --gold-pale: #F5EFE0;
+  --cream: #FAF8F5;
+  --cream-dark: #F0EDE8;
+  --white: #FFFFFF;
+  --text-dark: #1A1A2E;
+  --text-body: #3D3D3D;
+  --text-muted: #6B6B6B;
+  --text-light: rgba(255,255,255,0.7);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --shadow-subtle: 0 2px 16px rgba(0,0,0,0.06);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-elevated: 0 12px 48px rgba(0,0,0,0.12);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* RESET */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--cream);
+  color: var(--text-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { border: none; cursor: pointer; font-family: inherit; }
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.2; }
+
+/* ========== NAVIGATION ========== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 48px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+.nav.scrolled {
+  background: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(201,169,110,0.15);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.5px;
+  transition: color var(--transition);
+}
+.nav-links a:hover { color: var(--gold-light); }
+.nav-cta {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--navy) !important;
+  background: var(--gold);
+  padding: 10px 24px;
+  border-radius: 100px;
+  transition: all var(--transition) !important;
+}
+.nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  padding: 8px;
+}
+.nav-toggle span {
+  width: 24px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* ========== HERO ========== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--navy);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,169,110,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 20% 80%, rgba(201,169,110,0.04) 0%, transparent 50%),
+    linear-gradient(180deg, var(--navy) 0%, #0D0D1A 100%);
+}
+/* Animated gold particles */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0;
+  animation: float-particle 8s infinite;
+}
+.particle:nth-child(1) { left: 15%; top: 20%; animation-delay: 0s; animation-duration: 7s; }
+.particle:nth-child(2) { left: 35%; top: 60%; animation-delay: 1.5s; animation-duration: 9s; }
+.particle:nth-child(3) { left: 55%; top: 30%; animation-delay: 3s; animation-duration: 6s; }
+.particle:nth-child(4) { left: 75%; top: 70%; animation-delay: 0.5s; animation-duration: 8s; }
+.particle:nth-child(5) { left: 85%; top: 15%; animation-delay: 2s; animation-duration: 10s; }
+.particle:nth-child(6) { left: 25%; top: 80%; animation-delay: 4s; animation-duration: 7s; }
+.particle:nth-child(7) { left: 65%; top: 50%; animation-delay: 1s; animation-duration: 9s; }
+.particle:nth-child(8) { left: 45%; top: 10%; animation-delay: 3.5s; animation-duration: 8s; }
+
+@keyframes float-particle {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.3; }
+  100% { opacity: 0; transform: translateY(-120px) scale(0.5); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 140px 48px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.hero-text { max-width: 560px; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,169,110,0.25);
+  padding: 8px 18px;
+  border-radius: 100px;
+  margin-bottom: 32px;
+  backdrop-filter: blur(10px);
+  background: rgba(201,169,110,0.05);
+}
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.hero h1 {
+  font-size: 56px;
+  color: var(--white);
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+.hero h1 em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 500;
+}
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 100px;
+  transition: all var(--transition);
+  letter-spacing: 0.3px;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,169,110,0.3); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all var(--transition);
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); }
+
+/* Hero phone mockup */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.phone-mockup {
+  width: 280px;
+  height: 580px;
+  background: #000;
+  border-radius: 40px;
+  padding: 12px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 0 0 2px rgba(255,255,255,0.1);
+  position: relative;
+  transform: perspective(800px) rotateY(-8deg) rotateX(2deg);
+}
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: var(--navy);
+  position: relative;
+}
+/* App UI mock inside phone */
+.mock-app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.mock-status-bar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+.mock-header {
+  padding: 16px 20px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mock-header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
+}
+.mock-header-icon {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--navy-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mock-header-icon svg { width: 16px; height: 16px; }
+.mock-stats {
+  padding: 0 20px 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+.mock-stat {
+  background: var(--navy-light);
+  border-radius: 12px;
+  padding: 12px 10px;
+  text-align: center;
+}
+.mock-stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.mock-stat-label {
+  font-size: 8px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+.mock-featured {
+  margin: 0 20px;
+  background: var(--navy-light);
+  border-radius: 16px;
+  overflow: hidden;
+  flex: 1;
+}
+.mock-artwork {
+  height: 160px;
+  background: linear-gradient(135deg, #3A2E1E, #5C4A2A, #8B6F3A);
+  position: relative;
+}
+.mock-artwork::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(26,26,46,0.9));
+}
+.mock-artwork-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  z-index: 1;
+}
+.mock-artwork-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: white;
+  font-weight: 600;
+}
+.mock-artwork-artist {
+  font-size: 10px;
+  color: var(--gold-light);
+  margin-top: 2px;
+}
+.mock-artwork-meta {
+  padding: 16px;
+}
+.mock-pill-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.mock-pill {
+  font-size: 8px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(201,169,110,0.12);
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.mock-pill.verified {
+  background: rgba(74,124,89,0.2);
+  color: #7BC97B;
+}
+.mock-bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 56px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 0 8px;
+}
+.mock-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.mock-nav-dot {
+  width: 20px; height: 20px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+}
+.mock-nav-dot.active { background: rgba(201,169,110,0.25); }
+.mock-nav-label {
+  font-size: 7px;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.mock-nav-label.active { color: var(--gold); }
+
+/* Floating badge behind phone */
+.phone-float-badge {
+  position: absolute;
+  background: rgba(26,26,46,0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 16px;
+  padding: 16px 20px;
+  color: white;
+  animation: float-badge 6s ease-in-out infinite;
+}
+.phone-float-badge.badge-1 {
+  top: 60px; right: -40px;
+  animation-delay: 0s;
+}
+.phone-float-badge.badge-2 {
+  bottom: 100px; left: -60px;
+  animation-delay: 3s;
+}
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.badge-icon {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+.badge-label {
+  font-size: 10px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+.badge-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* ========== SOCIAL PROOF BAR ========== */
+.proof-bar {
+  background: var(--navy);
+  border-top: 1px solid rgba(201,169,110,0.1);
+  padding: 32px 48px;
+}
+.proof-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  align-items: center;
+}
+.proof-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.proof-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.proof-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.4;
+}
+
+/* ========== SECTION UTILITY ========== */
+.section {
+  padding: 120px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-dark {
+  background: var(--navy);
+  max-width: none;
+  color: var(--white);
+}
+.section-dark .section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-cream {
+  background: var(--cream-dark);
+  max-width: none;
+}
+.section-cream .section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.section h2 {
+  font-size: 44px;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+.section-dark h2 { color: var(--white); }
+.section-desc {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+.section-dark .section-desc { color: var(--text-light); }
+
+/* ========== PROBLEM SECTION ========== */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.problem-visual {
+  position: relative;
+}
+.problem-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+}
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 40px; right: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 0 0 4px 4px;
+}
+.problem-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-style: italic;
+  color: var(--text-dark);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+.problem-attribution {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.problem-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+.problem-stat {
+  background: var(--cream);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+.problem-stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.problem-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* ========== HOW IT WORKS ========== */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+.step {
+  position: relative;
+  padding: 40px 32px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,169,110,0.1);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition);
+}
+.step:hover {
+  background: rgba(201,169,110,0.06);
+  border-color: rgba(201,169,110,0.25);
+  transform: translateY(-4px);
+}
+.step-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(201,169,110,0.15);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.step h3 {
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.step p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+.step-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(201,169,110,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.step-icon svg {
+  width: 24px; height: 24px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ========== FEATURES ========== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.feature-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: all var(--transition);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.feature-card:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+.feature-icon-wrap {
+  width: 52px; height: 52px;
+  min-width: 52px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+.feature-card h3 {
+  font-size: 18px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+.feature-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.feature-tag {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,169,110,0.1);
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* ========== PROVENANCE SECTION ========== */
+.provenance-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.provenance-chain {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.chain-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  padding-bottom: 32px;
+}
+.chain-node:last-child { padding-bottom: 0; }
+.chain-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 32px;
+}
+.chain-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(201,169,110,0.15);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.chain-connector {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(to bottom, var(--gold), rgba(201,169,110,0.2));
+  min-height: 40px;
+  margin-top: 4px;
+}
+.chain-content h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+.chain-content p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.chain-hash {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 9px;
+  color: var(--gold);
+  background: rgba(201,169,110,0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 6px;
+  display: inline-block;
+  letter-spacing: 0.3px;
+}
+.provenance-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+.provenance-text p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.trust-badges {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dark);
+  padding: 8px 16px;
+  background: var(--cream);
+  border-radius: 100px;
+}
+.trust-badge svg {
+  width: 16px; height: 16px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ========== PRICING ========== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.price-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,169,110,0.1);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  transition: all var(--transition);
+  position: relative;
+}
+.price-card.featured {
+  background: rgba(201,169,110,0.06);
+  border-color: var(--gold);
+  transform: scale(1.03);
+}
+.price-card.featured::before {
+  content: 'Most Popular';
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--gold);
+  padding: 4px 16px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+.price-tier {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.price-amount span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-light);
+}
+.price-desc {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.price-features li {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.price-features li::before {
+  content: '';
+  width: 18px; height: 18px;
+  min-width: 18px;
+  border-radius: 50%;
+  background: rgba(201,169,110,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23C9A96E' stroke-width='3' stroke-linecap='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+.btn-price {
+  width: 100%;
+  padding: 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  transition: all var(--transition);
+}
+.btn-price-primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+.btn-price-primary:hover { background: var(--gold-light); }
+.btn-price-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.btn-price-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ========== GALLERY TEASER ========== */
+.gallery-teaser {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-radius: var(--radius-xl);
+  padding: 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 48px;
+}
+.gallery-teaser h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.gallery-teaser p {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.gallery-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.gallery-metric {
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  border: 1px solid rgba(201,169,110,0.1);
+}
+.gallery-metric-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.gallery-metric-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--white);
+  font-weight: 700;
+}
+.gallery-metric-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+
+/* ========== STORY SECTION ========== */
+.story-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.story-visual {
+  position: relative;
+}
+.story-card {
+  background: var(--navy);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.story-card::before {
+  content: '';
+  position: absolute;
+  top: -40%; right: -30%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(201,169,110,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.story-card-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  position: relative;
+}
+.story-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-bottom: 12px;
+  position: relative;
+}
+.story-card p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+  position: relative;
+}
+.story-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+.story-text p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.story-values {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+.story-value {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.story-value-icon {
+  width: 36px; height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  background: rgba(201,169,110,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.story-value-text h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+.story-value-text p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ========== CTA / EARLY ACCESS ========== */
+.cta-section {
+  background: var(--navy);
+  max-width: none;
+  padding: 120px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 60%);
+  border-radius: 50%;
+}
+.cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.cta-section p {
+  font-size: 17px;
+  color: var(--text-light);
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+.cta-form {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto 24px;
+}
+.cta-input {
+  flex: 1;
+  padding: 16px 24px;
+  border-radius: 100px;
+  border: 1px solid rgba(201,169,110,0.25);
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: border-color var(--transition);
+}
+.cta-input::placeholder { color: rgba(255,255,255,0.35); }
+.cta-input:focus { border-color: var(--gold); }
+.cta-submit {
+  padding: 16px 32px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 100px;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.cta-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+.cta-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+}
+.spots-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 32px;
+  padding: 8px 20px;
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 100px;
+}
+.spots-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse-dot 1.5s infinite;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background: #0D0D1A;
+  padding: 64px 48px 40px;
+  color: rgba(255,255,255,0.4);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.footer-brand span { color: var(--gold); }
+.footer-tagline {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+  max-width: 300px;
+}
+.footer-col h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 10px;
+  transition: color var(--transition);
+}
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.footer-sa {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .hero-content { grid-template-columns: 1fr; gap: 48px; }
+  .hero-visual { display: none; }
+  .hero h1 { font-size: 44px; }
+  .problem-grid { grid-template-columns: 1fr; gap: 48px; }
+  .provenance-layout { grid-template-columns: 1fr; gap: 48px; }
+  .story-layout { grid-template-columns: 1fr; gap: 48px; }
+  .gallery-teaser { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .hero-content { padding: 120px 24px 80px; }
+  .hero h1 { font-size: 36px; }
+  .hero-sub { font-size: 16px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .section { padding: 80px 24px; }
+  .section h2 { font-size: 32px; }
+  .section-dark, .section-cream { padding: 80px 24px; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card.featured { transform: none; }
+  .proof-bar-inner { flex-direction: column; gap: 24px; }
+  .cta-form { flex-direction: column; }
+  .gallery-teaser { padding: 40px 24px; }
+  .gallery-metrics { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">Attest<span>é</span></div>
+  <ul class="nav-links">
+    <li><a href="#problem">Why</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#provenance">Provenance</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="https://atteste-b6409.web.app" class="nav-cta" target="_blank">Launch App</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('mobile-show')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles">
+    <div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Now accepting Founding Collectors
+      </div>
+      <h1>Your Art Collection Deserves <em>a Memory</em></h1>
+      <p class="hero-sub">Capture every encounter. Document every provenance. Share your journey. Attesté is the AI-powered platform that turns your art collection into a living, verified story.</p>
+      <div class="hero-actions">
+        <a href="https://atteste-b6409.web.app" class="btn-primary" target="_blank">
+          Launch the App
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#early-access" class="btn-secondary">
+          Join Early Access
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="mock-app">
+            <div class="mock-status-bar">9:41</div>
+            <div class="mock-header">
+              <div class="mock-header-title">Attesté</div>
+              <div class="mock-header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+            </div>
+            <div class="mock-stats">
+              <div class="mock-stat">
+                <div class="mock-stat-value">137</div>
+                <div class="mock-stat-label">Works</div>
+              </div>
+              <div class="mock-stat">
+                <div class="mock-stat-value">42</div>
+                <div class="mock-stat-label">Artists</div>
+              </div>
+              <div class="mock-stat">
+                <div class="mock-stat-value">2.5M</div>
+                <div class="mock-stat-label">Value</div>
+              </div>
+            </div>
+            <div class="mock-featured">
+              <div class="mock-artwork">
+                <div class="mock-artwork-info">
+                  <div class="mock-artwork-title">Landscape at Dusk</div>
+                  <div class="mock-artwork-artist">Pieter Wenning</div>
+                </div>
+              </div>
+              <div class="mock-artwork-meta">
+                <div class="mock-pill-row">
+                  <span class="mock-pill verified">Certified</span>
+                  <span class="mock-pill">Oil on Canvas</span>
+                  <span class="mock-pill">1918</span>
+                </div>
+              </div>
+            </div>
+            <div class="mock-bottom-nav">
+              <div class="mock-nav-item"><div class="mock-nav-dot active"></div><div class="mock-nav-label active">Home</div></div>
+              <div class="mock-nav-item"><div class="mock-nav-dot"></div><div class="mock-nav-label">Scout</div></div>
+              <div class="mock-nav-item"><div class="mock-nav-dot"></div><div class="mock-nav-label">Journey</div></div>
+              <div class="mock-nav-item"><div class="mock-nav-dot"></div><div class="mock-nav-label">Profile</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone-float-badge badge-1">
+        <div class="badge-icon">&#x1F50D;</div>
+        <div class="badge-label">AI Identified</div>
+        <div class="badge-value">Irma Stern</div>
+      </div>
+      <div class="phone-float-badge badge-2">
+        <div class="badge-icon">&#x1F3C6;</div>
+        <div class="badge-label">Achievement</div>
+        <div class="badge-value">100 Encounters</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <div class="proof-item">
+      <div class="proof-number">R2.5M+</div>
+      <div class="proof-label">Collection value<br>managed</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-number">137</div>
+      <div class="proof-label">Artworks<br>documented</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-number">SHA-256</div>
+      <div class="proof-label">Cryptographic<br>integrity</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-number">10</div>
+      <div class="proof-label">Platform<br>features</div>
+    </div>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<section class="section" id="problem">
+  <div class="problem-grid">
+    <div>
+      <div class="section-label">The Quiet Crisis</div>
+      <h2>Art Stories Are Dying With Their Owners</h2>
+      <p class="section-desc" style="margin-bottom:24px;">Every art collection holds decades of stories — the gallery where you first saw it, the artist who signed it, the trip that changed your taste. But without a system to capture these moments, they vanish. Receipts fade. Memories blur. Heirs inherit art they know nothing about.</p>
+      <p style="font-size:15px; color:var(--text-muted); line-height:1.8; max-width:560px;">Insurance valuations expire in drawers. Provenance lives on Post-it notes. And the personal journey — the most valuable part of any collection — is never recorded at all.</p>
+    </div>
+    <div class="problem-visual">
+      <div class="problem-card">
+        <div class="problem-quote">"I have 137 artworks and no system. My daughters would inherit the art but not the stories."</div>
+        <div class="problem-attribution">— A private South African collector</div>
+      </div>
+      <div class="problem-stats">
+        <div class="problem-stat">
+          <div class="problem-stat-value">78%</div>
+          <div class="problem-stat-label">of collectors have no digital provenance records</div>
+        </div>
+        <div class="problem-stat">
+          <div class="problem-stat-value">43%</div>
+          <div class="problem-stat-label">African art market YoY growth rate</div>
+        </div>
+        <div class="problem-stat">
+          <div class="problem-stat-value">$1.5B</div>
+          <div class="problem-stat-label">African art market estimated size</div>
+        </div>
+        <div class="problem-stat">
+          <div class="problem-stat-value">0</div>
+          <div class="problem-stat-label">platforms built for the collector's journey</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-dark" id="how">
+  <div style="padding:120px 48px; max-width:1200px; margin:0 auto;">
+    <div class="section-label">How It Works</div>
+    <h2 style="color:white; font-size:44px; margin-bottom:16px;">Three Steps to a Living Collection</h2>
+    <p class="section-desc">From gallery floor to generational legacy — Attesté turns every encounter into documented history.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <div class="step-number">01</div>
+        <h3>Capture</h3>
+        <p>Photograph any artwork. Our AI instantly identifies the artist, medium, period, and provenance clues. Log the encounter — where you saw it, how it made you feel, and whether it belongs in your collection.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>
+        </div>
+        <div class="step-number">02</div>
+        <h3>Document</h3>
+        <p>Build a living provenance chain with SHA-256 cryptographic integrity. Upload invoices, condition reports, and professional valuations. Generate Attesté Certificates that prove your collection's history.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="step-number">03</div>
+        <h3>Share</h3>
+        <p>Publish your Year in Art wrap. Walk Discovery Trails with fellow collectors. Let the AI Art Sommelier match your taste to new artists. Build your legacy — literally — with estate planning built in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-label">The Platform</div>
+  <h2>Everything Your Collection Needs</h2>
+  <p class="section-desc">Ten integrated features, built over two years, tested with a real R2.5M collection. Every feature earns its place.</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon-wrap">&#x1F4DC;</div>
+      <div>
+        <h3>Attesté Certificate</h3>
+        <p>Living digital provenance with SHA-256 integrity hashing, tiered certification (Standard / Enhanced / Professional), QR codes, and shareable certificate faces. Your artwork's verified biography.</p>
+        <span class="feature-tag">Provenance</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-wrap">&#x1F50D;</div>
+      <div>
+        <h3>AI Art Scout</h3>
+        <p>Photograph any artwork. Gemini 2.0 Flash identifies the artist, medium, period, and estimated significance. Add it to your watchlist or log it as an encounter on your journey.</p>
+        <span class="feature-tag">AI-Powered</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-wrap">&#x1F3D6;</div>
+      <div>
+        <h3>Discovery Trails</h3>
+        <p>Walk curated art trails through Cape Town, Johannesburg, and beyond. GPS geofencing triggers stories at each stop. Create and share your own trails with the community.</p>
+        <span class="feature-tag">Community</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-wrap">&#x1F377;</div>
+      <div>
+        <h3>AI Art Sommelier</h3>
+        <p>Claude-powered taste profiling that learns your aesthetic preferences across 8 axes. Weekly discovery digests introduce you to artists you'll love but haven't found yet.</p>
+        <span class="feature-tag">AI-Powered</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-wrap">&#x1F3A8;</div>
+      <div>
+        <h3>Art Fair Companion</h3>
+        <p>Rapid encounter logging at fairs. Quick-tag pieces as you walk (love, interested, must-have). Booth check-in. Post-fair AI summary of your highlights and taste patterns.</p>
+        <span class="feature-tag">On the Ground</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-wrap">&#x1F3E6;</div>
+      <div>
+        <h3>Insurance &amp; Condition Vault</h3>
+        <p>AI condition analysis via Gemini Vision. PDF condition reports. Insurance coverage summaries. Valuation timeline tracking. Professional appraisal upload and management.</p>
+        <span class="feature-tag">Protection</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-wrap">&#x1F4CA;</div>
+      <div>
+        <h3>Auction Intelligence</h3>
+        <p>Track 5 South African auction houses. Browse upcoming lots with estimate ranges. Set alerts for artists you collect. Track your bids. Historical price records for market research.</p>
+        <span class="feature-tag">Market</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-wrap">&#x1F3C6;</div>
+      <div>
+        <h3>Legacy &amp; Estate Vault</h3>
+        <p>Designate heirs for each artwork. Create emergency access tokens. Write living letters — personal messages attached to pieces for future generations. Estate duty guidance.</p>
+        <span class="feature-tag">Legacy</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-wrap">&#x2728;</div>
+      <div>
+        <h3>Year in Art</h3>
+        <p>Your annual "Spotify Wrapped for Art." Gallery visits, new acquisitions, favourite artists, taste evolution, journey milestones — all wrapped in a shareable, beautiful summary.</p>
+        <span class="feature-tag">Social</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-wrap">&#x1F3AE;</div>
+      <div>
+        <h3>Collector Gamification</h3>
+        <p>Earn XP for encounters, acquisitions, and trail walks. Unlock achievements. Complete monthly challenges. Level up from Apprentice to Grand Master. Your collecting journey, quantified.</p>
+        <span class="feature-tag">Engagement</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROVENANCE -->
+<section class="section-cream" id="provenance">
+  <div style="padding:120px 48px; max-width:1200px; margin:0 auto;">
+    <div class="provenance-layout">
+      <div>
+        <div class="section-label">The Provenance Promise</div>
+        <div class="provenance-text">
+          <h3>Bank-Grade Integrity for Art</h3>
+          <p>Every record in Attesté is secured with SHA-256 cryptographic hashing — the same standard used in financial transactions. Our provenance chain is append-only: records can be added but never altered or deleted.</p>
+          <p>This isn't blockchain hype. It's proven infrastructure, originally built for agricultural trade documentation (MLETR-compliant), now applied to art. Every certificate, every condition report, every provenance entry carries a verifiable integrity hash.</p>
+          <p style="font-weight:500; color:var(--text-dark);">And our valuation philosophy is simple: invoice is king. AI provides experimental insight, but your portfolio totals only reflect documented, professional valuations. We believe trust is earned through honesty, not inflated numbers.</p>
+        </div>
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            SHA-256 Integrity
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Append-Only Chain
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Invoice First
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="provenance-chain">
+          <div class="chain-node">
+            <div class="chain-line">
+              <div class="chain-dot"></div>
+              <div class="chain-connector"></div>
+            </div>
+            <div class="chain-content">
+              <h4>Acquisition</h4>
+              <p>Purchased at Everard Read Gallery, Cape Town. Invoice R45,000. Oil on canvas, 60×80cm.</p>
+              <span class="chain-hash">sha256:7f83b...e4a1c</span>
+            </div>
+          </div>
+          <div class="chain-node">
+            <div class="chain-line">
+              <div class="chain-dot"></div>
+              <div class="chain-connector"></div>
+            </div>
+            <div class="chain-content">
+              <h4>Professional Valuation</h4>
+              <p>The Valuator Group appraisal. Estimated replacement cost R68,000. Paul Myson (FRSA, FIFAAAA).</p>
+              <span class="chain-hash">sha256:3a9f1...b72d8</span>
+            </div>
+          </div>
+          <div class="chain-node">
+            <div class="chain-line">
+              <div class="chain-dot"></div>
+              <div class="chain-connector"></div>
+            </div>
+            <div class="chain-content">
+              <h4>Condition Assessment</h4>
+              <p>AI condition analysis: Excellent. Minor frame wear noted. UV-protected glass recommended.</p>
+              <span class="chain-hash">sha256:9c2d5...a83f7</span>
+            </div>
+          </div>
+          <div class="chain-node">
+            <div class="chain-line">
+              <div class="chain-dot"></div>
+            </div>
+            <div class="chain-content">
+              <h4>Attesté Certificate Issued</h4>
+              <p>Enhanced-tier certificate #ATC-2026-0042. Provenance quality score: 4/5. QR verification active.</p>
+              <span class="chain-hash">sha256:1b4e8...d56c3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section-dark" id="pricing">
+  <div style="padding:120px 48px; max-width:1200px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:16px;">
+      <div class="section-label">Pricing</div>
+      <h2 style="color:white; font-size:44px; margin-bottom:16px;">Start Free. Grow With Your Collection.</h2>
+      <p class="section-desc" style="margin:0 auto 48px; text-align:center;">Every collector starts somewhere. Attesté grows with you — from your first piece to your legacy.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- Free -->
+      <div class="price-card">
+        <div class="price-tier">Free</div>
+        <div class="price-amount">R0 <span>/ forever</span></div>
+        <div class="price-desc">For collectors just beginning their digital journey.</div>
+        <ul class="price-features">
+          <li>Up to 25 artworks</li>
+          <li>5 AI analyses per month</li>
+          <li>Basic provenance records</li>
+          <li>Standard certificates</li>
+          <li>Discovery trail access</li>
+        </ul>
+        <a href="https://atteste-b6409.web.app" target="_blank" class="btn-price btn-price-outline" style="display:block;">Get Started Free</a>
+      </div>
+      <!-- Collector -->
+      <div class="price-card featured">
+        <div class="price-tier">Collector</div>
+        <div class="price-amount">R149 <span>/ month</span></div>
+        <div class="price-desc">For serious collectors who want full documentation.</div>
+        <ul class="price-features">
+          <li>Up to 200 artworks</li>
+          <li>50 AI analyses per month</li>
+          <li>Full provenance chain</li>
+          <li>Enhanced certificates + QR</li>
+          <li>AI Art Sommelier</li>
+          <li>Condition Vault + reports</li>
+          <li>Auction intelligence</li>
+          <li>Art Fair Companion</li>
+        </ul>
+        <a href="https://atteste-b6409.web.app" target="_blank" class="btn-price btn-price-primary" style="display:block;">Become a Collector</a>
+      </div>
+      <!-- Premium -->
+      <div class="price-card">
+        <div class="price-tier">Premium</div>
+        <div class="price-amount">R349 <span>/ month</span></div>
+        <div class="price-desc">For collectors who want the complete platform.</div>
+        <ul class="price-features">
+          <li>Unlimited artworks</li>
+          <li>Unlimited AI analyses</li>
+          <li>Professional certificates</li>
+          <li>Legacy & Estate Vault</li>
+          <li>Year in Art wrap</li>
+          <li>Public collector profile</li>
+          <li>Priority AI processing</li>
+          <li>Community trail creation</li>
+          <li>Collection memoirs</li>
+        </ul>
+        <a href="https://atteste-b6409.web.app" target="_blank" class="btn-price btn-price-outline" style="display:block;">Go Premium</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR GALLERIES -->
+<section class="section" id="galleries">
+  <div class="section-label">For Galleries</div>
+  <h2>Know What Your Visitors Love</h2>
+  <p class="section-desc">Not another inventory system. Attesté gives galleries demand-side intelligence — see what collectors encounter, love, and return to. Launching Q3 2026.</p>
+  <div class="gallery-teaser">
+    <div>
+      <h3>The Gallery Shell</h3>
+      <p>When collectors use Attesté at your gallery, you see anonymised encounter data: which artists draw attention, how long visitors engage, what gets added to watchlists. Pair this with exhibition promotions and taste-matched discovery to put your artists in front of the right collectors.</p>
+      <a href="#early-access" class="btn-primary" style="display:inline-flex;">Register Gallery Interest</a>
+    </div>
+    <div class="gallery-metrics">
+      <div class="gallery-metric">
+        <div class="gallery-metric-label">Encounters</div>
+        <div class="gallery-metric-value">847</div>
+        <div class="gallery-metric-sub">this month</div>
+      </div>
+      <div class="gallery-metric">
+        <div class="gallery-metric-label">Top Artist</div>
+        <div class="gallery-metric-value">Stern</div>
+        <div class="gallery-metric-sub">32% of encounters</div>
+      </div>
+      <div class="gallery-metric">
+        <div class="gallery-metric-label">Dwell Time</div>
+        <div class="gallery-metric-value">4.2m</div>
+        <div class="gallery-metric-sub">avg per visit</div>
+      </div>
+      <div class="gallery-metric">
+        <div class="gallery-metric-label">Watchlisted</div>
+        <div class="gallery-metric-value">23</div>
+        <div class="gallery-metric-sub">pieces this week</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="section-cream" id="story">
+  <div style="padding:120px 48px; max-width:1200px; margin:0 auto;">
+    <div class="story-layout">
+      <div class="story-visual">
+        <div class="story-card">
+          <div class="story-card-label">Built in South Africa</div>
+          <h4>A father's project became his daughters' business</h4>
+          <p>Attesté started when a private collector realised his children would inherit his art — but not the stories behind it. What began as a weekend project to digitise one collection grew into a platform that could serve every collector.</p>
+          <p style="margin-top:16px; font-size:14px; color:var(--text-light); line-height:1.7; position:relative;">Today, Attesté is a family enterprise: built by a father, operated by three daughters, and powered by the same enterprise-grade infrastructure used in agricultural trade across Southern Africa.</p>
+        </div>
+      </div>
+      <div class="story-text">
+        <div class="section-label">Our Story</div>
+        <h3>Built for Art. Powered by Integrity.</h3>
+        <p>We didn't set out to build a startup. We set out to solve a real problem for a real collection. That honesty is coded into every decision we've made — from our "invoice is king" valuation philosophy to our append-only provenance chain.</p>
+        <div class="story-values">
+          <div class="story-value">
+            <div class="story-value-icon">&#x1F3DB;</div>
+            <div class="story-value-text">
+              <h4>Proven Infrastructure</h4>
+              <p>SHA-256 integrity chain ported from MLETR-compliant agricultural trade documentation. Battle-tested, not experimental.</p>
+            </div>
+          </div>
+          <div class="story-value">
+            <div class="story-value-icon">&#x1F9E0;</div>
+            <div class="story-value-text">
+              <h4>AI That Amplifies, Never Replaces</h4>
+              <p>Dual AI (Google Gemini + Anthropic Claude) provides insight and discovery. But your documented provenance always comes first.</p>
+            </div>
+          </div>
+          <div class="story-value">
+            <div class="story-value-icon">&#x1F1FF;&#x1F1E6;</div>
+            <div class="story-value-text">
+              <h4>South African, Built for the World</h4>
+              <p>Five SA auction houses. Cape Town to Joburg trails. But the platform is designed for collectors everywhere.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / EARLY ACCESS -->
+<section class="cta-section" id="early-access">
+  <div class="cta-inner">
+    <div class="spots-counter">
+      <span class="spots-dot"></span>
+      <span>Founding Collector spots remaining: <strong>47 of 50</strong></span>
+    </div>
+    <h2>Begin Your Art Journey</h2>
+    <p>Join 50 Founding Collectors who will shape the future of art documentation. Lifetime Collector-tier pricing. Early access to every feature. Your voice in what we build next.</p>
+    <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you!'; this.querySelector('input').disabled=true;">
+      <input type="email" class="cta-input" placeholder="Your email address" required>
+      <button type="submit" class="cta-submit">Join Now</button>
+    </form>
+    <div class="cta-note">No credit card required. We'll never share your email.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Attest<span>é</span></div>
+      <p class="footer-tagline">Your art collection deserves a memory. AI-powered provenance, discovery, and community for collectors who care about the story behind every piece.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#provenance">Provenance</a>
+      <a href="#galleries">For Galleries</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#story">Our Story</a>
+      <a href="mailto:charl@alteragro.com">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="mailto:charl@alteragro.com">charl@alteragro.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 Attesté. All rights reserved.</div>
+    <div class="footer-sa">
+      Made with care in South Africa
+    </div>
+  </div>
+</footer>
+
+<!-- SCROLL NAV EFFECT -->
+<script>
+  const nav = document.getElementById('nav');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+    lastScroll = scrollY;
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Close mobile nav if open
+        document.querySelector('.nav-links').classList.remove('mobile-show');
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Mobile nav show */
+  .nav-links.mobile-show {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: rgba(26,26,46,0.98);
+    backdrop-filter: blur(20px);
+    padding: 24px;
+    gap: 16px;
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+  }
+  @media (min-width: 769px) {
+    .nav-links.mobile-show { display: flex !important; flex-direction: row; position: static; background: none; padding: 0; border: none; }
+  }
+</style>
+
+</body>
+</html>
