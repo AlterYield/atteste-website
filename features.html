@@ -285,21 +285,29 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 
 /* Screenshot placeholder */
 .feature-screenshot {
-  border: 2px dashed var(--gold-light);
   border-radius: var(--radius-lg);
-  background: var(--cream-dark);
+  background: var(--navy);
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 280px;
-  padding: 40px;
-  transition: border-color var(--transition);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 .feature-screenshot:hover {
-  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+}
+.feature-screenshot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
 }
 .feature-screenshot-inner {
   text-align: center;
+  padding: 40px;
 }
 .feature-screenshot-icon {
   font-size: 40px;
@@ -525,10 +533,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Provenance</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">📜</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/certificate.png" alt="Attesté Certificate with SHA-256 provenance" loading="lazy">
       </div>
     </div>
 
@@ -541,10 +546,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">AI-Powered</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">🔍</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/scout.png" alt="AI Art Scout camera and analysis" loading="lazy">
       </div>
     </div>
 
@@ -557,10 +559,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Research</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">👥</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/artists-dealers.png" alt="Artist and Dealer profiles hub" loading="lazy">
       </div>
     </div>
 
@@ -573,10 +572,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Overview</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">📊</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/dashboard.png" alt="Collection dashboard overview" loading="lazy">
       </div>
     </div>
 
@@ -589,10 +585,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Utility</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">📥</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/import.png" alt="CSV import with drag and drop" loading="lazy">
       </div>
     </div>
   </div>
@@ -610,10 +603,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">AI-Powered</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">🍷</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/sommelier.png" alt="AI Art Sommelier taste profile" loading="lazy">
       </div>
     </div>
 
@@ -626,10 +616,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">AI-Powered</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">💬</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/ai-chat.png" alt="AI Assistant chat interface" loading="lazy">
       </div>
     </div>
 
@@ -642,10 +629,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">AI-Powered</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">🗺️</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/trail-generator.png" alt="AI Trail Generator" loading="lazy">
       </div>
     </div>
 
@@ -658,10 +642,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Intelligence</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">📰</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/auctions.png" alt="Market Intelligence and auctions" loading="lazy">
       </div>
     </div>
   </div>
@@ -679,10 +660,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Exploration</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">🏖️</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/trails.png" alt="Discovery Trails browse" loading="lazy">
       </div>
     </div>
 
@@ -695,10 +673,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Events</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">🎨</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/fairs.png" alt="Art Fair Companion" loading="lazy">
       </div>
     </div>
 
@@ -711,10 +686,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Community</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">🌍</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/my-trails.png" alt="Community Curated Trails" loading="lazy">
       </div>
     </div>
 
@@ -727,10 +699,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Exploration</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">✈️</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/settings.png" alt="Travel Mode settings" loading="lazy">
       </div>
     </div>
   </div>
@@ -748,10 +717,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Engagement</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">🎮</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/achievements.png" alt="Collector Gamification achievements" loading="lazy">
       </div>
     </div>
 
@@ -764,10 +730,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Social</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">✨</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/year-in-art.png" alt="Year in Art retrospective" loading="lazy">
       </div>
     </div>
 
@@ -780,10 +743,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Social</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">👤</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/public-profile.png" alt="Public Collector Profile" loading="lazy">
       </div>
     </div>
 
@@ -796,10 +756,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">AI-Powered</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">📖</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/collectors.png" alt="Collection Memoirs" loading="lazy">
       </div>
     </div>
   </div>
@@ -817,10 +774,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Protection</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">🏦</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/insurance-vault.png" alt="Insurance and Condition Vault" loading="lazy">
       </div>
     </div>
 
@@ -833,10 +787,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Intelligence</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">📈</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/auctions.png" alt="Auction Intelligence calendar" loading="lazy">
       </div>
     </div>
 
@@ -849,10 +800,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <span class="feature-tag">Legacy</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-screenshot-inner">
-          <div class="feature-screenshot-icon">🏛️</div>
-          <div class="feature-screenshot-text">Screenshot coming soon</div>
-        </div>
+        <img src="screenshots/legacy.png" alt="Legacy and Estate Vault" loading="lazy">
       </div>
     </div>
   </div>
