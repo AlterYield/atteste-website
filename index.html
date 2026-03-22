@@ -261,6 +261,21 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   transition: all var(--transition);
 }
 .btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); }
+.btn-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 100px;
+  border: 1.5px solid var(--gold);
+  transition: all var(--transition);
+  letter-spacing: 0.3px;
+}
+.btn-demo:hover { background: rgba(201,169,110,0.12); color: var(--gold-light); border-color: var(--gold-light); transform: translateY(-2px); }
 
 /* Hero phone mockup */
 .hero-visual {
@@ -1304,6 +1319,9 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <a href="#early-access" class="btn-secondary">
           Join Early Access
         </a>
+        <a href="https://atteste-b6409.web.app/demo" class="btn-demo" target="_blank">
+          Try the Demo — No Sign Up
+        </a>
       </div>
     </div>
     <div class="hero-visual">
@@ -1607,7 +1625,8 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
       <div class="section-label">Pricing</div>
       <h2 style="color:white; font-size:44px; margin-bottom:16px;">Start Free. Grow With Your Collection.</h2>
       <p class="section-desc" style="margin:0 auto 16px; text-align:center;">Every collector starts somewhere. Attesté grows with you — from your first encounter to your legacy.</p>
-      <p style="font-size:14px; color:var(--gold-light); margin-bottom:48px;">✨ Every new account includes a 14-day Premium trial — experience everything before you choose.</p>
+      <p style="font-size:14px; color:var(--gold-light); margin-bottom:16px;">✨ Every new account includes a 14-day Premium trial — experience everything before you choose.</p>
+      <p style="margin-bottom:48px;"><a href="https://atteste-b6409.web.app/demo" class="btn-demo" target="_blank" style="padding:12px 28px; font-size:13px;">See It in Action — Try the Demo</a></p>
     </div>
     <div class="pricing-grid">
       <!-- Explorer -->
@@ -1782,6 +1801,9 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
         <input type="email" class="cta-input" placeholder="Your email address" required>
         <button type="submit" class="cta-submit">Join as Founding Collector</button>
       </form>
+    </div>
+    <div style="margin-top:20px;">
+      <a href="https://atteste-b6409.web.app/demo" class="btn-demo" target="_blank" style="padding:12px 28px; font-size:13px;">Or Try the Demo — No Sign Up</a>
     </div>
     <div class="cta-note">No credit card required. We'll never share your email.</div>
   </div>
