@@ -2,13 +2,13 @@
 
 ## What is Attesté?
 
-Attesté is an art collection management platform (atteste.art) targeting art collectors, galleries, advisors, and institutions. It offers provenance tracking, AI-powered art discovery, certificates of attestation, and collection management tools. B2C tiers: Explorer (free) / Collector (R149/mo) / Premium (R299/mo). B2B gallery tiers: Brand Pack (R5,000 once-off, 12 months) / Professional (R1,499/mo) / Enterprise (R2,999/mo).
+Attesté is an art collection management platform (atteste.art) targeting art collectors, galleries, advisors, and institutions. It offers provenance tracking, AI-powered art discovery, certificates of attestation, and collection management tools. B2C tiers: Explorer (free) / Collector (R149/mo) / Premium (R299/mo). B2B gallery tiers: Gallery Launch Kit (R5,000 once-off, 12 months) / Professional (R1,499/mo) / Enterprise (R2,999/mo).
 
 ## Project Structure
 
 - `index.html` — Main marketing website homepage
 - `features.html` — Features page
-- `galleries.html` — Dedicated gallery page (Brand Pack, tiers, ROI, physical kit)
+- `galleries.html` — Dedicated gallery page (Gallery Launch Kit, tiers, ROI, physical kit)
 - `_headers` — Netlify HTTP security headers
 - `_redirects` — Netlify redirect rules
 - `marketing/` — All marketing strategy documents (personas, FOMO tactics, content calendar, launch plan)
@@ -34,7 +34,7 @@ All persona definitions live in `marketing/`. Always reference these when doing 
 
 | ID | Name | Archetype | Tier |
 |----|------|-----------|------|
-| B1 | Sarah van der Merwe | The Gallery Director | Gallery: Brand Pack (R5,000) → Professional (R1,499/mo) |
+| B1 | Sarah van der Merwe | The Gallery Director | Gallery: Gallery Launch Kit (R5,000) → Professional (R1,499/mo) |
 | B2 | Michael Hartley | The Art Advisor | Gallery: Professional (R1,499/mo) |
 | B3 | Nomsa Dlamini | The Institutional Curator | Gallery: Enterprise (R2,999/mo) |
 
