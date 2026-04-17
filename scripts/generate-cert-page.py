@@ -137,6 +137,72 @@ def condition_html(entries):
     return "\n".join(parts)
 
 
+def html_escape(s):
+    """Minimal HTML-escape for text that will be inserted into attributes or body."""
+    return (str(s)
+            .replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace('"', "&quot;")
+            .replace("'", "&#39;"))
+
+
+def sister_works_html(sisters):
+    """Build the sister-artworks grid (or placeholder if empty).
+
+    `sisters` is a list of dicts: { hash, similarity, title, artist, year, medium, image_url, url }
+    Written by scripts/compute-sister-works.py.
+    """
+    if not sisters:
+        return (
+            '<div class="sister-placeholder">'
+            "Sister artworks will appear here once the graph has more certificates. "
+            "These are determined by cosine similarity over the 768-dimensional "
+            "embeddings of the full Attesté provenance graph."
+            "</div>"
+        )
+
+    parts = [
+        '<p class="sister-intro">These certificates sit closest to this one in the Attesté graph '
+        'by semantic similarity over 768-dimensional embeddings of artist, medium, period and provenance.</p>',
+        '<div class="sister-grid" role="list">',
+    ]
+    for s in sisters:
+        title = html_escape(s.get("title", "Untitled"))
+        artist = html_escape(s.get("artist", "Unknown"))
+        year = html_escape(s.get("year", ""))
+        medium = html_escape(s.get("medium", ""))
+        image = html_escape(s.get("image_url", ""))
+        url = html_escape(s.get("url") or f"/cert/{s.get('hash', '')}.html")
+        sim = s.get("similarity", 0)
+        try:
+            sim_pct = f"{float(sim) * 100:.0f}% match"
+        except Exception:
+            sim_pct = ""
+
+        meta_line = artist
+        if year:
+            meta_line += f" · {year}"
+
+        parts.append(
+            f'<a class="sister-card" href="{url}" role="listitem" '
+            f'aria-label="Sister artwork: {title} by {artist}">'
+            f'<img class="sister-card-image" src="{image}" alt="{title} by {artist}" '
+            f'loading="lazy" width="400" height="300">'
+            f'<div class="sister-card-body">'
+            f'<div class="sister-card-title">{title}</div>'
+            f'<div class="sister-card-artist">{meta_line}</div>'
+            f'<div class="sister-card-meta">'
+            f'<span>{html_escape(medium)}</span>'
+            f'<span class="sister-card-sim">{sim_pct}</span>'
+            f'</div>'
+            f'</div>'
+            f'</a>'
+        )
+    parts.append('</div>')
+    return "\n".join(parts)
+
+
 def faq_jsonld(title, artist, short_hash):
     """Return a FAQPage JSON-LD dict for this specific certificate."""
     url = f"https://atteste.art/cert/{short_hash}.html"
@@ -670,6 +736,74 @@ body {{
   font-size: 0.88rem;
   line-height: 1.6;
 }}
+.sister-intro {{
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0 0 16px 0;
+  line-height: 1.6;
+}}
+.sister-grid {{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 12px;
+}}
+.sister-card {{
+  display: flex;
+  flex-direction: column;
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}}
+.sister-card:hover,
+.sister-card:focus-visible {{
+  transform: translateY(-3px);
+  border-color: var(--accent-teal);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.32);
+  outline: none;
+}}
+.sister-card-image {{
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  object-fit: cover;
+  background: var(--navy-deep);
+  display: block;
+}}
+.sister-card-body {{
+  padding: 14px 14px 16px 14px;
+}}
+.sister-card-title {{
+  font-family: 'Playfair Display', serif;
+  font-size: 1.02rem;
+  line-height: 1.3;
+  margin: 0 0 4px 0;
+  color: var(--cream);
+}}
+.sister-card-artist {{
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 0 0 10px 0;
+}}
+.sister-card-meta {{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-family: 'SF Mono', Menlo, monospace;
+  letter-spacing: 0.02em;
+}}
+.sister-card-sim {{
+  background: rgba(2,128,125,0.15);
+  color: var(--accent-teal);
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+}}
 
 /* ---- About ---- */
 .about-text {{
@@ -879,9 +1013,7 @@ body {{
       <span class="section-icon" aria-hidden="true">🔗</span>
       <h2 class="section-title" id="sister-heading">Sister Artworks</h2>
     </div>
-    <div class="sister-placeholder">
-      Sister artworks will appear here once the graph has more certificates. These are determined by cosine similarity over the 768-dimensional embeddings of the full Attesté provenance graph.
-    </div>
+    {sister_works_html}
   </section>
 
   <!-- ABOUT THIS CERTIFICATE -->
@@ -1208,6 +1340,7 @@ def render_cert(cert_path: str, out_dir: str = "cert") -> str:
     val_html = valuations_html(data.get("valuations", []))
     cond_html = condition_html(data.get("condition_reports", []))
     faq_html_block = faq_html_from_jsonld(faq_dict)
+    sister_works_block = sister_works_html(data.get("sister_artworks", []))
 
     # ---- Render template ----
     html = fmt(
@@ -1243,6 +1376,7 @@ def render_cert(cert_path: str, out_dir: str = "cert") -> str:
         jsonld_claimreview=json.dumps(jsonld_claimreview, indent=2, ensure_ascii=False),
         jsonld_faq=json.dumps(faq_dict, indent=2, ensure_ascii=False),
         canonical_json_blob=canonical_json_blob,
+        sister_works_html=sister_works_block,
     )
 
     # ---- Write output ----
