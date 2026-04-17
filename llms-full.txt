@@ -147,15 +147,18 @@ Pricing: R2,999 / month.
 
 ---
 
+<!-- CATALOG-PRICING-START -->
+<!-- Auto-generated from wiki/_catalog.json by scripts/render-atteste-content.py. Do not edit manually — edit the SKU files in wiki/catalog/atteste/ and rerun. -->
+
 ## Pricing — all tiers
 
 ### Consumer tiers
 
-| Tier | Monthly price | Annual (implied) | Artworks | AI analyses | Key features |
-|---|---|---|---|---|---|
-| Explorer | Free | Free | 25 | 5 / month | Basic trails, encounters, XP, Sommelier light |
-| Collector | $9 USD / R149 ZAR | ~$108 / ~R1,788 | 200 | 50 / month | Attesté Certificates, full Sommelier, Fair Companion, all trails |
-| Premium | $19 USD / R299 ZAR | ~$228 / ~R3,588 | Unlimited | Unlimited | Legacy Vault, Year in Art, public profile, priority support |
+| Tier | Monthly price | Artworks | AI analyses | Key features |
+|---|---|---|---|---|
+| Attesté Explorer | Free | 25 | 5 / month | Collection management for up to 25 artworks, 5 AI artwork analyses per month (artist identification, style classification, estimated value range), Basic Discovery Trails (curated art walk itineraries in supported cities), Encounter logging — scan a QR or NFC tag at a gallery to record an art encounter |
+| Attesté Collector | $9 / R149/mo | 200 | 50 / month | Up to 200 artworks in your collection, 50 AI artwork analyses per month, Attesté Certificates — AI-backed provenance certificates for works in your collection, AI Art Sommelier — personalised taste profiling and artwork recommendations based on your collection |
+| Attesté Premium | $19 / R299/mo | Unlimited | Unlimited | Unlimited artworks in your collection, Unlimited AI artwork analyses per month, Legacy Vault — multi-generational provenance storage, estate planning tools, and beneficiary access management, Year in Art — annual collection summary (acquisition value, encounters, taste evolution, AI-written narrative) |
 
 **14-day Premium free trial** automatically applied to every new account. No credit card required for trial.
 
@@ -163,11 +166,13 @@ Pricing: R2,999 / month.
 
 | Tier | Price | Period | Artworks | Key features |
 |---|---|---|---|---|
-| Gallery Launch Kit | R5,000 | Once-off (12 months) | 50 | Physical brand kit, analytics dashboard |
-| Professional | R1,499 | Monthly | 100 | 12 AI social posts/yr, full analytics |
-| Enterprise | R2,999 | Monthly | Unlimited | Unlimited social, collector push, API, dedicated AM |
+| Attesté Gallery Launch Kit | R5,000 | Once-off (12 months) | 50 | 12 months of Attesté Gallery access included (no recurring charge after once-off payment), Up to 50 artworks in the gallery's digital catalogue, 2 gallery staff seats, Physical brand kit |
+| Attesté Gallery Professional | R1,499 | Monthly | 100 | Up to 100 artworks in the gallery catalogue, 5 gallery staff seats, 12 AI-generated exhibition social media posts per year (Instagram, LinkedIn — gallery-branded), Full aggregate analytics with time-series trends (monthly encounter volumes, top artworks, acquisition interest signals) |
+| Attesté Gallery Enterprise | R2,999 | Monthly | Unlimited | Unlimited artworks in the gallery catalogue, Unlimited staff seats, Unlimited AI-generated social and exhibition content, Collector push notifications to opted-in Attesté collectors (opt-in required, POPIA compliant) |
 
 All gallery tiers include collector analytics (aggregate-only, never personally identifying).
+
+<!-- CATALOG-PRICING-END -->
 
 ---
 
