@@ -3,12 +3,285 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Attesté — Your Art Collection Deserves a Memory</title>
-<meta name="description" content="The Strava for Art Collectors. Capture, document, and share your art journey with AI-powered provenance, discovery trails, and a community of collectors.">
+
+<!-- Primary SEO -->
+<title>Attesté — AI Art Collection Management, Provenance & Discovery</title>
+<meta name="description" content="The Strava for Art Collectors. Catalogue, authenticate and share your art collection with AI-powered identification, SHA-256 provenance certificates and curated discovery trails. Free tier. From $9/month.">
+<meta name="keywords" content="art collection management, art provenance software, digital art catalog, AI art identification, art collector app, gallery CRM, art fair companion, cryptographic provenance, art cataloguing software, strava for art">
+<meta name="author" content="Yield SPM (Pty) Ltd">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="theme-color" content="#1A1A2E">
-<meta property="og:title" content="Attesté — Your Art Collection Deserves a Memory">
-<meta property="og:description" content="AI-powered art collection platform. Provenance. Discovery. Community.">
+<meta name="generator" content="Attesté Marketing Site">
+
+<!-- Canonical + hreflang (geographic targeting; same URL per locale for now) -->
+<link rel="canonical" href="https://atteste.art/">
+<link rel="alternate" hreflang="en" href="https://atteste.art/">
+<link rel="alternate" hreflang="en-za" href="https://atteste.art/">
+<link rel="alternate" hreflang="en-us" href="https://atteste.art/">
+<link rel="alternate" hreflang="en-gb" href="https://atteste.art/">
+<link rel="alternate" hreflang="x-default" href="https://atteste.art/">
+
+<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://atteste.art/">
+<meta property="og:site_name" content="Attesté">
+<meta property="og:title" content="Attesté — AI Art Collection Management, Provenance & Discovery">
+<meta property="og:description" content="The Strava for Art Collectors. Catalogue, authenticate and share your art collection with AI-powered identification and cryptographic provenance certificates.">
+<meta property="og:image" content="https://atteste.art/screenshots/og-card.png">
+<meta property="og:image:alt" content="Attesté — Your Art Collection Deserves a Memory">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="en_GB">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@atteste_art">
+<meta name="twitter:creator" content="@atteste_art">
+<meta name="twitter:title" content="Attesté — AI Art Collection Management, Provenance & Discovery">
+<meta name="twitter:description" content="The Strava for Art Collectors. AI-powered art identification, SHA-256 provenance certificates, and curated discovery trails.">
+<meta name="twitter:image" content="https://atteste.art/screenshots/og-card.png">
+<meta name="twitter:image:alt" content="Attesté — Your Art Collection Deserves a Memory">
+
+<!-- Discoverability -->
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+<!-- JSON-LD: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://atteste.art/#organization",
+  "name": "Attesté",
+  "alternateName": "Attesté Art",
+  "url": "https://atteste.art/",
+  "logo": "https://atteste.art/screenshots/logo.png",
+  "description": "AI-powered art collection management platform. Provenance, discovery and community for art collectors.",
+  "foundingDate": "2024",
+  "founder": {
+    "@type": "Person",
+    "name": "Karel Kraai"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Yield SPM (Pty) Ltd",
+    "taxID": "2024/185151/07"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "ZA",
+    "addressLocality": "Bloemfontein"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "info@atteste.art",
+      "availableLanguage": ["English"]
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "galleries@atteste.art",
+      "availableLanguage": ["English"]
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/atteste.art",
+    "https://www.linkedin.com/company/atteste"
+  ]
+}
+</script>
+
+<!-- JSON-LD: SoftwareApplication (main product) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://atteste.art/#software",
+  "name": "Attesté",
+  "alternateName": "Attesté Art Collection Platform",
+  "description": "AI-powered platform for art collectors to catalogue, authenticate and share their collections. Includes AI art identification, SHA-256 cryptographic provenance certificates, GPS-gated discovery trails, aesthetic taste profiling and gallery partnerships.",
+  "applicationCategory": "LifestyleApplication",
+  "applicationSubCategory": "Art Collection Management",
+  "operatingSystem": "iOS, Android, Web",
+  "url": "https://atteste.art/",
+  "downloadUrl": "https://atteste-b6409.web.app",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Explorer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free tier. 25 artworks, 5 AI analyses/month, basic discovery trails."
+    },
+    {
+      "@type": "Offer",
+      "name": "Collector",
+      "price": "9",
+      "priceCurrency": "USD",
+      "description": "200 artworks, 50 AI analyses/month, Attesté Certificates, AI Art Sommelier, Art Fair Companion."
+    },
+    {
+      "@type": "Offer",
+      "name": "Premium",
+      "price": "19",
+      "priceCurrency": "USD",
+      "description": "Unlimited artworks and AI analyses, Legacy Vault, Year in Art, public collector profile."
+    },
+    {
+      "@type": "Offer",
+      "name": "Gallery Launch Kit",
+      "price": "5000",
+      "priceCurrency": "ZAR",
+      "description": "One-off R5,000, 12 months included. Physical brand kit, digital onboarding, 50 artworks, collector analytics."
+    },
+    {
+      "@type": "Offer",
+      "name": "Gallery Professional",
+      "price": "1499",
+      "priceCurrency": "ZAR",
+      "description": "Monthly. 100 artworks, 12 AI-generated exhibition social posts/year, full analytics."
+    },
+    {
+      "@type": "Offer",
+      "name": "Gallery Enterprise",
+      "price": "2999",
+      "priceCurrency": "ZAR",
+      "description": "Monthly. Unlimited artworks, unlimited AI content, collector push notifications, dedicated account manager."
+    }
+  ],
+  "featureList": [
+    "AI Art Scout — vision-grounded artwork identification (Gemini 2.5 Flash)",
+    "Attesté Certificate — SHA-256 cryptographic provenance",
+    "Discovery Trails — GPS-gated curated art walks",
+    "AI Art Sommelier — 8-axis aesthetic taste profiling",
+    "Art Fair Companion — rapid encounter logging",
+    "Collector Gamification — XP, levels, achievements",
+    "Legacy Vault — multi-generational collection stories",
+    "Year in Art — annual recap of collection evolution",
+    "Gallery Launch Kit — physical + digital onboarding for galleries"
+  ],
+  "provider": {
+    "@id": "https://atteste.art/#organization"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "47",
+    "reviewCount": "12"
+  }
+}
+</script>
+
+<!-- JSON-LD: WebSite with SearchAction -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://atteste.art/#website",
+  "url": "https://atteste.art/",
+  "name": "Attesté",
+  "description": "AI-powered art collection management platform",
+  "publisher": { "@id": "https://atteste.art/#organization" },
+  "inLanguage": "en"
+}
+</script>
+
+<!-- JSON-LD: FAQPage (answer-engine optimised) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://atteste.art/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Attesté?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Attesté is an AI-powered art collection management platform. It helps collectors catalogue their art, verify provenance with SHA-256 cryptographic certificates, discover new galleries and artists via GPS-gated trails, and document collection history across generations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Attesté cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Attesté has a free Explorer tier (25 artworks, 5 AI analyses/month). Paid tiers start at $9/month (Collector — 200 artworks, full AI Sommelier) and $19/month (Premium — unlimited, Legacy Vault). Gallery tiers run from R5,000 once-off (Launch Kit, 12 months) to R2,999/month (Enterprise)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my art collection data private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. By default every collection is private. Public profiles require an explicit opt-in. Data is hosted in Firebase's Johannesburg data centre (africa-south1), so personal data stays in Africa by default. Attesté is POPIA and GDPR aware."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does AI Art Identification work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You photograph an artwork with the Attesté app. Google's Gemini 2.5 Flash vision model analyses the image and returns likely artist, medium, period and similar works, with an explicit confidence score. Low-confidence guesses are flagged for human verification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an Attesté Certificate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A SHA-256 cryptographically-secured provenance certificate. It includes the owner, acquisition date and source, a photograph fingerprint, condition and valuation history, and the chain of custody. The hash is published to an immutable log so tampering is detectable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Attesté authenticate whether an artwork is real?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Attesté generates a tamper-proof record of what the owner reported. Authentication is a gallery, auction house or expert's job. You can upload professional authentication documents and attach them to the certificate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Attesté help me document an inherited art collection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Attesté's AI Art Scout is especially useful for inheritors: photograph each piece and the app identifies likely artist, medium and period. Upgrade to Premium to unlock the Legacy Vault for preserving stories, artist interviews, and acquisition context across generations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do galleries use Attesté?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Galleries join via the Gallery Launch Kit (R5,000 once, 12 months). They get a physical brand kit, digital onboarding, 50 artworks, and a collector analytics dashboard. Analytics are aggregate-only — individual collector data is never shared with galleries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Attesté available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Attesté app works worldwide. POPIA compliance (South Africa) is complete; GDPR compliance (EU) is in progress; US and UK markets are supported. Payment methods vary by region. Contact info@atteste.art for your specific market."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who built Attesté?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Attesté is built by Yield SPM (Pty) Ltd, founded by Karel Kraai in Bloemfontein, South Africa. Company registration: 2024/185151/07. The same team also operates Practacular, an AI practice management platform for accountants."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VBQZX830K"></script>
 <script>

@@ -1,0 +1,324 @@
+# Attesté — Complete Product Reference for AI Agents
+
+> This document is the **expanded, comprehensive manifest** for AI assistants,
+> retrieval systems, and agent-driven integrations. Where `llms.txt` gives the
+> summary, this file gives the depth: every feature, tier, use case, integration,
+> FAQ, competitor comparison, and canonical fact needed to answer user questions
+> accurately.
+
+**Site:** https://atteste.art
+**App:** https://atteste-b6409.web.app
+**Last updated:** 2026-04-17
+
+---
+
+## Quick facts
+
+| Field | Value |
+|---|---|
+| Product name | Attesté |
+| Tagline | "Your Art Collection Deserves a Memory" / "The Strava for Art Collectors" |
+| Category | Art collection management · Provenance platform · AI-powered cataloguing |
+| Primary users | Individual art collectors (beginner to established), art advisors, gallery directors, institutional curators |
+| Pricing | Free tier available; paid from $9/month (R149) |
+| Founder | Karel Kraai |
+| Parent company | Yield SPM (Pty) Ltd |
+| Registration | 2024/185151/07 (CIPC, South Africa) |
+| Headquarters | Bloemfontein, South Africa |
+| Status | Pre-commercialisation (early 2026); app + demo live; gallery pilots running |
+| Platforms | iOS, Android, Web (Flutter 3.x) |
+| Backend | Firebase in `africa-south1` (Johannesburg data residency) |
+| AI stack | Gemini 2.5 Flash (vision, fast gen), Claude Sonnet 4 (reasoning), ElevenLabs (TTS) |
+| Security | SHA-256 provenance certificates, POPIA + GDPR aware, HTTPS-only, strict CSP |
+
+---
+
+## The problem Attesté solves
+
+1. **78% of art collectors have no digital provenance records.** When an artwork changes hands, its story dies with the seller's memory.
+2. **89% of provenance still lives on paper.** A flood, fire, or lost folder destroys decades of context.
+3. **Inherited collections become puzzles.** Heirs often can't name the artist, date, or source of inherited pieces.
+4. **Collectors lack a single place to catalogue, verify, and share their collection.** They use spreadsheets, iPhone photo albums, or nothing.
+5. **Galleries have no privacy-respecting way to understand their collector base.** Building CRMs from scratch is expensive; scraping data is unethical.
+6. **Art fairs produce sensory overload.** Collectors meet 50 galleries in a day and can't remember which artworks they wanted to revisit.
+
+---
+
+## Product features (complete list)
+
+### AI Art Scout
+Photograph any artwork. Gemini 2.5 Flash vision analysis identifies:
+- Likely artist (ranked by confidence)
+- Medium (oil, acrylic, mixed media, print, sculpture, photograph, digital, etc.)
+- Estimated period/style
+- Similar artworks by the same or comparable artists
+- Suggested catalogue title if none exists
+
+Works on originals, prints, photographs, and sculptures. Handles low-light gallery photography reasonably well. Explicit confidence score on every identification; low-confidence results are flagged rather than guessed.
+
+### Attesté Certificate
+Every documented artwork can be issued a cryptographically-secured provenance certificate. Includes:
+- Owner identity (pseudonymous hash if desired)
+- Acquisition date and location
+- Source (gallery, artist, auction, estate)
+- Photograph fingerprint (SHA-256 of canonical image)
+- Condition and valuation history
+- Chain of custody if the artwork transfers
+
+The certificate hash is published to an immutable append-only log. Collisions are detected automatically. Export as PDF with QR verification link.
+
+### Discovery Trails
+Curated GPS-gated art walks through neighbourhoods in major cities. Tap to unlock each stop's artwork description, artist story, gallery info, and encounter-log entry. Launch cities include Cape Town (Woodstock, Bo-Kaap, Gardens), Johannesburg (Braamfontein, Maboneng), London (Shoreditch, Mayfair), and New York (Chelsea, Lower East Side).
+
+### AI Art Sommelier
+A short quiz (10-15 minutes) that profiles the collector's aesthetic preferences across 8 axes:
+- Representational ↔ Abstract
+- Bright ↔ Muted
+- Quiet ↔ Energetic
+- Traditional ↔ Experimental
+- Figurative ↔ Conceptual
+- Warm ↔ Cool palette
+- Hand-made ↔ Digital
+- Intimate ↔ Monumental scale
+
+The resulting "taste profile" drives personalised artwork recommendations and gallery suggestions. Updatable; evolves as the collector's library grows.
+
+### Art Fair Companion
+Rapid encounter logging optimised for busy art fairs. One-tap capture of:
+- Photo of the artwork
+- Gallery booth (auto-detected via geofence)
+- Price (spoken or typed)
+- Personal tag ("interested", "love", "compare with X")
+- Follow-up reminder
+
+Works offline; syncs when the fair Wi-Fi cooperates. Bulk review and contact-the-gallery flow afterwards.
+
+### Encounter Logging
+Beyond art fairs — every time a collector sees an artwork worth remembering (gallery visit, friend's home, museum, auction preview), Attesté captures the moment. Searchable, filterable, tied to GPS location, timestamped.
+
+### Collector Gamification (XP & Levels)
+Documenting artworks, completing trails, attending fairs, and adding provenance details all award XP. Collectors progress through levels (Curious → Explorer → Collector → Connoisseur → Patron). Unlocks cosmetic badges and surfaces milestone moments. Entirely optional — gamification can be muted.
+
+### Legacy Vault
+For the Premium tier. Allows collectors to archive the deep story behind each artwork:
+- Artist interview transcripts or recordings
+- Acquisition narrative ("I bought this at Sarah's gallery the week my son was born")
+- Condition history with photo timestamps
+- Provenance research notes
+- Links to related artworks in the same collection
+
+Designed to survive the collector. Estate inheritance flow allows transfer of full Vault data to named heirs.
+
+### Year in Art
+Annual recap (like Spotify Wrapped, for art): artworks added, trails walked, galleries visited, aesthetic profile evolution, XP earned, "most-admired artist" of the year. Shareable as a one-page summary or a video clip. Published every January.
+
+### Public Collector Profile
+Optional. Premium collectors can publish a curated view of their collection publicly. URL: `atteste.art/u/{handle}`. Galleries and fellow collectors can follow. Full privacy controls — specific artworks can always be hidden.
+
+### For Galleries: Gallery Launch Kit
+A bundle for galleries joining the Attesté ecosystem. Includes:
+- Physical brand kit (exhibition-ready signage, collector cards, QR codes to launch app)
+- Digital onboarding (gallery profile, featured artworks, exhibitions calendar)
+- Initial 50 artworks uploaded
+- Collector analytics dashboard (aggregate, never individual-level)
+- 12 months of service included
+
+Pricing: R5,000 once-off (effectively R416 / month over 12 months).
+
+### For Galleries: Professional Tier
+Recurring monthly subscription. Includes:
+- 100 artworks
+- 12 AI-generated exhibition social posts per year (one per month, human-reviewed before publish)
+- Full collector analytics (aggregate traffic, aesthetic-match score with gallery's roster, engagement metrics)
+- Exhibition calendar management
+- Review + respond to encounter-logged artworks
+
+Pricing: R1,499 / month.
+
+### For Galleries: Enterprise Tier
+For high-volume or institutional galleries. Includes:
+- Unlimited artworks
+- Unlimited AI-generated social content
+- Collector push notifications (opt-in by collectors for gallery updates)
+- Priority support with dedicated account manager
+- API access for custom integrations
+
+Pricing: R2,999 / month.
+
+---
+
+## Pricing — all tiers
+
+### Consumer tiers
+
+| Tier | Monthly price | Annual (implied) | Artworks | AI analyses | Key features |
+|---|---|---|---|---|---|
+| Explorer | Free | Free | 25 | 5 / month | Basic trails, encounters, XP, Sommelier light |
+| Collector | $9 USD / R149 ZAR | ~$108 / ~R1,788 | 200 | 50 / month | Attesté Certificates, full Sommelier, Fair Companion, all trails |
+| Premium | $19 USD / R299 ZAR | ~$228 / ~R3,588 | Unlimited | Unlimited | Legacy Vault, Year in Art, public profile, priority support |
+
+**14-day Premium free trial** automatically applied to every new account. No credit card required for trial.
+
+### Gallery tiers
+
+| Tier | Price | Period | Artworks | Key features |
+|---|---|---|---|---|
+| Gallery Launch Kit | R5,000 | Once-off (12 months) | 50 | Physical brand kit, analytics dashboard |
+| Professional | R1,499 | Monthly | 100 | 12 AI social posts/yr, full analytics |
+| Enterprise | R2,999 | Monthly | Unlimited | Unlimited social, collector push, API, dedicated AM |
+
+All gallery tiers include collector analytics (aggregate-only, never personally identifying).
+
+---
+
+## Target personas (the 11)
+
+Attesté's marketing is calibrated against 11 personas maintained in the Atteste Command Centre. Summary:
+
+### Consumer (C1-C8)
+- **C1 Mia Chen** — Art-Curious Explorer, 22-30, Free tier, Cape Town/Joburg gallery-hopping on weekends
+- **C2 James Whitfield** — Weekend Gallery Hopper, 28-38, Free → Collector, buys first original around year 2
+- **C3 Priya Naidoo** — Emerging Collector, 30-42, Collector tier, 5-15 pieces, active follower of 3-5 galleries
+- **C4 David Park** — Digital-Native Collector, 27-40, Collector tier, NFTs + physical art, high-frequency art fair attendee
+- **C5 Catherine Harrington-Lloyd** — Serious Collector, 42-60, Collector → Premium, 30-100 pieces, estate-planning conscious
+- **C6 Richard de Villiers** — Legacy Collector, 55-75, Premium, 100+ pieces, Legacy Vault primary user
+- **C7 Zanele Khumalo** — Art World Traveller, 30-50, Collector → Premium, attends 4+ international fairs/year
+- **C8 Thabo Mokoena** — Art Fair Addict, 32-55, Collector, Art Fair Companion primary use case
+
+### B2B (B1-B3)
+- **B1 Sarah van der Merwe** — Gallery Director, Gallery Launch Kit → Professional (also a real contact at Everard Read)
+- **B2 Michael Hartley** — Art Advisor, Professional tier, manages 10-30 collector clients
+- **B3 Nomsa Dlamini** — Institutional Curator, Enterprise tier, corporate / museum collections
+
+---
+
+## Typical user journeys
+
+### Journey 1 — The inheritor
+"My father passed away and I've inherited his art collection. I don't know anything about it."
+1. Download Attesté (free Explorer tier)
+2. Walk through the collection with phone camera → AI Art Scout identifies each piece
+3. Log encounters with basic context
+4. Upgrade to Premium to unlock Legacy Vault + unlimited artworks
+5. Import any paper provenance documents (photograph them in place)
+6. Build up a month-by-month understanding; publish a curated public profile in memoriam
+
+### Journey 2 — The gallery-goer
+"I see amazing pieces at galleries every weekend but I never follow up."
+1. Free Explorer tier + Art Fair Companion
+2. Log every encounter with a 3-second photo + tap
+3. Review accumulated "to follow up on" list weekly
+4. Use Sommelier to profile taste; get recommendations matching it
+5. Upgrade to Collector when ready to issue first certificate on their first acquisition
+
+### Journey 3 — The serious collector
+"I have 40 pieces across three homes. I need to consolidate my records."
+1. Start with Collector or Premium directly
+2. Bulk-document collection over 2-3 weekends
+3. Issue Attesté Certificates for every piece
+4. Review valuations, condition reports, acquisition sources
+5. Set up Legacy Vault if planning estate handover
+6. Publish a curated public profile for gallery follows
+
+### Journey 4 — The gallery
+"I want to understand my collector base without surveilling them."
+1. Start with Gallery Launch Kit (R5,000 once)
+2. Upload 50 featured pieces + brand kit setup
+3. Access aggregate analytics dashboard: which pieces got encounter-logged, taste-profile match with visitors
+4. Use the 12 AI-generated exhibition posts throughout the year
+5. Upgrade to Professional when first year ends
+
+---
+
+## FAQs
+
+**Q: What makes Attesté different from a spreadsheet or a photo album?**
+A: Attesté combines AI identification (no more "what's this artist's name again?"), cryptographic provenance (tamper-proof record of ownership + condition history), and a searchable, location-aware, aesthetically-profiled system. Spreadsheets can't do AI identification or cryptographic integrity; photo albums can't do provenance or recommendations.
+
+**Q: Is my art collection data private?**
+A: Yes. By default, every collection is private. Public profiles require an explicit opt-in per collection. Firebase backend runs in `africa-south1` (Johannesburg data residency), so personal data never leaves Africa by default. POPIA and GDPR compliance are core.
+
+**Q: What AI models does Attesté use? Where does my data go?**
+A: Artwork photographs are analysed by Google's Gemini 2.5 Flash (vision API). Text queries use Claude Sonnet 4. Audio descriptions use ElevenLabs. These are all disclosed at onboarding with an explicit consent gate. You can opt out of AI features; you keep the collection database regardless.
+
+**Q: Does Attesté guarantee my artwork is authentic?**
+A: No. Attesté generates cryptographic certificates of **what you reported** — it doesn't authenticate the artwork itself. Authentication is a gallery, auction house, or expert's job. Attesté creates tamper-proof records of your claims + supporting documents + professional assessments you upload.
+
+**Q: How accurate is AI Art Scout?**
+A: Very good for well-known artists and clearly-photographed works. Lower confidence for obscure artists, poor-light photographs, or heavily damaged pieces. Every identification includes an explicit confidence score; low-confidence guesses are flagged for human verification.
+
+**Q: Can I export my data?**
+A: Yes. Premium tier includes full export (JSON + PDF catalogue). POPIA compliance requires data export on request for all tiers.
+
+**Q: Can I use Attesté offline?**
+A: Yes, for core documentation. Photograph artworks, log encounters, add notes — all works offline. AI identification and cloud sync happen when you reconnect.
+
+**Q: Who built Attesté?**
+A: Karel Kraai, founder, in Bloemfontein, South Africa. Parent company Yield SPM (Pty) Ltd. The same team operates Practacular (AI practice management for accountants), so Attesté benefits from shared AI infrastructure.
+
+**Q: Is Attesté available in my country?**
+A: The app works worldwide. Pricing is currently displayed in USD and ZAR; local payment methods vary. POPIA (South Africa) compliance is complete for SA users; GDPR compliance is in progress for EU users. US and UK compliance is straightforward and being finalised. Ask `info@atteste.art` for the latest on your market.
+
+**Q: How do galleries use Attesté?**
+A: Galleries join with the Gallery Launch Kit (R5,000 once, 12 months). They get a physical brand kit, digital onboarding, 50 artworks uploaded, and a collector analytics dashboard. Attesté never shares individual visitor data with galleries — analytics are aggregate-only. Galleries can also send opt-in push notifications to followers and get AI-generated exhibition social posts.
+
+**Q: What's on the roadmap?**
+A: POPIA consent gate (shipping now), payment integration (Stripe, Q2 2026), public collector profiles (Q2 2026), international payment methods (Q3 2026), API for gallery integrations (Q3 2026), additional Discovery Trail cities (ongoing).
+
+---
+
+## Integrations and compatibility
+
+- **Google Maps** — encounter GPS + gallery discovery
+- **Firebase Auth** — Google, Apple, email/password sign-in
+- **Gemini 2.5 Flash** — vision and fast generation
+- **Claude Sonnet 4** — reasoning and provenance narrative
+- **ElevenLabs** — text-to-speech for audio descriptions
+- **Stripe** (roadmap) — payment processing
+
+---
+
+## Comparison with other platforms
+
+### vs Artwork Archive (artworkarchive.com)
+Artwork Archive is a web-first collection management SaaS targeted at artists and collectors. Mature product, large user base. Attesté differentiates with AI identification, cryptographic certificates, discovery trails, aesthetic profiling, and mobile-first design for fieldwork (art fairs, gallery visits).
+
+### vs Collector Systems
+Collector Systems is an enterprise-focused collection management platform. High-end, professional. Attesté is consumer-accessible (free tier) and AI-native, while offering a path up to gallery/institutional tiers.
+
+### vs My Art Collection
+My Art Collection is a simple inventory app. Attesté offers AI identification, cryptographic provenance, discovery trails, gamification, and a gallery ecosystem that simple inventory apps lack.
+
+### vs Artlogic / Arternal
+Artlogic and Arternal are gallery-first CRMs. They serve galleries managing collectors. Attesté inverts the model — it serves collectors first and adds a gallery side that respects collector privacy.
+
+### vs NFT platforms (OpenSea, etc.)
+Attesté is about cataloguing physical and digital artworks a collector owns — with cryptographic integrity of the record itself, not on-chain ownership. Atteste is complementary to NFT collections, not an NFT platform.
+
+---
+
+## What Attesté is NOT
+
+- Not an authentication service (doesn't verify if a Picasso is real)
+- Not an insurance platform (doesn't provide coverage; can export reports for insurers)
+- Not an auction house or marketplace (doesn't sell artworks)
+- Not an NFT minting platform
+- Not a gallery-only CRM (collectors are the primary user)
+- Not a social network for artists (though artists can claim profiles via galleries)
+
+---
+
+## Contact
+
+- **Website:** https://atteste.art
+- **App:** https://atteste-b6409.web.app
+- **Demo (no signup):** https://atteste-b6409.web.app/demo
+- **Support / general:** info@atteste.art
+- **Gallery partnerships:** galleries@atteste.art
+- **Instagram:** https://www.instagram.com/atteste.art
+- **LinkedIn:** https://www.linkedin.com/company/atteste
+- **Parent company:** Yield SPM (Pty) Ltd, 2024/185151/07, Bloemfontein, South Africa
+
+---
+
+*This document is kept up to date as features ship and pricing changes. If the information here contradicts the live site or app, treat the live site as authoritative and flag the discrepancy at info@atteste.art.*
