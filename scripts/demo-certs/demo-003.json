@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "hash_full": "",
+  "issued_at": "2026-04-17T10:10:00Z",
+  "status": "demo",
+  "artwork": {
+    "title": "Mine Compound, Witwatersrand No. 7",
+    "artist": {
+      "name": "DEMO: Collective Lens",
+      "born": null,
+      "died": null,
+      "nationality": "South African",
+      "bio_note": "Fictional photographic collective created for Attesté demonstration purposes only."
+    },
+    "year": 1974,
+    "medium": "Silver gelatin print",
+    "surface": "fibre-base photographic paper",
+    "dimensions_cm": { "width": 40, "height": 50 },
+    "location_created": "East Rand, Gauteng, South Africa",
+    "image_url": "https://images.unsplash.com/photo-1579541814924-49fef17c5be5?w=1200&h=1200&fit=crop&auto=format&q=80",
+    "image_hash": "demo-placeholder-not-a-real-hash"
+  },
+  "provenance": [
+    {
+      "date": "1974",
+      "event": "created",
+      "source": "Darkroom, Johannesburg (fictional collective studio)",
+      "notes": "Printed by the collective from original 35mm negative. Stamped and hand-annotated verso with location and sequence number. Demo Reference #D-003."
+    },
+    {
+      "date": "1979",
+      "event": "exhibited",
+      "source": "Demo Gallery of Photography, Johannesburg (FICTIONAL)",
+      "notes": "Included in group exhibition 'Faces of Work'. Catalogue entry number 14. Annotated price list from exhibition held by consignor."
+    },
+    {
+      "date": "1981",
+      "event": "acquired",
+      "source": "Purchased from Demo Gallery by private collector",
+      "notes": "Gallery receipt in original envelope, retained with the print. Original mount and frame."
+    },
+    {
+      "date": "2024-03-22",
+      "event": "acquired",
+      "source": "Johannesburg Photographs auction (FICTIONAL), Lot 112",
+      "notes": "Sold with original documentation. Condition report commissioned pre-sale."
+    }
+  ],
+  "valuations": [
+    {
+      "date": "2024-03-15",
+      "amount_zar": 95000,
+      "currency": "ZAR",
+      "assessor": "Demo Valuations (Pty) Ltd — FICTIONAL",
+      "confidence": "medium",
+      "notes": "Pre-sale estimate. South African documentary photography of the 1970s has seen consistent auction demand. Comparable prints by the period's active collectives."
+    }
+  ],
+  "condition_reports": [
+    {
+      "date": "2024-03-14",
+      "state": "good",
+      "notes": "Minor foxing to lower right margin outside image area. Image itself crisp with full tonal range. No silver mirroring. Original mount slightly acidic — recommend rehousing.",
+      "assessor": "Demo Conservator Reference — FICTIONAL"
+    }
+  ],
+  "custodian": {
+    "handle": "demo-collector-c",
+    "type": "pseudonymous",
+    "public_name": null,
+    "location": { "country": "ZA", "city": "Pretoria" }
+  },
+  "opt_in": {
+    "public": true,
+    "consent_version": "2026-04-17",
+    "consented_at": "2026-04-17T10:10:00Z"
+  },
+  "context": {
+    "generated_by": "gemma2:9b",
+    "paragraph": "South African documentary photography of the 1970s emerged under the double pressure of apartheid-era censorship and the global humanist photography tradition carried through outlets like Drum magazine and international wire services. The fictional DEMO: Collective Lens represents the collaborative photographic practice that flourished in Johannesburg's townships and industrial peripheries during that decade — groups of photographers who shared darkrooms, negatives, and the risk of confiscation. Mine Compound, Witwatersrand No. 7 is an invented work in the vein of compound studies: a formal documentary photograph using harsh noon light and a high camera angle to flatten the geometry of corrugated-iron dormitories, illustrating living conditions in a gold-mining compound. The silver gelatin medium was the collective's primary output — archivally stable, reproduced in limited prints only. This demonstration certificate is presented to illustrate the Attesté public provenance format; no real photographer, collective, or mine is represented.",
+    "confidence": 0.89,
+    "audited_by_anti_slop": true
+  },
+  "sister_artwork_hashes": []
+}

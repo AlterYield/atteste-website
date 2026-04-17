@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "hash_full": "",
+  "issued_at": "2026-04-17T10:05:00Z",
+  "status": "demo",
+  "artwork": {
+    "title": "Threshold (Maquette III)",
+    "artist": {
+      "name": "DEMO: Thabiso Mamaru",
+      "born": 1988,
+      "died": null,
+      "nationality": "South African",
+      "bio_note": "Fictional artist created for Attesté demonstration purposes only."
+    },
+    "year": 2022,
+    "medium": "Bronze",
+    "surface": "cast bronze on steel armature",
+    "dimensions_cm": { "width": 42, "height": 89 },
+    "location_created": "Johannesburg, Gauteng, South Africa",
+    "image_url": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=1200&fit=crop&auto=format&q=80",
+    "image_hash": "demo-placeholder-not-a-real-hash"
+  },
+  "provenance": [
+    {
+      "date": "2022",
+      "event": "created",
+      "source": "Artist's foundry, Johannesburg",
+      "notes": "Cast in an edition of 3 + 1 AP. This is edition 2/3. Foundry mark stamped on base. Demo Reference #D-002."
+    },
+    {
+      "date": "2023-06-15",
+      "event": "exhibited",
+      "source": "Demo Contemporary Gallery, Johannesburg Art Fair (FICTIONAL)",
+      "notes": "Exhibited at the fictional gallery's stand, Art Fair 2023. Catalogue ref. JHB-AF23-M17."
+    },
+    {
+      "date": "2023-09-04",
+      "event": "acquired",
+      "source": "Private sale via Demo Contemporary Gallery (FICTIONAL)",
+      "notes": "Acquired directly from the gallery post-fair. Certificate of authenticity and edition registration supplied."
+    }
+  ],
+  "valuations": [
+    {
+      "date": "2025-07-10",
+      "amount_zar": 320000,
+      "currency": "ZAR",
+      "assessor": "Demo Valuations (Pty) Ltd — FICTIONAL",
+      "confidence": "medium",
+      "notes": "Fair market value estimate. Comparable bronze maquettes by emerging South African sculptors of similar scale and edition size."
+    }
+  ],
+  "condition_reports": [
+    {
+      "date": "2025-07-08",
+      "state": "excellent",
+      "notes": "Original patina intact. No chips, cracks, or repairs. Steel armature shows no corrosion. Base felt pad intact.",
+      "assessor": "Demo Conservator Reference — FICTIONAL"
+    }
+  ],
+  "custodian": {
+    "handle": "demo-collector-b",
+    "type": "pseudonymous",
+    "public_name": null,
+    "location": { "country": "ZA", "city": "Johannesburg" }
+  },
+  "opt_in": {
+    "public": true,
+    "consent_version": "2026-04-17",
+    "consented_at": "2026-04-17T10:05:00Z"
+  },
+  "context": {
+    "generated_by": "gemma2:9b",
+    "paragraph": "South African sculpture since the democratic transition has navigated the tension between international contemporary idioms and local material and social histories. This fictional maquette, Threshold (Maquette III), by DEMO: Thabiso Mamaru, belongs to a speculative series exploring thresholds as both architectural and psychological boundaries — doorframes, lintels, the liminal space between inside and outside. Cast in warm bronze with a deliberate dark-green patina, the elongated figure bends into itself at the waist, simultaneously entering and exiting an implied portal. Mamaru is a fictional sculptor invented to demonstrate the Attesté certificate format; the idiom he represents — figuration inflected by process-based abstraction — is nonetheless a genuine current in Johannesburg's commercial gallery scene. The maquette scale (89 cm) suggests a larger realised version; collectors of the series are documented to hold edition numbers in strict sequence. All provenance data is illustrative only.",
+    "confidence": 0.88,
+    "audited_by_anti_slop": true
+  },
+  "sister_artwork_hashes": []
+}

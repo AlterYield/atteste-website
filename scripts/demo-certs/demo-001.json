@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "hash_full": "",
+  "issued_at": "2026-04-17T10:00:00Z",
+  "status": "demo",
+  "artwork": {
+    "title": "Cape Dutch Homestead at Dusk",
+    "artist": {
+      "name": "DEMO: Elara van Zijl",
+      "born": 1887,
+      "died": 1963,
+      "nationality": "South African",
+      "bio_note": "Fictional artist created for Attesté demonstration purposes only."
+    },
+    "year": 1924,
+    "medium": "Oil on canvas",
+    "surface": "canvas",
+    "dimensions_cm": { "width": 76, "height": 61 },
+    "location_created": "Stellenbosch, Western Cape, South Africa",
+    "image_url": "https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=1200&h=1200&fit=crop&auto=format&q=80",
+    "image_hash": "demo-placeholder-not-a-real-hash"
+  },
+  "provenance": [
+    {
+      "date": "1924",
+      "event": "created",
+      "source": "Artist's studio, Stellenbosch",
+      "notes": "Completed and signed by the artist in autumn 1924. Documented in the artist's own ledger (Demo Reference #D-001)."
+    },
+    {
+      "date": "1938",
+      "event": "acquired",
+      "source": "Suid-Afrikaanse Kunsvereniging annual exhibition, Cape Town",
+      "notes": "Purchased at the society's annual open exhibition by a Bloemfontein collector. Original receipt held in estate."
+    },
+    {
+      "date": "1971",
+      "event": "transferred",
+      "source": "Estate of P.J. Mostert, Bloemfontein",
+      "notes": "Inherited by the collector's daughter following probate. No change to physical condition noted at time of transfer."
+    },
+    {
+      "date": "2025-11-03",
+      "event": "acquired",
+      "source": "Strauss & Co Johannesburg, Lot 47",
+      "notes": "Sold with full catalogue attribution note and condition report. Accompanied by estate correspondence confirming 1938 purchase."
+    }
+  ],
+  "valuations": [
+    {
+      "date": "2026-01-15",
+      "amount_zar": 480000,
+      "currency": "ZAR",
+      "assessor": "Demo Valuations (Pty) Ltd — FICTIONAL",
+      "confidence": "high",
+      "notes": "Replacement value for insurance purposes. Market comparable: similar Cape Dutch landscape works of the period."
+    }
+  ],
+  "condition_reports": [
+    {
+      "date": "2025-10-28",
+      "state": "very good",
+      "notes": "Stable craquelure consistent with age. No evidence of previous restoration. Minor frame abrasion top-right corner — cosmetic only. Canvas support sound.",
+      "assessor": "Demo Conservator Reference — FICTIONAL"
+    }
+  ],
+  "custodian": {
+    "handle": "demo-collector-a",
+    "type": "pseudonymous",
+    "public_name": null,
+    "location": { "country": "ZA", "city": "Cape Town" }
+  },
+  "opt_in": {
+    "public": true,
+    "consent_version": "2026-04-17",
+    "consented_at": "2026-04-17T10:00:00Z"
+  },
+  "context": {
+    "generated_by": "gemma2:9b",
+    "paragraph": "Cape Dutch domestic architecture and the golden light of the Western Cape provided an enduring subject for South African painters of the early twentieth century. This fictional work by DEMO: Elara van Zijl places the viewer at the threshold of dusk: a whitewashed gabled homestead dissolves into the violet-tinted hills of the Boland, its thatch roof burnished copper by a setting sun. Van Zijl, a fictional alumna of the 1920s Cape colony art world, worked in a tradition bridging the Dutch tonal inheritance brought by earlier settler painters and a nascent sensitivity to African light unmediated by European academicism. Her treatment of shadow on lime-washed walls, the characteristic scalloped gable echoing the mountain contour, and the restrained palette of ochre, indigo, and cream place this demonstration piece within a recognisably local idiom. The work is presented here purely to illustrate the Attesté public provenance certificate format.",
+    "confidence": 0.91,
+    "audited_by_anti_slop": true
+  },
+  "sister_artwork_hashes": []
+}
