@@ -1,133 +1,485 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service — Attesté</title>
-<meta name="description" content="Attesté Terms of Service — the rules and conditions for using the Attesté platform.">
-<meta name="theme-color" content="#1A1A2E">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VBQZX830K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6VBQZX830K');
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #1A1A2E;
-    --surface: #16213E;
-    --gold: #C9A96E;
-    --gold-light: #E8C98A;
-    --text: #E8E8F0;
-    --text-muted: #8888A8;
-    --border: rgba(201,169,110,0.15);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.7; }
-  a { color: var(--gold); text-decoration: none; }
-  a:hover { color: var(--gold-light); }
-
-  nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid var(--border); }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text); }
-  .nav-brand span { color: var(--gold); }
-  .nav-back { font-size: 0.875rem; color: var(--text-muted); }
-  .nav-back:hover { color: var(--gold); }
-
-  .container { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
-  h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 8px; }
-  .last-updated { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 48px; }
-  h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--gold-light); margin: 40px 0 12px; }
-  p { margin-bottom: 16px; color: var(--text); }
-  ul { margin: 0 0 16px 20px; }
-  li { margin-bottom: 8px; }
-
-  footer { border-top: 1px solid var(--border); padding: 24px 40px; text-align: center; color: var(--text-muted); font-size: 0.8rem; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Service — Attesté</title>
+  <meta name="description" content="Terms of Service for Attesté, the AI-powered art collection platform. Operator: Yield SPM (Pty) Ltd, South Africa. Version 2.0, effective 2026-04-25.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://atteste-b6409.web.app/legal/terms.html">
+  <style>
+    /* Minimal print-friendly typography. Dark navy + gold to match Attesté brand. */
+    :root {
+      --ink: #1a1a2e;
+      --ink-muted: #4a4a6e;
+      --bg: #faf8f5;
+      --gold: #c9a96e;
+      --rule: #e6e0d4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 16px;
+      padding: 0 1.5rem;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 0 6rem;
+    }
+    header {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    header a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', 'Times New Roman', Georgia, serif;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 0.5rem; }
+    h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; }
+    h3 { font-size: 1.2rem; margin: 1.75rem 0 0.5rem; }
+    h4 { font-size: 1rem; margin: 1.25rem 0 0.25rem; }
+    p { margin: 0 0 1rem; }
+    a { color: var(--gold); }
+    strong { color: var(--ink); }
+    blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 1.5rem 0;
+      padding: 0.25rem 1.25rem;
+      color: var(--ink-muted);
+      background: rgba(201, 169, 110, 0.06);
+    }
+    blockquote > p { margin: 0.5rem 0; }
+    hr {
+      border: 0;
+      border-top: 1px solid var(--rule);
+      margin: 2.5rem 0;
+    }
+    ul, ol { padding-left: 1.5rem; margin: 0 0 1rem; }
+    li { margin: 0.25rem 0; }
+    code {
+      font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+      font-size: 0.9em;
+      background: rgba(26, 26, 46, 0.06);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      border: 1px solid var(--rule);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: rgba(201, 169, 110, 0.1); font-weight: 600; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--ink-muted);
+      font-size: 0.875rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #f0ece3;
+        --ink-muted: #b0a896;
+        --bg: #1a1a2e;
+        --rule: #333355;
+      }
+      blockquote { background: rgba(201, 169, 110, 0.08); }
+      code { background: rgba(255, 255, 255, 0.08); }
+      th { background: rgba(201, 169, 110, 0.15); }
+    }
+  </style>
 </head>
 <body>
+  <main>
+    <header>
+      <a href="/">← Attesté</a>
+    </header>
+    <article>
+<h1>Attesté — Terms of Service</h1>
+<p><strong>Version 2.0 — Effective Date: April 25, 2026</strong></p>
+<p><strong>Attesté</strong> is operated by <strong>Yield SPM (Pty) Ltd</strong>, a private company duly incorporated under the laws of the Republic of South Africa, with company registration number <strong>2024/185151/07</strong> and registered office at <strong>23 Kameeldoringdraai, Woodland Hills, Bloemfontein, Free State, 9301</strong> (&quot;<strong>Company</strong>,&quot; &quot;<strong>Yield SPM</strong>,&quot; &quot;<strong>we</strong>,&quot; &quot;<strong>us</strong>,&quot; or &quot;<strong>Attesté</strong>&quot;).</p>
+<p><strong>Notice — Version 2.0:</strong> This release of the Terms reflects the change of operator entity from Kalahari Investments LLC (Georgia) to Yield SPM (Pty) Ltd (South Africa) and a corresponding change to the governing law and dispute-resolution forum (Sections 19 and 23). Existing users will be asked to re-accept these Terms before continued use of the Service.</p>
+<p>These Terms of Service (&quot;<strong>Terms</strong>&quot;) govern your access to and use of the Attesté application (available at atteste-b6409.web.app and through mobile applications), the website at <a href="http://www.atteste.art">www.atteste.art</a>, and all related services, features, and content (collectively, the &quot;<strong>Service</strong>&quot;).</p>
+<p>Please read these Terms carefully before using the Service.</p>
+<hr>
+<h2>1. Acceptance of Terms</h2>
+<p>1.1. By creating an account, accessing, or using the Service, you agree to be bound by these Terms, our Privacy Policy, and any additional terms that apply to specific features. If you do not agree to all of these Terms, you must not use the Service.</p>
+<p>1.2. We may update these Terms from time to time as described in Section 21. Your continued use of the Service after changes take effect constitutes acceptance of the revised Terms.</p>
+<p>1.3. If you are using the Service on behalf of an organization (such as a gallery), you represent and warrant that you have the authority to bind that organization to these Terms.</p>
+<hr>
+<h2>2. Eligibility</h2>
+<p>2.1. You must be at least <strong>18 years of age</strong> to use the Service. By creating an account, you represent and warrant that you are at least 18 years old.</p>
+<p>2.2. You must have the legal capacity to enter into a binding agreement in your jurisdiction of residence.</p>
+<p>2.3. You must not have been previously banned or removed from the Service.</p>
+<p>2.4. If we discover or have reason to believe that you are under 18, we will promptly terminate your account and delete your personal data.</p>
+<hr>
+<h2>3. Account Registration and Security</h2>
+<p>3.1. To access most features of the Service, you must register for an account by providing accurate, current, and complete information.</p>
+<p>3.2. You are responsible for maintaining the confidentiality of your account credentials, including your password. You must not share your credentials with any third party.</p>
+<p>3.3. You are responsible for all activity that occurs under your account, whether or not you authorized it. You agree to notify us immediately at <a href="mailto:info@atteste.art">info@atteste.art</a> if you suspect any unauthorized use of your account.</p>
+<p>3.4. We reserve the right to suspend or terminate any account that we reasonably believe has been compromised or is being used in violation of these Terms.</p>
+<p>3.5. You may authenticate using email and password or through third-party authentication providers such as Google Sign-In. Your use of third-party authentication is also subject to that provider&#39;s terms of service.</p>
+<hr>
+<h2>4. Description of Service</h2>
+<p>4.1. Attesté is a personal art collection management platform. The Service allows you to:</p>
+<ul>
+<li>(a) Catalog and manage your art collection, including uploading photographs, descriptions, and documentation.</li>
+<li>(b) Record art encounters and journey experiences with location data.</li>
+<li>(c) Navigate curated and community-created discovery trails.</li>
+<li>(d) Receive AI-powered artwork analysis, taste profiling, and discovery recommendations.</li>
+<li>(e) Generate provenance documentation with cryptographic integrity verification.</li>
+<li>(f) Track artwork condition and generate condition reports.</li>
+<li>(g) Use informational estate planning tools, including heir designations and living letters.</li>
+<li>(h) Participate in social features such as public collector profiles and follow relationships.</li>
+<li>(i) Access auction intelligence and market information.</li>
+<li>(j) For gallery partners, access anonymized analytics and exhibition management tools.</li>
+</ul>
+<p>4.2. The Service is provided &quot;as is&quot; and &quot;as available.&quot; Features may be added, modified, or removed at our discretion.</p>
+<hr>
+<h2>5. Subscription Plans, Billing, and Payments</h2>
+<p>5.1. <strong>Plans.</strong> The Service offers the following subscription tiers:</p>
+<ul>
+<li>(a) <strong>Explorer</strong> (Free): Limited to 25 artworks, 5 AI calls per month, trail walking, encounter logging, and gamification features.</li>
+<li>(b) <strong>Collector</strong> ($9 USD/month): Up to 200 artworks, 50 AI calls per month, certificates, sommelier recommendations, and condition vault access.</li>
+<li>(c) <strong>Premium</strong> ($19 USD/month): Unlimited artworks and AI calls, legacy vault, community trail creation, and collection memoirs.</li>
+<li>(d) <strong>Gallery</strong> (separate business tier): Contact-based pricing for gallery partners.</li>
+</ul>
+<p>5.2. <strong>Billing.</strong> Paid subscriptions are billed monthly in advance in United States Dollars (USD). You authorize us to charge the payment method you provide on a recurring basis.</p>
+<p>5.3. <strong>Auto-Renewal.</strong> Paid subscriptions automatically renew at the end of each billing period unless you cancel before the renewal date. You may cancel at any time through your account settings.</p>
+<p>5.4. <strong>Price Changes.</strong> We may change subscription prices with at least 30 days&#39; prior notice. Price changes take effect at the start of your next billing period after the notice period.</p>
+<p>5.5. <strong>Refunds.</strong> Subscription fees are generally non-refundable. However, if you cancel within 14 days of your first paid subscription and have not substantially used paid features, you may request a refund by contacting <a href="mailto:info@atteste.art">info@atteste.art</a>. We will review refund requests on a case-by-case basis.</p>
+<p>5.6. <strong>Failed Payments.</strong> If a payment fails, we may retry the charge. If payment remains unsuccessful, we may downgrade your account to the Explorer tier after providing reasonable notice.</p>
+<p>5.7. <strong>Taxes.</strong> All prices are exclusive of applicable taxes unless otherwise stated. You are responsible for any taxes, duties, or levies imposed by your jurisdiction.</p>
+<hr>
+<h2>6. Free Trial</h2>
+<p>6.1. New accounts receive a <strong>14-day free Premium trial</strong> that begins upon account creation.</p>
+<p>6.2. During the trial period, you have access to all Premium tier features at no charge.</p>
+<p>6.3. At the end of the trial period, your account will automatically revert to the Explorer (Free) tier unless you subscribe to a paid plan.</p>
+<p>6.4. No payment information is required to start the trial. You will not be charged unless you voluntarily subscribe.</p>
+<p>6.5. We reserve the right to modify, limit, or discontinue the free trial offer at any time.</p>
+<hr>
+<h2>7. User Content and Intellectual Property</h2>
+<p>7.1. <strong>Your Content.</strong> &quot;<strong>User Content</strong>&quot; means all photographs, images, text, descriptions, notes, documents, and other materials you upload, submit, or create through the Service.</p>
+<p>7.2. <strong>Ownership.</strong> You retain all intellectual property rights in your User Content. Attesté does not claim ownership of any User Content you upload.</p>
+<p>7.3. <strong>License Grant.</strong> By uploading User Content, you grant Attesté a non-exclusive, worldwide, royalty-free, sublicensable license to use, store, process, display, reproduce, and transmit your User Content solely for the purposes of providing and improving the Service. This license terminates when you delete your User Content or your account, except where your content has been shared with other users (such as community trails or public profiles) and has been retained by them.</p>
+<p>7.4. <strong>Responsibility.</strong> You represent and warrant that you own or have the necessary rights and permissions to upload all User Content, and that your User Content does not infringe the intellectual property or other rights of any third party.</p>
+<p>7.5. <strong>Attesté IP.</strong> All rights in the Service, including its design, code, logos, trademarks (&quot;Attesté,&quot; the Attesté logo), and proprietary algorithms, are owned by Yield SPM (Pty) Ltd. You may not copy, modify, distribute, or create derivative works from any part of the Service except your own User Content.</p>
+<p>7.6. <strong>Feedback.</strong> If you provide suggestions, ideas, or feedback about the Service, you grant us a perpetual, irrevocable, royalty-free license to use that feedback for any purpose without compensation or attribution.</p>
+<hr>
+<h2>8. AI-Powered Features Disclaimer</h2>
+<p><strong>IMPORTANT — PLEASE READ CAREFULLY:</strong></p>
+<p>8.1. The Service uses artificial intelligence technologies, including Google Gemini and Anthropic Claude, to provide features such as artwork analysis, taste profiling, discovery recommendations, condition analysis, artist enrichment, collection memoirs, and trail narrative generation.</p>
+<p>8.2. <strong>ALL AI-GENERATED OUTPUTS ARE EXPERIMENTAL AND PROVIDED FOR INFORMATIONAL AND ENTERTAINMENT PURPOSES ONLY.</strong> AI outputs may be inaccurate, incomplete, biased, or misleading.</p>
+<p>8.3. <strong>AI OUTPUTS DO NOT CONSTITUTE PROFESSIONAL ADVICE OF ANY KIND, INCLUDING BUT NOT LIMITED TO ART APPRAISAL, AUTHENTICATION, FINANCIAL, LEGAL, INSURANCE, OR INVESTMENT ADVICE.</strong></p>
+<p>8.4. You should independently verify all AI-generated information before relying on it for any purpose. We strongly recommend consulting qualified professionals for artwork authentication, valuation, insurance, and legal matters.</p>
+<p>8.5. We do not guarantee the accuracy, completeness, or reliability of any AI-generated content. AI models may produce different results for the same input and may change over time as underlying models are updated.</p>
+<p>8.6. Your use of AI features may involve transmitting your User Content (including photographs) to third-party AI service providers. Please refer to Section 13 and our Privacy Policy for further details.</p>
+<hr>
+<h2>9. Valuation and Financial Information Disclaimer</h2>
+<p><strong>IMPORTANT — PLEASE READ CAREFULLY:</strong></p>
+<p>9.1. The Service allows you to record acquisition prices, professional valuations, and revaluation data for your artworks.</p>
+<p>9.2. <strong>AI-GENERATED VALUATION INSIGHTS ARE EXPERIMENTAL ONLY AND ARE EXPLICITLY EXCLUDED FROM ALL PORTFOLIO TOTALS AND SUMMARY CALCULATIONS.</strong> The Service&#39;s portfolio values rely only on user-entered data: acquisition prices, professional valuations, and revaluations from documented sources.</p>
+<p>9.3. <strong>NOTHING IN THE SERVICE CONSTITUTES FINANCIAL ADVICE, INVESTMENT ADVICE, TAX ADVICE, OR AN APPRAISAL OF VALUE.</strong> The Service is a record-keeping tool, not a financial advisory service.</p>
+<p>9.4. <strong>YOU SHOULD NOT MAKE ANY FINANCIAL, INSURANCE, PURCHASE, SALE, OR INVESTMENT DECISIONS BASED ON INFORMATION PROVIDED BY THE SERVICE.</strong> Always consult qualified appraisers, financial advisors, and other professionals before making decisions regarding your art collection.</p>
+<p>9.5. Attesté, its officers, directors, employees, and affiliates accept no responsibility or liability for any financial loss or damage arising from reliance on information displayed in the Service.</p>
+<hr>
+<h2>10. Estate Planning Tools Disclaimer</h2>
+<p><strong>IMPORTANT — PLEASE READ CAREFULLY:</strong></p>
+<p>10.1. The Service includes informational estate planning features, including heir designations, emergency access tokens, living letters, and estate duty guidance.</p>
+<p>10.2. <strong>THESE FEATURES ARE INFORMATIONAL TOOLS ONLY. THEY ARE NOT LEGALLY BINDING DOCUMENTS AND DO NOT CONSTITUTE A WILL, TRUST, POWER OF ATTORNEY, OR ANY OTHER LEGAL INSTRUMENT.</strong></p>
+<p>10.3. <strong>HEIR DESIGNATIONS MADE WITHIN THE SERVICE HAVE NO LEGAL EFFECT.</strong> They are personal records intended to document your wishes and facilitate communication with your heirs. They do not transfer ownership, create legal obligations, or replace any legal estate planning documents.</p>
+<p>10.4. <strong>EMERGENCY ACCESS TOKENS PROVIDE READ-ONLY ACCESS TO COLLECTION DATA. THEY DO NOT CONFER ANY OWNERSHIP RIGHTS, LEGAL AUTHORITY, OR CUSTODIAL RIGHTS OVER PHYSICAL ARTWORKS.</strong></p>
+<p>10.5. <strong>YOU MUST CONSULT A QUALIFIED ESTATE PLANNING ATTORNEY IN YOUR JURISDICTION TO CREATE LEGALLY BINDING ESTATE PLANS.</strong> Attesté does not provide legal advice and is not a substitute for professional estate planning services.</p>
+<p>10.6. Estate duty calculations and guidance provided by the Service are approximate, informational estimates only. Tax laws vary by jurisdiction and change frequently. Consult a tax professional for accurate advice.</p>
+<hr>
+<h2>11. Provenance and Certificate Disclaimer</h2>
+<p><strong>IMPORTANT — PLEASE READ CAREFULLY:</strong></p>
+<p>11.1. The Service allows you to create and maintain provenance records with SHA-256 cryptographic integrity hashing. Records are append-only and hash-linked to form an immutable audit chain.</p>
+<p>11.2. <strong>ATTESTÉ CERTIFICATES ARE ATTESTATIONS OF PROVENANCE DOCUMENTATION SUBMITTED BY THE USER. THEY ARE NOT CERTIFICATES OF AUTHENTICATION, ATTRIBUTION, OR APPRAISAL.</strong></p>
+<p>11.3. Attesté does not independently verify the accuracy, truthfulness, or completeness of provenance information entered by users. The cryptographic hash verifies that a record has not been tampered with after creation; it does not verify that the underlying information is accurate.</p>
+<p>11.4. <strong>AN ATTESTÉ CERTIFICATE DOES NOT CONFIRM THAT AN ARTWORK IS GENUINE, CORRECTLY ATTRIBUTED, OR OF A PARTICULAR VALUE.</strong> Authentication and attribution require examination by qualified experts.</p>
+<p>11.5. You are solely responsible for the accuracy and completeness of all provenance information you enter into the Service.</p>
+<p>11.6. Gallery partners may submit provenance co-creation requests. You are responsible for reviewing and approving or declining such requests before they are added to your provenance chain.</p>
+<hr>
+<h2>12. Acceptable Use Policy and Content Policy</h2>
+<h3>12A. Prohibited Conduct</h3>
+<p>12.1. You agree not to use the Service to:</p>
+<ul>
+<li>(a) Upload content that is illegal, fraudulent, defamatory, obscene, threatening, or that infringes the rights of others.</li>
+<li>(b) Misrepresent the provenance, authenticity, ownership, or value of any artwork.</li>
+<li>(c) Create fake provenance records or certificates for fraudulent purposes.</li>
+<li>(d) Interfere with or disrupt the Service, its servers, or networks.</li>
+<li>(e) Attempt to gain unauthorized access to any part of the Service or other users&#39; accounts.</li>
+<li>(f) Use automated scripts, bots, or scrapers to access the Service without our written consent.</li>
+<li>(g) Harvest or collect personal information of other users.</li>
+<li>(h) Use the Service for money laundering, sanctions evasion, or any other illegal financial activity.</li>
+<li>(i) Reproduce, redistribute, or commercially exploit any part of the Service beyond your own User Content.</li>
+<li>(j) Upload malicious code, viruses, or harmful software.</li>
+</ul>
+<h3>12B. Prohibited Content</h3>
+<p>12.2. The following content is strictly prohibited and will result in immediate account termination:</p>
+<ul>
+<li>(a) <strong>Child Sexual Abuse Material (CSAM):</strong> Any imagery depicting the sexual exploitation or abuse of minors. We maintain a zero-tolerance policy and are legally required to report CSAM to the National Center for Missing &amp; Exploited Children (NCMEC) and the South African Police Service (SAPS) under the US REPORT Act (18 U.S.C. 2258A) and the South African Films and Publications Act. Evidence is preserved as required by law.</li>
+<li>(b) <strong>Non-consensual intimate imagery:</strong> Sexually explicit images of any person distributed without their consent.</li>
+<li>(c) <strong>Real-person pornography:</strong> Sexually explicit content depicting real persons, including photography and video.</li>
+<li>(d) <strong>Content promoting violence, terrorism, or hate:</strong> Material that promotes, glorifies, or incites violence, terrorism, or hatred against individuals or groups based on race, ethnicity, religion, gender, sexual orientation, disability, or national origin.</li>
+<li>(e) <strong>Stolen artwork:</strong> Artwork known to be stolen, looted, or illegally trafficked.</li>
+</ul>
+<h3>12C. Artistic Nudity</h3>
+<p>12.3. Attesté is an art collection platform and recognizes that nudity is a longstanding and legitimate subject in art history, from classical sculpture to contemporary photography.</p>
+<ul>
+<li>(a) <strong>Artistic nudity is permitted</strong> when it appears in the context of genuine artworks (paintings, sculptures, photographs, prints, and similar media created with artistic intent).</li>
+<li>(b) Artworks containing nudity will be automatically labeled as <strong>&quot;mature content&quot;</strong> by our content screening system.</li>
+<li>(c) Mature content is hidden by default in public feeds and profiles. Users may choose to view mature content by opting in through their account settings.</li>
+<li>(d) The distinction between artistic nudity and prohibited content is determined by our content screening system and, where necessary, human review. Our determination is final.</li>
+</ul>
+<h3>12D. Automated Content Screening</h3>
+<p>12.4. All images uploaded to the Service are automatically screened using Google Cloud Vision SafeSearch detection technology before being processed by our AI analysis systems.</p>
+<ul>
+<li>(a) Images that are identified as likely containing prohibited content (as defined in Section 12B) will be blocked and will not be stored in your collection.</li>
+<li>(b) Images that are flagged for potential concerns will be queued for human review by our moderation team.</li>
+<li>(c) Images containing possible artistic nudity will be labeled as &quot;mature content&quot; and made available with appropriate viewing controls.</li>
+<li>(d) We retain screening results and content flags as part of your artwork records. See our Privacy Policy for details on data retention.</li>
+</ul>
+<h3>12E. Enforcement and Consequences</h3>
+<p>12.5. We reserve the right to investigate and take appropriate action against anyone who violates this Section, including:</p>
+<ul>
+<li>(a) <strong>Content removal:</strong> Removing content that violates this policy without prior notice.</li>
+<li>(b) <strong>Warning:</strong> Issuing a formal warning to the account holder.</li>
+<li>(c) <strong>Temporary suspension:</strong> Suspending access to the Service for a specified period.</li>
+<li>(d) <strong>Permanent ban:</strong> Permanently terminating the account and all associated data.</li>
+<li>(e) <strong>Law enforcement referral:</strong> Reporting conduct to law enforcement authorities where required by law or where we believe a criminal offence has occurred.</li>
+</ul>
+<p>12.6. For prohibited content under Section 12B(a) (CSAM), enforcement is immediate and mandatory: the content is blocked, the account is terminated, evidence is preserved, and a report is filed with NCMEC and/or SAPS. There is no appeal process for CSAM violations.</p>
+<h3>12F. Content Reporting</h3>
+<p>12.7. If you believe that content on the Service violates these Terms or applicable law, you may report it by:</p>
+<ul>
+<li>(a) Using the <strong>Report</strong> button available on artwork pages, public profiles, and certificate verification pages within the app.</li>
+<li>(b) Emailing us at <strong><a href="mailto:info@atteste.art">info@atteste.art</a></strong> with details of the content and the reason for your report.</li>
+</ul>
+<p>12.8. We will review reports promptly and take action where appropriate. We will inform the content creator of any action taken and the reasons for it, and provide an opportunity to appeal (except for CSAM violations). This mechanism is provided in compliance with the EU Digital Services Act (Regulation 2022/2065).</p>
+<h3>12G. Certificate Integrity</h3>
+<p>12.9. Attesté Certificates are attestations of the information you provide about your artwork. They are <strong>not</strong> authentication documents, appraisals, or guarantees of authenticity.</p>
+<ul>
+<li>(a) Certificates marked as &quot;Self-Attested&quot; reflect only the claims of the certificate holder.</li>
+<li>(b) Using an Attesté Certificate to misrepresent the authenticity, provenance, or value of an artwork constitutes fraud and will result in account termination and potential legal action.</li>
+<li>(c) We reserve the right to revoke or mark certificates as invalid if we determine that the underlying information is fraudulent.</li>
+</ul>
+<h3>12H. Cooperation with Law Enforcement</h3>
+<p>12.10. We cooperate with law enforcement authorities in accordance with applicable law. We may disclose your information without your consent where required by a valid legal process (such as a court order or subpoena) or where we believe in good faith that disclosure is necessary to prevent imminent harm, fraud, or criminal activity.</p>
+<hr>
+<h2>13. Third-Party Services</h2>
+<p>13.1. The Service integrates with third-party services, including but not limited to:</p>
+<ul>
+<li>(a) <strong>Firebase</strong> (Google) for authentication, data storage, file hosting, and cloud functions.</li>
+<li>(b) <strong>Google Gemini</strong> for AI-powered artwork analysis, condition assessment, and vision capabilities.</li>
+<li>(c) <strong>Anthropic Claude</strong> for AI-powered taste profiling, collection memoirs, artist insights, and trail narrative generation.</li>
+<li>(d) <strong>Google Maps Platform</strong> for location services, journey mapping, and trail navigation.</li>
+<li>(e) Payment processors for subscription billing.</li>
+</ul>
+<p>13.2. Your use of the Service may be subject to the terms and policies of these third-party providers. We encourage you to review their respective terms and privacy policies.</p>
+<p>13.3. We are not responsible for the availability, accuracy, or conduct of third-party services. If a third-party service becomes unavailable or changes its terms, certain features of the Service may be affected.</p>
+<p>13.4. User Content, including artwork photographs and collection data, may be transmitted to third-party AI providers for processing. Data transmission is governed by our Privacy Policy and the respective providers&#39; data processing agreements.</p>
+<hr>
+<h2>14. Gallery Partner Data Sharing</h2>
+<p>14.1. If you log art encounters at gallery venues, certain <strong>anonymized and aggregated</strong> data may be shared with gallery partners. This data includes general visit counts, dwell time approximations, and aggregated taste profile information.</p>
+<p>14.2. <strong>No personally identifiable information is shared with gallery partners without your explicit consent.</strong> Gallery analytics are derived from aggregated, anonymized data across multiple visitors.</p>
+<p>14.3. Sommelier referral tracking may attribute your visit to a recommendation source (such as a discovery trail or digest), but this attribution is anonymized in gallery analytics.</p>
+<p>14.4. If you interact with a gallery&#39;s provenance co-creation request, the gallery will receive confirmation of your approval or decline, along with relevant provenance details for the specific artwork.</p>
+<p>14.5. You may opt out of contributing to gallery analytics through your account privacy settings, where available.</p>
+<hr>
+<h2>15. Privacy</h2>
+<p>15.1. Your privacy is important to us. Our collection, use, and disclosure of personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference.</p>
+<p>15.2. <strong>Location Data.</strong> Certain features of the Service, including art encounter logging, journey mapping, and trail navigation, collect and store GPS coordinates. Location data is stored within your private collection and is not shared with third parties except as described in Section 14 (in anonymized, aggregated form) and in our Privacy Policy.</p>
+<p>15.3. By using the Service, you consent to the collection and processing of your information as described in the Privacy Policy.</p>
+<hr>
+<h2>16. Termination and Account Deletion</h2>
+<p>16.1. <strong>By You.</strong> You may cancel your subscription and delete your account at any time through the Service&#39;s settings. Upon account deletion:</p>
+<ul>
+<li>(a) Your personal data will be deleted in accordance with our Privacy Policy and applicable data protection laws.</li>
+<li>(b) User Content that has been shared publicly (such as community trails or public profile information) may be retained in anonymized form.</li>
+<li>(c) Active subscriptions will not be refunded for the remainder of the current billing period.</li>
+<li>(d) Emergency access tokens you have distributed will cease to function.</li>
+</ul>
+<p>16.2. <strong>By Us.</strong> We may suspend or terminate your account at any time if:</p>
+<ul>
+<li>(a) You breach these Terms.</li>
+<li>(b) We are required to do so by law.</li>
+<li>(c) We discontinue the Service or any material part of it.</li>
+<li>(d) Your account has been inactive for more than 24 consecutive months.</li>
+</ul>
+<p>16.3. We will provide reasonable notice before termination where practicable, except where immediate action is required to protect the Service or other users.</p>
+<p>16.4. Upon termination, your right to use the Service ceases immediately. Sections that by their nature should survive termination will survive, including Sections 7 (IP), 8-11 (Disclaimers), 17 (Limitation of Liability), 18 (Indemnification), and 19 (Governing Law).</p>
+<hr>
+<h2>17. Disclaimers and Limitation of Liability</h2>
+<p><strong>IMPORTANT — PLEASE READ CAREFULLY:</strong></p>
+<p>17.1. <strong>THE SERVICE IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ANY WARRANTIES ARISING FROM COURSE OF DEALING OR USAGE OF TRADE.</strong></p>
+<p>17.2. <strong>WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.</strong></p>
+<p>17.3. <strong>WE DO NOT WARRANT THE ACCURACY, RELIABILITY, OR COMPLETENESS OF ANY CONTENT, DATA, OR INFORMATION PROVIDED THROUGH THE SERVICE, INCLUDING AI-GENERATED CONTENT, VALUATION INFORMATION, ESTATE PLANNING TOOLS, AND PROVENANCE RECORDS.</strong></p>
+<p>17.4. <strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL YIELD SPM (PTY) LTD, ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, GOODWILL, OR OTHER INTANGIBLE LOSSES, REGARDLESS OF THE THEORY OF LIABILITY (CONTRACT, DELICT, STRICT LIABILITY, OR OTHERWISE), EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</strong></p>
+<p>17.5. <strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, OUR TOTAL AGGREGATE LIABILITY ARISING OUT OF OR IN CONNECTION WITH THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE GREATER OF (A) THE AMOUNT YOU HAVE PAID US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED UNITED STATES DOLLARS (USD $100).</strong></p>
+<p>17.6. Some jurisdictions do not allow the exclusion of certain warranties or the limitation of liability for certain types of damages. In such jurisdictions, our liability is limited to the fullest extent permitted by law.</p>
+<hr>
+<h2>18. Indemnification</h2>
+<p>18.1. You agree to indemnify, defend, and hold harmless Yield SPM (Pty) Ltd, its officers, directors, employees, agents, and affiliates from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or in connection with:</p>
+<ul>
+<li>(a) Your use of the Service.</li>
+<li>(b) Your User Content.</li>
+<li>(c) Your breach of these Terms.</li>
+<li>(d) Your violation of any applicable law or regulation.</li>
+<li>(e) Your infringement of any third party&#39;s intellectual property or other rights.</li>
+<li>(f) Any inaccurate provenance information or documentation you submit through the Service.</li>
+</ul>
+<p>18.2. We reserve the right to assume the exclusive defense and control of any matter subject to indemnification by you, in which case you agree to cooperate with our defense of such claim.</p>
+<hr>
+<h2>19. Governing Law and Dispute Resolution</h2>
+<p>19.1. <strong>Governing Law.</strong> These Terms are governed by and construed in accordance with the laws of the Republic of South Africa, without regard to its conflict of laws principles. Where you reside in a jurisdiction whose mandatory consumer-protection laws cannot be excluded by contract, those laws apply to you and Section 20 records the principal additional rights you may have.</p>
+<p>19.2. <strong>Informal Resolution.</strong> Before initiating any formal dispute resolution, you agree to first contact us at <a href="mailto:legal@atteste.art">legal@atteste.art</a> and attempt to resolve the dispute informally for at least 30 days.</p>
+<p>19.3. <strong>Arbitration.</strong> If the dispute is not resolved informally, any controversy or claim arising out of or relating to these Terms or the Service shall be settled by binding arbitration administered by the <strong>Arbitration Foundation of Southern Africa (&quot;AFSA&quot;)</strong> under its Commercial Rules in force at the time. The arbitration shall take place in Johannesburg, South Africa, and shall be conducted in English by a single arbitrator. The award of the arbitrator shall be final and binding, and judgment on the award may be entered in any court of competent jurisdiction.</p>
+<p>19.4. <strong>Class Action Waiver.</strong> YOU AND ATTESTÉ AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION.</p>
+<p>19.5. <strong>Small Claims Exception.</strong> Notwithstanding the above, either party may bring an individual action in small claims court for disputes within that court&#39;s jurisdictional limits.</p>
+<p>19.6. <strong>Injunctive Relief.</strong> Nothing in this Section prevents either party from seeking injunctive or other equitable relief in any court of competent jurisdiction to protect its intellectual property rights.</p>
+<hr>
+<h2>20. International Users — Additional Terms</h2>
+<p>20.1. The Service is operated from the Republic of South Africa by Yield SPM (Pty) Ltd. If you access the Service from outside South Africa, you do so at your own initiative and are responsible for compliance with local laws. The Service is currently offered in 32 supported countries; the additional rights and applicable data-protection regimes for users in those countries are summarised below. Where a country is not specifically named, the catch-all provisions in Section 20.16 apply.</p>
+<p>20.2. <strong>South Africa.</strong> If you reside in South Africa:</p>
+<ul>
+<li>(a) Our processing of your personal data is subject to the Protection of Personal Information Act, 2013 (POPIA), and Yield SPM (Pty) Ltd is the responsible party for purposes of POPIA.</li>
+<li>(b) Nothing in these Terms excludes or limits any rights you may have under the Consumer Protection Act, 2008 (CPA) or the Electronic Communications and Transactions Act, 2002 (ECTA).</li>
+<li>(c) Under Section 14 of the CPA, fixed-term subscription agreements renew on a month-to-month basis and you may cancel with 20 business days&#39; notice.</li>
+<li>(d) The cooling-off rights in Section 44 of the ECTA apply to electronic transactions concluded by South African consumers, where applicable.</li>
+</ul>
+<p>20.3. <strong>European Economic Area (EEA) and Iceland, Liechtenstein, Norway.</strong> If you reside in the EEA — including but not limited to Austria, Belgium, Denmark, France, Germany, Ireland, Italy, the Netherlands, Norway, Portugal, Spain, and Sweden:</p>
+<ul>
+<li>(a) Our processing of your personal data is subject to the General Data Protection Regulation (Regulation (EU) 2016/679, &quot;<strong>GDPR</strong>&quot;). Please refer to our Privacy Policy for details on lawful bases for processing, data transfers under Articles 44–49, and your rights as a data subject.</li>
+<li>(b) Nothing in these Terms limits any rights you may have under the EU Consumer Rights Directive (2011/83/EU), the Digital Content Directive (2019/770), or implementing national legislation.</li>
+<li>(c) The arbitration clause in Section 19.3 does not prevent you from bringing proceedings in the courts of your country of residence for consumer disputes.</li>
+<li>(d) <strong>EU Online Dispute Resolution.</strong> The European Commission provides an Online Dispute Resolution (ODR) platform at <a href="https://ec.europa.eu/consumers/odr">https://ec.europa.eu/consumers/odr</a>.</li>
+<li>(e) <strong>Right of withdrawal.</strong> You have the right to withdraw from a paid subscription within 14 days of your initial purchase without giving a reason. To exercise this right, contact us at <a href="mailto:legal@atteste.art">legal@atteste.art</a>. If you have requested that the Service begin during the withdrawal period and you subsequently withdraw, you may be charged a proportionate amount for the Service provided up to the point of withdrawal.</li>
+<li>(f) <strong>Article 27 representative.</strong> Our EU/EEA representative under Article 27 GDPR is <strong>[ARTICLE 27 REPRESENTATIVE PENDING]</strong>. Until appointed, EEA residents may contact <a href="mailto:dpo@atteste.art">dpo@atteste.art</a> for any data-protection matter.</li>
+</ul>
+<p>20.4. <strong>United Kingdom.</strong> If you reside in the United Kingdom:</p>
+<ul>
+<li>(a) Our processing of your personal data is subject to the UK General Data Protection Regulation and the Data Protection Act 2018.</li>
+<li>(b) Nothing in these Terms limits any rights you may have under the Consumer Rights Act 2015 or the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013.</li>
+<li>(c) You may bring proceedings in the courts of England and Wales, Scotland, or Northern Ireland (as applicable) for consumer disputes.</li>
+<li>(d) <strong>Article 27 UK representative.</strong> Our UK representative under Article 27 UK GDPR is <strong>[UK ARTICLE 27 REPRESENTATIVE PENDING]</strong>.</li>
+</ul>
+<p>20.5. <strong>Switzerland.</strong> If you reside in Switzerland:</p>
+<ul>
+<li>(a) Our processing of your personal data is subject to the revised Federal Act on Data Protection (FADP, in force 1 September 2023) and the Swiss Ordinance on Data Protection (DPO).</li>
+<li>(b) You may bring proceedings before the courts of your domicile in Switzerland for consumer disputes.</li>
+</ul>
+<p>20.6. <strong>United States.</strong> If you reside in the United States:</p>
+<ul>
+<li>(a) Our processing of your personal data is subject to applicable federal and state privacy laws, including the California Consumer Privacy Act (CCPA) as amended by the California Privacy Rights Act (CPRA), the Virginia Consumer Data Protection Act (VCDPA), the Colorado Privacy Act (CPA), the Connecticut Data Privacy Act (CTDPA), the Utah Consumer Privacy Act (UCPA), the Texas Data Privacy and Security Act (TDPSA), and other comparable state laws as they come into force.</li>
+<li>(b) Residents of California have the rights described in Sections 1798.100 et seq. of the California Civil Code, including the right to know, delete, correct, opt out of &quot;sale&quot; or &quot;sharing&quot; of personal information, and to limit the use of sensitive personal information. We do not &quot;sell&quot; personal information as that term is defined under the CCPA/CPRA.</li>
+<li>(c) The arbitration clause in Section 19.3 does not prevent you from bringing an individual action in small claims court within the limits of that court&#39;s jurisdiction.</li>
+<li>(d) <strong>Children&#39;s privacy.</strong> Consistent with COPPA (15 U.S.C. § 6501), we do not knowingly collect personal information from children under 13.</li>
+</ul>
+<p>20.7. <strong>Canada.</strong> If you reside in Canada:</p>
+<ul>
+<li>(a) Our processing of your personal data is subject to the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy laws (Quebec Law 25, Alberta PIPA, British Columbia PIPA, Ontario PHIPA where relevant).</li>
+<li>(b) You may bring proceedings before the Office of the Privacy Commissioner of Canada or the courts of your province of residence.</li>
+<li>(c) Quebec residents have additional rights under the Act respecting the protection of personal information in the private sector, including data portability and rights regarding automated decision-making.</li>
+</ul>
+<p>20.8. <strong>Australia.</strong> If you reside in Australia:</p>
+<ul>
+<li>(a) Our processing of your personal data is subject to the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs).</li>
+<li>(b) Nothing in these Terms excludes, restricts, or modifies any consumer guarantee, right, or remedy conferred by the Australian Consumer Law (Schedule 2 of the Competition and Consumer Act 2010) that cannot be excluded by agreement.</li>
+<li>(c) Our liability for a failure to comply with a consumer guarantee is limited to re-supplying the Service or paying the cost of having the Service re-supplied.</li>
+</ul>
+<p>20.9. <strong>New Zealand.</strong> If you reside in New Zealand:</p>
+<ul>
+<li>(a) Our processing of your personal data is subject to the Privacy Act 2020 and the Information Privacy Principles.</li>
+<li>(b) Nothing in these Terms excludes or limits any rights you may have under the Consumer Guarantees Act 1993 or the Fair Trading Act 1986.</li>
+</ul>
+<p>20.10. <strong>Brazil and Argentina.</strong> If you reside in Brazil:</p>
+<ul>
+<li>(a) Our processing of your personal data is subject to the Lei Geral de Proteção de Dados (LGPD, Law No. 13.709/2018).</li>
+<li>(b) Nothing in these Terms limits your rights under the Brazilian Consumer Defence Code (CDC). The arbitration clause in Section 19.3 is not applicable to you; you may bring disputes before Brazilian consumer courts.</li>
+<li>(c) You have the right to review automated decisions under Article 20 of the LGPD.</li>
+</ul>
+<p>If you reside in Argentina, our processing of your personal data is subject to the Personal Data Protection Act (Law No. 25.326). Nothing in these Terms limits the rights of Argentine consumers under Law No. 24.240.</p>
+<p>20.11. <strong>Mexico.</strong> If you reside in Mexico:</p>
+<ul>
+<li>(a) Our processing of your personal data is subject to the Federal Law on Protection of Personal Data Held by Private Parties (LFPDPPP) and its Regulations.</li>
+<li>(b) Nothing in these Terms limits the rights of Mexican consumers under the Federal Consumer Protection Law.</li>
+</ul>
+<p>20.12. <strong>Japan, South Korea, Singapore, Hong Kong, China, India, and the United Arab Emirates.</strong> If you reside in:</p>
+<ul>
+<li>(a) <strong>Japan</strong>, our processing of your personal data is subject to the Act on the Protection of Personal Information (APPI).</li>
+<li>(b) <strong>South Korea</strong>, our processing of your personal data is subject to the Personal Information Protection Act (PIPA).</li>
+<li>(c) <strong>Singapore</strong>, our processing of your personal data is subject to the Personal Data Protection Act 2012 (PDPA).</li>
+<li>(d) <strong>Hong Kong</strong>, our processing of your personal data is subject to the Personal Data (Privacy) Ordinance (Cap. 486) (PDPO).</li>
+<li>(e) <strong>China (mainland)</strong>, our processing of your personal data is subject to the Personal Information Protection Law (PIPL), the Cybersecurity Law and the Data Security Law. Cross-border transfer of personal information is conducted in accordance with the standard contract for cross-border transfers issued by the Cyberspace Administration of China where applicable.</li>
+<li>(f) <strong>India</strong>, our processing of your personal data is subject to the Digital Personal Data Protection Act, 2023 (DPDP Act), the Information Technology Act, 2000, and applicable rules.</li>
+<li>(g) <strong>United Arab Emirates</strong>, our processing of your personal data is subject to Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data (PDPL) and applicable free-zone regimes (DIFC Data Protection Law No. 5 of 2020 and ADGM Data Protection Regulations 2021), as relevant.</li>
+</ul>
+<p>20.13. <strong>Nigeria and Kenya.</strong> If you reside in:</p>
+<ul>
+<li>(a) <strong>Nigeria</strong>, our processing of your personal data is subject to the Nigeria Data Protection Act, 2023 (NDPA) and the Nigeria Data Protection Regulation 2019 (NDPR), as supervised by the Nigeria Data Protection Commission.</li>
+<li>(b) <strong>Kenya</strong>, our processing of your personal data is subject to the Data Protection Act, 2019 and Regulations made under it, as supervised by the Office of the Data Protection Commissioner.</li>
+</ul>
+<p>20.14. <strong>Cross-border transfers.</strong> Where we transfer personal data from your jurisdiction to South Africa or to other third countries (for example, to our cloud-service providers in the European Union or the United States), we rely on the lawful-transfer mechanism applicable in your jurisdiction. This may include the European Commission&#39;s Standard Contractual Clauses, the UK International Data Transfer Addendum, the Swiss SCC supplement, the Section 72 POPIA conditions, or other mechanisms recognised by your data-protection authority. Details are in our Privacy Policy.</p>
+<p>20.15. <strong>Right to object to arbitration.</strong> Where mandatory law in your jurisdiction prohibits or limits binding pre-dispute arbitration agreements with consumers (for example in some EU member states or under specific consumer-protection statutes), the arbitration clause in Section 19.3 does not apply to you and you may bring proceedings in the courts of your country of residence.</p>
+<p>20.16. <strong>Other Jurisdictions.</strong> If mandatory consumer-protection or data-protection laws in your jurisdiction provide rights that cannot be waived by contract, nothing in these Terms is intended to limit those rights, and the most protective standard applies. We endeavour to apply GDPR-grade safeguards globally where this is consistent with local law.</p>
+<hr>
+<h2>21. Changes to Terms</h2>
+<p>21.1. We may revise these Terms at any time by posting the updated version on the Service and updating the &quot;Effective Date&quot; at the top.</p>
+<p>21.2. For material changes, we will provide at least 30 days&#39; notice by email to the address associated with your account or through a prominent notice within the Service.</p>
+<p>21.3. If you do not agree with the revised Terms, you must stop using the Service before the changes take effect. Your continued use after the effective date constitutes acceptance of the revised Terms.</p>
+<p>21.4. We will maintain a version history of these Terms, accessible through the Service.</p>
+<hr>
+<h2>22. Severability</h2>
+<p>22.1. If any provision of these Terms is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall continue in full force and effect.</p>
+<hr>
+<h2>23. Entire Agreement</h2>
+<p>23.1. These Terms, together with the Privacy Policy and any subscription-specific terms, constitute the entire agreement between you and Yield SPM (Pty) Ltd with respect to the Service and supersede all prior agreements, understandings, and communications, whether written or oral. From Version 2.0 (effective 25 April 2026), Yield SPM (Pty) Ltd has assumed the operator role previously held by Kalahari Investments LLC; rights and obligations vesting under prior versions of these Terms have been assigned to Yield SPM (Pty) Ltd as part of that transition.</p>
+<p>23.2. No waiver of any provision of these Terms shall be deemed a further or continuing waiver of that provision or any other provision. Our failure to exercise or enforce any right under these Terms does not constitute a waiver of that right.</p>
+<hr>
+<h2>24. Contact Information</h2>
+<p>If you have questions about these Terms, please contact us:</p>
+<p><strong>Yield SPM (Pty) Ltd</strong> (operator of Attesté)
+Registered office: 23 Kameeldoringdraai, Woodland Hills, Bloemfontein, Free State, 9301, Republic of South Africa
+Company registration number: 2024/185151/07
+General: <a href="mailto:info@atteste.art">info@atteste.art</a>
+Legal: <a href="mailto:legal@atteste.art">legal@atteste.art</a>
+Privacy / Information Officer: <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>
+Website: <a href="http://www.atteste.art">www.atteste.art</a></p>
+<p>For data-protection enquiries from the EU/EEA, please also see Section 20.3(f) (Article 27 representative); for the UK, see Section 20.4(d).</p>
+<hr>
+<p><em>Attesté — Your Art, Your Story.</em>
+<em>These Terms of Service were last updated on April 25, 2026 (Version 2.0).</em></p>
 
-<nav>
-  <div class="nav-brand">Attest<span>é</span></div>
-  <a class="nav-back" href="/">&larr; Back to home</a>
-</nav>
-
-<div class="container">
-  <h1>Terms of Service</h1>
-  <p class="last-updated">Last updated: 27 March 2026</p>
-
-  <p>These Terms of Service ("Terms") govern your access to and use of the Attesté platform, website (atteste.art), and mobile applications (collectively, the "Service") operated by Attesté ("we", "us", or "our"). By using the Service, you agree to be bound by these Terms.</p>
-
-  <h2>1. Eligibility</h2>
-  <p>You must be at least 16 years of age to use the Service. By using the Service, you represent and warrant that you meet this requirement and that all information you provide is accurate and complete.</p>
-
-  <h2>2. Your Account</h2>
-  <p>You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. Notify us immediately at <a href="mailto:info@atteste.art">info@atteste.art</a> if you suspect any unauthorised use.</p>
-  <p>We reserve the right to suspend or terminate accounts that violate these Terms, engage in fraudulent activity, or have been inactive for an extended period.</p>
-
-  <h2>3. Subscription Plans and Billing</h2>
-  <p>Attesté offers free and paid subscription tiers. Paid plans are billed on a monthly or annual basis as selected at sign-up. By subscribing to a paid plan, you authorise us to charge your payment method on a recurring basis.</p>
-  <ul>
-    <li>Subscriptions auto-renew unless cancelled before the renewal date</li>
-    <li>You may cancel at any time; access continues until the end of the billing period</li>
-    <li>We do not offer refunds for partial periods except where required by law</li>
-    <li>Prices may change with 30 days' notice to existing subscribers</li>
-  </ul>
-
-  <h2>4. Your Content</h2>
-  <p>You retain ownership of all content you upload to the Service ("Your Content"), including artwork images, descriptions, and provenance documents. By uploading content, you grant Attesté a non-exclusive, worldwide, royalty-free licence to store, display, and process Your Content solely to provide and improve the Service.</p>
-  <p>You are solely responsible for ensuring you have the right to upload and share any content. You must not upload content that:</p>
-  <ul>
-    <li>Infringes any third-party intellectual property rights</li>
-    <li>Is fraudulent, misleading, or misrepresents provenance</li>
-    <li>Contains malware, spam, or harmful code</li>
-    <li>Violates any applicable law or regulation</li>
-  </ul>
-
-  <h2>5. Certificates of Attestation</h2>
-  <p>Attesté's certificates and provenance records are documentation tools based on information you provide. They are not legal title documents, insurance appraisals, or authentication guarantees. We make no warranty as to the authenticity, value, or ownership of any artwork documented on the platform.</p>
-
-  <h2>6. AI Features</h2>
-  <p>The Service includes AI-powered features for discovery, recommendations, and analysis. These are provided for informational purposes only and should not be relied upon as professional art advisory, valuation, or authentication services.</p>
-
-  <h2>7. Prohibited Uses</h2>
-  <p>You agree not to:</p>
-  <ul>
-    <li>Use the Service to document or trade stolen, forged, or illegally obtained artworks</li>
-    <li>Attempt to reverse-engineer, scrape, or extract data from the platform at scale</li>
-    <li>Impersonate any person or misrepresent your affiliation with any entity</li>
-    <li>Use the Service in any way that violates applicable laws or regulations</li>
-    <li>Interfere with or disrupt the integrity or performance of the Service</li>
-  </ul>
-
-  <h2>8. Intellectual Property</h2>
-  <p>The Attesté name, logo, design, software, and all platform content created by us are our exclusive intellectual property. Nothing in these Terms grants you any right to use our trademarks, logos, or proprietary content without our prior written consent.</p>
-
-  <h2>9. Disclaimers</h2>
-  <p>The Service is provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the Service will be uninterrupted, error-free, or free of viruses.</p>
-
-  <h2>10. Limitation of Liability</h2>
-  <p>To the fullest extent permitted by law, Attesté shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the Service, even if we have been advised of the possibility of such damages. Our total liability shall not exceed the amount you paid us in the 12 months preceding the claim.</p>
-
-  <h2>11. Governing Law</h2>
-  <p>These Terms are governed by the laws of the Republic of South Africa. Any disputes shall be subject to the exclusive jurisdiction of the courts of South Africa.</p>
-
-  <h2>12. Changes to These Terms</h2>
-  <p>We may update these Terms from time to time. We will notify you of material changes by email or prominent notice on the Service. Continued use after changes take effect constitutes acceptance of the new Terms.</p>
-
-  <h2>13. Contact</h2>
-  <p>For questions about these Terms, please contact us at <a href="mailto:info@atteste.art">info@atteste.art</a>.</p>
-</div>
-
-<footer>
-  &copy; 2026 Attesté. All rights reserved. &nbsp;|&nbsp;
-  <a href="/privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
-  <a href="/terms.html">Terms of Service</a>
-</footer>
-
+    </article>
+    <footer>
+      <p>Operator: Yield SPM (Pty) Ltd, Republic of South Africa.<br>
+      Contact: <a href="mailto:dpo@atteste.art">dpo@atteste.art</a><br>
+      Version 2.0 · Effective 2026-04-25</p>
+    </footer>
+  </main>
 </body>
 </html>
