@@ -2,3 +2,8 @@
 http://atteste.art/* https://atteste.art/:splat 301!
 http://www.atteste.art/* https://atteste.art/:splat 301!
 https://www.atteste.art/* https://atteste.art/:splat 301!
+
+# Block direct access to internal strategy docs and operational scripts
+# (robots.txt is advisory; this is the real gate)
+/marketing/* /404.html 404!
+/scripts/*   /404.html 404!
