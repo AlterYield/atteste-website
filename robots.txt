@@ -41,12 +41,16 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-# Block sensitive admin / backend paths (none currently — placeholder for future)
-# Disallow: /admin/
-# Disallow: /api/
+# Block internal strategy docs and operational paths
+Disallow: /marketing/
+Disallow: /scripts/
+# Disallow: /admin/  (placeholder)
+# Disallow: /api/    (placeholder)
 
 # Point crawlers at the sitemap + AI manifest
 Sitemap: https://atteste.art/sitemap.xml
 
 # AI-era: canonical LLM-ingestible manifest
 # See also: https://atteste.art/llms.txt
+# See also: https://atteste.art/llms-full.txt
+# See also: https://atteste.art/catalog-atteste.json

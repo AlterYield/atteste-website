@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Attesté — Updates</title>
+    <link>https://atteste.art/</link>
+    <atom:link href="https://atteste.art/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Release notes, gallery partnerships, artist features, and product updates from the Attesté team.</description>
+    <language>en</language>
+    <copyright>© 2026 Yield SPM (Pty) Ltd. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <generator>Attesté</generator>
+    <image>
+      <url>https://atteste.art/icon-512.png</url>
+      <title>Attesté</title>
+      <link>https://atteste.art/</link>
+    </image>
+
+    <item>
+      <title>Artists tier launches: Studio, Professional, Represented</title>
+      <link>https://atteste.art/artists.html</link>
+      <guid isPermaLink="false">atteste-2026-04-29-artists-launch</guid>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Working artists now have a dedicated home on Attesté: catalogue your studio, issue source certificates collectors trust, and publish a gallery-grade public profile. Studio at $14.99/mo with a 14-day trial.</description>
+    </item>
+
+    <item>
+      <title>Gallery tiers harmonised: Boutique, Professional, Enterprise — pure annual subscriptions</title>
+      <link>https://atteste.art/galleries.html</link>
+      <guid isPermaLink="false">atteste-2026-04-24-gallery-tier-restructure</guid>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+      <description>The Gallery Launch Kit retired in favour of clean annual SaaS tiers. Boutique at $495/yr (with 30% off year 1 for the first 25 founding galleries), Professional at $1,188/yr, Enterprise at $1,908/yr. No physical kit, no setup fees.</description>
+    </item>
+
+    <item>
+      <title>Collector pricing harmonised to $9.99 / $19.99 with annual savings</title>
+      <link>https://atteste.art/#pricing</link>
+      <guid isPermaLink="false">atteste-2026-04-26-b2c-pricing-harmonised</guid>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Collector and Premium are now USD-primary across all 32 markets. Annual plans save ~17% — Collector $99.99/yr, Premium $199.99/yr. Live on iOS and Android billing.</description>
+    </item>
+
+  </channel>
+</rss>

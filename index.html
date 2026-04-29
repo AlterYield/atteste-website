@@ -14,6 +14,18 @@
 <meta name="generator" content="Attesté Marketing Site">
 
 <!-- Canonical + hreflang (geographic targeting; same URL per locale for now) -->
+<!-- Search Engine Verification (replace placeholder with codes from Google Search Console + Bing Webmaster Tools) -->
+<!-- <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN"> -->
+<!-- <meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN"> -->
+
+<!-- Favicon + Manifest -->
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="Attesté Updates" href="/feed.xml">
+
 <link rel="canonical" href="https://atteste.art/">
 <link rel="alternate" hreflang="en" href="https://atteste.art/">
 <link rel="alternate" hreflang="en-za" href="https://atteste.art/">
@@ -31,9 +43,9 @@
 <meta property="og:image:alt" content="Attesté — Your Art Collection Deserves a Memory">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="en_ZA">
-<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="en_ZA">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -59,19 +71,18 @@
   "logo": "https://atteste.art/screenshots/logo.png",
   "description": "AI-powered art collection management platform. Provenance, discovery and community for art collectors.",
   "foundingDate": "2024",
-  "founder": {
-    "@type": "Person",
-    "name": "Karel Kraai"
-  },
   "parentOrganization": {
     "@type": "Organization",
     "name": "Yield SPM (Pty) Ltd",
-    "taxID": "2024/185151/07"
+    "taxID": "2024/185151/07",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ZA"
+    }
   },
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "ZA",
-    "addressLocality": "Bloemfontein"
+    "addressCountry": "ZA"
   },
   "contactPoint": [
     {
@@ -84,6 +95,12 @@
       "@type": "ContactPoint",
       "contactType": "sales",
       "email": "galleries@atteste.art",
+      "availableLanguage": ["English"]
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "artists@atteste.art",
       "availableLanguage": ["English"]
     }
   ],
@@ -229,14 +246,6 @@
   ],
   "provider": {
     "@id": "https://atteste.art/#organization"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "bestRating": "5",
-    "worstRating": "1",
-    "ratingCount": "47",
-    "reviewCount": "12"
   }
 }
 </script>
