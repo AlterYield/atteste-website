@@ -1,133 +1,1527 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Attesté</title>
-<meta name="description" content="Attesté Privacy Policy — how we collect, use, and protect your data.">
-<meta name="theme-color" content="#1A1A2E">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VBQZX830K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6VBQZX830K');
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #1A1A2E;
-    --surface: #16213E;
-    --gold: #C9A96E;
-    --gold-light: #E8C98A;
-    --text: #E8E8F0;
-    --text-muted: #8888A8;
-    --border: rgba(201,169,110,0.15);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.7; }
-  a { color: var(--gold); text-decoration: none; }
-  a:hover { color: var(--gold-light); }
-
-  nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid var(--border); }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text); }
-  .nav-brand span { color: var(--gold); }
-  .nav-back { font-size: 0.875rem; color: var(--text-muted); }
-  .nav-back:hover { color: var(--gold); }
-
-  .container { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
-  h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 8px; }
-  .last-updated { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 48px; }
-  h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--gold-light); margin: 40px 0 12px; }
-  p { margin-bottom: 16px; color: var(--text); }
-  ul { margin: 0 0 16px 20px; }
-  li { margin-bottom: 8px; }
-
-  footer { border-top: 1px solid var(--border); padding: 24px 40px; text-align: center; color: var(--text-muted); font-size: 0.8rem; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Attesté</title>
+  <meta name="description" content="Privacy Policy for Attesté, the AI-powered art collection platform. Operator: Yield SPM (Pty) Ltd, South Africa. Version 2.0, effective 2026-04-25.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://atteste-b6409.web.app/legal/privacy.html">
+  <style>
+    /* Minimal print-friendly typography. Dark navy + gold to match Attesté brand. */
+    :root {
+      --ink: #1a1a2e;
+      --ink-muted: #4a4a6e;
+      --bg: #faf8f5;
+      --gold: #c9a96e;
+      --rule: #e6e0d4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 16px;
+      padding: 0 1.5rem;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 0 6rem;
+    }
+    header {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    header a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', 'Times New Roman', Georgia, serif;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 0.5rem; }
+    h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; }
+    h3 { font-size: 1.2rem; margin: 1.75rem 0 0.5rem; }
+    h4 { font-size: 1rem; margin: 1.25rem 0 0.25rem; }
+    p { margin: 0 0 1rem; }
+    a { color: var(--gold); }
+    strong { color: var(--ink); }
+    blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 1.5rem 0;
+      padding: 0.25rem 1.25rem;
+      color: var(--ink-muted);
+      background: rgba(201, 169, 110, 0.06);
+    }
+    blockquote > p { margin: 0.5rem 0; }
+    hr {
+      border: 0;
+      border-top: 1px solid var(--rule);
+      margin: 2.5rem 0;
+    }
+    ul, ol { padding-left: 1.5rem; margin: 0 0 1rem; }
+    li { margin: 0.25rem 0; }
+    code {
+      font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+      font-size: 0.9em;
+      background: rgba(26, 26, 46, 0.06);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      border: 1px solid var(--rule);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: rgba(201, 169, 110, 0.1); font-weight: 600; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--ink-muted);
+      font-size: 0.875rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #f0ece3;
+        --ink-muted: #b0a896;
+        --bg: #1a1a2e;
+        --rule: #333355;
+      }
+      blockquote { background: rgba(201, 169, 110, 0.08); }
+      code { background: rgba(255, 255, 255, 0.08); }
+      th { background: rgba(201, 169, 110, 0.15); }
+    }
+  </style>
 </head>
 <body>
+  <main>
+    <header>
+      <a href="/">← Attesté</a>
+    </header>
+    <article>
+<h1>Privacy Policy</h1>
+<p><strong>Version 2.0 | Effective Date: 2026-04-25</strong></p>
+<hr>
+<h2>At a Glance</h2>
+<blockquote>
+<p><strong>Who we are:</strong> Yield SPM (Pty) Ltd (&quot;Atteste,&quot; &quot;we,&quot; &quot;us,&quot; &quot;our&quot;), a private company duly incorporated under the laws of the Republic of South Africa, operator of the Atteste art-collection platform. This Version 2.0 reflects the change of operator entity from Kalahari Investments LLC (Georgia) to Yield SPM (Pty) Ltd (South Africa); existing users will be asked to re-accept the Privacy Policy before continued use of the Service.</p>
+<p><strong>What we do with your data:</strong> We collect and process personal data to provide you with art collection management, AI-powered analysis, discovery trails, community features, and gallery analytics services.</p>
+<p><strong>Your key rights:</strong> You can access, correct, delete, or export your data at any time. You can withdraw consent for AI processing and opt out of analytics sharing. Contact us at <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>.</p>
+<p><strong>Where your data lives:</strong> Google Cloud / Firebase infrastructure (primarily europe-west and africa-south1 regions, with regional fall-back to multi-region deployments), with appropriate cross-border transfer safeguards for international users — see Section 6.</p>
+</blockquote>
+<hr>
+<h2>Table of Contents</h2>
+<ol>
+<li>Introduction &amp; Data Controller Identity</li>
+<li>What Data We Collect</li>
+<li>How We Use Your Data</li>
+<li>AI Processing &amp; Automated Decision-Making</li>
+<li>Data Sharing &amp; Third Parties</li>
+<li>International Data Transfers</li>
+<li>Data Retention</li>
+<li>Your Rights</li>
+<li>Children&#39;s Privacy</li>
+<li>Cookies &amp; Tracking Technologies</li>
+<li>Data Security</li>
+<li>Changes to This Policy</li>
+<li>Contact Us</li>
+<li>Jurisdiction-Specific Addenda</li>
+</ol>
+<hr>
+<h2>1. Introduction &amp; Data Controller Identity</h2>
+<p>This Privacy Policy explains how <strong>Yield SPM (Pty) Ltd</strong> (trading as &quot;Atteste&quot;) collects, uses, shares, and protects your personal data when you use the Atteste platform, including our web application, mobile applications, marketing website (<a href="http://www.atteste.art">www.atteste.art</a>), and any related services (collectively, the &quot;<strong>Service</strong>&quot;).</p>
+<p><strong>Data Controller / Responsible Party:</strong>
+Yield SPM (Pty) Ltd (CIPC registration number 2024/185151/07)
+Registered office: 23 Kameeldoringdraai, Woodland Hills, Bloemfontein, Free State, 9301, Republic of South Africa
+General: <a href="mailto:info@atteste.art">info@atteste.art</a>
+Privacy enquiries: <a href="mailto:dpo@atteste.art">dpo@atteste.art</a></p>
+<p><strong>Information Officer (POPIA, South Africa):</strong>
+Name: Lindie le Roux (Director)
+Email: <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>
+<em>(Designation under section 56 of POPIA; registration with the South African Information Regulator pending.)</em></p>
+<p><strong>Data Protection Officer (where appointed under Article 37 GDPR):</strong>
+Email: <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>
+<em>(Formal appointment pending where mandatory; all enquiries are handled with equivalent care and response times until appointment.)</em></p>
+<p><strong>EU/EEA Representative (GDPR Article 27):</strong>
+<em>[ARTICLE 27 REPRESENTATIVE PENDING] — to be appointed before active marketing into the EU/EEA. Until appointed, EEA residents may contact <a href="mailto:dpo@atteste.art">dpo@atteste.art</a> for any data-protection matter.</em></p>
+<p><strong>UK Representative (UK GDPR Article 27):</strong>
+<em>[UK ARTICLE 27 REPRESENTATIVE PENDING] — to be appointed before active marketing into the United Kingdom.</em></p>
+<p><strong>Local representatives in other jurisdictions</strong> (e.g. LGPD Article 18 representative for Brazil, PIPL Article 53 representative for mainland China, NDPA representative for Nigeria, DPA representative for Kenya): <em>to be appointed prior to systematic offering of the Service in those jurisdictions. In the interim, contact <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>.</em></p>
+<p>By creating an account or using the Service, you acknowledge that you have read and understood this Privacy Policy. Where we rely on consent as a lawful basis, we will obtain your explicit, informed, and freely given consent before processing.</p>
+<p>This Policy applies regardless of where you access the Service from. Jurisdiction-specific provisions in <strong>Section 14</strong> supplement (and where they conflict, override) the general provisions of this Policy for users in those jurisdictions. The Service is currently offered in the following 32 supported countries, listed in the order presented in the in-app country selector (with &quot;Other&quot; provided as a fall-back):</p>
+<blockquote>
+<p>South Africa, United Kingdom, United States, France, Germany, Netherlands, Switzerland, Italy, Australia, Canada, China, Japan, South Korea, United Arab Emirates, India, Brazil, Nigeria, Kenya, Spain, Austria, Belgium, Sweden, Denmark, Norway, Singapore, Hong Kong, Mexico, Argentina, Portugal, New Zealand, Other.</p>
+</blockquote>
+<p>For users in the &quot;Other&quot; bucket, we apply GDPR-grade safeguards as a universal baseline.</p>
+<hr>
+<h2>2. What Data We Collect</h2>
+<blockquote>
+<p><strong>Summary:</strong> We collect data you provide directly (account details, artwork information, financial records), data generated through your use of the Service (location, activity, achievements), and data processed by our AI partners (artwork analysis, taste profiles).</p>
+</blockquote>
+<h3>2.1 Personal &amp; Account Data</h3>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>How Collected</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Full name</strong></td>
+<td>You provide at registration</td>
+<td>Account identification, public profile (if opted in), certificate generation</td>
+</tr>
+<tr>
+<td><strong>Email address</strong></td>
+<td>You provide at registration</td>
+<td>Account creation, authentication, service communications</td>
+</tr>
+<tr>
+<td><strong>Country</strong></td>
+<td>You select during onboarding</td>
+<td>Content localisation, currency defaults, legal compliance</td>
+</tr>
+<tr>
+<td><strong>Profile photo</strong></td>
+<td>You optionally upload</td>
+<td>Profile display, public profile (if opted in)</td>
+</tr>
+<tr>
+<td><strong>Password</strong></td>
+<td>You provide at registration</td>
+<td>Authentication (stored as a cryptographic hash by Firebase Auth; we never have access to your plaintext password)</td>
+</tr>
+<tr>
+<td><strong>Subscription tier</strong></td>
+<td>Derived from account status</td>
+<td>Feature access control, billing</td>
+</tr>
+<tr>
+<td><strong>Onboarding persona</strong></td>
+<td>You select during onboarding</td>
+<td>Experience personalisation</td>
+</tr>
+</tbody></table>
+<h3>2.2 Location Data</h3>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>How Collected</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>GPS coordinates (precise)</strong></td>
+<td>Device location services, with your explicit permission</td>
+<td>Encounter logging, trail navigation, geofence triggers, venue matching</td>
+</tr>
+<tr>
+<td><strong>Reverse-geocoded venue name</strong></td>
+<td>Derived from GPS coordinates via geocoding services</td>
+<td>Display of encounter location, gallery venue matching</td>
+</tr>
+<tr>
+<td><strong>Travel mode country</strong></td>
+<td>You select temporarily in settings</td>
+<td>Temporary content filtering for travel (session-based, not persisted to database)</td>
+</tr>
+</tbody></table>
+<p><strong>Important:</strong> Location data is collected <strong>only when you actively use location-dependent features</strong> (logging an encounter, navigating a trail). We do not track your location in the background. You can deny or revoke location permission at any time through your device settings, though this will limit trail navigation and encounter geo-tagging functionality.</p>
+<h3>2.3 Collection &amp; Financial Data</h3>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>How Collected</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Artwork metadata</strong></td>
+<td>You enter or import via CSV</td>
+<td>Collection management, AI analysis, provenance records</td>
+</tr>
+<tr>
+<td><strong>Artwork photographs</strong></td>
+<td>You upload</td>
+<td>Collection display, AI condition analysis, AI artwork identification</td>
+</tr>
+<tr>
+<td><strong>Acquisition prices</strong></td>
+<td>You enter</td>
+<td>Portfolio valuation, collection management</td>
+</tr>
+<tr>
+<td><strong>Professional valuation amounts</strong></td>
+<td>You enter</td>
+<td>Portfolio valuation, insurance summaries</td>
+</tr>
+<tr>
+<td><strong>Revaluation values</strong></td>
+<td>You enter</td>
+<td>Updated professional assessment records</td>
+</tr>
+<tr>
+<td><strong>Auction bid amounts</strong></td>
+<td>You enter</td>
+<td>Bid tracking, auction intelligence features</td>
+</tr>
+<tr>
+<td><strong>Currency preferences</strong></td>
+<td>You select</td>
+<td>Display formatting</td>
+</tr>
+<tr>
+<td><strong>Document attachments</strong> (invoices, certificates)</td>
+<td>You upload</td>
+<td>Provenance records, professional validation</td>
+</tr>
+</tbody></table>
+<h3>2.4 AI-Processed Data</h3>
+<table>
+<thead>
+<tr>
+<th>Data Sent to AI</th>
+<th>AI Processor</th>
+<th>Purpose</th>
+<th>What Is Stored</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Artwork photographs</td>
+<td>Google (Gemini 2.0 Flash)</td>
+<td>Image analysis, artwork identification, condition assessment</td>
+<td>Analysis results stored with your artwork record; images are processed in-transit and not retained by Google beyond processing</td>
+</tr>
+<tr>
+<td>Collection history, encounter data</td>
+<td>Anthropic (Claude)</td>
+<td>Taste profiling, personalised recommendations, discovery digests</td>
+<td>Taste profile stored in your account; deletable on request</td>
+</tr>
+<tr>
+<td>Artwork metadata</td>
+<td>Anthropic (Claude)</td>
+<td>Discovery digest generation, collection memoir writing</td>
+<td>Stored with your digest and memoir records</td>
+</tr>
+<tr>
+<td>Trail stop descriptions</td>
+<td>Anthropic (Claude)</td>
+<td>AI-enhanced trail stop descriptions</td>
+<td>Stored with trail stop records</td>
+</tr>
+</tbody></table>
+<p><strong>AI processing requires your separate, explicit consent</strong>, which you may grant or withdraw at any time through the Service settings. Withdrawing AI consent does not affect the lawfulness of processing performed before withdrawal, nor does it affect non-AI features of the Service.</p>
+<h3>2.5 Estate &amp; Sensitive Data</h3>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>How Collected</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Heir designations</strong></td>
+<td>You enter</td>
+<td>Informational estate planning (not a legal instrument)</td>
+</tr>
+<tr>
+<td><strong>Emergency access tokens</strong></td>
+<td>Generated at your request</td>
+<td>Read-only heir access to your collection</td>
+</tr>
+<tr>
+<td><strong>Living letters</strong></td>
+<td>You write</td>
+<td>Personal correspondence attached to artworks for heirs</td>
+</tr>
+</tbody></table>
+<p><strong>Estate features are informational only</strong> and do not constitute legal estate planning, wills, or testaments. Heir designations are protected with SHA-256 integrity hashing.</p>
+<h3>2.6 Social &amp; Behavioural Data</h3>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>How Collected</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Public profile</strong></td>
+<td>You opt in</td>
+<td>Community discovery, collector networking</td>
+</tr>
+<tr>
+<td><strong>Follow relationships</strong></td>
+<td>You initiate</td>
+<td>Social features, content curation</td>
+</tr>
+<tr>
+<td><strong>Activity feed</strong></td>
+<td>Generated from your actions</td>
+<td>Personal activity history</td>
+</tr>
+<tr>
+<td><strong>XP, levels, achievements</strong></td>
+<td>Generated from your actions</td>
+<td>Gamification, engagement</td>
+</tr>
+<tr>
+<td><strong>Encounter records</strong></td>
+<td>You create</td>
+<td>Art journey timeline, integrity-hashed records</td>
+</tr>
+<tr>
+<td><strong>Trail completions</strong></td>
+<td>Generated when you finish a trail</td>
+<td>Journey tracking, achievements</td>
+</tr>
+<tr>
+<td><strong>Art fair visit records</strong></td>
+<td>You create</td>
+<td>Fair companion features</td>
+</tr>
+</tbody></table>
+<h3>2.7 Gallery Analytics Data (Aggregated)</h3>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Shared With</th>
+<th>Form</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Encounter counts</strong></td>
+<td>Gallery partners</td>
+<td>Anonymised, aggregated</td>
+<td>Foot traffic analytics</td>
+</tr>
+<tr>
+<td><strong>Aggregated taste pulse</strong></td>
+<td>Gallery partners</td>
+<td>Anonymised, aggregated across all visitors</td>
+<td>Visitor interest insights</td>
+</tr>
+<tr>
+<td><strong>Top encountered works</strong></td>
+<td>Gallery partners</td>
+<td>Aggregated ranking (no individual attribution)</td>
+<td>Exhibition performance metrics</td>
+</tr>
+</tbody></table>
+<p><strong>Gallery analytics sharing requires your separate consent.</strong> Individual encounter data is <strong>never</strong> shared with gallery partners in identifiable form.</p>
+<hr>
+<h2>3. How We Use Your Data</h2>
+<blockquote>
+<p><strong>Summary:</strong> We use your data to provide and improve the Service, generate AI-powered insights, enable community features, and comply with legal obligations. We process data under contract performance, consent, legitimate interest, and legal obligation bases.</p>
+</blockquote>
+<h3>3.1 Purposes and Lawful Bases</h3>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Data Used</th>
+<th>Lawful Basis (GDPR)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Account creation and management</strong></td>
+<td>Name, email, country, password hash</td>
+<td>Performance of contract</td>
+<td>Required to provide the Service</td>
+</tr>
+<tr>
+<td><strong>Authentication</strong></td>
+<td>Email, password hash, Google Sign-In tokens</td>
+<td>Performance of contract</td>
+<td>Managed by Firebase Auth</td>
+</tr>
+<tr>
+<td><strong>Collection management</strong></td>
+<td>Artwork metadata, photos, financial data</td>
+<td>Performance of contract</td>
+<td>Core Service functionality</td>
+</tr>
+<tr>
+<td><strong>Provenance and certificate generation</strong></td>
+<td>Artwork metadata, provenance records</td>
+<td>Performance of contract</td>
+<td>SHA-256 integrity hashing</td>
+</tr>
+<tr>
+<td><strong>AI artwork analysis</strong></td>
+<td>Artwork photos, metadata</td>
+<td>Consent</td>
+<td>Separate AI consent toggle; can be withdrawn</td>
+</tr>
+<tr>
+<td><strong>AI taste profiling and recommendations</strong></td>
+<td>Collection history, encounter data</td>
+<td>Consent</td>
+<td>Separate AI consent; deletable</td>
+</tr>
+<tr>
+<td><strong>AI condition assessment</strong></td>
+<td>Artwork photos</td>
+<td>Consent</td>
+<td>Separate AI consent</td>
+</tr>
+<tr>
+<td><strong>Encounter and trail features</strong></td>
+<td>GPS coordinates, venue data, trail progress</td>
+<td>Consent</td>
+<td>Location permission required</td>
+</tr>
+<tr>
+<td><strong>Gamification</strong></td>
+<td>Activity history</td>
+<td>Performance of contract</td>
+<td>Part of core Service experience</td>
+</tr>
+<tr>
+<td><strong>Social and community features</strong></td>
+<td>Public profile, follows</td>
+<td>Consent (profile opt-in) / Legitimate interest (follows)</td>
+<td>Profile visibility is opt-in</td>
+</tr>
+<tr>
+<td><strong>Gallery partner analytics</strong></td>
+<td>Anonymised encounter data</td>
+<td>Consent</td>
+<td>Separate gallery analytics consent</td>
+</tr>
+<tr>
+<td><strong>Estate planning features</strong></td>
+<td>Heir designations, letters, tokens</td>
+<td>Consent</td>
+<td>Informational only; explicit legacy disclaimer</td>
+</tr>
+<tr>
+<td><strong>Service communications</strong></td>
+<td>Email</td>
+<td>Performance of contract</td>
+<td>Account-related notifications only</td>
+</tr>
+<tr>
+<td><strong>Service improvement</strong></td>
+<td>Aggregated usage patterns</td>
+<td>Legitimate interest</td>
+<td>No individual profiling for this purpose</td>
+</tr>
+<tr>
+<td><strong>Legal compliance</strong></td>
+<td>As required</td>
+<td>Legal obligation</td>
+<td>Tax, regulatory, law enforcement requests</td>
+</tr>
+<tr>
+<td><strong>Security and fraud prevention</strong></td>
+<td>Account activity, authentication logs</td>
+<td>Legitimate interest</td>
+<td>Protecting your account and our Service</td>
+</tr>
+</tbody></table>
+<h3>3.2 Legitimate Interest Assessment</h3>
+<p>Where we rely on legitimate interest, we have conducted a balancing assessment to ensure our interests do not override your fundamental rights and freedoms. You may object to processing based on legitimate interest at any time (see Section 8). Our legitimate interest assessments are available on request by contacting <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>.</p>
+<hr>
+<h2>4. AI Processing &amp; Automated Decision-Making</h2>
+<blockquote>
+<p><strong>Summary:</strong> We use AI to enhance your experience but never make legally or significantly consequential decisions about you based solely on automated processing. AI valuations are explicitly labeled as experimental and excluded from portfolio totals.</p>
+</blockquote>
+<h3>4.1 How AI Is Used</h3>
+<p>The Service uses two AI systems:</p>
+<ol>
+<li><p><strong>Google Gemini 2.0 Flash</strong> processes artwork images for identification, style analysis, and condition assessment. Images are sent to Google&#39;s API servers in the United States, processed, and the results are returned to us. Google does not retain your images beyond the processing session under our current terms.</p>
+</li>
+<li><p><strong>Anthropic Claude</strong> processes text-based data (collection metadata, encounter history, trail descriptions) for taste profiling, discovery digests, memoir generation, trail description enhancement, and personalised recommendations.</p>
+</li>
+</ol>
+<h3>4.2 Automated Decision-Making (GDPR Article 22 / POPIA Section 71)</h3>
+<p><strong>We do not make decisions that produce legal effects or similarly significantly affect you based solely on automated processing.</strong> Specifically:</p>
+<ul>
+<li><strong>AI-generated valuations are explicitly experimental</strong>, labeled as such in the interface, collapsed by default, and are <strong>excluded from all portfolio totals and financial calculations</strong>. The valuation hierarchy is: invoice/receipt first, then professional valuation, then acquisition price. AI estimates are never used for financial purposes.</li>
+<li><strong>AI taste profiling</strong> provides recommendations but does not restrict access to any content or features.</li>
+<li><strong>AI condition assessments</strong> supplement (never replace) professional assessments and have no effect on insurance summaries or valuations.</li>
+</ul>
+<p>You have the right to:</p>
+<ul>
+<li><strong>Obtain human review</strong> of any AI-generated insight by contacting <a href="mailto:dpo@atteste.art">dpo@atteste.art</a></li>
+<li><strong>Express your point of view</strong> and contest any AI output</li>
+<li><strong>Opt out entirely</strong> from AI processing via the Service settings without losing access to non-AI features</li>
+</ul>
+<h3>4.3 AI Data Minimisation</h3>
+<p>We send only the minimum data necessary to each AI processor:</p>
+<ul>
+<li>Gemini receives only the specific image(s) being analysed, with no account identifiers</li>
+<li>Claude receives artwork metadata and encounter summaries, with no financial data, passwords, or email addresses</li>
+</ul>
+<hr>
+<h2>5. Data Sharing &amp; Third Parties</h2>
+<blockquote>
+<p><strong>Summary:</strong> We share data only with essential service providers (Firebase, AI processors), with gallery partners in anonymised form (with your consent), and as required by law.</p>
+</blockquote>
+<h3>5.1 Data Processors</h3>
+<table>
+<thead>
+<tr>
+<th>Processor</th>
+<th>Purpose</th>
+<th>Location</th>
+<th>Safeguards</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Google Cloud / Firebase</strong></td>
+<td>Data storage, authentication, hosting, analytics</td>
+<td>United States (us-central1)</td>
+<td>Google Cloud Data Processing Addendum; SOC 2 Type II certified</td>
+</tr>
+<tr>
+<td><strong>Google (Gemini API)</strong></td>
+<td>AI image analysis</td>
+<td>United States</td>
+<td>Google Cloud AI Terms of Service; data not used to train models under current API terms</td>
+</tr>
+<tr>
+<td><strong>Anthropic (Claude API)</strong></td>
+<td>AI text generation, taste profiling, recommendations</td>
+<td>United States</td>
+<td>Anthropic Data Processing Agreement; data not used to train models under API terms</td>
+</tr>
+</tbody></table>
+<h3>5.2 Gallery Partners (Data Recipients)</h3>
+<p>Gallery partners who subscribe to Atteste&#39;s gallery analytics platform receive <strong>anonymised, aggregated data only</strong>. This includes visitor counts, aggregated taste distributions, and ranked lists of encountered works. <strong>No individual user data, names, emails, or identifiable encounter records are shared with gallery partners.</strong></p>
+<p>Gallery analytics sharing requires your separate, explicit consent. You can withdraw this consent at any time in the Service settings.</p>
+<h3>5.3 Other Disclosures</h3>
+<p>We may disclose your personal data:</p>
+<ul>
+<li><strong>To comply with legal obligations</strong> such as court orders, subpoenas, or regulatory requirements</li>
+<li><strong>To protect our rights</strong>, safety, or property, or those of our users or the public</li>
+<li><strong>In connection with a merger, acquisition, or sale of assets</strong>, in which case you will be notified of any change in data controller and your choices regarding your data</li>
+<li><strong>With your explicit consent</strong> for any purpose not described in this Policy</li>
+</ul>
+<p><strong>We do not sell your personal data.</strong> We do not share your personal data for cross-context behavioural advertising. We do not engage in data brokerage.</p>
+<h3>5.4 Content Screening &amp; Moderation Data</h3>
+<p>All images uploaded to the Service are screened for prohibited content using <strong>Google Cloud Vision SafeSearch</strong> before being processed by our AI analysis systems. This screening:</p>
+<ul>
+<li>Analyses the image for categories including adult content, violence, and other potentially harmful material</li>
+<li>Returns likelihood scores (not the image content itself) which are stored alongside your artwork records as content ratings and flags</li>
+<li>Occurs automatically as part of the image upload process</li>
+</ul>
+<p><strong>Moderation data we store:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Retention</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content rating (safe/mature/restricted)</td>
+<td>Artwork lifetime</td>
+<td>Display controls, mature content filtering</td>
+</tr>
+<tr>
+<td>SafeSearch flags</td>
+<td>Artwork lifetime</td>
+<td>Audit trail, content policy enforcement</td>
+</tr>
+<tr>
+<td>Moderation status</td>
+<td>Artwork lifetime</td>
+<td>Admin review workflow</td>
+</tr>
+<tr>
+<td>Moderation incidents (blocked content)</td>
+<td><strong>Minimum 1 year</strong></td>
+<td>Legal obligation — evidence preservation for law enforcement reporting under the US REPORT Act and SA Films and Publications Act</td>
+</tr>
+<tr>
+<td>Image hash (SHA-256) of blocked content</td>
+<td><strong>Minimum 1 year</strong></td>
+<td>Evidence identification without storing the original image in accessible systems</td>
+</tr>
+</tbody></table>
+<h3>5.5 Law Enforcement Cooperation</h3>
+<p>We cooperate with law enforcement authorities in accordance with applicable law:</p>
+<ul>
+<li><strong>Mandatory reporting:</strong> We are legally required to report child sexual abuse material (CSAM) to the National Center for Missing &amp; Exploited Children (NCMEC) and the South African Police Service (SAPS). Reports include user identification data, the blocked content, timestamps, and IP addresses where available.</li>
+<li><strong>Legal process:</strong> We may disclose your information in response to valid legal process such as court orders, subpoenas, or search warrants.</li>
+<li><strong>Good faith disclosure:</strong> We may disclose information where we believe in good faith that disclosure is necessary to prevent imminent bodily harm, fraud, or criminal activity.</li>
+<li><strong>Evidence preservation:</strong> When content is blocked by our screening system, we preserve the evidence (image data and metadata) in a restricted storage location for the legally required retention period (minimum 1 year), accessible only to law enforcement upon valid legal request.</li>
+</ul>
+<hr>
+<h2>6. International Data Transfers</h2>
+<blockquote>
+<p><strong>Summary:</strong> Your data is stored and processed in the United States. We use legally recognised transfer mechanisms to protect your data when it moves across borders.</p>
+</blockquote>
+<h3>6.1 Primary Data Location</h3>
+<p>All Service data is stored on Google Cloud / Firebase infrastructure in the <strong>us-central1</strong> region (Council Bluffs, Iowa, United States).</p>
+<h3>6.2 Transfer Mechanisms</h3>
+<p>For users in the European Economic Area (EEA), United Kingdom, South Africa, Brazil, Canada, and other jurisdictions that restrict international data transfers, we rely on the following mechanisms:</p>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>Mechanism</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>EEA</strong></td>
+<td>EU-US Data Privacy Framework (DPF); Standard Contractual Clauses (SCCs) as fallback</td>
+<td>DPF adequacy decision adopted July 2023</td>
+</tr>
+<tr>
+<td><strong>United Kingdom</strong></td>
+<td>UK Extension to the EU-US DPF; International Data Transfer Agreement (IDTA) / UK Addendum to SCCs</td>
+<td>UK adequacy regulations in force</td>
+</tr>
+<tr>
+<td><strong>South Africa</strong></td>
+<td>POPIA Section 72 — consent, contract necessity, and adequate safeguards via SCCs</td>
+<td>SCCs in place with processors</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>LGPD Article 33 — consent and standard contractual clauses</td>
+<td>SCCs in place with processors</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>PIPEDA deemed adequate by EU Commission; contractual safeguards with sub-processors</td>
+<td>Ongoing</td>
+</tr>
+</tbody></table>
+<h3>6.3 Your Rights Regarding Transfers</h3>
+<p>You have the right to request a copy of the relevant transfer safeguards by contacting <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>. If a transfer mechanism is invalidated by a court or regulator, we will promptly implement alternative lawful safeguards or, if none are available, cease the relevant transfers.</p>
+<hr>
+<h2>7. Data Retention</h2>
+<blockquote>
+<p><strong>Summary:</strong> We keep your data only as long as necessary for the purposes described in this Policy or as required by law. You can delete your account and data at any time.</p>
+</blockquote>
+<h3>7.1 Retention Schedule</h3>
+<table>
+<thead>
+<tr>
+<th>Data Category</th>
+<th>Retention Period</th>
+<th>Trigger for Deletion</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Account data</strong> (name, email, country)</td>
+<td>Account lifetime</td>
+<td>Account deletion request</td>
+</tr>
+<tr>
+<td><strong>Password hash</strong></td>
+<td>Account lifetime</td>
+<td>Account deletion (managed by Firebase Auth)</td>
+</tr>
+<tr>
+<td><strong>Profile photo</strong></td>
+<td>Until you remove it or delete account</td>
+<td>Photo removal or account deletion</td>
+</tr>
+<tr>
+<td><strong>Artwork records and metadata</strong></td>
+<td>Account lifetime</td>
+<td>Per-artwork deletion or account deletion</td>
+</tr>
+<tr>
+<td><strong>Artwork photographs</strong></td>
+<td>Account lifetime</td>
+<td>Per-image deletion or account deletion</td>
+</tr>
+<tr>
+<td><strong>Financial data</strong> (prices, valuations)</td>
+<td>Account lifetime</td>
+<td>Associated artwork deletion or account deletion</td>
+</tr>
+<tr>
+<td><strong>GPS coordinates and encounter records</strong></td>
+<td>Lifetime of encounter record</td>
+<td>Per-encounter deletion or account deletion</td>
+</tr>
+<tr>
+<td><strong>AI-generated taste profile</strong></td>
+<td>Until you delete it or delete account</td>
+<td>Profile reset, consent withdrawal, or account deletion</td>
+</tr>
+<tr>
+<td><strong>AI-generated digests and memoirs</strong></td>
+<td>Account lifetime</td>
+<td>Individual record deletion or account deletion</td>
+</tr>
+<tr>
+<td><strong>Provenance records</strong></td>
+<td>Account lifetime (append-only chain)</td>
+<td>Account deletion (individual records cannot be deleted to maintain chain integrity)</td>
+</tr>
+<tr>
+<td><strong>Condition reports</strong></td>
+<td>Account lifetime (append-only)</td>
+<td>Account deletion</td>
+</tr>
+<tr>
+<td><strong>Certificates</strong></td>
+<td>Account lifetime</td>
+<td>Account deletion</td>
+</tr>
+<tr>
+<td><strong>Heir designations and letters</strong></td>
+<td>Account lifetime</td>
+<td>Individual deletion or account deletion</td>
+</tr>
+<tr>
+<td><strong>Emergency access tokens</strong></td>
+<td>Until revoked or account deleted</td>
+<td>Token revocation or account deletion</td>
+</tr>
+<tr>
+<td><strong>Public profile</strong></td>
+<td>Until toggled off or account deleted</td>
+<td>Opt-out toggle or account deletion</td>
+</tr>
+<tr>
+<td><strong>Gamification data</strong> (XP, achievements)</td>
+<td>Account lifetime</td>
+<td>Account deletion</td>
+</tr>
+<tr>
+<td><strong>Gallery analytics</strong> (aggregated)</td>
+<td>Indefinite (anonymised data)</td>
+<td>Cannot be attributed back to individuals</td>
+</tr>
+<tr>
+<td><strong>Travel mode country</strong></td>
+<td>Session only</td>
+<td>Automatically cleared when deactivated (not persisted to database)</td>
+</tr>
+<tr>
+<td><strong>Authentication logs</strong></td>
+<td>90 days</td>
+<td>Automatic expiry</td>
+</tr>
+<tr>
+<td><strong>Backup copies</strong></td>
+<td>30 days after primary deletion</td>
+<td>Automatic purge</td>
+</tr>
+</tbody></table>
+<h3>7.2 Account Deletion</h3>
+<p>When you delete your account:</p>
+<ol>
+<li>Your personal data is marked for deletion immediately</li>
+<li>Active data is removed from production systems within <strong>30 days</strong></li>
+<li>Backup copies are purged within an additional <strong>30 days</strong></li>
+<li>Anonymised, aggregated data (such as gallery analytics contributions) is retained as it cannot be attributed to you</li>
+<li>We may retain limited data as required by law (e.g., transaction records for tax purposes) for the legally mandated period</li>
+</ol>
+<p>To request account deletion, use the &quot;Delete Account&quot; option in the Service settings or email <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>.</p>
+<hr>
+<h2>8. Your Rights</h2>
+<blockquote>
+<p><strong>Summary:</strong> Depending on your jurisdiction, you have comprehensive rights over your personal data including access, correction, deletion, portability, and the right to object to or restrict processing. We respond to all requests within 30 days.</p>
+</blockquote>
+<h3>8.1 Universal Rights (All Users)</h3>
+<p>Regardless of where you are located, you have the right to:</p>
+<table>
+<thead>
+<tr>
+<th>Right</th>
+<th>Description</th>
+<th>How to Exercise</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Access</strong></td>
+<td>Obtain a copy of your personal data we hold</td>
+<td>Service settings &gt; &quot;Export My Data&quot; or email <a href="mailto:dpo@atteste.art">dpo@atteste.art</a></td>
+</tr>
+<tr>
+<td><strong>Correction</strong></td>
+<td>Correct inaccurate or incomplete personal data</td>
+<td>Edit directly in the Service or email <a href="mailto:dpo@atteste.art">dpo@atteste.art</a></td>
+</tr>
+<tr>
+<td><strong>Deletion</strong></td>
+<td>Request deletion of your personal data</td>
+<td>Service settings &gt; &quot;Delete Account&quot; or email <a href="mailto:dpo@atteste.art">dpo@atteste.art</a></td>
+</tr>
+<tr>
+<td><strong>Withdraw consent</strong></td>
+<td>Withdraw any consent previously given</td>
+<td>Service settings (AI consent, gallery analytics, location) or email <a href="mailto:dpo@atteste.art">dpo@atteste.art</a></td>
+</tr>
+<tr>
+<td><strong>Data portability</strong></td>
+<td>Receive your data in a structured, machine-readable format (JSON)</td>
+<td>Service settings &gt; &quot;Export My Data&quot;</td>
+</tr>
+<tr>
+<td><strong>Lodge a complaint</strong></td>
+<td>Complain to a supervisory authority (see Section 13.4)</td>
+<td>Contact the relevant authority directly</td>
+</tr>
+</tbody></table>
+<h3>8.2 Additional Rights by Jurisdiction</h3>
+<table>
+<thead>
+<tr>
+<th>Right</th>
+<th align="center">GDPR/UK GDPR</th>
+<th align="center">POPIA</th>
+<th align="center">LGPD</th>
+<th align="center">CCPA/CPRA</th>
+<th align="center">PIPEDA</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Restriction of processing</strong></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td><strong>Object to processing</strong></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td><strong>Object to automated profiling</strong></td>
+<td align="center">Yes (Art. 22)</td>
+<td align="center">Yes (s71)</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td><strong>Do Not Sell / Do Not Share</strong></td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td><strong>Right to know categories of data</strong></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td><strong>Right to non-discrimination</strong></td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td><strong>Right to limit use of sensitive data</strong></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td><strong>Right to anonymisation</strong></td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+</tr>
+</tbody></table>
+<h3>8.3 How We Handle Requests</h3>
+<ul>
+<li><strong>Response time:</strong> Within <strong>30 days</strong> of receiving your verified request. If we need additional time (up to 60 additional days for complex requests under GDPR, or 45 additional days under CCPA), we will inform you within the initial 30-day period.</li>
+<li><strong>Verification:</strong> We will verify your identity before processing any request. For account holders, this typically requires authentication through the Service. For non-account requests, we may ask for additional verification.</li>
+<li><strong>Cost:</strong> The first copy of your data is provided free of charge. We may charge a reasonable fee for manifestly unfounded or excessive requests, or for additional copies, as permitted by applicable law.</li>
+<li><strong>Denial:</strong> If we deny a request, we will provide a written explanation of the reasons and your right to appeal or complain to a supervisory authority.</li>
+</ul>
+<h3>8.4 Authorised Agents</h3>
+<p>In jurisdictions that permit it (such as California under the CCPA), you may designate an authorised agent to exercise your rights on your behalf. The agent must provide written authorisation signed by you, and we may still verify your identity directly.</p>
+<hr>
+<h2>9. Children&#39;s Privacy</h2>
+<p>The Service is intended for users who are <strong>18 years of age or older</strong>. We do not knowingly collect personal data from anyone under 18. If we learn that we have collected personal data from a person under 18, we will delete that data promptly.</p>
+<p>If you are a parent or guardian and believe your child has provided us with personal data, please contact us at <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>.</p>
+<hr>
+<h2>10. Cookies &amp; Tracking Technologies</h2>
+<blockquote>
+<p><strong>Summary:</strong> We use only essential cookies required for the Service to function. We do not use third-party advertising or tracking cookies.</p>
+</blockquote>
+<h3>10.1 Cookies We Use</h3>
+<table>
+<thead>
+<tr>
+<th>Cookie / Technology</th>
+<th>Type</th>
+<th>Purpose</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Firebase Auth session</strong></td>
+<td>Essential</td>
+<td>Maintains your authentication state</td>
+<td>Session / persistent (configurable)</td>
+</tr>
+<tr>
+<td><strong>Firestore persistence</strong></td>
+<td>Essential</td>
+<td>Enables offline-capable cached data</td>
+<td>Persistent (IndexedDB)</td>
+</tr>
+<tr>
+<td><strong>Firebase Hosting</strong></td>
+<td>Essential</td>
+<td>Serves the web application</td>
+<td>Session</td>
+</tr>
+</tbody></table>
+<h3>10.2 What We Do Not Use</h3>
+<ul>
+<li>We do <strong>not</strong> use third-party advertising cookies</li>
+<li>We do <strong>not</strong> use cross-site tracking pixels or beacons</li>
+<li>We do <strong>not</strong> participate in real-time bidding or programmatic advertising</li>
+<li>We do <strong>not</strong> use social media tracking widgets</li>
+<li>We do <strong>not</strong> use Google Analytics or similar behavioural analytics tools on the Service</li>
+</ul>
+<h3>10.3 Managing Cookies</h3>
+<p>Because we use only essential cookies necessary for the Service to function, we do not display a cookie consent banner. You can delete cookies through your browser settings, but doing so may prevent the Service from functioning correctly (e.g., you will be logged out and cached data will be cleared).</p>
+<p>For more detailed information, please refer to our Cookie Policy (available at <a href="http://www.atteste.art/cookie-policy">www.atteste.art/cookie-policy</a>).</p>
+<hr>
+<h2>11. Data Security</h2>
+<blockquote>
+<p><strong>Summary:</strong> We implement industry-standard technical and organisational measures to protect your data, including encryption, access controls, and integrity hashing.</p>
+</blockquote>
+<h3>11.1 Technical Measures</h3>
+<ul>
+<li><strong>Encryption in transit:</strong> All data transmitted between your device and our servers is encrypted using TLS 1.2 or higher</li>
+<li><strong>Encryption at rest:</strong> All data stored in Firebase / Google Cloud is encrypted at rest using AES-256 encryption</li>
+<li><strong>Authentication security:</strong> Passwords are cryptographically hashed by Firebase Auth (bcrypt/scrypt); we never store or have access to plaintext passwords</li>
+<li><strong>Data integrity:</strong> Provenance records, certificates, encounter records, condition reports, and heir designations are protected with SHA-256 integrity hashing to detect tampering</li>
+<li><strong>Hash-linked chains:</strong> Provenance records use hash-linked append-only chains, where each record references the hash of the previous record, creating a tamper-evident audit trail</li>
+<li><strong>Access controls:</strong> Service data is isolated per user with Firestore Security Rules enforcing user-level access</li>
+<li><strong>API security:</strong> All AI processor communications use authenticated API calls over encrypted channels</li>
+</ul>
+<h3>11.2 Organisational Measures</h3>
+<ul>
+<li>Access to production data is limited to authorised personnel on a need-to-know basis</li>
+<li>We conduct regular security reviews of our infrastructure and codebase</li>
+<li>Third-party processors are bound by data processing agreements with security obligations</li>
+<li>We maintain an incident response plan for potential data breaches</li>
+</ul>
+<h3>11.3 Breach Notification</h3>
+<p>In the event of a personal data breach that is likely to result in a risk to your rights and freedoms, we will:</p>
+<ul>
+<li>Notify the relevant supervisory authority within <strong>72 hours</strong> of becoming aware of the breach (GDPR / UK GDPR) or as otherwise required by applicable law</li>
+<li>Notify you directly without undue delay if the breach is likely to result in a <strong>high risk</strong> to your rights and freedoms</li>
+<li>Document all breaches, including those that do not require notification, in our internal breach register</li>
+</ul>
+<hr>
+<h2>12. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or for other operational reasons.</p>
+<p><strong>How we will notify you:</strong></p>
+<ul>
+<li><strong>Material changes:</strong> We will notify you by email and/or prominent notice within the Service at least <strong>30 days</strong> before the changes take effect</li>
+<li><strong>Non-material changes:</strong> Updated Policy will be posted on the Service with a new &quot;Effective Date&quot;</li>
+</ul>
+<p>Where required by law (e.g., LGPD), we will obtain your renewed consent for material changes to processing activities that rely on consent.</p>
+<p>We encourage you to review this Policy periodically. Your continued use of the Service after the effective date of a revised Policy constitutes acceptance of the changes (except where consent is required, in which case continued use requires affirmative consent).</p>
+<hr>
+<h2>13. Contact Us</h2>
+<h3>13.1 General Inquiries</h3>
+<p><strong>Yield SPM (Pty) Ltd</strong> (trading as Atteste)
+CIPC registration number: 2024/185151/07
+Registered office: 23 Kameeldoringdraai, Woodland Hills, Bloemfontein, Free State, 9301, Republic of South Africa
+Email: <a href="mailto:info@atteste.art">info@atteste.art</a>
+Legal: <a href="mailto:legal@atteste.art">legal@atteste.art</a>
+Website: <a href="http://www.atteste.art">www.atteste.art</a></p>
+<h3>13.2 Data Protection Inquiries</h3>
+<p><strong>Information Officer (POPIA, South Africa):</strong> Lindie le Roux
+<strong>Data Protection Officer (where appointed under Article 37 GDPR):</strong> <em>to be formally appointed</em>
+Email: <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>
+<em>(All enquiries are handled with equivalent care and response times in the interim. POPIA Information Officer registration with the South African Information Regulator is pending.)</em></p>
+<h3>13.3 Regional Representatives</h3>
+<table>
+<thead>
+<tr>
+<th>Jurisdiction</th>
+<th>Representative</th>
+<th>Contact</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>European Union / EEA</strong> (GDPR Art. 27)</td>
+<td><em>[ARTICLE 27 REPRESENTATIVE PENDING]</em></td>
+<td><a href="mailto:dpo@atteste.art">dpo@atteste.art</a> (until appointed)</td>
+</tr>
+<tr>
+<td><strong>United Kingdom</strong> (UK GDPR Art. 27)</td>
+<td><em>[UK ARTICLE 27 REPRESENTATIVE PENDING]</em></td>
+<td><a href="mailto:dpo@atteste.art">dpo@atteste.art</a> (until appointed)</td>
+</tr>
+<tr>
+<td><strong>South Africa</strong> (POPIA Information Officer)</td>
+<td>Yield SPM (Pty) Ltd / Lindie le Roux (Director)</td>
+<td><a href="mailto:dpo@atteste.art">dpo@atteste.art</a></td>
+</tr>
+<tr>
+<td><strong>Brazil</strong> (LGPD Art. 18 representative)</td>
+<td><em>To be appointed prior to active offering in Brazil</em></td>
+<td><a href="mailto:dpo@atteste.art">dpo@atteste.art</a></td>
+</tr>
+<tr>
+<td><strong>China — mainland</strong> (PIPL Art. 53 representative)</td>
+<td><em>To be appointed prior to active offering in mainland China</em></td>
+<td><a href="mailto:dpo@atteste.art">dpo@atteste.art</a></td>
+</tr>
+<tr>
+<td><strong>Nigeria</strong> (NDPA local representative)</td>
+<td><em>To be appointed prior to active offering in Nigeria</em></td>
+<td><a href="mailto:dpo@atteste.art">dpo@atteste.art</a></td>
+</tr>
+<tr>
+<td><strong>Kenya</strong> (DPA Act 2019)</td>
+<td><em>To be appointed prior to active offering in Kenya</em></td>
+<td><a href="mailto:dpo@atteste.art">dpo@atteste.art</a></td>
+</tr>
+</tbody></table>
+<h3>13.4 Supervisory Authorities</h3>
+<p>If you are unsatisfied with our handling of your data or response to your request, you have the right to lodge a complaint with your local supervisory authority. Key authorities for our 32 supported countries:</p>
+<table>
+<thead>
+<tr>
+<th>Jurisdiction</th>
+<th>Authority</th>
+<th>Website</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>South Africa</strong></td>
+<td>Information Regulator</td>
+<td>inforegulator.org.za</td>
+</tr>
+<tr>
+<td><strong>EU (Lead Authority)</strong></td>
+<td>Irish Data Protection Commission (or your local EU DPA)</td>
+<td>dataprotection.ie</td>
+</tr>
+<tr>
+<td><strong>France</strong></td>
+<td>CNIL — Commission Nationale de l&#39;Informatique et des Libertés</td>
+<td>cnil.fr</td>
+</tr>
+<tr>
+<td><strong>Germany</strong></td>
+<td>BfDI / state DPAs (Landesdatenschutzbehörden)</td>
+<td>bfdi.bund.de</td>
+</tr>
+<tr>
+<td><strong>Netherlands</strong></td>
+<td>Autoriteit Persoonsgegevens</td>
+<td>autoriteitpersoonsgegevens.nl</td>
+</tr>
+<tr>
+<td><strong>Italy</strong></td>
+<td>Garante per la protezione dei dati personali</td>
+<td>garanteprivacy.it</td>
+</tr>
+<tr>
+<td><strong>Spain</strong></td>
+<td>AEPD — Agencia Española de Protección de Datos</td>
+<td>aepd.es</td>
+</tr>
+<tr>
+<td><strong>Austria</strong></td>
+<td>Datenschutzbehörde</td>
+<td>dsb.gv.at</td>
+</tr>
+<tr>
+<td><strong>Belgium</strong></td>
+<td>Autorité de protection des données / Gegevensbeschermingsautoriteit</td>
+<td>autoriteprotectiondonnees.be</td>
+</tr>
+<tr>
+<td><strong>Sweden</strong></td>
+<td>IMY — Integritetsskyddsmyndigheten</td>
+<td>imy.se</td>
+</tr>
+<tr>
+<td><strong>Denmark</strong></td>
+<td>Datatilsynet</td>
+<td>datatilsynet.dk</td>
+</tr>
+<tr>
+<td><strong>Portugal</strong></td>
+<td>CNPD — Comissão Nacional de Protecção de Dados</td>
+<td>cnpd.pt</td>
+</tr>
+<tr>
+<td><strong>Norway</strong></td>
+<td>Datatilsynet</td>
+<td>datatilsynet.no</td>
+</tr>
+<tr>
+<td><strong>United Kingdom</strong></td>
+<td>Information Commissioner&#39;s Office (ICO)</td>
+<td>ico.org.uk</td>
+</tr>
+<tr>
+<td><strong>Switzerland</strong></td>
+<td>FDPIC — Federal Data Protection and Information Commissioner</td>
+<td>edoeb.admin.ch</td>
+</tr>
+<tr>
+<td><strong>United States — California</strong></td>
+<td>California Privacy Protection Agency (CPPA)</td>
+<td>cppa.ca.gov</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>Office of the Privacy Commissioner (OPC)</td>
+<td>priv.gc.ca</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>OAIC — Office of the Australian Information Commissioner</td>
+<td>oaic.gov.au</td>
+</tr>
+<tr>
+<td><strong>New Zealand</strong></td>
+<td>Office of the Privacy Commissioner</td>
+<td>privacy.org.nz</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>ANPD — Autoridade Nacional de Proteção de Dados</td>
+<td>gov.br/anpd</td>
+</tr>
+<tr>
+<td><strong>Argentina</strong></td>
+<td>AAIP — Agencia de Acceso a la Información Pública</td>
+<td>argentina.gob.ar/aaip</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>INAI — Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales</td>
+<td>inai.org.mx</td>
+</tr>
+<tr>
+<td><strong>Japan</strong></td>
+<td>PPC — Personal Information Protection Commission</td>
+<td>ppc.go.jp</td>
+</tr>
+<tr>
+<td><strong>South Korea</strong></td>
+<td>PIPC — Personal Information Protection Commission</td>
+<td>pipc.go.kr</td>
+</tr>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>PDPC — Personal Data Protection Commission</td>
+<td>pdpc.gov.sg</td>
+</tr>
+<tr>
+<td><strong>Hong Kong</strong></td>
+<td>PCPD — Privacy Commissioner for Personal Data</td>
+<td>pcpd.org.hk</td>
+</tr>
+<tr>
+<td><strong>China (mainland)</strong></td>
+<td>CAC — Cyberspace Administration of China</td>
+<td>cac.gov.cn</td>
+</tr>
+<tr>
+<td><strong>India</strong></td>
+<td>DPB — Data Protection Board (under DPDP Act, 2023)</td>
+<td>meity.gov.in</td>
+</tr>
+<tr>
+<td><strong>United Arab Emirates</strong></td>
+<td>UAE Data Office (federal) / DIFC Commissioner / ADGM Commissioner</td>
+<td>dataoffice.gov.ae</td>
+</tr>
+<tr>
+<td><strong>Nigeria</strong></td>
+<td>NDPC — Nigeria Data Protection Commission</td>
+<td>ndpc.gov.ng</td>
+</tr>
+<tr>
+<td><strong>Kenya</strong></td>
+<td>ODPC — Office of the Data Protection Commissioner</td>
+<td>odpc.go.ke</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>14. Jurisdiction-Specific Addenda</h2>
+<p>The following addenda supplement the main body of this Privacy Policy for users in specific jurisdictions. Where an addendum conflicts with the general provisions, the addendum prevails for users in that jurisdiction.</p>
+<hr>
+<h3>Addendum A: European Economic Area &amp; United Kingdom (GDPR / UK GDPR)</h3>
+<p>This addendum applies if you are located in the European Economic Area (EEA) or the United Kingdom (UK).</p>
+<p><strong>A.1 Lawful Bases for Processing</strong></p>
+<p>We process your personal data under the following lawful bases as defined by Article 6(1) of the GDPR:</p>
+<ul>
+<li><strong>(a) Consent</strong> (Article 6(1)(a)): AI processing, location data collection, gallery analytics sharing, public profile, estate planning features. You may withdraw consent at any time without affecting the lawfulness of processing performed before withdrawal.</li>
+<li><strong>(b) Performance of contract</strong> (Article 6(1)(b)): Account management, collection CRUD operations, provenance and certificate features, gamification, activity feed, service communications.</li>
+<li><strong>(f) Legitimate interest</strong> (Article 6(1)(f)): Service improvement (aggregated data), security and fraud prevention, follow relationships. Our legitimate interest assessments are available on request.</li>
+<li><strong>(c) Legal obligation</strong> (Article 6(1)(c)): Tax compliance, responding to lawful requests from authorities.</li>
+</ul>
+<p><strong>A.2 Special Categories of Data</strong></p>
+<p>We do not intentionally collect special categories of personal data (Article 9) such as racial or ethnic origin, political opinions, religious beliefs, health data, or biometric data. If artwork metadata or encounter notes you voluntarily enter contain such information, it is processed under Article 9(2)(a) (explicit consent, as you have chosen to enter it).</p>
+<p><strong>A.3 Automated Decision-Making</strong></p>
+<p>As detailed in Section 4, we do not make decisions based solely on automated processing that produce legal effects or similarly significantly affect you (Article 22(1)). All AI outputs are advisory and supplementary. You have the right to obtain human intervention, express your point of view, and contest any automated output.</p>
+<p><strong>A.4 International Transfers</strong></p>
+<p>Transfers to the United States are governed by the EU-US Data Privacy Framework and, where applicable, Standard Contractual Clauses (Module 2: Controller to Processor and Module 3: Processor to Processor) approved by the European Commission (Decision 2021/914). Transfer impact assessments have been conducted for each data flow.</p>
+<p><strong>A.5 Data Protection Officer</strong></p>
+<p>Our DPO can be reached at <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>. The DPO is involved in all matters relating to the protection of personal data and can be contacted directly for any inquiries.</p>
+<hr>
+<h3>Addendum B: California, United States (CCPA / CPRA)</h3>
+<p>This addendum applies if you are a California resident as defined by the California Consumer Privacy Act of 2018, as amended by the California Privacy Rights Act of 2020 (collectively, &quot;CCPA&quot;).</p>
+<p><strong>B.1 Categories of Personal Information Collected</strong></p>
+<p>Under CCPA Section 1798.110, the categories of personal information we have collected in the preceding 12 months include:</p>
+<table>
+<thead>
+<tr>
+<th>CCPA Category</th>
+<th>Examples from Atteste</th>
+<th>Business Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A. Identifiers</strong></td>
+<td>Name, email address, account ID</td>
+<td>Account management</td>
+</tr>
+<tr>
+<td><strong>B. Personal information per Cal. Civ. Code 1798.80(e)</strong></td>
+<td>Name, financial information (artwork values)</td>
+<td>Collection management</td>
+</tr>
+<tr>
+<td><strong>D. Commercial information</strong></td>
+<td>Artwork acquisition records, valuations, transaction history</td>
+<td>Portfolio management</td>
+</tr>
+<tr>
+<td><strong>E. Biometric information</strong></td>
+<td>Not collected</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>F. Internet or network activity</strong></td>
+<td>Service usage patterns</td>
+<td>Service improvement</td>
+</tr>
+<tr>
+<td><strong>G. Geolocation data</strong></td>
+<td>Precise GPS coordinates (with consent)</td>
+<td>Encounter logging, trails</td>
+</tr>
+<tr>
+<td><strong>H. Sensory data</strong></td>
+<td>Photographs of artworks (not of persons)</td>
+<td>AI analysis, collection display</td>
+</tr>
+<tr>
+<td><strong>I. Professional or employment information</strong></td>
+<td>Not collected</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>K. Inferences</strong></td>
+<td>AI-generated taste profile, artwork analysis</td>
+<td>Personalised recommendations</td>
+</tr>
+<tr>
+<td><strong>L. Sensitive personal information</strong></td>
+<td>Precise geolocation (with consent)</td>
+<td>Encounter logging</td>
+</tr>
+</tbody></table>
+<p><strong>B.2 Sale and Sharing of Personal Information</strong></p>
+<p><strong>We do not sell your personal information</strong> as defined by the CCPA. <strong>We do not share your personal information</strong> for cross-context behavioural advertising as defined by the CPRA.</p>
+<p>Because we do not sell or share personal information, we are not required to offer a &quot;Do Not Sell or Share&quot; opt-out. However, if you wish to confirm this or exercise any rights, contact <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>.</p>
+<p><strong>B.3 Right to Non-Discrimination</strong></p>
+<p>We will not discriminate against you for exercising your CCPA rights. You will not receive different pricing, a different quality of service, or be denied service for exercising your privacy rights.</p>
+<p><strong>B.4 Sensitive Personal Information</strong></p>
+<p>We collect precise geolocation data (with your consent) as sensitive personal information under the CPRA. You have the right to limit our use of sensitive personal information to purposes necessary to provide the Service. Contact <a href="mailto:dpo@atteste.art">dpo@atteste.art</a> to exercise this right.</p>
+<p><strong>B.5 Retention</strong></p>
+<p>We retain personal information for as long as reasonably necessary for the purposes described in Section 7. We do not retain personal information for longer than is necessary for each disclosed purpose.</p>
+<p><strong>B.6 Authorised Agent</strong></p>
+<p>You may designate an authorised agent to make CCPA requests on your behalf by providing the agent with signed, written permission and by verifying your identity with us directly.</p>
+<p><strong>B.7 Contact for CCPA Requests</strong></p>
+<p>California residents may submit requests by emailing <a href="mailto:dpo@atteste.art">dpo@atteste.art</a> with the subject line &quot;CCPA Request.&quot; We will respond within 45 days (with a possible 45-day extension for complex requests, upon notice to you).</p>
+<hr>
+<h3>Addendum C: South Africa (Protection of Personal Information Act, 2013 — POPIA)</h3>
+<p>This addendum applies if you are a data subject located in the Republic of South Africa. As Yield SPM (Pty) Ltd is a South African company, POPIA is also the principal data-protection regime under which we operate; this addendum supplements the general provisions of this Policy.</p>
+<p><strong>C.1 Responsible Party</strong></p>
+<p>The responsible party for purposes of POPIA is <strong>Yield SPM (Pty) Ltd</strong>, contactable at <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>. Registration of our Information Officer with the South African Information Regulator is pending.</p>
+<p><strong>C.2 Conditions for Lawful Processing</strong></p>
+<p>We process your personal information in compliance with the eight conditions for lawful processing under POPIA Chapter 3:</p>
+<ol>
+<li><strong>Accountability</strong> (Section 8): We are responsible for compliance and have designated an Information Officer.</li>
+<li><strong>Processing limitation</strong> (Sections 9-12): We process personal information only for the purposes specified in this Policy, with your consent or as otherwise permitted.</li>
+<li><strong>Purpose specification</strong> (Sections 13-14): We collect personal information for specific, explicitly defined, and lawful purposes.</li>
+<li><strong>Further processing limitation</strong> (Section 15): We do not process personal information for purposes incompatible with the original purpose of collection.</li>
+<li><strong>Information quality</strong> (Section 16): We take reasonable steps to ensure personal information is complete, accurate, and not misleading.</li>
+<li><strong>Openness</strong> (Sections 17-18): This Policy serves as our notification under Section 18. Our PAIA manual will be available on request.</li>
+<li><strong>Security safeguards</strong> (Sections 19-22): We implement appropriate technical and organisational measures (see Section 11).</li>
+<li><strong>Data subject participation</strong> (Sections 23-25): You may access, correct, and delete your personal information (see Section 8).</li>
+</ol>
+<p><strong>C.3 Cross-Border Transfers (Section 72)</strong></p>
+<p>Your personal information is transferred to the United States for processing. This transfer is permitted under Section 72 because:</p>
+<ul>
+<li>You have consented to the transfer (Section 72(1)(a))</li>
+<li>The transfer is necessary for the performance of a contract between you and us (Section 72(1)(b))</li>
+<li>The recipient (Google Cloud, Anthropic) is subject to binding contractual obligations providing an adequate level of protection (Section 72(1)(e))</li>
+</ul>
+<p><strong>C.4 Automated Decision-Making (Section 71)</strong></p>
+<p>We do not make decisions that significantly affect you based solely on automated processing. See Section 4 for details.</p>
+<p><strong>C.5 Direct Marketing (Section 69)</strong></p>
+<p>We do not engage in direct marketing using your personal information without your opt-in consent. Service communications related to your account are transactional in nature and are not considered direct marketing.</p>
+<p><strong>C.6 Complaints</strong></p>
+<p>You may lodge a complaint with the Information Regulator of South Africa:</p>
+<ul>
+<li>Website: inforegulator.org.za</li>
+<li>Email: <a href="mailto:enquiries@inforegulator.org.za">enquiries@inforegulator.org.za</a></li>
+</ul>
+<hr>
+<h3>Addendum D: Brazil (Lei Geral de Protecao de Dados — LGPD)</h3>
+<p>This addendum applies if you are a data subject located in Brazil.</p>
+<p><strong>D.1 Legal Bases for Processing</strong></p>
+<p>Under LGPD Article 7, we process your personal data on the following legal bases:</p>
+<ul>
+<li><strong>Consent</strong> (Article 7(I)): AI processing, location data, gallery analytics, social features, estate features</li>
+<li><strong>Contract execution</strong> (Article 7(V)): Account management, collection features, gamification</li>
+<li><strong>Legitimate interest</strong> (Article 7(IX)): Service improvement, security</li>
+<li><strong>Legal obligation</strong> (Article 7(II)): Tax and regulatory compliance</li>
+</ul>
+<p><strong>D.2 International Transfers (Article 33)</strong></p>
+<p>Your data is transferred to the United States under:</p>
+<ul>
+<li>Your explicit, informed consent (Article 33(VIII))</li>
+<li>Standard contractual clauses (Article 33(II)(b))</li>
+</ul>
+<p><strong>D.3 Your Rights Under LGPD (Article 18)</strong></p>
+<p>In addition to the rights in Section 8, Brazilian users have the right to:</p>
+<ul>
+<li><strong>Confirmation of processing</strong> (Article 18(I))</li>
+<li><strong>Anonymisation, blocking, or elimination</strong> of unnecessary or excessive data (Article 18(IV))</li>
+<li><strong>Information about public and private entities</strong> with which your data has been shared (Article 18(VII))</li>
+<li><strong>Revocation of consent</strong> (Article 18(IX))</li>
+</ul>
+<p><strong>D.4 Data Protection Officer (Encarregado)</strong></p>
+<p>Our Encarregado can be reached at <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>.</p>
+<p><strong>D.5 Complaints</strong></p>
+<p>You may lodge a complaint with the ANPD (Autoridade Nacional de Protecao de Dados) at gov.br/anpd.</p>
+<hr>
+<h3>Addendum E: Canada (Personal Information Protection and Electronic Documents Act — PIPEDA)</h3>
+<p>This addendum applies if you are located in Canada.</p>
+<p><strong>E.1 PIPEDA Principles</strong></p>
+<p>We process your personal information in accordance with the ten fair information principles in Schedule 1 of PIPEDA:</p>
+<ol>
+<li><strong>Accountability:</strong> We are responsible for personal information under our control and have designated a privacy officer (<a href="mailto:dpo@atteste.art">dpo@atteste.art</a>).</li>
+<li><strong>Identifying purposes:</strong> We identify the purposes for collection at or before the time of collection.</li>
+<li><strong>Consent:</strong> We obtain meaningful consent for collection, use, and disclosure. You may withdraw consent at any time, subject to legal or contractual restrictions.</li>
+<li><strong>Limiting collection:</strong> We collect only the personal information necessary for identified purposes.</li>
+<li><strong>Limiting use, disclosure, and retention:</strong> We use and disclose personal information only for the purposes identified, and retain it only as long as necessary.</li>
+<li><strong>Accuracy:</strong> We keep personal information as accurate and up-to-date as necessary.</li>
+<li><strong>Safeguards:</strong> We protect personal information with appropriate security measures (see Section 11).</li>
+<li><strong>Openness:</strong> This Policy makes our practices readily available.</li>
+<li><strong>Individual access:</strong> You may request access to your personal information and challenge its accuracy.</li>
+<li><strong>Challenging compliance:</strong> You may challenge our compliance by contacting <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>.</li>
+</ol>
+<p><strong>E.2 Cross-Border Transfers</strong></p>
+<p>Your personal information may be processed in the United States by our service providers (Google Cloud, Anthropic). These providers are bound by contractual obligations to protect your data. Under PIPEDA, we remain accountable for your personal information when it is transferred to a third party for processing.</p>
+<p><strong>E.3 Complaints</strong></p>
+<p>You may file a complaint with the Office of the Privacy Commissioner of Canada at priv.gc.ca.</p>
+<hr>
+<h3>Addendum F: Switzerland (Federal Act on Data Protection — FADP)</h3>
+<p>This addendum applies if you are a data subject located in Switzerland.</p>
+<p><strong>F.1 Lawful Basis and Rights.</strong> We process your personal data in accordance with the revised FADP (in force 1 September 2023). You have the right to information about processing, access, correction, erasure, restriction, objection, and data portability. Where consent is required, you may withdraw it at any time without affecting the lawfulness of prior processing.</p>
+<p><strong>F.2 International Transfers.</strong> Where we transfer personal data from Switzerland to a country without adequate protection, we rely on the European Commission&#39;s Standard Contractual Clauses with the Swiss FDPIC supplement, or another lawful-transfer mechanism recognised by the FDPIC.</p>
+<p><strong>F.3 Supervisory Authority.</strong> Federal Data Protection and Information Commissioner (FDPIC) — edoeb.admin.ch.</p>
+<hr>
+<h3>Addendum G: Australia (Privacy Act 1988 / Australian Privacy Principles)</h3>
+<p>This addendum applies if you are an individual located in Australia. We comply with the 13 Australian Privacy Principles (APPs) under the Privacy Act 1988 (Cth). You may seek access to and correction of your personal information, complain to us about our handling of personal information, and lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at oaic.gov.au. We do not disclose personal information to overseas recipients without taking reasonable steps to ensure the recipient handles the information consistently with the APPs (APP 8).</p>
+<hr>
+<h3>Addendum H: New Zealand (Privacy Act 2020)</h3>
+<p>This addendum applies if you are an individual located in New Zealand. We comply with the 13 Information Privacy Principles (IPPs) under the Privacy Act 2020. You may complain to us, and to the Office of the Privacy Commissioner at privacy.org.nz. Cross-border disclosures are made only in accordance with IPP 12.</p>
+<hr>
+<h3>Addendum I: Japan, South Korea, Singapore, Hong Kong, China, India, UAE — Asia-Pacific &amp; Middle East regimes</h3>
+<p>This addendum applies if you are a data subject in any of the listed jurisdictions. The general provisions of this Policy apply, supplemented by the regime-specific points below.</p>
+<p><strong>I.1 Japan (APPI).</strong> We process personal information in accordance with the Act on the Protection of Personal Information. You have rights of disclosure, correction, suspension of use, and complaint to the Personal Information Protection Commission (ppc.go.jp). Cross-border transfers are made on the basis of adequacy, equivalent-protection or your consent under Article 28 APPI.</p>
+<p><strong>I.2 South Korea (PIPA).</strong> We process personal information in accordance with the Personal Information Protection Act. You have rights of access, correction, deletion, suspension of processing, and damages. Sensitive information and unique identifiers are processed only on the bases recognised in PIPA. The Personal Information Protection Commission (pipc.go.kr) is the lead authority.</p>
+<p><strong>I.3 Singapore (PDPA).</strong> We process personal data in accordance with the Personal Data Protection Act 2012. You have rights of access and correction. We respect the Do Not Call provisions where applicable. Complaints may be made to the Personal Data Protection Commission (pdpc.gov.sg).</p>
+<p><strong>I.4 Hong Kong (PDPO).</strong> We process personal data in accordance with the Personal Data (Privacy) Ordinance (Cap. 486) and the six Data Protection Principles. You have rights of access and correction (DPP 6). Complaints may be made to the PCPD (pcpd.org.hk).</p>
+<p><strong>I.5 China — mainland (PIPL).</strong> Where we offer the Service to data subjects in mainland China, we process personal information in accordance with the Personal Information Protection Law, the Cybersecurity Law and the Data Security Law. We obtain separate consent for sensitive personal information and for cross-border transfers where required. Cross-border transfers are conducted on the basis of the standard contract issued by the Cyberspace Administration of China (CAC) where applicable, or another lawful basis under PIPL. A local representative will be appointed pursuant to Article 53 PIPL prior to active offering in mainland China.</p>
+<p><strong>I.6 India (DPDP Act).</strong> We process digital personal data in accordance with the Digital Personal Data Protection Act, 2023. You are entitled to a notice in your preferred language (where available), to give and withdraw consent, to access, correction, completion, updating and erasure of personal data, and to grievance redressal. Complaints may be made to the Data Protection Board.</p>
+<p><strong>I.7 United Arab Emirates (PDPL &amp; free-zone regimes).</strong> We process personal data in accordance with Federal Decree-Law No. 45 of 2021 (PDPL) outside the financial free zones, and with DIFC Data Protection Law No. 5 of 2020 or the ADGM Data Protection Regulations 2021 within those free zones, as applicable. The UAE Data Office, DIFC Commissioner of Data Protection, and ADGM Office of Data Protection are the relevant authorities.</p>
+<hr>
+<h3>Addendum J: Brazil (LGPD — already covered above) / Argentina / Mexico — Latin America regimes</h3>
+<p>This addendum supplements Addendum D (Brazil) for users in Argentina and Mexico.</p>
+<p><strong>J.1 Argentina.</strong> We process personal data in accordance with the Personal Data Protection Act (Law No. 25.326). You may exercise your rights of access, rectification, updating, and suppression with us, and lodge a complaint with the AAIP. Cross-border transfers are made on the bases recognised in Article 12 of Law 25.326.</p>
+<p><strong>J.2 Mexico.</strong> We process personal data in accordance with the Federal Law on Protection of Personal Data Held by Private Parties (LFPDPPP) and its Regulations. You have ARCO rights (Access, Rectification, Cancellation, Opposition) and the right to revoke consent. The Privacy Notice required by the LFPDPPP is provided through this Policy and the in-app consent flow. Complaints may be made to INAI (inai.org.mx).</p>
+<hr>
+<h3>Addendum K: Nigeria (NDPA) and Kenya (Data Protection Act 2019) — African regimes (other than South Africa)</h3>
+<p>This addendum supplements Addendum C (POPIA) for users in Nigeria and Kenya.</p>
+<p><strong>K.1 Nigeria.</strong> We process personal data in accordance with the Nigeria Data Protection Act, 2023 (NDPA) and the Nigeria Data Protection Regulation 2019 (NDPR). The Nigeria Data Protection Commission (ndpc.gov.ng) is the lead authority. We will appoint a local representative prior to active systematic offering in Nigeria.</p>
+<p><strong>K.2 Kenya.</strong> We process personal data in accordance with the Data Protection Act, 2019 and Regulations made under it. You have rights of access, correction, deletion, restriction of processing, objection, and data portability. The Office of the Data Protection Commissioner (odpc.go.ke) is the lead authority.</p>
+<hr>
+<h3>Addendum L: United States — non-California state privacy laws</h3>
+<p>In addition to Addendum B (California), residents of Virginia, Colorado, Connecticut, Utah, Texas, and other US states with comprehensive privacy laws have rights of access, correction, deletion, data portability, and (where applicable) opt-out of targeted advertising, sale of personal data, and certain forms of profiling. We do not sell personal data, conduct targeted advertising on the Service, or perform high-risk profiling that would trigger opt-out rights under those laws as currently in force. To exercise your rights, contact <a href="mailto:dpo@atteste.art">dpo@atteste.art</a> and identify your state of residence so we can apply the correct standard.</p>
+<hr>
+<h3>Addendum M: Other Jurisdictions</h3>
+<p>If you are located in a jurisdiction not specifically addressed above, the general provisions of this Privacy Policy apply, and we will apply GDPR-grade safeguards as a universal baseline. We are committed to respecting the privacy rights granted to you under your local law. If you have questions about how your local law applies to your use of the Service, please contact <a href="mailto:dpo@atteste.art">dpo@atteste.art</a>.</p>
+<hr>
+<p><em>This Privacy Policy was last updated on 2026-04-25 (Version 2.0).</em></p>
+<p><em>Copyright 2026 Yield SPM (Pty) Ltd. All rights reserved.</em></p>
 
-<nav>
-  <div class="nav-brand">Attest<span>é</span></div>
-  <a class="nav-back" href="/">&larr; Back to home</a>
-</nav>
-
-<div class="container">
-  <h1>Privacy Policy</h1>
-  <p class="last-updated">Last updated: 27 March 2026</p>
-
-  <p>Attesté ("we", "us", or "our") is committed to protecting your privacy. This policy explains how we collect, use, disclose, and safeguard your information when you use the Attesté platform and website (atteste.art).</p>
-
-  <h2>1. Information We Collect</h2>
-  <p>We collect information you provide directly to us, such as:</p>
-  <ul>
-    <li>Account registration details (name, email address, password)</li>
-    <li>Art collection data you add (artwork details, images, provenance documents)</li>
-    <li>Profile information and preferences</li>
-    <li>Payment information (processed securely via our payment provider — we do not store card details)</li>
-    <li>Communications you send us</li>
-  </ul>
-  <p>We also collect certain information automatically when you use our services, including device type, IP address, browser type, pages visited, and usage patterns.</p>
-
-  <h2>2. How We Use Your Information</h2>
-  <ul>
-    <li>To provide, maintain, and improve the Attesté platform</li>
-    <li>To process transactions and send related notices</li>
-    <li>To send service-related communications and updates</li>
-    <li>To personalise your experience and AI-powered recommendations</li>
-    <li>To respond to your enquiries and provide support</li>
-    <li>To analyse usage and improve our services</li>
-    <li>To comply with legal obligations</li>
-  </ul>
-
-  <h2>3. Sharing Your Information</h2>
-  <p>We do not sell your personal information. We may share information with:</p>
-  <ul>
-    <li><strong>Service providers</strong> who assist in operating our platform (hosting, analytics, payment processing)</li>
-    <li><strong>Other users</strong>, only information you choose to make public in your profile or collections</li>
-    <li><strong>Legal authorities</strong>, when required by law or to protect rights and safety</li>
-  </ul>
-
-  <h2>4. Data Storage and Security</h2>
-  <p>Your data is stored securely using Google Firebase infrastructure. We implement industry-standard security measures including encryption in transit and at rest. While we strive to protect your information, no method of transmission over the Internet is 100% secure.</p>
-
-  <h2>5. Your Rights</h2>
-  <p>Depending on your location, you may have the right to:</p>
-  <ul>
-    <li>Access the personal information we hold about you</li>
-    <li>Request correction of inaccurate data</li>
-    <li>Request deletion of your account and associated data</li>
-    <li>Object to or restrict certain processing</li>
-    <li>Data portability (export your collection data)</li>
-  </ul>
-  <p>To exercise these rights, contact us at <a href="mailto:privacy@atteste.art">privacy@atteste.art</a>.</p>
-
-  <h2>6. Cookies</h2>
-  <p>We use cookies and similar tracking technologies to operate our website and services. You can control cookies through your browser settings. Disabling cookies may affect certain functionality.</p>
-
-  <h2>7. Children's Privacy</h2>
-  <p>Attesté is not directed to children under 16. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately.</p>
-
-  <h2>8. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on this page and updating the "last updated" date. Your continued use of the platform after changes constitutes acceptance.</p>
-
-  <h2>9. Contact Us</h2>
-  <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-  <ul>
-    <li>Email: <a href="mailto:privacy@atteste.art">privacy@atteste.art</a></li>
-    <li>General: <a href="mailto:info@atteste.art">info@atteste.art</a></li>
-  </ul>
-</div>
-
-<footer>
-  &copy; 2026 Attesté. All rights reserved. &nbsp;|&nbsp;
-  <a href="/privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
-  <a href="/terms.html">Terms of Service</a>
-</footer>
-
+    </article>
+    <footer>
+      <p>Operator: Yield SPM (Pty) Ltd, Republic of South Africa.<br>
+      Contact: <a href="mailto:dpo@atteste.art">dpo@atteste.art</a><br>
+      Version 2.0 · Effective 2026-04-25</p>
+    </footer>
+  </main>
 </body>
 </html>
