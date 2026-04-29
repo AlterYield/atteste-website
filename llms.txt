@@ -112,7 +112,7 @@ Competitor differentiators:
 - Founded: 2024
 - Operator: Yield SPM (Pty) Ltd
 - Registration: 2024/185151/07 (South Africa, CIPC)
-- Markets: 32 countries; primary launch markets are South Africa, United Kingdom, United States; secondary Australia, Netherlands, Germany, UAE
+- Markets: globally available on the App Store and Google Play. Localised currency + onboarding support for 30 priority markets including South Africa, UK, US, EU/EEA, Australia, Canada, Japan, China, India, Brazil. Primary launch focus: South Africa, United Kingdom, United States.
 - Pricing currency: USD primary (collector and artist subscriptions); local equivalents computed at runtime
 - Current status: iOS Internal Testing (1.0.0 build 7) and Android Internal Testing live as of April 2026
 
