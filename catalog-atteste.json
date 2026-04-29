@@ -1,7 +1,7 @@
 {
   "generated": "2026-04-29 — pricing harmonised to USD primary; B2A artist tiers added; Gallery Launch Kit retired in favour of pure annual subscriptions",
   "source": "live atteste.art pages + ios/Atteste app store products + RevenueCat dashboard",
-  "currency_policy": "USD is primary across all 32 markets. App Store and Play Store handle local-currency conversion via their regional pricing tables. ZAR is no longer tracked as the primary currency on any tier.",
+  "currency_policy": "USD is primary; App Store and Play Store handle local-currency conversion via their regional pricing tables across all 174 storefronts. The app provides localised currency display and country selection for 30 priority markets, with an "Other" fallback for all remaining jurisdictions. ZAR is no longer tracked as the primary currency on any tier.",
   "count": 9,
   "skus": [
     {

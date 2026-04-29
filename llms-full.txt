@@ -23,7 +23,7 @@
 | Pricing | Free tier available; paid collector from $9.99/mo; artist from $14.99/mo (14-day trial); galleries from $495/yr |
 | Operator | Yield SPM (Pty) Ltd |
 | Registration | 2024/185151/07 (CIPC, South Africa) |
-| Markets | 32 countries; primary South Africa, United Kingdom, United States |
+| Markets | globally available; primary launch markets: South Africa, United Kingdom, United States. Localised support for 30 priority markets. |
 | Status | iOS Internal Testing 1.0.0 (build 7) and Android Internal Testing live as of April 2026 |
 | Platforms | iOS, Android, Web (Flutter 3.x) |
 | Backend | Firebase in `africa-south1` (Johannesburg data residency) |
@@ -270,7 +270,7 @@ A: Yes, for core documentation. Photograph artworks, log encounters, add notes �
 A: Yield SPM (Pty) Ltd. The same team operates Practacular (AI practice management for accountants), so Attesté benefits from shared AI infrastructure.
 
 **Q: Is Attesté available in my country?**
-A: The app works in 32 countries. Pricing is USD primary; local equivalents render in the user's storefront currency (App Store and Play Store handle conversion). POPIA (South Africa) compliance is complete; GDPR for EU users; US and UK compliance straightforward. Ask `info@atteste.art` for the latest on your market.
+A: The app is available globally on the Apple App Store and Google Play. Pricing is USD primary; local equivalents render in the user's storefront currency (the stores handle conversion). The app provides localised currency display and a country picker covering 30 priority markets (with an "Other" fallback). Privacy Policy v1.1 has explicit regional addenda for POPIA (South Africa), GDPR (EU/EEA), and CCPA/CPRA (California), plus general provisions covering all other jurisdictions at GDPR-grade safeguards. Ask `info@atteste.art` for the latest on your market.
 
 **Q: How do galleries use Attesté?**
 A: Galleries join on a pure annual subscription — Boutique ($495/yr), Professional ($1,188/yr), or Enterprise ($1,908/yr). They get inventory and exhibition tools, an aggregate collector analytics dashboard, AI-generated exhibition posts (Pro and Enterprise), and a measurable collector pipeline. Analytics are aggregate-only — individual collector data is never shared with galleries.
