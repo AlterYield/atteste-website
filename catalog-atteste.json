@@ -1,921 +1,306 @@
 {
-  "generated": "auto — do not edit. Regenerate with scripts/render-atteste-content.py",
-  "source": "wiki/_catalog.json",
-  "count": 6,
+  "generated": "2026-04-29 — pricing harmonised to USD primary; B2A artist tiers added; Gallery Launch Kit retired in favour of pure annual subscriptions",
+  "source": "live atteste.art pages + ios/Atteste app store products + RevenueCat dashboard",
+  "currency_policy": "USD is primary across all 32 markets. App Store and Play Store handle local-currency conversion via their regional pricing tables. ZAR is no longer tracked as the primary currency on any tier.",
+  "count": 9,
   "skus": [
     {
       "id": "sku_atteste_explorer",
       "type": "ProductSKU",
       "realness": "real",
-      "created": "2026-04-17",
-      "created_by": "agent:claude",
       "name": "Attesté Explorer",
       "business": "atteste",
-      "product_line": "main",
+      "product_line": "collector",
       "tier_level": "free",
-      "positioning": "Discover and log art encounters for free — 25 artworks, XP gamification, community-grade support.",
+      "positioning": "Discover and log art encounters for free — 25 artworks, XP gamification, full Discovery Trails (basic), community-grade support.",
       "status": "live",
       "launched_on": "2026-04-18",
       "retired_on": null,
       "price": {
-        "primary": {
-          "amount": 0,
-          "currency": "ZAR",
-          "period": "month",
-          "includes_period_months": null
-        },
-        "alternates": [
-          {
-            "amount": 0,
-            "currency": "USD",
-            "period": "month"
-          }
-        ],
+        "primary": {"amount": 0, "currency": "USD", "period": "month"},
         "trial_days": 0,
         "setup_fee_amount": null,
         "free_tier_terms": "Free forever with capacity limits. No credit card required."
       },
-      "billing": {
-        "provider": "none",
-        "variant_id": null,
-        "tax_treatment": "vat_exempt"
-      },
-      "capacity": {
-        "artworks": 25,
-        "clients": null,
-        "staff_seats": null,
-        "ai_analyses_monthly": 5,
-        "storage_gb": 1
-      },
+      "billing": {"provider": "none", "variant_id": null},
+      "capacity": {"artworks": 25, "ai_analyses_monthly": 5, "storage_gb": 1},
       "features_included": [
         "Collection management for up to 25 artworks",
-        "5 AI artwork analyses per month (artist identification, style classification, estimated value range)",
-        "Basic Discovery Trails (curated art walk itineraries in supported cities)",
-        "Encounter logging — scan a QR or NFC tag at a gallery to record an art encounter",
-        "XP gamification system — earn points for encounters, analyses, and collection milestones",
-        "Community achievement badges",
-        "In-app Discovery Feed (curated art content)",
-        "Standard sharing (Instagram-optimised artwork card)",
-        "Community-grade support (in-app help centre, no email SLA)"
+        "5 AI artwork analyses per month",
+        "Basic Discovery Trails",
+        "Encounter logging via QR / NFC / GPS",
+        "XP gamification + community badges",
+        "Community-grade support"
       ],
-      "features_excluded": [
-        "Attesté Certificates of attestation (Collector+)",
-        "AI Art Sommelier — personalised taste profiling and recommendations (Collector+)",
-        "Art Fair Companion — real-time fair navigation and shortlisting (Collector+)",
-        "Full Discovery Trails (Collector+)",
-        "Artworks beyond 25 (Collector = 200, Premium = unlimited)",
-        "AI analyses beyond 5/month (Collector = 50, Premium = unlimited)",
-        "Legacy Vault — multi-generational provenance and estate planning (Premium only)",
-        "Year in Art — annual collection summary (Premium only)",
-        "Public collector profile (Premium only)",
-        "Priority support (Premium only)",
-        "Any gallery analytics or management tools (gallery tiers)"
-      ],
-      "target_personas": [
-        "[[c1-mia-chen]]",
-        "[[c2-james-whitfield]]"
-      ],
-      "target_outcomes": [
-        "Start cataloguing art encounters without committing to a subscription",
-        "Build an initial digital collection of up to 25 artworks with AI-assisted identification",
-        "Earn XP and badges as motivation to visit more galleries and engage with art",
-        "Experience Discovery Trails to discover new artists and exhibitions in your city",
-        "Upgrade to Collector when the 25-artwork limit or 5-analysis limit becomes a constraint"
-      ],
-      "differentiation": [
-        {
-          "competitor": "Artwork Archive",
-          "we_win_because": "Free tier with AI analysis and gamification; Artwork Archive's free plan has no AI features and is limited to basic catalogue entry"
-        },
-        {
-          "competitor": "Collector Systems",
-          "we_win_because": "Mobile-native encounter logging with QR/NFC and XP rewards; Collector Systems has no free tier and no encounter-logging concept"
-        }
-      ],
-      "regulatory": {
-        "popia_relevant": true,
-        "popia_lawful_basis": "consent",
-        "data_residency": "africa-south1",
-        "vat_registration_required": false,
-        "consumer_protection_act": true
-      },
-      "llm_blurb": "Attesté Explorer is the free tier of the Attesté art collection management platform, launching 18 April 2026. It allows collectors to catalogue up to 25 artworks, run 5 AI artwork analyses per month, log art encounters via QR/NFC at galleries, earn XP through the gamification system, and access basic Discovery Trails. No credit card is required. It is designed as a discovery and habit-formation tier — the entry point into the Attesté ecosystem for art-curious users who want to start tracking their collection before committing to a paid plan.\n",
-      "schema_org": {
-        "type": "SoftwareApplication",
-        "application_category": "LifestyleApplication"
-      },
-      "faq": [
-        {
-          "q": "What happens when I hit the 25-artwork limit?",
-          "a": "You can no longer add new artworks until you upgrade to Collector (200 artworks, R149/mo). Your existing 25 artworks and all their data — analyses, images, encounter logs — remain intact. Nothing is deleted when you hit the limit."
-        },
-        {
-          "q": "Are the AI analyses accurate enough to rely on for valuation?",
-          "a": "Explorer AI analyses provide an estimated value range for context and discovery purposes, not for insurance or sale. For professional valuation you need a certified appraiser. Collector and Premium tiers include Attesté Certificates, which have stronger provenance backing but are also not a formal appraisal."
-        },
-        {
-          "q": "Do I lose my Explorer data if I upgrade to Collector?",
-          "a": "No. Upgrading is additive — your 25 existing artworks, XP, badges, and encounter history carry forward intact. The limit lifts to 200 and your monthly AI analyses reset to 50."
-        },
-        {
-          "q": "Can I use Explorer to log encounters at any gallery, or only partner galleries?",
-          "a": "Encounter logging works at any gallery with Attesté QR codes or NFC tags (partner galleries). You can also manually log an encounter at any venue worldwide by entering the artwork and gallery details. Partner gallery encounters earn bonus XP."
-        },
-        {
-          "q": "Is Explorer available worldwide or only in South Africa?",
-          "a": "The app is available worldwide. Pricing is free in all markets. Discovery Trails content currently covers Cape Town, Johannesburg, and London, with more cities added monthly."
-        }
-      ],
-      "url": {
-        "pricing_page_anchor": "https://atteste.art/#pricing",
-        "deep_link": "https://atteste-b6409.web.app/subscribe/explorer",
-        "help_doc": null
-      },
-      "support": {
-        "sla_response_hours": 72,
-        "channels": [
-          "email"
-        ],
-        "includes_onboarding": false
-      },
-      "metrics": {
-        "assumed_monthly_churn": 0.15,
-        "assumed_acquisition_cost_zar": 50,
-        "assumed_ltv_zar": 0
-      },
-      "sources": [
-        "[[atteste]]",
-        "[[atteste-launch-playbook]]"
-      ],
-      "edges": [
-        {
-          "type": "partOf",
-          "target": "[[atteste]]"
-        },
-        {
-          "type": "supersedes",
-          "target": null
-        }
-      ],
-      "_display_price": "Free",
-      "_tier_order_index": 0,
-      "_file": "wiki/catalog/atteste/atteste-explorer.md"
+      "target_personas": ["[[c1-mia-chen]]", "[[c2-james-whitfield]]"]
     },
     {
       "id": "sku_atteste_collector",
       "type": "ProductSKU",
       "realness": "real",
-      "created": "2026-04-17",
-      "created_by": "agent:claude",
       "name": "Attesté Collector",
       "business": "atteste",
-      "product_line": "main",
-      "tier_level": "entry",
-      "positioning": "The serious collector's digital companion — Certificates, AI Sommelier, 200 artworks, R149/mo.",
+      "product_line": "collector",
+      "tier_level": "paid",
+      "positioning": "The serious collector's digital companion — Attesté Certificates, AI Art Sommelier, Art Fair Companion, full Discovery Trails. Save ~17% on annual.",
       "status": "live",
-      "launched_on": "2026-04-18",
+      "launched_on": "2026-04-26",
       "retired_on": null,
       "price": {
-        "primary": {
-          "amount": 149,
-          "currency": "ZAR",
-          "period": "month",
-          "includes_period_months": null
-        },
-        "alternates": [
-          {
-            "amount": 9,
-            "currency": "USD",
-            "period": "month"
-          }
-        ],
-        "trial_days": 14,
-        "setup_fee_amount": null,
-        "free_tier_terms": null
+        "primary": {"amount": 9.99, "currency": "USD", "period": "month"},
+        "annual": {"amount": 99.99, "currency": "USD", "period": "year", "savings_pct": 17},
+        "trial_days": 0
       },
       "billing": {
-        "provider": "manual",
-        "variant_id": null,
-        "tax_treatment": "vat_15_inclusive"
+        "provider": "revenuecat",
+        "ios_product_id_monthly": "collector_monthly",
+        "ios_product_id_annual": "Collector_Yearly",
+        "android_product_id_monthly": "collector_monthly",
+        "android_product_id_annual": "collector_yearly",
+        "rc_entitlement": "collector"
       },
-      "capacity": {
-        "artworks": 200,
-        "clients": null,
-        "staff_seats": null,
-        "ai_analyses_monthly": 50,
-        "storage_gb": 10
-      },
+      "capacity": {"artworks": 200, "ai_analyses_monthly": 50, "storage_gb": 10},
       "features_included": [
-        {
-          "Everything in Explorer tier, plus": null
-        },
-        "Up to 200 artworks in your collection",
+        "Up to 200 artworks",
         "50 AI artwork analyses per month",
-        "Attesté Certificates — AI-backed provenance certificates for works in your collection",
-        "AI Art Sommelier — personalised taste profiling and artwork recommendations based on your collection",
-        "Art Fair Companion — real-time fair navigation, shortlisting, and post-fair debrief",
-        "Full Discovery Trails (all cities, all curators, premium itineraries)",
-        "10 GB secure image and document storage",
-        "14-day Premium trial automatically applied at signup (no credit card required for trial)",
-        "Email support (48-hour SLA)"
+        "Attesté Certificates (SHA-256 cryptographic provenance)",
+        "AI Art Sommelier (8-axis taste profiling + recommendations)",
+        "Art Fair Companion",
+        "Full Discovery Trails",
+        "The Curator (voice-companion AI)"
       ],
-      "features_excluded": [
-        "Artworks beyond 200 (Premium = unlimited)",
-        "AI analyses beyond 50/month (Premium = unlimited)",
-        "Legacy Vault — multi-generational provenance and estate planning (Premium only)",
-        "Year in Art — annual collection summary (Premium only)",
-        "Public collector profile (Premium only)",
-        "Priority support (Premium = 24h SLA)",
-        "Any gallery management or analytics tools (gallery tiers)"
-      ],
-      "target_personas": [
-        "[[c3-priya-naidoo]]",
-        "[[c4-david-park]]",
-        "[[c5-catherine-harrington-lloyd]]",
-        "[[c8-thabo-mokoena]]"
-      ],
-      "target_outcomes": [
-        "Build a properly documented collection with AI-backed provenance Certificates for each work",
-        "Discover new artists you will love via the AI Art Sommelier's taste-aware recommendations",
-        "Navigate art fairs efficiently with real-time shortlisting and post-fair debrief tools",
-        "Access premium Discovery Trails curated by leading collectors and critics worldwide",
-        "Upgrade to Premium when collection exceeds 200 works or Legacy Vault becomes relevant"
-      ],
-      "differentiation": [
-        {
-          "competitor": "Artwork Archive",
-          "we_win_because": "AI Art Sommelier and Art Fair Companion are features Artwork Archive does not offer; Artwork Archive is a pure catalogue tool with no discovery or recommendation layer"
-        },
-        {
-          "competitor": "Artlogic",
-          "we_win_because": "Consumer-first UX with gamification, fair companion, and Sommelier at a fraction of the price; Artlogic targets galleries and dealers, not individual collectors, and charges 5-10x more"
-        }
-      ],
-      "regulatory": {
-        "popia_relevant": true,
-        "popia_lawful_basis": "consent",
-        "data_residency": "africa-south1",
-        "vat_registration_required": false,
-        "consumer_protection_act": true
-      },
-      "llm_blurb": "Attesté Collector is the entry paid tier of the Attesté art collection management platform, priced at R149/month (USD $9). It extends the free Explorer tier with up to 200 artworks, 50 AI analyses per month, Attesté Certificates of provenance, the AI Art Sommelier personalised recommendation engine, the Art Fair Companion for real-time fair navigation, full Discovery Trails, and 10 GB storage. New subscribers receive an automatic 14-day Premium trial. It is designed for the emerging and serious collector who wants AI-assisted discovery and documentation, not just a digital catalogue.\n",
-      "schema_org": {
-        "type": "SoftwareApplication",
-        "application_category": "LifestyleApplication"
-      },
-      "faq": [
-        {
-          "q": "Why not just stay on Explorer?",
-          "a": "Explorer is great for starting out. Once you have 10–15 artworks, the limitations become apparent: no Certificates (which you will want for insurance and resale), no Art Sommelier recommendations, no Art Fair Companion. Collector unlocks the full discovery and documentation workflow for R149/mo — less than a coffee per week."
-        },
-        {
-          "q": "What happens to my Certificates if I downgrade to Explorer?",
-          "a": "Your Certificates remain valid and downloadable for 90 days after downgrading. After 90 days they are archived — no longer downloadable from the app, but the underlying data is preserved. Re-upgrading to Collector immediately restores access to all Certificates."
-        },
-        {
-          "q": "Does this include the Gallery Launch Kit?",
-          "a": "No. Gallery tiers are entirely separate commercial products for gallery businesses. Collector is a personal collection management tool. If you are a collector who also runs a gallery, you would subscribe to both independently."
-        },
-        {
-          "q": "What is the AI Art Sommelier exactly?",
-          "a": "The Sommelier analyses your collection (artists, periods, movements, mediums, price points) to build a taste profile. It then surfaces artworks — from Discovery Feed, fair schedules, and gallery inventory where available — that match your profile. It learns from your saves and skips, refining recommendations over time."
-        },
-        {
-          "q": "Can I use the Art Fair Companion at any fair?",
-          "a": "The Companion works at any art fair worldwide, pulling available exhibitor and artwork data. At partner fairs (where Attesté has a formal data feed), the experience is richer — real-time booth maps, exhibitor chat, and post-fair debrief. At non-partner fairs you can manually shortlist from the fair catalogue."
-        }
-      ],
-      "url": {
-        "pricing_page_anchor": "https://atteste.art/#pricing",
-        "deep_link": "https://atteste-b6409.web.app/subscribe/collector",
-        "help_doc": null
-      },
-      "support": {
-        "sla_response_hours": 48,
-        "channels": [
-          "email"
-        ],
-        "includes_onboarding": false
-      },
-      "metrics": {
-        "assumed_monthly_churn": 0.05,
-        "assumed_acquisition_cost_zar": 450,
-        "assumed_ltv_zar": 3000
-      },
-      "sources": [
-        "[[atteste]]",
-        "[[atteste-launch-playbook]]"
-      ],
-      "edges": [
-        {
-          "type": "partOf",
-          "target": "[[atteste]]"
-        },
-        {
-          "type": "supersedes",
-          "target": "[[atteste-explorer]]"
-        }
-      ],
-      "_display_price": "R149/mo",
-      "_tier_order_index": 1,
-      "_file": "wiki/catalog/atteste/atteste-collector.md"
+      "target_personas": ["[[c3-priya-naidoo]]", "[[c4-david-park]]", "[[c5-catherine]]", "[[c8-thabo-mokoena]]"]
     },
     {
       "id": "sku_atteste_premium",
       "type": "ProductSKU",
       "realness": "real",
-      "created": "2026-04-17",
-      "created_by": "agent:claude",
       "name": "Attesté Premium",
       "business": "atteste",
-      "product_line": "main",
-      "tier_level": "standard",
-      "positioning": "Unlimited collection management with Legacy Vault, Year in Art, and public collector profile — R299/mo.",
+      "product_line": "collector",
+      "tier_level": "paid",
+      "positioning": "Unlimited collection management + Legacy Vault, Year in Art, Condition Vault, Auction Intelligence, public collector profile, priority support. Save ~17% on annual.",
       "status": "live",
-      "launched_on": "2026-04-18",
+      "launched_on": "2026-04-26",
       "retired_on": null,
       "price": {
-        "primary": {
-          "amount": 299,
-          "currency": "ZAR",
-          "period": "month",
-          "includes_period_months": null
-        },
-        "alternates": [
-          {
-            "amount": 19,
-            "currency": "USD",
-            "period": "month"
-          }
-        ],
-        "trial_days": 0,
-        "setup_fee_amount": null,
-        "free_tier_terms": null
+        "primary": {"amount": 19.99, "currency": "USD", "period": "month"},
+        "annual": {"amount": 199.99, "currency": "USD", "period": "year", "savings_pct": 17},
+        "trial_days": 0
       },
       "billing": {
-        "provider": "manual",
-        "variant_id": null,
-        "tax_treatment": "vat_15_inclusive"
+        "provider": "revenuecat",
+        "ios_product_id_monthly": "premium_monthly",
+        "ios_product_id_annual": "premium_annual",
+        "android_product_id_monthly": "premium_monthly",
+        "android_product_id_annual": "premium_yearly",
+        "rc_entitlement": "premium"
       },
-      "capacity": {
-        "artworks": "unlimited",
-        "clients": null,
-        "staff_seats": null,
-        "ai_analyses_monthly": "unlimited",
-        "storage_gb": "unlimited"
-      },
+      "capacity": {"artworks": "unlimited", "ai_analyses_monthly": "unlimited", "storage_gb": 100},
       "features_included": [
-        {
-          "Everything in Collector tier, plus": null
-        },
-        "Unlimited artworks in your collection",
-        "Unlimited AI artwork analyses per month",
-        "Legacy Vault — multi-generational provenance storage, estate planning tools, and beneficiary access management",
-        "Year in Art — annual collection summary (acquisition value, encounters, taste evolution, AI-written narrative)",
-        "Public collector profile — shareable collection page with privacy controls",
-        "Unlimited secure image and document storage",
-        "Priority support (24-hour SLA)"
+        "Unlimited artworks and AI analyses",
+        "Legacy Vault — multi-generational provenance + estate planning",
+        "Year in Art — annual collection summary",
+        "Condition Vault",
+        "Auction Intelligence",
+        "Public collector profile (atteste.art/u/{handle})",
+        "Priority support",
+        "Full data export (JSON + PDF catalogue)"
       ],
-      "features_excluded": [
-        "Gallery management, collector analytics, and social content tools (gallery tiers — separate product)",
-        "API access (not available on consumer tiers)",
-        "Custom branding or white-label (gallery tiers only)"
-      ],
-      "target_personas": [
-        "[[c5-catherine-harrington-lloyd]]",
-        "[[c6-richard-de-villiers]]",
-        "[[c7-zanele-khumalo]]"
-      ],
-      "target_outcomes": [
-        "Catalogue an unlimited collection with no cap anxiety — every acquisition documented immediately",
-        "Build a multi-generational provenance record in Legacy Vault that survives estate transitions",
-        "Share a curated public collector profile with galleries, advisors, and the broader art community",
-        "Receive a beautiful annual Year in Art narrative summarising your collection's growth and taste evolution",
-        "Get support responses within 24 hours — critical during estate planning or insurance events"
-      ],
-      "differentiation": [
-        {
-          "competitor": "Artwork Archive",
-          "we_win_because": "Legacy Vault with estate planning and beneficiary access is unique; Artwork Archive has no estate management or multi-generational provenance feature"
-        },
-        {
-          "competitor": "Arternal",
-          "we_win_because": "Consumer-native pricing at R299/mo vs. Arternal's dealer-tier pricing; Arternal targets dealers and advisors, not individual collectors, and has no gamification or discovery layer"
-        }
-      ],
-      "regulatory": {
-        "popia_relevant": true,
-        "popia_lawful_basis": "consent",
-        "data_residency": "africa-south1",
-        "vat_registration_required": false,
-        "consumer_protection_act": true
-      },
-      "llm_blurb": "Attesté Premium is the unlimited collector tier of the Attesté platform, priced at R299/month (USD $19). It adds unlimited artworks and AI analyses, the Legacy Vault for multi-generational provenance and estate planning, the Year in Art annual collection narrative, and a shareable public collector profile to everything in the Collector tier. Storage is unlimited. Priority support carries a 24-hour SLA. It is designed for serious collectors with large or growing collections and estate planning concerns, who want Attesté to be the authoritative record of their collection for life.\n",
-      "schema_org": {
-        "type": "SoftwareApplication",
-        "application_category": "LifestyleApplication"
-      },
-      "faq": [
-        {
-          "q": "What exactly is Legacy Vault and how does estate planning work?",
-          "a": "Legacy Vault is a secure provenance archive designed to outlast the original collector. You designate up to 3 beneficiaries who receive time-gated access to collection records after a specified event (your death or incapacity, verified by an executor notification). It also includes an AI-assisted estate memo that summarises the collection, known valuations, and care instructions for each work."
-        },
-        {
-          "q": "What does the public collector profile show?",
-          "a": "The profile shows your collection highlights (you choose which artworks are public), taste profile tags, encounter history (cities visited, galleries attended), and XP tier. You control visibility at the artwork level — individual pieces can be private even if your profile is public."
-        },
-        {
-          "q": "Does Year in Art require me to do anything?",
-          "a": "No. Year in Art is generated automatically on your collection anniversary date. It is an AI-written narrative reviewing the year: artworks acquired, encounters logged, value trajectory, taste evolution, and highlights from your Discovery Trails. You receive it as a beautifully formatted PDF and in-app card."
-        },
-        {
-          "q": "Is Premium worth it over Collector if I have under 200 artworks?",
-          "a": "Premium's main draw for smaller collections is Legacy Vault and the public profile. If you are planning your estate or want a shareable profile for gallery relationships, Premium makes sense regardless of collection size. If you just want more artworks and analyses, Collector at R149/mo is the right choice."
-        }
-      ],
-      "url": {
-        "pricing_page_anchor": "https://atteste.art/#pricing",
-        "deep_link": "https://atteste-b6409.web.app/subscribe/premium",
-        "help_doc": null
-      },
-      "support": {
-        "sla_response_hours": 24,
-        "channels": [
-          "email",
-          "chat"
-        ],
-        "includes_onboarding": false
-      },
-      "metrics": {
-        "assumed_monthly_churn": 0.03,
-        "assumed_acquisition_cost_zar": 800,
-        "assumed_ltv_zar": 8000
-      },
-      "sources": [
-        "[[atteste]]",
-        "[[atteste-launch-playbook]]"
-      ],
-      "edges": [
-        {
-          "type": "partOf",
-          "target": "[[atteste]]"
-        },
-        {
-          "type": "supersedes",
-          "target": "[[atteste-collector]]"
-        }
-      ],
-      "_display_price": "R299/mo",
-      "_tier_order_index": 3,
-      "_file": "wiki/catalog/atteste/atteste-premium.md"
+      "target_personas": ["[[c5-catherine]]", "[[c6-richard-de-villiers]]", "[[c7-zanele-khumalo]]"]
     },
     {
-      "id": "sku_atteste_gallery_launch_kit",
+      "id": "sku_atteste_artist_studio",
       "type": "ProductSKU",
       "realness": "real",
-      "created": "2026-04-17",
-      "created_by": "agent:claude",
-      "name": "Attesté Gallery Launch Kit",
+      "name": "Attesté Artist Studio",
       "business": "atteste",
-      "product_line": "gallery",
-      "tier_level": "entry",
-      "positioning": "Get your gallery onto Attesté in 2 weeks — physical brand kit, digital onboarding, 12 months included.",
+      "product_line": "artist",
+      "tier_level": "paid",
+      "positioning": "Studio-grade tools for working artists — public profile, source certificates, Verification Inbox. 14-day free trial. Save ~17% on annual.",
       "status": "live",
-      "launched_on": "2026-04-18",
+      "launched_on": "2026-04-29",
       "retired_on": null,
       "price": {
-        "primary": {
-          "amount": 5000,
-          "currency": "ZAR",
-          "period": "once",
-          "includes_period_months": 12
-        },
-        "alternates": [],
-        "trial_days": 0,
-        "setup_fee_amount": null,
-        "free_tier_terms": null
+        "primary": {"amount": 14.99, "currency": "USD", "period": "month"},
+        "annual": {"amount": 149.99, "currency": "USD", "period": "year", "savings_pct": 17},
+        "trial_days": 14
       },
       "billing": {
-        "provider": "manual",
-        "variant_id": null,
-        "tax_treatment": "vat_15_inclusive"
+        "provider": "revenuecat",
+        "rc_entitlement": "artist_studio",
+        "status": "scaffolded — RC products + purchase flow not yet wired (TODO 2026-Q2)"
       },
-      "capacity": {
-        "artworks": 50,
-        "clients": null,
-        "staff_seats": 2,
-        "ai_analyses_monthly": null,
-        "storage_gb": 20
-      },
+      "capacity": {"works": 50, "source_certs_monthly": 5, "storage_gb": 5},
       "features_included": [
-        "12 months of Attesté Gallery access included (no recurring charge after once-off payment)",
-        "Up to 50 artworks in the gallery's digital catalogue",
-        "2 gallery staff seats",
-        {
-          "Physical brand kit": "10 Attesté NFC-enabled exhibit labels (branded, gallery-specific), 1 QR code stand"
-        },
-        {
-          "Digital onboarding": "2-week guided setup with Attesté gallery specialist"
-        },
-        "Gallery profile page on atteste.art (publicly discoverable)",
-        "Collector encounter analytics dashboard — aggregate visitor stats only (no individual collector PII)",
-        "Encounter logging enabled for all artworks (collectors earn XP at your gallery)",
-        "Basic AI artwork analyses (5/month, same as Explorer)",
-        "Email support during onboarding (48-hour SLA)"
+        "Public artist profile at atteste.art/artist/{handle}",
+        "Studio archive of up to 50 works",
+        "5 source certificates per month",
+        "Basic analytics (profile views, follower count)",
+        "Verification Inbox (collector + gallery auth requests)",
+        "14-day free trial for new subscribers"
       ],
-      "features_excluded": [
-        "More than 50 artworks (Gallery Professional = 100, Enterprise = unlimited)",
-        "More than 2 staff seats (Professional and Enterprise)",
-        "AI-generated social content for exhibitions (Professional+)",
-        "Full aggregate analytics with time-series trends (Professional+)",
-        "Exhibition calendar management (Professional+)",
-        "Collector reviews and encounter-logged artwork responses (Professional+)",
-        "Collector push notifications (Enterprise only)",
-        "API access (Enterprise only)",
-        "Dedicated account manager (Enterprise only)",
-        "Recurring access after 12 months without upgrading to a monthly plan"
-      ],
-      "target_personas": [
-        "[[b1-sarah-van-der-merwe]]"
-      ],
-      "target_outcomes": [
-        "Get your gallery digitally visible to Attesté's collector community within 2 weeks",
-        "Equip every artwork with an Attesté NFC label so collectors can encounter-log seamlessly",
-        "Understand aggregate visitor engagement (how many encounters logged, most-visited works)",
-        "Build a foundation for upgrading to Gallery Professional after the 12-month period"
-      ],
-      "differentiation": [
-        {
-          "competitor": "Artlogic",
-          "we_win_because": "Physical NFC brand kit and collector encounter analytics in a one-off entry package; Artlogic requires a full subscription contract from day one with no entry-level once-off option"
-        },
-        {
-          "competitor": "Arternal",
-          "we_win_because": "Consumer-network effect from day one (Attesté's collector base already uses the app); Arternal is a private CRM with no public collector community"
-        }
-      ],
-      "regulatory": {
-        "popia_relevant": true,
-        "popia_lawful_basis": "legitimate_interest",
-        "data_residency": "africa-south1",
-        "vat_registration_required": false,
-        "consumer_protection_act": false
+      "target_personas": ["[[a1-working-artist]]"]
+    },
+    {
+      "id": "sku_atteste_artist_professional",
+      "type": "ProductSKU",
+      "realness": "real",
+      "name": "Attesté Artist Professional",
+      "business": "atteste",
+      "product_line": "artist",
+      "tier_level": "paid",
+      "positioning": "For established artist practices — 500 works, unlimited source certificates, AI-assisted descriptions, exhibition history, priority verification, advanced analytics. Save ~17% on annual.",
+      "status": "live",
+      "launched_on": "2026-04-29",
+      "retired_on": null,
+      "price": {
+        "primary": {"amount": 24.99, "currency": "USD", "period": "month"},
+        "annual": {"amount": 249.99, "currency": "USD", "period": "year", "savings_pct": 17},
+        "trial_days": 0
       },
-      "llm_blurb": "Attesté Gallery Launch Kit is a once-off R5,000 package for galleries joining the Attesté platform for the first time. It includes 12 months of gallery access, a 2-week guided digital onboarding, a physical brand kit with 10 NFC-enabled exhibit labels and a QR stand, a public gallery profile on atteste.art, an aggregate collector encounter analytics dashboard, and capacity for 50 artworks across 2 staff seats. No recurring charge applies during the 12-month period. It is designed to remove the risk from an initial Attesté commitment and convert galleries to the monthly Professional tier after experiencing the collector engagement value.\n",
-      "schema_org": {
-        "type": "Service",
-        "application_category": "BusinessApplication"
+      "billing": {
+        "provider": "revenuecat",
+        "rc_entitlement": "artist_professional",
+        "status": "scaffolded — RC products + purchase flow not yet wired (TODO 2026-Q2)"
       },
-      "faq": [
-        {
-          "q": "What happens after the 12 months?",
-          "a": "After 12 months, your gallery account enters a grace period. Your profile remains visible for 30 days. To continue, upgrade to Gallery Professional (R1,499/mo) or Gallery Enterprise (R2,999/mo). Your existing artworks, analytics history, and NFC labels all carry forward — no re-setup required."
-        },
-        {
-          "q": "Can I add more than 50 artworks during the 12 months?",
-          "a": "No. The Launch Kit is capped at 50 artworks. If your gallery has a larger inventory and you want full catalogue access from day one, Gallery Professional (100 artworks) or a custom Enterprise arrangement is the right starting point."
-        },
-        {
-          "q": "What are the NFC labels — do collectors need to download an app?",
-          "a": "The 10 NFC labels are branded exhibit cards that tap to the Attesté app on any NFC-capable iPhone or Android. Collectors with the app installed see the artwork details and can log an encounter and earn XP instantly. Collectors without the app see a landing page with the gallery and artwork information."
-        },
-        {
-          "q": "Is the analytics dashboard POPIA-compliant?",
-          "a": "Yes. The dashboard shows only aggregate statistics: total encounters logged, daily/weekly visitor counts, top-viewed artworks. No individual collector names, profiles, or personally identifiable information are visible to the gallery. POPIA's consent framework for individual data collection is managed on the collector side."
-        }
+      "capacity": {"works": 500, "source_certs_monthly": "unlimited", "storage_gb": 50},
+      "features_included": [
+        "Public artist profile",
+        "500 works in studio archive",
+        "Unlimited source certificates",
+        "AI-assisted artwork descriptions",
+        "Exhibition history timeline",
+        "Priority verification on collector/gallery requests",
+        "Collector reach analytics (Sommelier match scores)"
       ],
-      "url": {
-        "pricing_page_anchor": "https://atteste.art/galleries#pricing",
-        "deep_link": "https://atteste-b6409.web.app/gallery/subscribe/launch-kit",
-        "help_doc": null
+      "target_personas": ["[[a2-professional-artist]]"]
+    },
+    {
+      "id": "sku_atteste_artist_represented",
+      "type": "ProductSKU",
+      "realness": "real",
+      "name": "Attesté Artist Represented",
+      "business": "atteste",
+      "product_line": "artist",
+      "tier_level": "free_gallery_paid",
+      "positioning": "Free for gallery-represented artists. Provisioned by galleries on Professional or Enterprise plans. Unlimited works, unlimited source certificates, no direct billing.",
+      "status": "live",
+      "launched_on": "2026-04-29",
+      "retired_on": null,
+      "price": {
+        "primary": {"amount": 0, "currency": "USD", "period": "covered_by_gallery"},
+        "trial_days": 0,
+        "free_tier_terms": "Cost is borne by the representing gallery's Professional or Enterprise subscription."
       },
-      "support": {
-        "sla_response_hours": 48,
-        "channels": [
-          "email"
-        ],
-        "includes_onboarding": true
-      },
-      "metrics": {
-        "assumed_monthly_churn": 0.2,
-        "assumed_acquisition_cost_zar": 2000,
-        "assumed_ltv_zar": 15000
-      },
-      "sources": [
-        "[[atteste]]",
-        "[[atteste-launch-playbook]]"
+      "billing": {"provider": "gallery_provisioned", "rc_entitlement": "artist_represented"},
+      "capacity": {"works": "unlimited", "source_certs_monthly": "unlimited"},
+      "features_included": [
+        "All Studio features",
+        "All Professional features",
+        "Linked to representing gallery's profile and exhibitions",
+        "No personal billing — gallery covers cost"
       ],
-      "edges": [
-        {
-          "type": "partOf",
-          "target": "[[atteste]]"
-        },
-        {
-          "type": "supersedes",
-          "target": null
-        }
+      "target_personas": ["[[a3-represented-artist]]"]
+    },
+    {
+      "id": "sku_atteste_gallery_boutique",
+      "type": "ProductSKU",
+      "realness": "real",
+      "name": "Attesté Gallery Boutique",
+      "business": "atteste",
+      "product_line": "gallery",
+      "tier_level": "paid",
+      "positioning": "Annual digital subscription for working galleries — 50 artworks, 6 exhibitions, anonymous collector analytics, gallery directory listing. 30% off year 1 for first 25 founding galleries.",
+      "status": "live",
+      "launched_on": "2026-04-24",
+      "retired_on": null,
+      "supersedes": "sku_atteste_gallery_launch_kit (deprecated 2026-04-24)",
+      "price": {
+        "primary": {"amount": 495, "currency": "USD", "period": "year"},
+        "monthly_equivalent": "$41/mo",
+        "trial_days": 0,
+        "founding_gallery_discount": {"applies_to_first": 25, "year_1_discount_pct": 30}
+      },
+      "billing": {"provider": "lemon_squeezy", "status": "TODO — variant IDs to be tested + wired"},
+      "capacity": {"artworks": 50, "exhibitions_yearly": 6, "staff_seats": 2},
+      "features_included": [
+        "50 artworks in catalogue",
+        "6 exhibitions per year",
+        "Anonymous aggregate collector analytics",
+        "Gallery directory listing",
+        "Encounter-logged artworks dashboard"
       ],
-      "_display_price": "R5,000 (12 months included)",
-      "_tier_order_index": 1,
-      "_file": "wiki/catalog/atteste/atteste-gallery-launch-kit.md"
+      "target_personas": ["[[b1-sarah-vandermerwe]]"]
     },
     {
       "id": "sku_atteste_gallery_professional",
       "type": "ProductSKU",
       "realness": "real",
-      "created": "2026-04-17",
-      "created_by": "agent:claude",
       "name": "Attesté Gallery Professional",
       "business": "atteste",
       "product_line": "gallery",
-      "tier_level": "standard",
-      "positioning": "Full gallery presence on Attesté — 100 artworks, AI exhibition content, analytics, and collector engagement.",
+      "tier_level": "paid",
+      "positioning": "Full gallery presence — 200 artworks, 12 exhibitions, AI-generated exhibition social posts, content calendar, full collector pipeline.",
       "status": "live",
-      "launched_on": "2026-04-18",
+      "launched_on": "2026-04-24",
       "retired_on": null,
       "price": {
-        "primary": {
-          "amount": 1499,
-          "currency": "ZAR",
-          "period": "month",
-          "includes_period_months": null
-        },
-        "alternates": [],
-        "trial_days": 0,
-        "setup_fee_amount": null,
-        "free_tier_terms": null
+        "primary": {"amount": 1188, "currency": "USD", "period": "year"},
+        "monthly_equivalent": "$99/mo",
+        "trial_days": 0
       },
-      "billing": {
-        "provider": "manual",
-        "variant_id": null,
-        "tax_treatment": "vat_15_inclusive"
-      },
-      "capacity": {
-        "artworks": 100,
-        "clients": null,
-        "staff_seats": 5,
-        "ai_analyses_monthly": null,
-        "storage_gb": 50
-      },
+      "billing": {"provider": "lemon_squeezy", "status": "TODO — variant IDs to be tested + wired"},
+      "capacity": {"artworks": 200, "exhibitions_yearly": 12, "staff_seats": 5},
       "features_included": [
-        {
-          "Everything in Gallery Launch Kit, plus": null
-        },
-        "Up to 100 artworks in the gallery catalogue",
-        "5 gallery staff seats",
-        "12 AI-generated exhibition social media posts per year (Instagram, LinkedIn — gallery-branded)",
-        "Full aggregate analytics with time-series trends (monthly encounter volumes, top artworks, acquisition interest signals)",
-        "Exhibition calendar management — publish and promote upcoming exhibitions on atteste.art",
-        "Review and respond to collector encounter-logged notes on your gallery's works",
-        "Advanced collector engagement tools (featured artwork spotlights, curator picks)",
-        "50 GB storage for artwork images and documentation",
-        "Email + chat support (24-hour SLA)"
+        "200 artworks in catalogue",
+        "12 exhibitions per year",
+        "AI-generated exhibition social posts (Instagram, LinkedIn)",
+        "Content calendar",
+        "Full aggregate analytics with time-series",
+        "Collector pipeline (encounter → match → push opt-in)",
+        "Provision Represented artists at no extra cost"
       ],
-      "features_excluded": [
-        "More than 100 artworks (Enterprise = unlimited)",
-        "More than 5 staff seats (Enterprise)",
-        "Collector push notifications to opted-in collectors (Enterprise only)",
-        "API access (Enterprise only)",
-        "Dedicated account manager (Enterprise only)",
-        "Unlimited AI social content (Enterprise = unlimited)",
-        "Unlimited storage (Enterprise)"
-      ],
-      "target_personas": [
-        "[[b1-sarah-van-der-merwe]]",
-        "[[b2-michael-hartley]]"
-      ],
-      "target_outcomes": [
-        "Maintain an active, up-to-date digital gallery presence on atteste.art without marketing staff overhead",
-        "Generate professional exhibition social posts with AI, saving 3+ hours per exhibition announcement",
-        "Understand exactly which artworks attract the most collector interest using time-series encounter analytics",
-        "Engage directly with collectors who have logged encounters with your works, turning encounters into relationships",
-        "Promote upcoming exhibitions on atteste.art to reach the full Attesté collector community"
-      ],
-      "differentiation": [
-        {
-          "competitor": "Artlogic",
-          "we_win_because": "Built-in AI social content generation and a direct channel to the Attesté collector community; Artlogic provides management tools but no AI content or collector community integration"
-        },
-        {
-          "competitor": "Artwork Archive",
-          "we_win_because": "Gallery-specific tier with collector encounter analytics, exhibition promotion, and AI content; Artwork Archive is a pure catalogue tool with no collector engagement layer"
-        }
-      ],
-      "regulatory": {
-        "popia_relevant": true,
-        "popia_lawful_basis": "legitimate_interest",
-        "data_residency": "africa-south1",
-        "vat_registration_required": false,
-        "consumer_protection_act": false
-      },
-      "llm_blurb": "Attesté Gallery Professional is the core monthly gallery subscription at R1,499/month, designed for galleries with up to 100 artworks and 5 staff seats. It includes everything in the Gallery Launch Kit plus 12 AI-generated exhibition social posts per year, full time-series collector encounter analytics, exhibition calendar management on atteste.art, and the ability to review and respond to collector encounter-logged notes. It is the recommended tier for commercially active galleries that want to use Attesté as both a collection management platform and a collector engagement channel.\n",
-      "schema_org": {
-        "type": "SoftwareApplication",
-        "application_category": "BusinessApplication"
-      },
-      "faq": [
-        {
-          "q": "What do the 12 AI social posts include?",
-          "a": "Each AI post is generated from your exhibition data (artist name, show title, selected artworks, exhibition dates, gallery voice guidelines you provide at setup). You receive a draft post for Instagram and LinkedIn — formatted, captioned, and hashtag-optimised — which you approve and post from your own accounts. 12 posts per year = roughly one per exhibition opening."
-        },
-        {
-          "q": "What does 'review and respond to encounter-logged notes' mean?",
-          "a": "When a collector visits your gallery, logs an encounter, and adds a personal note (e.g., 'loved the texture on the central piece — interested in pricing'), that note is visible to your gallery staff in the analytics dashboard. You can respond through the app and the collector receives a notification. This opens a relationship channel that did not previously exist."
-        },
-        {
-          "q": "Can I upgrade from Launch Kit to Professional without re-onboarding?",
-          "a": "Yes. Upgrading is seamless — your existing artwork catalogue, NFC labels, analytics history, and gallery profile carry forward. The 12-month Launch Kit period is simply replaced by the ongoing monthly billing. Any Launch Kit credit (R5,000 off first 3 months) is applied automatically."
-        },
-        {
-          "q": "What analytics does 'time-series trends' add vs. the Launch Kit?",
-          "a": "Launch Kit analytics show aggregate totals. Professional adds monthly trend charts (encounter volume over time, artwork interest trajectory, acquisition interest signals per work), exportable as CSV or PDF for board reporting."
-        }
-      ],
-      "url": {
-        "pricing_page_anchor": "https://atteste.art/galleries#pricing",
-        "deep_link": "https://atteste-b6409.web.app/gallery/subscribe/professional",
-        "help_doc": null
-      },
-      "support": {
-        "sla_response_hours": 24,
-        "channels": [
-          "email",
-          "chat"
-        ],
-        "includes_onboarding": false
-      },
-      "metrics": {
-        "assumed_monthly_churn": 0.04,
-        "assumed_acquisition_cost_zar": 5000,
-        "assumed_ltv_zar": 45000
-      },
-      "sources": [
-        "[[atteste]]",
-        "[[atteste-launch-playbook]]"
-      ],
-      "edges": [
-        {
-          "type": "partOf",
-          "target": "[[atteste]]"
-        },
-        {
-          "type": "supersedes",
-          "target": "[[atteste-gallery-launch-kit]]"
-        }
-      ],
-      "_display_price": "R1,499/mo",
-      "_tier_order_index": 3,
-      "_file": "wiki/catalog/atteste/atteste-gallery-professional.md"
+      "target_personas": ["[[b2-michael-hartley]]"]
     },
     {
       "id": "sku_atteste_gallery_enterprise",
       "type": "ProductSKU",
       "realness": "real",
-      "created": "2026-04-17",
-      "created_by": "agent:claude",
       "name": "Attesté Gallery Enterprise",
       "business": "atteste",
       "product_line": "gallery",
-      "tier_level": "enterprise",
-      "positioning": "Unlimited gallery scale with push notifications, API access, and a dedicated account manager — R2,999/mo.",
+      "tier_level": "paid",
+      "positioning": "For high-volume or institutional galleries — unlimited artworks and exhibitions, push notification campaigns to matched collectors, priority support, dedicated account manager.",
       "status": "live",
-      "launched_on": "2026-04-18",
+      "launched_on": "2026-04-24",
       "retired_on": null,
       "price": {
-        "primary": {
-          "amount": 2999,
-          "currency": "ZAR",
-          "period": "month",
-          "includes_period_months": null
-        },
-        "alternates": [],
-        "trial_days": 0,
-        "setup_fee_amount": null,
-        "free_tier_terms": null
+        "primary": {"amount": 1908, "currency": "USD", "period": "year"},
+        "monthly_equivalent": "$159/mo",
+        "trial_days": 0
       },
-      "billing": {
-        "provider": "manual",
-        "variant_id": null,
-        "tax_treatment": "vat_15_inclusive"
-      },
-      "capacity": {
-        "artworks": "unlimited",
-        "clients": null,
-        "staff_seats": "unlimited",
-        "ai_analyses_monthly": "unlimited",
-        "storage_gb": "unlimited"
-      },
+      "billing": {"provider": "lemon_squeezy", "status": "TODO — variant IDs to be tested + wired"},
+      "capacity": {"artworks": "unlimited", "exhibitions_yearly": "unlimited", "staff_seats": "unlimited"},
       "features_included": [
-        {
-          "Everything in Gallery Professional tier, plus": null
-        },
-        "Unlimited artworks in the gallery catalogue",
-        "Unlimited staff seats",
-        "Unlimited AI-generated social and exhibition content",
-        "Collector push notifications to opted-in Attesté collectors (opt-in required, POPIA compliant)",
-        "Full REST API access for integration with existing gallery management, CRM, and ERP systems",
-        "Dedicated Attesté account manager (named contact, monthly check-ins)",
-        "Priority support (4-hour SLA, phone channel included)",
-        "Unlimited secure image and document storage",
-        "Advanced permission management for large staff teams",
-        "White-glove data migration for galleries moving from Artlogic, Arternal, or other platforms"
+        "Unlimited artworks and exhibitions",
+        "Unlimited AI-generated content",
+        "Push notification campaigns to opt-in collectors (POPIA-compliant)",
+        "Priority support",
+        "Dedicated account manager",
+        "API access for custom integrations",
+        "Provision Represented artists at no extra cost"
       ],
-      "features_excluded": [
-        "Custom white-label app (requires separate commercial agreement)",
-        "Reseller rights (separate agreement)",
-        "Physical installation services for NFC labels at scale (quoted separately for 50+ labels)"
-      ],
-      "target_personas": [
-        "[[b1-sarah-van-der-merwe]]",
-        "[[b3-nomsa-dlamini]]"
-      ],
-      "target_outcomes": [
-        "Manage an unlimited artwork inventory and staff team on a single Attesté account",
-        "Reach opted-in collectors in the Attesté app directly via push notifications for exhibition openings and private viewings",
-        "Integrate Attesté encounter and analytics data into your existing CRM or BI tools via REST API",
-        "Have a named Attesté account manager who understands your gallery's programme and collector relationships",
-        "Respond to critical issues (collector data concerns, API downtime) within 4 hours"
-      ],
-      "differentiation": [
-        {
-          "competitor": "Artlogic",
-          "we_win_because": "Collector push notifications and a live collector community that no gallery management system can match; Artlogic manages internal gallery data but has no direct-to-collector digital channel"
-        },
-        {
-          "competitor": "Arternal",
-          "we_win_because": "Full REST API plus collector push notifications; Arternal is a private CRM with no public consumer app, so there is no collector notification channel"
-        }
-      ],
-      "regulatory": {
-        "popia_relevant": true,
-        "popia_lawful_basis": "legitimate_interest",
-        "data_residency": "africa-south1",
-        "vat_registration_required": false,
-        "consumer_protection_act": false
-      },
-      "llm_blurb": "Attesté Gallery Enterprise is the unlimited gallery tier at R2,999/month, designed for large galleries, institutions, and multi-space organisations. It includes unlimited artworks, unlimited staff seats, unlimited AI-generated social and exhibition content, collector push notifications to opted-in Attesté users, full REST API access for CRM and ERP integration, a dedicated account manager, and priority 4-hour support with phone channel. White-glove data migration is included for galleries moving from Artlogic, Arternal, or other platforms.\n",
-      "schema_org": {
-        "type": "SoftwareApplication",
-        "application_category": "BusinessApplication"
-      },
-      "faq": [
-        {
-          "q": "How do collector push notifications work and is opt-in truly enforced?",
-          "a": "Collectors opt in to gallery notifications within the Attesté app — it is a per-gallery, per-notification-type choice. Galleries cannot send unsolicited pushes. Enterprise galleries see the count of opted-in collectors for their profile and can segment notifications (e.g., collectors who encountered a specific artist). All notification activity is logged and POPIA-compliant."
-        },
-        {
-          "q": "What does the REST API expose?",
-          "a": "The API exposes gallery artwork catalogue (read/write), encounter analytics (read), exhibition schedule (read/write), and collector engagement signals (read, aggregate only — no individual PII). OAuth 2.0 authentication. Full OpenAPI spec provided at contract signing. Rate-limited at 500 requests/minute."
-        },
-        {
-          "q": "What does white-glove migration from Artlogic look like?",
-          "a": "Attesté's migration team accepts your Artlogic data export (CSV or XML), maps fields to the Attesté schema, imports up to 5,000 artworks with images, and validates the result before you go live. Typical migration takes 3–5 business days. The dedicated account manager oversees the process end-to-end."
-        },
-        {
-          "q": "Is there a minimum contract term?",
-          "a": "Enterprise requires a 12-month minimum commitment. Annual billing available at R29,990 (2 months free). Multi-year pricing available for institutions managing 10,000+ artworks."
-        },
-        {
-          "q": "Can we use Enterprise for multiple gallery locations?",
-          "a": "Yes. Enterprise accounts support multiple location profiles under one umbrella account. Each location has its own artwork catalogue and analytics, with consolidated reporting available at the umbrella level."
-        }
-      ],
-      "url": {
-        "pricing_page_anchor": "https://atteste.art/galleries#pricing",
-        "deep_link": "https://atteste-b6409.web.app/gallery/subscribe/enterprise",
-        "help_doc": null
-      },
-      "support": {
-        "sla_response_hours": 4,
-        "channels": [
-          "email",
-          "chat",
-          "phone"
-        ],
-        "includes_onboarding": true
-      },
-      "metrics": {
-        "assumed_monthly_churn": 0.02,
-        "assumed_acquisition_cost_zar": 12000,
-        "assumed_ltv_zar": 120000
-      },
-      "sources": [
-        "[[atteste]]",
-        "[[atteste-launch-playbook]]"
-      ],
-      "edges": [
-        {
-          "type": "partOf",
-          "target": "[[atteste]]"
-        },
-        {
-          "type": "supersedes",
-          "target": "[[atteste-gallery-professional]]"
-        }
-      ],
-      "_display_price": "R2,999/mo",
-      "_tier_order_index": 5,
-      "_file": "wiki/catalog/atteste/atteste-gallery-enterprise.md"
+      "target_personas": ["[[b3-nomsa-dlamini]]"]
+    }
+  ],
+  "retired_skus": [
+    {
+      "id": "sku_atteste_gallery_launch_kit",
+      "name": "Attesté Gallery Launch Kit",
+      "retired_on": "2026-04-24",
+      "reason": "Deprecated in favour of pure digital annual subscriptions (Boutique / Professional / Enterprise). Physical kit + once-off pricing model retired — replaced by recurring annual subscriptions in USD.",
+      "successor": "sku_atteste_gallery_boutique"
     }
   ]
 }

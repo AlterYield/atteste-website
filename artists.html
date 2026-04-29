@@ -3,12 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Attesté for Artists — Catalogue, Source Certificates, Collector Network</title>
-<meta name="description" content="Build your verified catalogue, issue source certificates, and stay connected to collectors who own your work. Studio $14.99/mo (14-day free trial) · Professional $24.99/mo · Represented free for gallery-represented artists.">
+
+<!-- Primary SEO -->
+<title>Attesté for Artists — Studio, Source Certificates, Public Profile</title>
+<meta name="description" content="A digital studio for working artists. Catalogue your work, issue source certificates collectors trust, and publish a gallery-grade public profile. Studio $14.99/mo (14-day free trial) · Professional $24.99/mo · Represented (gallery-paid).">
+<meta name="keywords" content="artist studio software, source certificate of authenticity, public artist profile, art catalogue app, certificate of authenticity for artists, working artist app, atteste for artists">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#1A1A2E">
-<meta property="og:title" content="Attesté for Artists — Subscription Plans">
-<meta property="og:description" content="A digital studio for artists: catalogue, source certificates, public profile, collector verification. From $14.99/month with a 14-day trial.">
+
+<!-- Search Engine Verification (replace placeholder with codes from Google Search Console + Bing Webmaster Tools) -->
+<!-- <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN"> -->
+<!-- <meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN"> -->
+
+<!-- Canonical + hreflang -->
+<link rel="canonical" href="https://atteste.art/artists.html">
+<link rel="alternate" hreflang="en" href="https://atteste.art/artists.html">
+<link rel="alternate" hreflang="en-us" href="https://atteste.art/artists.html">
+<link rel="alternate" hreflang="en-gb" href="https://atteste.art/artists.html">
+<link rel="alternate" hreflang="en-za" href="https://atteste.art/artists.html">
+<link rel="alternate" hreflang="x-default" href="https://atteste.art/artists.html">
+
+<!-- Favicon + Manifest -->
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="Attesté Updates" href="/feed.xml">
+
+<!-- Open Graph -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://atteste.art/artists.html">
+<meta property="og:site_name" content="Attesté">
+<meta property="og:title" content="Attesté for Artists — A digital studio for working artists">
+<meta property="og:description" content="Catalogue every work, issue source certificates collectors trust, publish a gallery-grade profile. From $14.99/month with a 14-day trial.">
+<meta property="og:image" content="https://atteste.art/screenshots/artists-dealers.png">
+<meta property="og:image:alt" content="Attesté for Artists — Studio + Source Certificates + Public Profile">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="en_ZA">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@atteste_art">
+<meta name="twitter:title" content="Attesté for Artists — Studio + Source Certificates">
+<meta name="twitter:description" content="A digital studio for working artists. Catalogue, certificates, public profile. From $14.99/month with a 14-day trial.">
+<meta name="twitter:image" content="https://atteste.art/screenshots/artists-dealers.png">
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://atteste.art/" },
+    { "@type": "ListItem", "position": 2, "name": "For Artists", "item": "https://atteste.art/artists.html" }
+  ]
+}
+</script>
+
+<!-- JSON-LD: Service (Artist Plans — Studio / Professional / Represented) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Attesté Artist Plans",
+  "description": "Subscription plans for working artists: public profile, studio archive, source certificates, AI-assisted descriptions, exhibition history, and a Verification Inbox for collector and gallery authentication requests.",
+  "provider": { "@id": "https://atteste.art/#organization" },
+  "areaServed": "Worldwide",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Artist Studio",
+      "price": "14.99",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "14.99",
+        "priceCurrency": "USD",
+        "valueAddedTaxIncluded": false,
+        "billingDuration": "P1M"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Artist Professional",
+      "price": "24.99",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "24.99",
+        "priceCurrency": "USD",
+        "valueAddedTaxIncluded": false,
+        "billingDuration": "P1M"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Artist Represented",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free for gallery-represented artists, provisioned by the representing gallery's Professional or Enterprise subscription."
+    }
+  ]
+}
+</script>
+
+<!-- JSON-LD: Article (educational content for SEO + LLM ingestion) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How working artists use Attesté",
+  "description": "A practical guide for working artists: how to publish a public profile, catalogue your studio archive, issue source certificates that hold up at auction, and stay connected to collectors who own your work.",
+  "author": { "@id": "https://atteste.art/#organization" },
+  "publisher": { "@id": "https://atteste.art/#organization" },
+  "datePublished": "2026-04-29",
+  "dateModified": "2026-04-29",
+  "mainEntityOfPage": "https://atteste.art/artists.html",
+  "image": "https://atteste.art/screenshots/artists-dealers.png"
+}
+</script>
+
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VBQZX830K"></script>
 <script>
