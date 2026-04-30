@@ -2,9 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+  <!-- Home -->
   <url>
     <loc>https://atteste.art/</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://atteste.art/"/>
@@ -14,45 +15,82 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://atteste.art/"/>
   </url>
 
+  <!-- Marketing pages -->
   <url>
     <loc>https://atteste.art/features.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/artists.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/galleries.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- Legal — canonical URLs without .html extension (per Netlify rewrite + build_legal_html.js template) -->
   <url>
-    <loc>https://atteste.art/privacy.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://atteste.art/privacy</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://atteste.art/terms</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://atteste.art/ai-disclosure</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://atteste.art/community-guidelines</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://atteste.art/cookies</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>quarterly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://atteste.art/terms.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://atteste.art/legacy-disclaimer</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>quarterly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://atteste.art/delete-account</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <!-- Public Provenance Graph — certificate index -->
   <url>
     <loc>https://atteste.art/cert/</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -60,21 +98,21 @@
   <!-- Demonstration Attesté Certificates — seed the provenance graph -->
   <url>
     <loc>https://atteste.art/cert/eea6ca5adfe61561.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/cert/24ba0fa15c430b83.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/cert/60898db221a2008c.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
