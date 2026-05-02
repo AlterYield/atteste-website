@@ -7,3 +7,12 @@ https://www.atteste.art/* https://atteste.art/:splat 301!
 # (robots.txt is advisory; this is the real gate)
 /marketing/* /404.html 404!
 /scripts/*   /404.html 404!
+
+# NFC tag verify URLs — taps on /v/{certId} are intercepted by the
+# Atteste app via Universal Links / App Links (see /.well-known/
+# apple-app-site-association and /assetlinks.json). When the app
+# is NOT installed, the OS opens the URL in a browser; we redirect
+# to the existing Firebase Hosting verify page so the cert still
+# resolves. App-installed users never see this redirect — the OS
+# routes the URL into the app before the network request fires.
+/v/* https://atteste-b6409.web.app/verify/:splat 302

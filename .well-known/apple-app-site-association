@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["U46Z367J25.art.atteste.atteste"],
+        "components": [
+          {
+            "/": "/v/*",
+            "comment": "Attesté NFC tag verify URLs — taps on /v/{certId} open the app when installed, otherwise fall through to the website verify page."
+          }
+        ]
+      }
+    ]
+  }
+}

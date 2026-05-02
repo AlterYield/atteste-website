@@ -6,3 +6,17 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://stats.g.doubleclick.net; frame-ancestors 'none'
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Apple Universal Links manifest. iOS fetches this to confirm the
+# Atteste app may handle https://atteste.art/v/* URLs from NFC tag
+# taps. Must be served as application/json, NO file extension.
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+  Cache-Control: public, max-age=3600
+
+# Android App Links manifest. Equivalent of AASA — Android verifies
+# the SHA-256 cert fingerprint matches the installed app's signing
+# certificate before auto-routing /v/* URLs into the app.
+/.well-known/assetlinks.json
+  Content-Type: application/json
+  Cache-Control: public, max-age=3600
