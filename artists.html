@@ -6,8 +6,8 @@
 
 <!-- Primary SEO -->
 <title>Attesté for Artists — Studio, Source Certificates, Public Profile</title>
-<meta name="description" content="A digital studio for working artists. Catalogue your work, issue source certificates collectors trust, and publish a gallery-grade public profile. Studio $14.99/mo (14-day free trial) · Professional $24.99/mo · Represented (gallery-paid).">
-<meta name="keywords" content="artist studio software, source certificate of authenticity, public artist profile, art catalogue app, certificate of authenticity for artists, working artist app, atteste for artists">
+<meta name="description" content="A digital studio for working artists. Record Director's Commentary on every piece — voice provenance that travels with the work. Catalogue, source certificates, public profile. Studio $14.99/mo (14-day trial) · Professional $24.99/mo · Represented (gallery-paid).">
+<meta name="keywords" content="artist studio software, talking provenance, director's commentary, voice provenance, source certificate of authenticity, public artist profile, art catalogue app, certificate of authenticity for artists, working artist app, atteste for artists">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#1A1A2E">
 
@@ -252,6 +252,107 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 .section-dark { background: var(--navy); padding: 100px 48px; }
 .section-cream { background: var(--cream); padding: 100px 48px; }
 .section-mid { background: var(--cream-dark); padding: 100px 48px; }
+
+/* TALKING PROVENANCE — feature-lead section directly after hero */
+.tp-section {
+  background: linear-gradient(180deg, var(--navy) 0%, #131323 50%, var(--navy) 100%);
+  padding: 100px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.tp-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.14) 0%, transparent 55%);
+  pointer-events: none;
+}
+.tp-container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+.tp-tag {
+  display: inline-block; padding: 6px 16px;
+  background: rgba(201,169,110,0.12); border: 1px solid rgba(201,169,110,0.35);
+  border-radius: 50px; color: var(--gold);
+  font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  margin-bottom: 24px; text-transform: uppercase;
+}
+.tp-headline {
+  font-size: 56px; color: var(--white); margin-bottom: 20px;
+  line-height: 1.1; letter-spacing: -0.5px;
+}
+.tp-headline em { color: var(--gold); font-style: italic; }
+.tp-lead {
+  font-size: 19px; color: var(--text-light);
+  max-width: 760px; line-height: 1.65; margin-bottom: 56px;
+}
+.tp-video {
+  background: #0d0d18;
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: var(--radius-lg);
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 64px;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 64px rgba(0,0,0,0.4);
+}
+.tp-video::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(201,169,110,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.tp-video iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+}
+.tp-video-inner { text-align: center; position: relative; padding: 24px; }
+.tp-play {
+  width: 92px; height: 92px; border-radius: 50%;
+  background: rgba(201,169,110,0.12); border: 1.5px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+}
+.tp-play::before {
+  content: ''; display: block;
+  border-style: solid;
+  border-width: 14px 0 14px 22px;
+  border-color: transparent transparent transparent var(--gold);
+  margin-left: 5px;
+}
+.tp-video-label {
+  color: rgba(255,255,255,0.55); font-size: 12px;
+  letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+}
+.tp-video-sublabel { color: rgba(255,255,255,0.4); font-size: 14px; margin-top: 8px; line-height: 1.5; max-width: 380px; }
+.tp-pillars {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-bottom: 48px;
+}
+.tp-pillar {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,169,110,0.15);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: var(--transition);
+}
+.tp-pillar:hover { border-color: rgba(201,169,110,0.35); transform: translateY(-3px); }
+.tp-pillar-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(201,169,110,0.15); border: 1px solid var(--gold);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--gold); font-weight: 800; font-size: 14px;
+  margin-bottom: 18px;
+}
+.tp-pillar h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; color: var(--white); margin-bottom: 12px; line-height: 1.3;
+}
+.tp-pillar p { font-size: 14px; color: var(--text-light); line-height: 1.65; }
+.tp-meta {
+  display: flex; gap: 24px; align-items: center; justify-content: space-between;
+  padding-top: 32px; border-top: 1px solid rgba(201,169,110,0.12);
+  flex-wrap: wrap;
+}
+.tp-tier-note { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.5; }
+.tp-tier-note strong { color: var(--gold); font-weight: 600; }
 .container { max-width: 1100px; margin: 0 auto; }
 .section-title { font-size: 36px; color: var(--white); text-align: center; margin-bottom: 16px; }
 .section-title-dark { font-size: 36px; color: var(--text-dark); text-align: center; margin-bottom: 16px; }
@@ -346,6 +447,11 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   .gallery-hero { padding: 140px 24px 80px; }
   .section-dark, .section-cream, .section-mid { padding: 64px 24px; }
   .hero-ctas { flex-direction: column; align-items: center; }
+  .tp-section { padding: 64px 24px; }
+  .tp-headline { font-size: 36px; }
+  .tp-lead { font-size: 17px; }
+  .tp-pillars { grid-template-columns: 1fr; }
+  .tp-meta { flex-direction: column; align-items: flex-start; }
   .nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
@@ -376,13 +482,52 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 <section class="gallery-hero">
   <h1>Your Studio. Your Work. <em>Verified.</em></h1>
   <p class="subtitle">A digital home for working artists: catalogue every piece, issue source certificates, build a public profile, and stay connected with the collectors who actually own your work. Built for studio practice, not Instagram theatre.</p>
-  <div class="hero-price">
-    <span class="amount">From $14.99/mo</span>
-    <span class="detail">14-day free trial &middot; cancel any time</span>
-  </div>
   <div class="hero-ctas">
-    <a href="#tiers" class="btn-primary">See Artist Plans</a>
-    <a href="#how-it-works" class="btn-secondary">How It Works</a>
+    <a href="#voice-provenance" class="btn-primary">See Talking Provenance</a>
+    <a href="#tiers" class="btn-secondary">Artist Plans</a>
+  </div>
+</section>
+
+<!-- TALKING PROVENANCE — feature lead -->
+<section class="tp-section" id="voice-provenance">
+  <div class="tp-container">
+    <span class="tp-tag">New &middot; Talking Provenance</span>
+    <h2 class="tp-headline">The artwork now <em>speaks.</em></h2>
+    <p class="tp-lead">For 500 years, art provenance has been paper. Receipts. Certificates. Gallery letters. Talking Provenance changes that. Record a Director&rsquo;s Commentary on any work you&rsquo;ve made &mdash; your voice, your studio, your context. The recording is hash-verified, attached permanently to the artwork, and travels with the piece to every future owner. The strongest provenance signal an artist has ever left on their own work.</p>
+
+    <!-- YouTube video placeholder -->
+    <!-- TODO: When demo video is ready, replace the .tp-video-inner div below with: -->
+    <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Talking Provenance demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+    <div class="tp-video" role="img" aria-label="Talking Provenance demo video — coming soon">
+      <div class="tp-video-inner">
+        <div class="tp-play" aria-hidden="true"></div>
+        <div class="tp-video-label">Demo &middot; Coming Soon</div>
+        <p class="tp-video-sublabel">Watch an artist record a Director&rsquo;s Commentary in the studio.</p>
+      </div>
+    </div>
+
+    <div class="tp-pillars">
+      <div class="tp-pillar">
+        <div class="tp-pillar-num">1</div>
+        <h4>Director&rsquo;s Commentary</h4>
+        <p>Sit with the work. Tap record. The Curator AI prompts gently for the details collectors care about &mdash; medium, year, intent, the moment of making. You stay in editorial control of every word that lands on the record.</p>
+      </div>
+      <div class="tp-pillar">
+        <div class="tp-pillar-num">2</div>
+        <h4>Hash-verified Permanence</h4>
+        <p>Each session is SHA-256 chained into the artwork&rsquo;s provenance ledger. Tamper-evident, timestamped, and forensically grade. The same standing as a gallery invoice or a condition report.</p>
+      </div>
+      <div class="tp-pillar">
+        <div class="tp-pillar-num">3</div>
+        <h4>Travels With the Work</h4>
+        <p>When the piece sells, your commentary goes with it. The next owner &mdash; and every owner after &mdash; hears your voice describing what you made and why. A generational asset attached to your studio practice.</p>
+      </div>
+    </div>
+
+    <div class="tp-meta">
+      <p class="tp-tier-note">Available on <strong>Professional</strong> and <strong>Represented</strong> tiers. Unlimited recordings &middot; up to 240 seconds per session &middot; addenda welcome.</p>
+      <a href="#tiers" class="btn-outline-gold" style="padding: 12px 24px; font-size: 14px;">See Plans</a>
+    </div>
   </div>
 </section>
 
@@ -488,6 +633,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
           <li>Verification inbox</li>
           <li>Bulk CSV import</li>
           <li>AI-assisted descriptions</li>
+          <li class="locked">Talking Provenance &mdash; Director&rsquo;s Commentary</li>
           <li class="locked">Collector network visibility</li>
           <li class="locked">Career analytics &amp; market positioning</li>
           <li class="locked">Gallery relationship tracker</li>
@@ -506,6 +652,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
           <li class="inherited">Everything in Studio, plus:</li>
           <li>500 works in catalogue</li>
           <li>Unlimited source certificates</li>
+          <li><strong>Talking Provenance</strong> &mdash; Director&rsquo;s Commentary recording</li>
           <li>Collector network visibility</li>
           <li>Career analytics &amp; insights</li>
           <li>Gallery relationship tracker</li>
