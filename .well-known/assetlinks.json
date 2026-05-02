@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "art.atteste.atteste",
+      "sha256_cert_fingerprints": [
+        "E5:04:2D:48:5B:B1:49:40:D6:D7:D9:66:D1:4F:37:65:53:1C:42:44:68:9E:2D:70:E7:24:2D:92:68:76:4F:21",
+        "A6:5D:26:9E:EC:7D:26:9F:C4:BB:75:19:D0:3F:CB:D4:DD:0F:97:6E:8B:75:D7:1A:D9:59:11:1B:15:32:7C:9A"
+      ]
+    }
+  }
+]
