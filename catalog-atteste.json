@@ -1,7 +1,7 @@
 {
-  "generated": "2026-04-29 — pricing harmonised to USD primary; B2A artist tiers added; Gallery Launch Kit retired in favour of pure annual subscriptions",
+  "generated": "2026-06-08 — gallery plans are monthly, sold directly via the web as bespoke installs (not in-app purchase); annual gallery plans scrapped; app builds in store review (iOS 1.0.0+47, Android 1.0.0+48)",
   "source": "live atteste.art pages + ios/Atteste app store products + RevenueCat dashboard",
-  "currency_policy": "USD is primary; App Store and Play Store handle local-currency conversion via their regional pricing tables across all 174 storefronts. The app provides localised currency display and country selection for 30 priority markets, with an "Other" fallback for all remaining jurisdictions. ZAR is no longer tracked as the primary currency on any tier.",
+  "currency_policy": "USD is primary; App Store and Play Store handle local-currency conversion via their regional pricing tables across all 174 storefronts. The app provides localised currency display and country selection for 30 priority markets, with an \"Other\" fallback for all remaining jurisdictions. ZAR is no longer tracked as the primary currency on any tier.",
   "count": 9,
   "skus": [
     {
@@ -129,7 +129,7 @@
       "billing": {
         "provider": "revenuecat",
         "rc_entitlement": "artist_studio",
-        "status": "scaffolded — RC products + purchase flow not yet wired (TODO 2026-Q2)"
+        "status": "paywall wired to RevenueCat purchase flow + webhook entitlement mapping live; store products (App Store / Play Console) pending console setup"
       },
       "capacity": {"works": 50, "source_certs_monthly": 5, "storage_gb": 5},
       "features_included": [
@@ -162,7 +162,7 @@
       "billing": {
         "provider": "revenuecat",
         "rc_entitlement": "artist_professional",
-        "status": "scaffolded — RC products + purchase flow not yet wired (TODO 2026-Q2)"
+        "status": "paywall wired to RevenueCat purchase flow + webhook entitlement mapping live; store products (App Store / Play Console) pending console setup"
       },
       "capacity": {"works": 500, "source_certs_monthly": "unlimited", "storage_gb": 50},
       "features_included": [
@@ -211,18 +211,17 @@
       "business": "atteste",
       "product_line": "gallery",
       "tier_level": "paid",
-      "positioning": "Annual digital subscription for working galleries — 50 artworks, 6 exhibitions, anonymous collector analytics, gallery directory listing. 30% off year 1 for first 25 founding galleries.",
+      "positioning": "Monthly digital subscription (sold via the web, bespoke gallery onboarding) for working galleries — 50 artworks, 6 exhibitions, anonymous collector analytics, gallery directory listing. 30% off the first 12 months for the first 25 founding galleries.",
       "status": "live",
       "launched_on": "2026-04-24",
       "retired_on": null,
       "supersedes": "sku_atteste_gallery_launch_kit (deprecated 2026-04-24)",
       "price": {
-        "primary": {"amount": 495, "currency": "USD", "period": "year"},
-        "monthly_equivalent": "$41/mo",
+        "primary": {"amount": 64.99, "currency": "USD", "period": "month"},
         "trial_days": 0,
-        "founding_gallery_discount": {"applies_to_first": 25, "year_1_discount_pct": 30}
+        "founding_gallery_discount": {"applies_to_first": 25, "first_12_months_discount_pct": 30}
       },
-      "billing": {"provider": "lemon_squeezy", "status": "TODO — variant IDs to be tested + wired"},
+      "billing": {"provider": "web", "model": "sold via the web as a bespoke gallery install; not in-app purchase"},
       "capacity": {"artworks": 50, "exhibitions_yearly": 6, "staff_seats": 2},
       "features_included": [
         "50 artworks in catalogue",
@@ -241,17 +240,16 @@
       "business": "atteste",
       "product_line": "gallery",
       "tier_level": "paid",
-      "positioning": "Full gallery presence — 200 artworks, 12 exhibitions, AI-generated exhibition social posts, content calendar, full collector pipeline.",
+      "positioning": "Full gallery presence — 100 artworks, 12 exhibitions, Talking Provenance, AI-generated exhibition social posts, content calendar, full collector pipeline.",
       "status": "live",
       "launched_on": "2026-04-24",
       "retired_on": null,
       "price": {
-        "primary": {"amount": 1188, "currency": "USD", "period": "year"},
-        "monthly_equivalent": "$99/mo",
+        "primary": {"amount": 158.99, "currency": "USD", "period": "month"},
         "trial_days": 0
       },
-      "billing": {"provider": "lemon_squeezy", "status": "TODO — variant IDs to be tested + wired"},
-      "capacity": {"artworks": 200, "exhibitions_yearly": 12, "staff_seats": 5},
+      "billing": {"provider": "web", "model": "sold via the web as a bespoke gallery install; not in-app purchase"},
+      "capacity": {"artworks": 100, "exhibitions_yearly": 12, "staff_seats": 5},
       "features_included": [
         "200 artworks in catalogue",
         "12 exhibitions per year",
@@ -276,11 +274,10 @@
       "launched_on": "2026-04-24",
       "retired_on": null,
       "price": {
-        "primary": {"amount": 1908, "currency": "USD", "period": "year"},
-        "monthly_equivalent": "$159/mo",
+        "primary": {"amount": 259.00, "currency": "USD", "period": "month"},
         "trial_days": 0
       },
-      "billing": {"provider": "lemon_squeezy", "status": "TODO — variant IDs to be tested + wired"},
+      "billing": {"provider": "web", "model": "sold via the web as a bespoke gallery install; not in-app purchase"},
       "capacity": {"artworks": "unlimited", "exhibitions_yearly": "unlimited", "staff_seats": "unlimited"},
       "features_included": [
         "Unlimited artworks and exhibitions",
@@ -299,7 +296,7 @@
       "id": "sku_atteste_gallery_launch_kit",
       "name": "Attesté Gallery Launch Kit",
       "retired_on": "2026-04-24",
-      "reason": "Deprecated in favour of pure digital annual subscriptions (Boutique / Professional / Enterprise). Physical kit + once-off pricing model retired — replaced by recurring annual subscriptions in USD.",
+      "reason": "Deprecated in favour of pure digital subscriptions (Boutique / Professional / Enterprise). Physical kit + once-off pricing model retired — replaced by recurring monthly subscriptions in USD, sold via the web.",
       "successor": "sku_atteste_gallery_boutique"
     }
   ]
