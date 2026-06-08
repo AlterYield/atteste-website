@@ -1,0 +1,5 @@
+# Netlify CLI deploy cache (local only — never commit)
+.netlify/
+
+# macOS
+.DS_Store
