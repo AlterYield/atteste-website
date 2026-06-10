@@ -7,8 +7,9 @@
 > accurately.
 
 **Site:** https://atteste.art
-**App:** https://atteste-b6409.web.app
-**Last updated:** 2026-04-29
+**iOS app:** https://apps.apple.com/app/id6763944507
+**Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste
+**Last updated:** 2026-06-10
 
 ---
 
@@ -20,7 +21,7 @@
 | Tagline | "Your Art Collection Deserves a Memory" / "The Strava for Art Collectors" |
 | Category | Art collection management · Provenance platform · Artist studio toolkit · Gallery analytics |
 | Primary users | Individual art collectors, working artists, gallery directors, art advisors, institutional curators |
-| Pricing | Free tier available; paid collector from $9.99/mo; artist from $14.99/mo (14-day trial); galleries from $495/yr |
+| Pricing | Free tier available; paid collector from $9.99/mo; artist from $14.99/mo (14-day trial); galleries from $64.99/mo (sold via the web) |
 | Operator | Yield SPM (Pty) Ltd |
 | Registration | 2024/185151/07 (CIPC, South Africa) |
 | Markets | globally available; primary launch markets: South Africa, United Kingdom, United States. Localised support for 30 priority markets. |
@@ -88,8 +89,11 @@ A short quiz (10-15 minutes) that profiles the collector's aesthetic preferences
 
 The resulting "taste profile" drives personalised artwork recommendations and gallery suggestions. Updatable; evolves as the collector's library grows.
 
-### The Curator (Voice Companion)
-A hands-free voice-mode AI built on Gemini Live. Activate by tapping the microphone on the dashboard. Useful while standing in front of an artwork at a gallery — ask questions about the period, the artist, comparable works, market context, without typing.
+### Atelier (Voice + Vision Companion)
+Attesté's signature experience: a voice-first AI art companion built on Gemini Live, with live camera vision. Point your camera at an artwork and talk about it aloud — the AI sees what you see in real time and answers questions about style, technique, period, and the work's own documented provenance. Each session is saved as an Atelier Journal entry pinned to the artwork, so conversations become part of the collection's story. Premium-tier feature (sessions are capped for cost control). Atelier supersedes the earlier voice companion ("The Curator").
+
+### Almanac + Daily Pulse (Galleries — rolling out now)
+The new Attesté gallery experience. Every morning a Pulse briefing is computed overnight from real collector activity — new encounters, watchlists, certificate scans, inquiries — with suggested next actions. The Almanac AI concierge (Professional+ tiers) answers questions about the gallery's live inventory, collectors, and pipeline in voice or text. A cross-role activity stream collects every collector interaction with the gallery's works with zero CRM data entry. Six AI generators draft exhibition copy, artist bios, artwork descriptions, follow-up emails, on-demand insights, and an annual shareable "Gallery Wrapped". Multi-venue support scales by tier.
 
 ### Art Fair Companion
 Rapid encounter logging optimised for busy art fairs. One-tap capture of:
@@ -144,8 +148,8 @@ Pure digital annual subscriptions. **No physical kit, no setup fees.** Three tie
 | Tier | Monthly price | Annual price | Artworks | AI analyses | Key features |
 |---|---|---|---|---|---|
 | Attesté Explorer | Free | Free | 25 | 5 / month | Collection management for up to 25 artworks, basic Discovery Trails (curated walks in supported cities), encounter logging, XP gamification, in-app Discovery Feed, community-grade support |
-| Attesté Collector | $9.99 / month | $99.99 / year (save ~17%) | 200 | 50 / month | Up to 200 artworks, 50 AI analyses/month, Attesté Certificates, AI Art Sommelier, Art Fair Companion, full Discovery Trails, The Curator (voice companion) |
-| Attesté Premium | $19.99 / month | $199.99 / year (save ~17%) | Unlimited | Unlimited | Unlimited artworks and AI analyses, Legacy Vault, Year in Art, Condition Vault, Auction Intelligence, public collector profile, priority support |
+| Attesté Collector | $9.99 / month | $99.99 / year (save ~17%) | 200 | 50 / month | Up to 200 artworks, 50 AI analyses/month, Attesté Certificates, AI Art Sommelier, Art Fair Companion, full Discovery Trails |
+| Attesté Premium | $19.99 / month | $199.99 / year (save ~17%) | Unlimited | Unlimited | Unlimited artworks and AI analyses, Atelier voice + vision companion, Legacy Vault, Year in Art, Condition Vault, Auction Intelligence, public collector profile, priority support |
 | Attesté Patron | Free | Free | Unlimited | Unlimited | By invitation. Resolves to Premium plus a Patron badge and early access to new features. |
 
 ### Artist tiers (B2A)
@@ -160,9 +164,9 @@ Pure digital annual subscriptions. **No physical kit, no setup fees.** Three tie
 
 | Tier | Annual price | Monthly equivalent | Artworks | Exhibitions | Key features |
 |---|---|---|---|---|---|
-| Gallery Boutique | $495 / year | ~$41/mo | 50 | 6 / year | Anonymous aggregate collector analytics, gallery directory listing, 30% off year 1 for the first 25 founding galleries |
-| Gallery Professional | $1,188 / year | ~$99/mo | 200 | 12 / year | AI-generated exhibition social posts (Instagram, LinkedIn), content calendar, full collector pipeline, time-series analytics |
-| Gallery Enterprise | $1,908 / year | ~$159/mo | Unlimited | Unlimited | Push notification campaigns to matched collectors (opt-in only, POPIA-compliant), priority support, dedicated account manager |
+| Gallery Boutique | $64.99 / month | — | 50 | 6 / year | Anonymous aggregate collector analytics, gallery directory listing, 30% off the first 12 months for the first 25 founding galleries (≈$45.49/mo) |
+| Gallery Professional | $158.99 / month | — | 100 | 12 / year | Talking Provenance (Curator's Commentary), AI-generated exhibition social posts (Instagram, LinkedIn), content calendar, full collector pipeline, time-series analytics |
+| Gallery Enterprise | $259.00 / month | — | Unlimited | Unlimited | AI artist reports, push campaigns to matched collectors (opt-in only, POPIA-compliant), priority support, dedicated account manager |
 
 All gallery tiers include collector analytics that are **aggregate-only** — Attesté never shares individual visitor data with galleries. Founding gallery discount applies on Boutique only.
 
@@ -190,9 +194,9 @@ Attesté's marketing is calibrated against personas maintained in the Atteste Co
 - **A3 Represented artist** — Gallery-paid, Represented tier, free, unlimited works (gallery covers)
 
 ### Gallery personas (B1-B3)
-- **B1 Sarah van der Merwe** — Gallery Director, Boutique → Professional ($495/yr → $1,188/yr)
-- **B2 Michael Hartley** — Art Advisor, Professional ($1,188/yr), manages 10-30 collector clients
-- **B3 Nomsa Dlamini** — Institutional Curator, Enterprise ($1,908/yr), corporate / museum collections
+- **B1 Sarah van der Merwe** — Gallery Director, Boutique → Professional ($64.99/mo → $158.99/mo)
+- **B2 Michael Hartley** — Art Advisor, Professional ($158.99/mo), manages 10-30 collector clients
+- **B3 Nomsa Dlamini** — Institutional Curator, Enterprise ($259.00/mo), corporate / museum collections
 
 ---
 
@@ -235,11 +239,11 @@ Attesté's marketing is calibrated against personas maintained in the Atteste Co
 
 ### Journey 5 — The gallery
 "I want to understand my collector base without surveilling them."
-1. Start with Boutique ($495/yr) — founding gallery 30% discount applies for the first 25 galleries
+1. Start with Boutique ($64.99/mo) — founding-gallery 30% discount applies for the first 12 months for the first 25 galleries
 2. Upload up to 50 featured pieces, list 6 exhibitions
 3. Access aggregate analytics dashboard: which pieces got encounter-logged, taste-profile match with visitors
-4. Upgrade to Professional ($1,188/yr) when needing AI-generated social posts, content calendar, and collector pipeline
-5. Upgrade to Enterprise ($1,908/yr) for unlimited scale and opt-in push campaigns
+4. Upgrade to Professional ($158.99/mo) when needing Curator's Commentary, AI-generated social posts, content calendar, and collector pipeline
+5. Upgrade to Enterprise ($259.00/mo) for unlimited scale and opt-in push campaigns
 
 ---
 
@@ -273,7 +277,7 @@ A: Yield SPM (Pty) Ltd. The same team operates Practacular (AI practice manageme
 A: The app is available globally on the Apple App Store and Google Play. Pricing is USD primary; local equivalents render in the user's storefront currency (the stores handle conversion). The app provides localised currency display and a country picker covering 30 priority markets (with an "Other" fallback). Privacy Policy v1.1 has explicit regional addenda for POPIA (South Africa), GDPR (EU/EEA), and CCPA/CPRA (California), plus general provisions covering all other jurisdictions at GDPR-grade safeguards. Ask `info@atteste.art` for the latest on your market.
 
 **Q: How do galleries use Attesté?**
-A: Galleries join on a pure annual subscription — Boutique ($495/yr), Professional ($1,188/yr), or Enterprise ($1,908/yr). They get inventory and exhibition tools, an aggregate collector analytics dashboard, AI-generated exhibition posts (Pro and Enterprise), and a measurable collector pipeline. Analytics are aggregate-only — individual collector data is never shared with galleries.
+A: Galleries join on a monthly subscription sold via the web — Boutique ($64.99/mo), Professional ($158.99/mo), or Enterprise ($259.00/mo). They get inventory and exhibition tools, an aggregate collector analytics dashboard, AI-generated exhibition posts, a daily Pulse briefing, the Almanac AI concierge (Professional+), and a measurable collector pipeline. Analytics are aggregate-only — individual collector data is never shared with galleries.
 
 **Q: How do artists use Attesté?**
 A: Artists subscribe directly (Studio $14.99/mo with 14-day trial, or Professional $24.99/mo) to get a public profile, catalogue their studio archive, issue source certificates, and manage authentication requests via the Verification Inbox. Artists represented by a gallery on Professional or Enterprise can be provisioned for free under the Represented tier.
@@ -293,7 +297,7 @@ A: Voice Stories (recording UI), Art Fair seed data, additional Discovery Trail 
 - **Sign in with Apple** — wired, parity with Google Sign-In on iOS and web
 - **Gemini 2.5 Flash** — vision and fast generation
 - **Claude** — sommelier reasoning and provenance narrative
-- **Gemini Live** — voice companion (The Curator)
+- **Gemini Live** — voice + vision companion (Atelier) and gallery concierge (Almanac)
 - **Cloud Vision SafeSearch** — image moderation gate on every upload
 - **RevenueCat** — subscription orchestration
 - **Apple StoreKit 2** — iOS billing
@@ -306,7 +310,7 @@ A: Voice Stories (recording UI), Art Fair seed data, additional Discovery Trail 
 ## Comparison with other platforms
 
 ### vs Artwork Archive (artworkarchive.com)
-Artwork Archive is a web-first collection management SaaS targeted at artists and collectors. Mature product, large user base. Attesté differentiates with AI identification, cryptographic certificates, artist source certificates, discovery trails, aesthetic profiling, voice companion (The Curator), and a three-persona ecosystem (collector ↔ artist ↔ gallery).
+Artwork Archive is a web-first collection management SaaS targeted at artists and collectors. Mature product, large user base. Attesté differentiates with AI identification, cryptographic certificates, artist source certificates, discovery trails, aesthetic profiling, the Atelier voice + vision companion, and a three-persona ecosystem (collector ↔ artist ↔ gallery).
 
 ### vs Collector Systems
 Collector Systems is an enterprise-focused collection management platform. High-end, professional. Attesté is consumer-accessible (free tier) and AI-native, while offering a path up to artist, gallery and institutional tiers.
@@ -335,8 +339,8 @@ Attesté is about cataloguing physical and digital artworks a collector owns —
 ## Contact
 
 - **Website:** https://atteste.art
-- **App:** https://atteste-b6409.web.app
-- **Demo (no signup):** https://atteste-b6409.web.app/demo
+- **iOS app:** https://apps.apple.com/app/id6763944507
+- **Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste
 - **Support / general:** info@atteste.art
 - **Gallery partnerships:** galleries@atteste.art
 - **Artist enquiries:** artists@atteste.art
