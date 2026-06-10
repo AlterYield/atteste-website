@@ -511,10 +511,10 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
     <!-- YouTube video placeholder -->
     <!-- TODO: When demo video is ready, replace the .tp-video-inner div below with: -->
     <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Talking Provenance demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-    <div class="tp-video" role="img" aria-label="Talking Provenance demo video — coming soon">
+    <div class="tp-video" role="img" aria-label="Talking Provenance demo film — in production">
       <div class="tp-video-inner">
         <div class="tp-play" aria-hidden="true"></div>
-        <div class="tp-video-label">Demo &middot; Coming Soon</div>
+        <div class="tp-video-label">Demo Film &middot; In Production</div>
         <p class="tp-video-sublabel">Watch a gallery record a Curator&rsquo;s Commentary on a consigned work.</p>
       </div>
     </div>
@@ -545,6 +545,38 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 </section>
 
 <!-- HOW IT WORKS / FLYWHEEL -->
+
+<style>
+  @media (max-width: 900px) { .almanac-grid { grid-template-columns: 1fr !important; } }
+</style>
+<!-- ALMANAC + DAILY PULSE — the new gallery experience -->
+<section class="section-dark" id="almanac">
+  <div class="container">
+    <h2 class="section-title">Your Gallery Wakes Up <em style="color:var(--gold); font-style:italic;">Briefed</em></h2>
+    <p class="section-subtitle">The new Attesté gallery experience is rolling out now — a workspace that briefs you every morning and answers when you ask.</p>
+    <div class="almanac-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; margin-top:48px;">
+      <div>
+        <h3 style="font-size:26px; color:var(--gold-light); margin-bottom:16px;">Almanac — ask your gallery anything</h3>
+        <p style="color:rgba(255,255,255,0.78); line-height:1.75; margin-bottom:18px;">&ldquo;Who should I call today?&rdquo; &ldquo;What moved this week?&rdquo; &ldquo;Draft a follow-up for the collector who watchlisted the Khumalo.&rdquo; Almanac answers in voice or text — grounded in your live inventory, exhibitions, collector activity, and pipeline.</p>
+        <p style="color:rgba(255,255,255,0.78); line-height:1.75; margin-bottom:18px;"><strong style="color:var(--gold);">Daily Pulse.</strong> Computed overnight from real collector activity: encounters, watchlists, certificate scans, inquiries — with suggested next actions, not just numbers.</p>
+        <p style="color:rgba(255,255,255,0.78); line-height:1.75; margin-bottom:18px;"><strong style="color:var(--gold);">A living collector stream.</strong> Every interaction with your works in one feed. No CRM data entry, ever. Anonymous and aggregated — never individuals.</p>
+        <p style="color:rgba(255,255,255,0.78); line-height:1.75;"><strong style="color:var(--gold);">Six AI writers on staff.</strong> Exhibition copy, artist bios, artwork descriptions, follow-up emails, on-demand insights — and Gallery Wrapped, your year auto-curated into a shareable story each December.</p>
+      </div>
+      <div style="border:1px solid rgba(201,169,110,0.25); border-radius:16px; background:linear-gradient(180deg,#1C1C30 0%,#13131F 100%); padding:28px;" aria-label="Illustrative daily Pulse briefing">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid rgba(201,169,110,0.18); padding-bottom:14px; margin-bottom:18px;">
+          <h4 style="font-size:19px; color:var(--gold-light); font-family:'Playfair Display',serif;">This Morning&rsquo;s Pulse</h4>
+          <span style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.4);">Tuesday &middot; 07:00</span>
+        </div>
+        <div style="display:flex; gap:12px; margin-bottom:14px;"><span style="flex:none; width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:8px;"></span><p style="font-size:15px; line-height:1.55; color:rgba(255,255,255,0.78);"><strong style="color:var(--gold-light);">3 new encounters</strong> overnight — two on the Khumalo charcoal, one in your winter group show.</p></div>
+        <div style="display:flex; gap:12px; margin-bottom:14px;"><span style="flex:none; width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:8px;"></span><p style="font-size:15px; line-height:1.55; color:rgba(255,255,255,0.78);">The <strong style="color:var(--gold-light);">Wenning landscape</strong> was watchlisted twice this week. A collector who saw it in March is back in town.</p></div>
+        <div style="display:flex; gap:12px; margin-bottom:14px;"><span style="flex:none; width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:8px;"></span><p style="font-size:15px; line-height:1.55; color:rgba(255,255,255,0.78);">Certificate <strong style="color:var(--gold-light);">#ATC-2026-0042</strong> was scanned in Rosebank — your provenance is travelling.</p></div>
+        <div style="display:flex; gap:12px;"><span style="flex:none; width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:8px;"></span><p style="font-size:15px; line-height:1.55; color:rgba(255,255,255,0.78);"><strong style="color:var(--gold-light);">Suggested:</strong> follow up with the Khumalo collector. Almanac has drafted the note — review and send.</p></div>
+        <div style="margin-top:16px; font-size:11px; color:rgba(255,255,255,0.35); letter-spacing:0.5px;">Illustrative briefing &middot; Pulse is computed nightly from your gallery&rsquo;s real activity &middot; Almanac voice on Professional and Enterprise</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section-dark" id="how-it-works">
   <div class="container">
     <h2 class="section-title">How Galleries Use Attesté</h2>

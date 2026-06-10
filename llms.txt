@@ -14,13 +14,14 @@
 - **Discovery Trails** — Curated GPS-gated art walks in cities around the world. Walk a neighbourhood, unlock its galleries and public art.
 - **AI Art Sommelier** — Profiles your aesthetic taste across 8 axes (representational ↔ abstract, bright ↔ muted, quiet ↔ energetic, etc.) to recommend artworks and artists you'll love.
 - **Art Fair Companion** — Rapid encounter logging for busy art fairs (Cape Town Art Fair, FNB Art Joburg, Frieze, Art Basel).
-- **The Curator** — Voice-companion AI feature for hands-free art conversations.
+- **Atelier** — Voice-first AI art companion with live camera vision (Gemini Live). Point your camera at an artwork and talk about it aloud; Atelier sees what you see, answers grounded in your collection's records, and saves each session as an Atelier Journal entry pinned to the work. Premium feature.
 - **Talking Provenance** — Record AI-coached spoken commentary about an artwork (in the collector's, artist's, or gallery's own voice). Each recording is SHA-256 hash-chained, permanently attached to the work, and travels with it on every ownership transfer — institutional memory turned into a durable provenance asset.
 - **Collector Gamification** — XP, achievements, and levelling so building a collection feels rewarding.
 - **Legacy Vault** — Preserve the story behind each artwork — artist interviews, acquisition context, condition history — so it survives intact across generations.
 - **Year in Art** — Annual recap of your collection's evolution (like Spotify Wrapped, for art).
 - **Public Artist Profiles** — Working artists publish a gallery-grade public profile with bio, signature, statement, and curated portfolio at `atteste.art/artist/{handle}`.
 - **For Galleries: Monthly Subscription Plans** — Inventory and exhibition tools, anonymous collector analytics, Talking Provenance (Curator's Commentary), AI-generated exhibition posts, and a measurable collector pipeline. From $64.99/month, sold directly via the web as a bespoke gallery onboarding.
+- **Almanac + Daily Pulse (Galleries — rolling out now)** — The new Attesté gallery experience: a daily Pulse briefing computed overnight from real collector activity (encounters, watchlists, certificate scans, inquiries, suggested actions), the Almanac AI concierge that answers questions about the gallery's live inventory/collectors/pipeline in voice or text, a cross-role collector activity stream with zero CRM data entry, six AI generators (exhibition copy, artist bios, artwork descriptions, follow-up emails, on-demand insights, annual Gallery Wrapped), and multi-venue support.
 
 ## Who it's for
 
@@ -70,8 +71,8 @@ Attesté began as a father's project to catalogue a family art collection. Today
 ## Contact
 
 - **Website:** https://atteste.art
-- **App:** https://atteste-b6409.web.app
-- **Demo (no signup):** https://atteste-b6409.web.app/demo
+- **iOS app:** https://apps.apple.com/app/id6763944507
+- **Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste
 - **Gallery partnerships:** galleries@atteste.art
 - **Artist enquiries:** artists@atteste.art
 - **General:** info@atteste.art
