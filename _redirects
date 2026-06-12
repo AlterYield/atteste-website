@@ -7,6 +7,7 @@ https://www.atteste.art/* https://atteste.art/:splat 301!
 # (robots.txt is advisory; this is the real gate)
 /marketing/* /404.html 404!
 /scripts/*   /404.html 404!
+/.claude/*   /404.html 404!
 
 # NFC tag verify URLs — taps on /v/{certId} are intercepted by the
 # Atteste app via Universal Links / App Links (see /.well-known/
