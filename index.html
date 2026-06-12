@@ -111,8 +111,7 @@
   "sameAs": [
     "https://www.instagram.com/atteste.art",
     "https://www.linkedin.com/company/atteste",
-    "https://apps.apple.com/app/id6763944507",
-    "https://play.google.com/store/apps/details?id=art.atteste.atteste"
+    "https://apps.apple.com/app/id6763944507"
   ]
 }
 </script>
@@ -132,8 +131,8 @@
   "applicationSubCategory": "Art Collection Management",
   "operatingSystem": "iOS, Android, Web",
   "url": "https://atteste.art/",
-  "downloadUrl": "https://play.google.com/store/apps/details?id=art.atteste.atteste",
-  "installUrl": "https://play.google.com/store/apps/details?id=art.atteste.atteste",
+  "downloadUrl": "https://apps.apple.com/app/id6763944507",
+  "installUrl": "https://apps.apple.com/app/id6763944507",
   "softwareVersion": "1.0.0",
   "datePublished": "2026-04-30",
   "screenshot": [
@@ -710,6 +709,134 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   transition: color var(--transition);
 }
 .hero-tertiary a:hover { color: var(--gold); }
+
+/* Store badge — coming-soon state (Play listing not live yet) */
+.store-soon { position: relative; display: inline-flex; align-items: center; cursor: default; }
+.store-soon img { opacity: 0.38; filter: grayscale(55%); }
+.soon-tag {
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: rgba(13,13,26,0.88);
+  border: 1px solid rgba(201,169,110,0.4);
+  padding: 3px 9px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* Film sound toggle — corner button on phone-frame videos */
+.film-sound {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13,13,26,0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(201,169,110,0.45);
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition);
+  z-index: 2;
+}
+.film-sound:hover { background: rgba(201,169,110,0.25); border-color: var(--gold); }
+.film-sound svg {
+  width: 17px;
+  height: 17px;
+  stroke: var(--gold-light);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.film-sound .ico-on { display: none; }
+.film-sound[aria-pressed="true"] .ico-on { display: block; }
+.film-sound[aria-pressed="true"] .ico-off { display: none; }
+
+/* ========== FIELD NOTES — collector films (Higgsfield, 2026-06) ========== */
+.wild {
+  background: linear-gradient(180deg, var(--navy) 0%, #14142A 100%);
+  padding: 110px 48px;
+}
+.wild-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.92fr 0.92fr;
+  gap: 56px;
+  align-items: center;
+}
+.wild h2 {
+  font-size: 40px;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+.wild h2 em { color: var(--gold); font-style: italic; }
+.wild-lede {
+  font-family: 'Inter', sans-serif;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 12px;
+}
+.wild-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 30px;
+}
+.film-phone { margin: 0; }
+.film-frame {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  border-radius: 40px;
+  padding: 9px;
+  background: linear-gradient(160deg, #2E2E4E 0%, #15152A 100%);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,169,110,0.22), inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+.film-frame video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 32px;
+  background: #15152A;
+}
+.film-frame .film-sound { right: 18px; bottom: 18px; }
+.film-cap {
+  margin: 18px auto 0;
+  max-width: 300px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+}
+.film-cap strong { color: var(--gold-light); font-weight: 600; }
+@media (max-width: 1080px) {
+  .wild-inner { grid-template-columns: 1fr 1fr; gap: 48px; }
+  .wild-copy { grid-column: 1 / -1; max-width: 640px; }
+}
+@media (max-width: 640px) {
+  .wild { padding: 80px 24px; }
+  .wild-inner { grid-template-columns: 1fr; gap: 44px; }
+  .wild h2 { font-size: 32px; }
+}
 
 /* ========== SOCIAL PROOF BAR ========== */
 .proof-bar {
@@ -1660,7 +1787,7 @@ p, li, blockquote { font-family: 'Crimson Pro', Georgia, serif; }
     <div class="hero-text">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        On the App Store &amp; Google Play
+        Now on the App Store
       </div>
       <h1>Your Art Collection Deserves <em>a Memory</em></h1>
       <p class="hero-sub">Capture every encounter. Document every provenance. Talk with every work. Attesté turns your collection into a living, verified story — sealed in cryptographic truth.</p>
@@ -1668,22 +1795,26 @@ p, li, blockquote { font-family: 'Crimson Pro', Georgia, serif; }
         <a href="https://apps.apple.com/app/id6763944507" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store">
           <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-apple" width="156" height="52">
         </a>
-        <a href="https://play.google.com/store/apps/details?id=art.atteste.atteste" target="_blank" rel="noopener" aria-label="Get Attesté on Google Play">
-          <img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" class="store-badge-google" width="202" height="78">
-        </a>
+        <span class="store-soon" title="Android is in final review — Google Play listing coming soon">
+          <img src="assets/badges/google-play-badge.png" alt="Google Play — coming soon" class="store-badge-google" width="202" height="78">
+          <span class="soon-tag">Coming soon</span>
+        </span>
       </div>
       <p class="hero-tertiary">Free to start — your first 25 works, on us. <a href="#atelier">Meet Atelier &darr;</a></p>
     </div>
     <div class="hero-visual">
       <div class="hero-device">
-        <!-- Rotato hero film: export H.264 MP4 (portrait, no audio, ≤2.5 MB) and save it
-             as assets/hero/atteste-rotato.mp4 — it will autoplay here automatically.
-             Until that file exists, the poster frame below is shown. -->
-        <video autoplay muted loop playsinline preload="metadata"
-               poster="screenshots/ai-chat.png"
-               aria-label="Attesté app — the Discover screen with the Art Sommelier">
-          <source src="assets/hero/atteste-rotato.mp4" type="video/mp4">
+        <!-- Collector film (Higgsfield, 2026-06): a first-time explorer walks through
+             the app to the live demo. Autoplays muted; corner toggle unmutes. -->
+        <video autoplay muted loop playsinline preload="metadata" data-ambient
+               poster="assets/video/collector-explorer-poster.jpg"
+               aria-label="A first-time collector tours the Attesté app, ending on the free demo — no sign-up required">
+          <source src="assets/video/collector-explorer.mp4" type="video/mp4">
         </video>
+        <button class="film-sound" type="button" aria-label="Unmute film" aria-pressed="false">
+          <svg class="ico-off" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          <svg class="ico-on" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -1871,6 +2002,51 @@ p, li, blockquote { font-family: 'Crimson Pro', Georgia, serif; }
   </div>
   <div style="text-align:center; margin-top:48px;">
     <a href="features.html" class="btn-primary" style="display:inline-flex;">View All Features <span style="margin-left:8px;">→</span></a>
+  </div>
+</section>
+
+<!-- FIELD NOTES — collector films -->
+<section class="wild" id="field-notes">
+  <div class="wild-inner">
+    <div class="wild-copy">
+      <div class="section-label">Field Notes</div>
+      <h2>Collectors, <em>In the Wild</em></h2>
+      <p class="wild-lede">Fifteen seconds at a time: a legacy collection kept assessor-ready in the Insurance Vault, and a Stellenbosch wine-and-art route navigated stop by stop on the day.</p>
+      <p class="wild-sub">Filmed phone-in-hand — the app as collectors actually hold it. Tap the corner toggle for sound.</p>
+      <div class="store-badges">
+        <a href="https://apps.apple.com/app/id6763944507" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store">
+          <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-apple" width="156" height="52" loading="lazy">
+        </a>
+      </div>
+    </div>
+    <figure class="film-phone">
+      <div class="film-frame">
+        <video muted loop playsinline preload="none" data-ambient
+               poster="assets/video/collector-vault-poster.jpg"
+               aria-label="A legacy collector reviews the Insurance Vault — portfolio summary, valuation certificates and coverage gaps">
+          <source src="assets/video/collector-vault.mp4" type="video/mp4">
+        </video>
+        <button class="film-sound" type="button" aria-label="Unmute film" aria-pressed="false">
+          <svg class="ico-off" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          <svg class="ico-on" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        </button>
+      </div>
+      <figcaption class="film-cap"><strong>The Insurance Vault.</strong> Valuations, coverage gaps, condition history — the collection your family inherits, organised.</figcaption>
+    </figure>
+    <figure class="film-phone">
+      <div class="film-frame">
+        <video muted loop playsinline preload="none" data-ambient
+               poster="assets/video/collector-routes-poster.jpg"
+               aria-label="A collector follows a Stellenbosch wine-and-art estates route in the app, with mapped stops and navigation">
+          <source src="assets/video/collector-routes.mp4" type="video/mp4">
+        </video>
+        <button class="film-sound" type="button" aria-label="Unmute film" aria-pressed="false">
+          <svg class="ico-off" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          <svg class="ico-on" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        </button>
+      </div>
+      <figcaption class="film-cap"><strong>Art Routes.</strong> Stellenbosch's wine-and-art estates, mapped stop by stop — collect the day, not just the work.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -2178,14 +2354,15 @@ p, li, blockquote { font-family: 'Crimson Pro', Georgia, serif; }
   <div class="cta-inner">
     <img src="assets/3d/atteste-seal-3d.jpg" alt="The Attesté seal" class="cta-seal" width="132" height="132" loading="lazy">
     <h2>Begin Your Collection's Story</h2>
-    <p>Attesté is on the App Store and Google Play. Start free with your first 25 works — every account opens with a 14-day Premium trial. Your collection's memory begins with the first encounter.</p>
+    <p>Attesté is live on the App Store, with Google Play close behind. Start free with your first 25 works — every account opens with a 14-day Premium trial. Your collection's memory begins with the first encounter.</p>
     <div class="store-badges" style="justify-content:center; margin-top:32px;">
       <a href="https://apps.apple.com/app/id6763944507" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store">
         <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-apple" width="156" height="52" loading="lazy">
       </a>
-      <a href="https://play.google.com/store/apps/details?id=art.atteste.atteste" target="_blank" rel="noopener" aria-label="Get Attesté on Google Play">
-        <img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" class="store-badge-google" width="202" height="78" loading="lazy">
-      </a>
+      <span class="store-soon" title="Android is in final review — Google Play listing coming soon">
+        <img src="assets/badges/google-play-badge.png" alt="Google Play — coming soon" class="store-badge-google" width="202" height="78" loading="lazy">
+        <span class="soon-tag">Coming soon</span>
+      </span>
     </div>
     <div class="cta-note">Free to start. No credit card required.</div>
   </div>
@@ -2241,18 +2418,41 @@ p, li, blockquote { font-family: 'Crimson Pro', Georgia, serif; }
 <!-- SCROLL NAV EFFECT -->
 <script>
 
-  // Hero video: respect reduced motion + pause when offscreen
-  const heroVideo = document.querySelector('.hero-device video');
-  if (heroVideo) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      heroVideo.removeAttribute('autoplay');
-      heroVideo.pause();
+  // Ambient films: respect reduced motion, play only while on screen
+  const films = document.querySelectorAll('video[data-ambient]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  films.forEach(v => {
+    if (reduceMotion) {
+      v.removeAttribute('autoplay');
+      v.pause();
     } else if ('IntersectionObserver' in window) {
       new IntersectionObserver(entries => {
-        entries.forEach(e => { e.isIntersecting ? heroVideo.play().catch(() => {}) : heroVideo.pause(); });
-      }, { threshold: 0.15 }).observe(heroVideo);
+        entries.forEach(e => { e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause(); });
+      }, { threshold: 0.15 }).observe(v);
     }
-  }
+  });
+
+  // Film sound toggles — one voice at a time
+  document.querySelectorAll('.film-sound').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const video = btn.parentElement.querySelector('video');
+      if (!video) return;
+      const unmuting = video.muted;
+      if (unmuting) {
+        films.forEach(v => { v.muted = true; });
+        document.querySelectorAll('.film-sound').forEach(b => {
+          b.setAttribute('aria-pressed', 'false');
+          b.setAttribute('aria-label', 'Unmute film');
+        });
+        video.muted = false;
+        video.play().catch(() => {});
+      } else {
+        video.muted = true;
+      }
+      btn.setAttribute('aria-pressed', unmuting ? 'true' : 'false');
+      btn.setAttribute('aria-label', unmuting ? 'Mute film' : 'Unmute film');
+    });
+  });
 
   const nav = document.getElementById('nav');
   let lastScroll = 0;
