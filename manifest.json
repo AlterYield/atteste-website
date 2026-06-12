@@ -35,13 +35,13 @@
   ],
   "related_applications": [
     {
-      "platform": "play",
-      "url": "https://play.google.com/store/apps/details?id=com.atteste.atteste",
-      "id": "com.atteste.atteste"
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/id6763944507"
     },
     {
-      "platform": "itunes",
-      "url": "https://apps.apple.com/app/atteste"
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=art.atteste.atteste",
+      "id": "art.atteste.atteste"
     }
   ],
   "prefer_related_applications": false

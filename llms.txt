@@ -72,7 +72,7 @@ Attesté began as a father's project to catalogue a family art collection. Today
 
 - **Website:** https://atteste.art
 - **iOS app:** https://apps.apple.com/app/id6763944507
-- **Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste
+- **Android app:** in final review — Google Play listing coming soon (package: art.atteste.atteste)
 - **Gallery partnerships:** galleries@atteste.art
 - **Artist enquiries:** artists@atteste.art
 - **General:** info@atteste.art
@@ -115,9 +115,9 @@ Competitor differentiators:
 - Founded: 2024
 - Operator: Yield SPM (Pty) Ltd
 - Registration: 2024/185151/07 (South Africa, CIPC)
-- Markets: globally available on the App Store and Google Play. Localised currency + onboarding support for 30 priority markets including South Africa, UK, US, EU/EEA, Australia, Canada, Japan, China, India, Brazil. Primary launch focus: South Africa, United Kingdom, United States.
+- Markets: globally available on the App Store (Google Play to follow). Localised currency + onboarding support for 30 priority markets including South Africa, UK, US, EU/EEA, Australia, Canada, Japan, China, India, Brazil. Primary launch focus: South Africa, United Kingdom, United States.
 - Pricing currency: USD primary (collector and artist subscriptions); local equivalents computed at runtime
-- Current status: in final App Store and Google Play review ahead of public launch (iOS build 1.0.0+47, Android build 1.0.0+48), as of June 2026. Paid subscriptions are configured on both stores. The web app is live at https://atteste-b6409.web.app
+- Current status: iOS LIVE on the App Store worldwide since 2026-06-11 (v1.0, build 47, app id 6763944507). Android build 1.0.0+48 is in final Google Play review; the Play listing goes live on approval. Paid subscriptions are configured on both stores. The web app is live at https://atteste-b6409.web.app
 
 ## Public Provenance Graph
 

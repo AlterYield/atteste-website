@@ -8,8 +8,8 @@
 
 **Site:** https://atteste.art
 **iOS app:** https://apps.apple.com/app/id6763944507
-**Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste
-**Last updated:** 2026-06-10
+**Android app:** in final review — Google Play listing coming soon (package: art.atteste.atteste)
+**Last updated:** 2026-06-12
 
 ---
 
@@ -274,7 +274,7 @@ A: Yes, for core documentation. Photograph artworks, log encounters, add notes �
 A: Yield SPM (Pty) Ltd. The same team operates Practacular (AI practice management for accountants), so Attesté benefits from shared AI infrastructure.
 
 **Q: Is Attesté available in my country?**
-A: The app is available globally on the Apple App Store and Google Play. Pricing is USD primary; local equivalents render in the user's storefront currency (the stores handle conversion). The app provides localised currency display and a country picker covering 30 priority markets (with an "Other" fallback). Privacy Policy v1.1 has explicit regional addenda for POPIA (South Africa), GDPR (EU/EEA), and CCPA/CPRA (California), plus general provisions covering all other jurisdictions at GDPR-grade safeguards. Ask `info@atteste.art` for the latest on your market.
+A: The app is live globally on the Apple App Store (since 2026-06-11); the Google Play listing follows on approval of the Android build currently in review. Pricing is USD primary; local equivalents render in the user's storefront currency (the stores handle conversion). The app provides localised currency display and a country picker covering 30 priority markets (with an "Other" fallback). Privacy Policy v1.1 has explicit regional addenda for POPIA (South Africa), GDPR (EU/EEA), and CCPA/CPRA (California), plus general provisions covering all other jurisdictions at GDPR-grade safeguards. Ask `info@atteste.art` for the latest on your market.
 
 **Q: How do galleries use Attesté?**
 A: Galleries join on a monthly subscription sold via the web — Boutique ($64.99/mo), Professional ($158.99/mo), or Enterprise ($259.00/mo). They get inventory and exhibition tools, an aggregate collector analytics dashboard, AI-generated exhibition posts, a daily Pulse briefing, the Almanac AI concierge (Professional+), and a measurable collector pipeline. Analytics are aggregate-only — individual collector data is never shared with galleries.
@@ -340,7 +340,7 @@ Attesté is about cataloguing physical and digital artworks a collector owns —
 
 - **Website:** https://atteste.art
 - **iOS app:** https://apps.apple.com/app/id6763944507
-- **Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste
+- **Android app:** in final review — Google Play listing coming soon (package: art.atteste.atteste)
 - **Support / general:** info@atteste.art
 - **Gallery partnerships:** galleries@atteste.art
 - **Artist enquiries:** artists@atteste.art
