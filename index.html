@@ -637,8 +637,8 @@
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.15fr 0.92fr 0.92fr;
-  gap: 56px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
   align-items: center;
 }
 .wild h2 {
@@ -691,9 +691,28 @@
   color: rgba(255,255,255,0.6);
 }
 .film-cap strong { color: var(--gold-light); font-weight: 600; }
+.film-phone--hero .film-frame { max-width: 300px; }
+.wild-secondary {
+  max-width: 980px;
+  margin: 56px auto 0;
+  padding-top: 44px;
+  border-top: 1px solid rgba(201,169,110,0.16);
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.film-phone--sm .film-frame { max-width: 190px; }
+.wild-secondary-copy h3 { color: #fff; font-size: 26px; line-height: 1.2; margin: 8px 0 12px; }
+.wild-secondary-copy p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; line-height: 1.7;
+  color: rgba(255,255,255,0.7); max-width: 460px;
+}
 @media (max-width: 1080px) {
-  .wild-inner { grid-template-columns: 1fr 1fr; gap: 48px; }
-  .wild-copy { grid-column: 1 / -1; max-width: 640px; }
+  .wild-inner { grid-template-columns: 1fr; gap: 40px; }
+  .wild-secondary { grid-template-columns: 1fr; gap: 28px; text-align: center; max-width: 460px; }
+  .wild-secondary-copy p { margin: 0 auto; }
 }
 @media (max-width: 640px) {
   .wild { padding: 80px 24px; }
@@ -1874,7 +1893,7 @@
         </a>
       </div>
     </div>
-    <figure class="film-phone">
+    <figure class="film-phone film-phone--hero">
       <div class="film-frame">
         <video muted loop playsinline preload="none" data-ambient
                poster="assets/video/collector-vault-poster.jpg"
@@ -1888,7 +1907,9 @@
       </div>
       <figcaption class="film-cap"><strong>The Insurance Vault.</strong> Valuations, coverage gaps, condition history — the collection your family inherits, organised.</figcaption>
     </figure>
-    <figure class="film-phone">
+  </div>
+  <div class="wild-secondary">
+    <figure class="film-phone film-phone--sm">
       <div class="film-frame">
         <video muted loop playsinline preload="none" data-ambient
                poster="assets/video/collector-routes-poster.jpg"
@@ -1900,8 +1921,12 @@
           <svg class="ico-on" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
         </button>
       </div>
-      <figcaption class="film-cap"><strong>Art Routes.</strong> Stellenbosch's wine-and-art estates, mapped stop by stop — collect the day, not just the work.</figcaption>
     </figure>
+    <div class="wild-secondary-copy">
+      <div class="section-label">Also on the trail</div>
+      <h3>Art Routes</h3>
+      <p>Stellenbosch's wine-and-art estates, mapped stop by stop — collect the day, not just the work. Follow the route, check in at each stop, and let every encounter log itself.</p>
+    </div>
   </div>
 </section>
 
