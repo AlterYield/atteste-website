@@ -98,53 +98,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=20260616">
 <style>
-/* ========================================
-   ATTESTÉ — ALL FEATURES PAGE
-   Design system: Dark #1A1A2E + Gold #C9A96E
-   Fonts: Playfair Display (headings), Inter (body)
-   ======================================== */
-
-:root {
-  --navy: #1A1A2E;
-  --navy-mid: #232340;
-  --navy-light: #2A2A4A;
-  --gold: #C9A96E;
-  --gold-light: #E0CFA6;
-  --gold-pale: #F5EFE0;
-  --cream: #FAF8F5;
-  --cream-dark: #F0EDE8;
-  --white: #FFFFFF;
-  --text-dark: #1A1A2E;
-  --text-body: #3D3D3D;
-  --text-muted: #6B6B6B;
-  --text-light: rgba(255,255,255,0.7);
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --radius-xl: 32px;
-  --shadow-subtle: 0 2px 16px rgba(0,0,0,0.06);
-  --shadow-card: 0 4px 24px rgba(0,0,0,0.08);
-  --shadow-elevated: 0 12px 48px rgba(0,0,0,0.12);
-  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* RESET */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--cream);
-  color: var(--text-body);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-img { max-width: 100%; display: block; }
-a { text-decoration: none; color: inherit; }
-button { border: none; cursor: pointer; font-family: inherit; }
-
-/* TYPOGRAPHY */
-h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.2; }
+/* features.html — page-specific styles; globals in assets/css/site.css */
 
 /* ========== NAVIGATION ========== */
 .nav {
@@ -160,54 +116,6 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 1px 0 rgba(201,169,110,0.15);
-  transition: var(--transition);
-}
-.nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 0.5px;
-}
-.nav-logo span { color: var(--gold); }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 36px;
-  list-style: none;
-}
-.nav-links a {
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.65);
-  letter-spacing: 0.5px;
-  transition: color var(--transition);
-}
-.nav-links a:hover { color: var(--gold-light); }
-.nav-links a.active { color: var(--gold); }
-.nav-cta {
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  color: var(--navy) !important;
-  background: var(--gold);
-  padding: 10px 24px;
-  border-radius: 100px;
-  transition: all var(--transition) !important;
-}
-.nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
-
-/* Mobile nav toggle */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  padding: 8px;
-}
-.nav-toggle span {
-  width: 24px; height: 2px;
-  background: var(--white);
-  border-radius: 2px;
   transition: var(--transition);
 }
 
@@ -313,7 +221,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 }
 .category-heading {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--gold);
   padding-bottom: 16px;
@@ -340,10 +248,17 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 .feature-item.reversed .feature-text { order: 2; }
 .feature-item.reversed .feature-screenshot { order: 1; }
 
-.feature-icon {
-  font-size: 36px;
-  margin-bottom: 12px;
-  display: block;
+.feature-icon-wrap {
+  width: 52px; height: 52px; min-width: 52px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.feature-icon-wrap svg {
+  width: 24px; height: 24px;
+  stroke: var(--gold); fill: none;
+  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
 }
 .feature-item h3 {
   font-size: 24px;
@@ -369,42 +284,19 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   border-radius: 100px;
 }
 
-/* Screenshot placeholder */
-.feature-screenshot {
-  border-radius: var(--radius-lg);
-  background: var(--navy);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 280px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  transition: transform var(--transition), box-shadow var(--transition);
+/* Screenshot — controlled phone-frame mockup */
+.feature-screenshot { display: flex; align-items: center; justify-content: center; }
+.feature-shot-frame {
+  width: 100%; max-width: 260px;
+  border-radius: 36px; padding: 8px;
+  background: linear-gradient(160deg, #2E2E4E 0%, #15152A 100%);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.32), 0 0 0 1px rgba(201,169,110,0.20), inset 0 0 0 1px rgba(255,255,255,0.06);
+  transition: transform var(--transition);
 }
-.feature-screenshot:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 48px rgba(0,0,0,0.3);
-}
-.feature-screenshot img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--radius-lg);
-}
-.feature-screenshot-inner {
-  text-align: center;
-  padding: 40px;
-}
-.feature-screenshot-icon {
-  font-size: 40px;
-  margin-bottom: 12px;
-  opacity: 0.4;
-}
-.feature-screenshot-text {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-muted);
-  letter-spacing: 0.5px;
+.feature-screenshot:hover .feature-shot-frame { transform: translateY(-4px); }
+.feature-shot-frame img {
+  display: block; width: 100%; aspect-ratio: 1000 / 1586;
+  object-fit: cover; border-radius: 28px; background: #15152A;
 }
 
 /* ========== CTA SECTION ========== */
@@ -445,74 +337,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   margin-bottom: 36px;
   font-weight: 300;
 }
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 32px;
-  background: var(--gold);
-  color: var(--navy);
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 100px;
-  transition: all var(--transition);
-  letter-spacing: 0.3px;
-}
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,169,110,0.3); }
 
-/* ========== FOOTER ========== */
-.footer {
-  background: #0D0D1A;
-  padding: 64px 48px 40px;
-  color: rgba(255,255,255,0.4);
-}
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
-}
-.footer-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 12px;
-}
-.footer-brand span { color: var(--gold); }
-.footer-tagline {
-  font-size: 13px;
-  color: rgba(255,255,255,0.4);
-  line-height: 1.7;
-  max-width: 300px;
-}
-.footer-col h4 {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 16px;
-  font-weight: 600;
-}
-.footer-col a {
-  display: block;
-  font-size: 13px;
-  color: rgba(255,255,255,0.45);
-  margin-bottom: 10px;
-  transition: color var(--transition);
-}
-.footer-col a:hover { color: var(--gold-light); }
-.footer-bottom {
-  max-width: 1200px;
-  margin: 48px auto 0;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-}
 .footer-sa {
   display: flex;
   align-items: center;
@@ -540,7 +365,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   }
   .feature-item.reversed .feature-text { order: 1; }
   .feature-item.reversed .feature-screenshot { order: 2; }
-  .feature-screenshot { min-height: 200px; }
+  .feature-shot-frame { max-width: 230px; margin: 0 auto; }
   .features-cta { padding: 72px 24px; }
   .features-cta h2 { font-size: 32px; }
   .footer { padding: 48px 24px 32px; }
@@ -548,56 +373,8 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   .footer-bottom { flex-direction: column; gap: 8px; }
 }
 
-/* Mobile nav show */
-.nav-links.mobile-show {
-  display: flex !important;
-  flex-direction: column;
-  position: fixed;
-  top: 72px; left: 0; right: 0;
-  background: rgba(26,26,46,0.98);
-  backdrop-filter: blur(20px);
-  padding: 24px;
-  gap: 16px;
-  border-bottom: 1px solid rgba(201,169,110,0.15);
-}
-@media (min-width: 769px) {
-  .nav-links.mobile-show { display: flex !important; flex-direction: row; position: static; background: none; padding: 0; border: none; }
-}
 
-/* Store badge — coming-soon state (Play listing not live yet) */
-.store-soon { position: relative; display: inline-flex; align-items: center; cursor: default; }
-.store-soon img { opacity: 0.38; filter: grayscale(55%); }
-.soon-tag {
-  position: absolute;
-  left: 50%;
-  bottom: -5px;
-  transform: translateX(-50%);
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  background: rgba(13,13,26,0.88);
-  border: 1px solid rgba(201,169,110,0.4);
-  padding: 3px 9px;
-  border-radius: 100px;
-  white-space: nowrap;
-}
 
-/* ===== Attesté social buttons — footer row + floating scroll rail ===== */
-.att-social-row .att-social,
-.att-social-rail .att-social { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; margin:0; border-radius:50%; background:rgba(255,255,255,0.04); border:1px solid rgba(201,169,110,0.45); color:var(--gold-light); box-shadow:inset 0 1px 0 rgba(255,255,255,0.06); transition:transform .2s ease, border-color .2s ease, color .2s ease, background .2s ease, box-shadow .2s ease; }
-.att-social-row .att-social:hover,
-.att-social-rail .att-social:hover { border-color:var(--gold-light); color:#fff; background:rgba(201,169,110,0.18); box-shadow:inset 0 1px 0 rgba(255,255,255,0.12), 0 6px 18px rgba(0,0,0,0.35); }
-.att-social-row .att-social svg,
-.att-social-rail .att-social svg { width:19px; height:19px; fill:currentColor; display:block; }
-.att-social-row .att-social:hover { transform:translateY(-3px); }
-.att-social-rail .att-social:hover { transform:translateX(-3px); }
-.att-social-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin:2px 0 14px; }
-.att-social-rail { position:fixed; right:18px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; z-index:60; }
-.att-social-rail .att-social { background:rgba(18,18,20,0.66); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
-@media (max-width:1100px){ .att-social-rail{ display:none; } }
-@media (prefers-reduced-motion:reduce){ .att-social-row .att-social,.att-social-rail .att-social{transition:none;} .att-social-row .att-social:hover,.att-social-rail .att-social:hover{transform:none;} }
 </style>
 </head>
 <body>
@@ -650,65 +427,65 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
     <!-- 1. Attesté Certificate -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">📜</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
         <h3>Attesté Certificate</h3>
         <p>Living digital provenance with SHA-256 integrity hashing, tiered certification (Standard / Enhanced / Professional), QR codes, and shareable certificate faces. Your artwork's verified biography.</p>
         <span class="feature-tag">Provenance</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/certificate.png" alt="Attesté Certificate with SHA-256 provenance" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/certificate.png" alt="Attesté Certificate with SHA-256 provenance" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 2. AI Art Scout -->
     <div class="feature-item reversed">
       <div class="feature-text">
-        <span class="feature-icon">🔍</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
         <h3>AI Art Scout</h3>
         <p>Photograph any artwork. AI identifies the artist, medium, period, and estimated significance. Add it to your watchlist or log it as an encounter on your journey.</p>
         <span class="feature-tag">AI-Powered</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/scout.png" alt="AI Art Scout camera and analysis" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/scout.png" alt="AI Art Scout camera and analysis" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 3. Artist & Dealer Hub -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">👥</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Artist &amp; Dealer Hub</h3>
         <p>Full profiles for artists and dealers with AI enrichment, nationality context, contact info, and market positioning. The foundation for understanding every piece in your collection.</p>
         <span class="feature-tag">Research</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/artists-dealers.png" alt="Artist and Dealer profiles hub" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/artists-dealers.png" alt="Artist and Dealer profiles hub" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 4. Dashboard -->
     <div class="feature-item reversed">
       <div class="feature-text">
-        <span class="feature-icon">📊</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
         <h3>Dashboard</h3>
         <p>Collection summary stats, featured artpiece, quick actions, gamification progress, and journey highlights at a glance. Your collection's command centre.</p>
         <span class="feature-tag">Overview</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/dashboard.png" alt="Collection dashboard overview" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/dashboard.png" alt="Collection dashboard overview" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 5. CSV Import -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">📥</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
         <h3>CSV Import</h3>
         <p>Drag-and-drop bulk import with intelligent column mapping. Migrate your existing spreadsheet collection in minutes, not hours.</p>
         <span class="feature-tag">Utility</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/import.png" alt="CSV import with drag and drop" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/import.png" alt="CSV import with drag and drop" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -720,52 +497,52 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
     <!-- 6. AI Art Sommelier -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">🍷</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
         <h3>AI Art Sommelier</h3>
         <p>Claude-powered taste profiling across 8 aesthetic axes. Weekly discovery digests introduce you to artists you'll love but haven't found yet. Your personal art advisor.</p>
         <span class="feature-tag">AI-Powered</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/sommelier.png" alt="AI Art Sommelier taste profile" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/sommelier.png" alt="AI Art Sommelier taste profile" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 7. AI Assistant -->
     <div class="feature-item reversed">
       <div class="feature-text">
-        <span class="feature-icon">🎙️</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
         <h3>Atelier — Voice &amp; Vision Companion</h3>
         <p>The signature Attesté experience. Point your camera at a work and simply talk — Atelier sees what you see, answers aloud about style, technique and provenance, and saves every session as a journal entry pinned to the artwork. Text chat with full collection context included.</p>
         <span class="feature-tag">Signature · Premium</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/ai-chat.png" alt="Attesté AI conversation interface" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/ai-chat.png" alt="Attesté AI conversation interface" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 8. AI Trail Generator -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">🗺️</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
         <h3>AI Trail Generator</h3>
         <p>Describe your interests, choose a region, set your pace. AI creates a custom walking trail with curated stops, descriptions, and GPS coordinates tailored to your taste.</p>
         <span class="feature-tag">AI-Powered</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/trail-generator.png" alt="AI Trail Generator" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/trail-generator.png" alt="AI Trail Generator" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 9. Market Intelligence -->
     <div class="feature-item reversed">
       <div class="feature-text">
-        <span class="feature-icon">📰</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
         <h3>Market Intelligence</h3>
         <p>Automated art market news, discoveries, and pricing trends delivered to your feed. Stay informed without the noise.</p>
         <span class="feature-tag">Intelligence</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/auctions.png" alt="Market Intelligence and auctions" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/auctions.png" alt="Market Intelligence and auctions" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -777,52 +554,52 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
     <!-- 10. Discovery Trails -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">🏖️</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
         <h3>Discovery Trails</h3>
         <p>Walk curated art trails in cities worldwide. GPS geofencing triggers stories at each stop. Complete trails, earn badges, share your experience.</p>
         <span class="feature-tag">Exploration</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/trails.png" alt="Discovery Trails browse" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/trails.png" alt="Discovery Trails browse" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 11. Art Fair Companion -->
     <div class="feature-item reversed">
       <div class="feature-text">
-        <span class="feature-icon">🎨</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3>Art Fair Companion</h3>
         <p>Rapid encounter logging at fairs. Quick-tag pieces as you walk (love, interested, must-have). Booth check-in. Post-fair AI summary of your highlights and taste patterns.</p>
         <span class="feature-tag">Events</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/fairs.png" alt="Art Fair Companion" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/fairs.png" alt="Art Fair Companion" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 12. Community Trails -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">🌍</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <h3>Community Trails</h3>
         <p>Create and share your own trails with the collector community. Ratings, categories, AI-enhanced descriptions, and a four-stage submission pipeline.</p>
         <span class="feature-tag">Community</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/my-trails.png" alt="Community Curated Trails" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/my-trails.png" alt="Community Curated Trails" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 13. Travel Mode -->
     <div class="feature-item reversed">
       <div class="feature-text">
-        <span class="feature-icon">✈️</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
         <h3>Travel Mode</h3>
         <p>Explore art scenes in any country. Switch context seamlessly while keeping your home collection intact. The world's galleries are your playground.</p>
         <span class="feature-tag">Exploration</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/settings.png" alt="Travel Mode settings" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/settings.png" alt="Travel Mode settings" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -834,52 +611,52 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
     <!-- 14. Collector Gamification -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">🎮</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <h3>Collector Gamification</h3>
         <p>Earn XP for encounters, acquisitions, and trail walks. Unlock achievements. Complete monthly challenges. Level up from Apprentice to Grand Master. Your collecting journey, quantified.</p>
         <span class="feature-tag">Engagement</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/achievements.png" alt="Collector Gamification achievements" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/achievements.png" alt="Collector Gamification achievements" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 15. Year in Art -->
     <div class="feature-item reversed">
       <div class="feature-text">
-        <span class="feature-icon">✨</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <h3>Year in Art</h3>
         <p>Your annual "Spotify Wrapped for Art." Gallery visits, new acquisitions, favourite artists, taste evolution, journey milestones — all wrapped in a shareable, beautiful summary.</p>
         <span class="feature-tag">Social</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/year-in-art.png" alt="Year in Art retrospective" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/year-in-art.png" alt="Year in Art retrospective" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 16. Public Collector Profile -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">👤</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
         <h3>Public Collector Profile</h3>
         <p>Opt-in public profile showcasing your collection highlights, taste profile, milestones, and journey stats. Connect with fellow collectors who share your aesthetic.</p>
         <span class="feature-tag">Social</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/public-profile.png" alt="Public Collector Profile" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/public-profile.png" alt="Public Collector Profile" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 17. Collection Memoirs -->
     <div class="feature-item reversed">
       <div class="feature-text">
-        <span class="feature-icon">📖</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
         <h3>Collection Memoirs</h3>
         <p>AI-generated narratives that weave your collection into a literary story of your life with art. A memoir that grows with every acquisition.</p>
         <span class="feature-tag">AI-Powered</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/collectors.png" alt="Collection Memoirs" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/collectors.png" alt="Collection Memoirs" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -891,39 +668,39 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
     <!-- 18. Insurance & Condition Vault -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">🏦</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3>Insurance &amp; Condition Vault</h3>
         <p>AI condition analysis via Gemini Vision. PDF condition reports. Insurance coverage summaries. Valuation timeline tracking. Professional appraisal management.</p>
         <span class="feature-tag">Protection</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/insurance-vault.png" alt="Insurance and Condition Vault" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/insurance-vault.png" alt="Insurance and Condition Vault" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 19. Auction Intelligence -->
     <div class="feature-item reversed">
       <div class="feature-text">
-        <span class="feature-icon">📈</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>Auction Intelligence</h3>
         <p>Track auction houses across multiple countries. Browse upcoming lots with estimate ranges. Set alerts for artists you collect. Track your bids. Historical price records.</p>
         <span class="feature-tag">Intelligence</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/auctions.png" alt="Auction Intelligence calendar" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/auctions.png" alt="Auction Intelligence calendar" loading="lazy"></div>
       </div>
     </div>
 
     <!-- 20. Legacy & Estate Vault -->
     <div class="feature-item">
       <div class="feature-text">
-        <span class="feature-icon">🏛️</span>
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h3>Legacy &amp; Estate Vault</h3>
         <p>Designate heirs for each artwork. Create emergency access tokens. Write living letters — personal messages attached to pieces for future generations. Estate duty guidance.</p>
         <span class="feature-tag">Legacy</span>
       </div>
       <div class="feature-screenshot">
-        <img src="screenshots/legacy.png" alt="Legacy and Estate Vault" loading="lazy">
+        <div class="feature-shot-frame"><img src="screenshots/legacy.png" alt="Legacy and Estate Vault" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -936,12 +713,12 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   <div class="features-cta-content">
     <h2>Ready to start your <em>art journey?</em></h2>
     <p>Join collectors who are capturing, documenting, and sharing their path with art.</p>
-    <div style="display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap;">
+    <div class="store-badges" style="justify-content:center;">
       <a href="https://apps.apple.com/app/id6763944507" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store">
-        <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:52px; width:auto;" width="156" height="52" loading="lazy">
+        <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-apple" width="120" height="40" loading="lazy">
       </a>
       <a href="https://play.google.com/store/apps/details?id=art.atteste.atteste" target="_blank" rel="noopener" aria-label="Get Attesté on Google Play">
-        <img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:64px; width:auto;" width="202" height="78" loading="lazy">
+        <img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" class="store-badge-google" width="134" height="40" loading="lazy">
       </a>
     </div>
   </div>
