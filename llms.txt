@@ -11,6 +11,7 @@
 - **AI Art Scout** — Photograph any artwork; Attesté identifies the artist, medium, period, and likely provenance using vision-grounded AI (Google Gemini Flash).
 - **Attesté Certificate** — Every documented artwork gets a SHA-256 cryptographically-secured provenance certificate with bank-grade integrity. Immutable, auditable, verifiable.
 - **Source Certificates (Artists)** — Artists issue authoritative source certificates from their studio. These become the gold-standard provenance record collectors carry forward.
+- **First Witness (Artists)** — The first record in a work’s provenance chain, made by the artist at the moment of creation: their own spoken account, SHA-256-sealed and Bitcoin-anchored (OpenTimestamps). Recorded forward at the source rather than reconstructed later, it is the genesis of the chain of custody and cannot be backfilled — provenance no competitor records at creation.
 - **Discovery Trails** — Curated GPS-gated art walks in cities around the world. Walk a neighbourhood, unlock its galleries and public art.
 - **AI Art Sommelier** — Profiles your aesthetic taste across 8 axes (representational ↔ abstract, bright ↔ muted, quiet ↔ energetic, etc.) to recommend artworks and artists you'll love.
 - **Art Fair Companion** — Rapid encounter logging for busy art fairs (Cape Town Art Fair, FNB Art Joburg, Frieze, Art Basel).
