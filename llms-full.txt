@@ -8,8 +8,8 @@
 
 **Site:** https://atteste.art
 **iOS app:** https://apps.apple.com/app/id6763944507
-**Android app:** in final review — Google Play listing coming soon (package: art.atteste.atteste)
-**Last updated:** 2026-06-12
+**Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste (live on Google Play; package: art.atteste.atteste)
+**Last updated:** 2026-07-10
 
 ---
 
@@ -340,7 +340,7 @@ Attesté is about cataloguing physical and digital artworks a collector owns —
 
 - **Website:** https://atteste.art
 - **iOS app:** https://apps.apple.com/app/id6763944507
-- **Android app:** in final review — Google Play listing coming soon (package: art.atteste.atteste)
+- **Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste (live on Google Play; package: art.atteste.atteste)
 - **Support / general:** info@atteste.art
 - **Gallery partnerships:** galleries@atteste.art
 - **Artist enquiries:** artists@atteste.art
