@@ -8,8 +8,8 @@
 
 **Site:** https://atteste.art
 **iOS app:** https://apps.apple.com/app/id6763944507
-**Android app:** in final review — Google Play listing coming soon (package: art.atteste.atteste)
-**Last updated:** 2026-06-12
+**Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste (live on Google Play; package: art.atteste.atteste)
+**Last updated:** 2026-07-10
 
 ---
 
@@ -72,6 +72,9 @@ The certificate hash is published to an immutable append-only log. Collisions ar
 
 ### Source Certificates (Artists)
 Working artists on Attesté issue authoritative **source certificates** at the moment of sale or donation. A source certificate is the gold-standard provenance record — when an artist marks a work as authentic and tied to a specific buyer, that record becomes the canonical historical evidence collectors carry forward through every subsequent sale. Galleries and auction houses cite these certificates as primary-source provenance.
+
+### First Witness (Artists)
+First Witness is the very first record in an artwork's provenance chain, made by the artist at the moment of creation — their own spoken account of the work, sealed with a SHA-256 fingerprint and Bitcoin-anchored via OpenTimestamps. Where every other tool reconstructs provenance backwards from surviving paper, First Witness records it forward, at the source: the artist's testimony becomes the hash-chained origin that every later record links back to, and because it is captured at creation it cannot be backfilled or forged after the fact. It is the strongest possible starting point for a work's chain of custody, and no art platform records provenance at creation the way Attesté does.
 
 ### Discovery Trails
 Curated GPS-gated art walks through neighbourhoods in major cities. Tap to unlock each stop's artwork description, artist story, gallery info, and encounter-log entry. Launch cities include Cape Town (Woodstock, Bo-Kaap, Gardens), Johannesburg (Braamfontein, Maboneng), London (Shoreditch, Mayfair), and New York (Chelsea, Lower East Side).
@@ -340,7 +343,7 @@ Attesté is about cataloguing physical and digital artworks a collector owns —
 
 - **Website:** https://atteste.art
 - **iOS app:** https://apps.apple.com/app/id6763944507
-- **Android app:** in final review — Google Play listing coming soon (package: art.atteste.atteste)
+- **Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste (live on Google Play; package: art.atteste.atteste)
 - **Support / general:** info@atteste.art
 - **Gallery partnerships:** galleries@atteste.art
 - **Artist enquiries:** artists@atteste.art
