@@ -1941,6 +1941,7 @@
           <p>Every record in Attesté is secured with SHA-256 cryptographic hashing — the same standard used in financial transactions. Our provenance chain is append-only: records can be added but never altered or deleted.</p>
           <p>This isn't blockchain hype. It's the quiet certainty that your collection's story — every acquisition, every valuation, every transfer — is sealed in cryptographic truth. Permanent. Verifiable. Yours.</p>
           <p style="font-weight:500; color:var(--text-dark);">And our valuation philosophy is simple: invoice is king. AI provides experimental insight, but your portfolio totals only reflect documented, professional valuations. We believe trust is earned through honesty, not inflated numbers.</p>
+          <p><strong>First Witness.</strong> When a work is born in an artist’s studio on Attesté, its chain begins at creation — the artist’s own recorded account, sealed and Bitcoin-anchored as the origin every later record links back to. Provenance written forward, not reconstructed.</p>
         </div>
         <div class="trust-badges">
           <div class="trust-badge">
@@ -2231,6 +2232,67 @@
 </section>
 
 <!-- CTA / DOWNLOAD -->
+<!-- FAQ (visible counterpart to the FAQPage JSON-LD at #faq — GEO-citable, Google-policy-compliant). Added 2026-07-10. -->
+<style>
+  #faq-visible .faq-list{max-width:760px;margin:24px auto 0}
+  #faq-visible .faq-item{border-top:1px solid rgba(0,0,0,.12);padding:0}
+  #faq-visible .faq-item:last-child{border-bottom:1px solid rgba(0,0,0,.12)}
+  #faq-visible summary{list-style:none;cursor:pointer;padding:20px 40px 20px 4px;position:relative;
+    font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-weight:600;line-height:1.4}
+  #faq-visible summary::-webkit-details-marker{display:none}
+  #faq-visible summary::after{content:'+';position:absolute;right:6px;top:18px;font-size:1.6rem;
+    font-weight:400;color:#B8732A;transition:transform .2s}
+  #faq-visible details[open] summary::after{content:'\2013'}
+  #faq-visible .faq-item p{margin:0 4px 22px;line-height:1.7;opacity:.85;max-width:70ch}
+</style>
+<section class="section-cream" id="faq-visible">
+  <div class="section-label">Questions &amp; Answers</div>
+  <h2 style="text-align:center;margin-bottom:6px;">Frequently Asked</h2>
+  <p class="section-desc" style="text-align:center;">Straight answers on cost, privacy, provenance, and how the AI works.</p>
+  <div class="faq-list">
+    <details class="faq-item" open>
+      <summary>What is Attesté?</summary>
+      <p>Attesté is an AI-powered art collection management platform. It helps collectors catalogue their art, verify provenance with SHA-256 cryptographic certificates, discover new galleries and artists via GPS-gated trails, and document collection history across generations.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How much does Attesté cost?</summary>
+      <p>Attesté has a free Explorer tier (25 artworks, 5 AI analyses/month). Paid collector tiers start at $9.99/month (Collector — 200 artworks, full AI Sommelier) and $19.99/month (Premium — unlimited, Legacy Vault), with 17% savings on annual plans. Artist plans start at $14.99/month (Studio, 14-day free trial). Gallery plans are monthly subscriptions sold via the web: Boutique $64.99/mo, Professional $158.99/mo, Enterprise $259.00/mo.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is my art collection data private?</summary>
+      <p>Yes. By default every collection is private. Public profiles require an explicit opt-in. Data is hosted in Firebase's Johannesburg data centre (africa-south1), so personal data stays in Africa by default. Attesté is POPIA and GDPR aware.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How does AI Art Identification work?</summary>
+      <p>You photograph an artwork with the Attesté app. Google's latest Gemini vision models analyse the image and return likely artist, medium, period and similar works, with an explicit confidence score. Low-confidence guesses are flagged for human verification.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What is an Attesté Certificate?</summary>
+      <p>A SHA-256 cryptographically-secured provenance certificate. It includes the owner, acquisition date and source, a photograph fingerprint, condition and valuation history, and the chain of custody. The hash is published to an immutable log so tampering is detectable.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does Attesté authenticate whether an artwork is real?</summary>
+      <p>No. Attesté generates a tamper-proof record of what the owner reported. Authentication is a gallery, auction house or expert's job. You can upload professional authentication documents and attach them to the certificate.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can Attesté help me document an inherited art collection?</summary>
+      <p>Yes. Attesté's AI Art Scout is especially useful for inheritors: photograph each piece and the app identifies likely artist, medium and period. Upgrade to Premium to unlock the Legacy Vault for preserving stories, artist interviews, and acquisition context across generations.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How do galleries use Attesté?</summary>
+      <p>Galleries join on a monthly subscription sold via the web — Boutique ($64.99/mo), Professional ($158.99/mo), or Enterprise ($259.00/mo). They get inventory and exhibition tools, an aggregate collector analytics dashboard, Talking Provenance Curator's Commentary (Professional+), AI-generated exhibition posts, a daily Pulse briefing, the Almanac AI concierge, and a measurable collector pipeline. Analytics are aggregate-only — individual collector data is never shared with galleries.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Where is Attesté available?</summary>
+      <p>The Attesté app works worldwide. POPIA compliance (South Africa) is complete; GDPR compliance (EU) is in progress; US and UK markets are supported. Payment methods vary by region. Contact info@atteste.art for your specific market.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Who built Attesté?</summary>
+      <p>Attesté is built by Yield SPM (Pty) Ltd, founded by Karel Kraai in Bloemfontein, South Africa. Company registration: 2024/185151/07. The same team also operates Practacular, an AI practice management platform for accountants.</p>
+    </details>
+  </div>
+</section>
+
 <section class="cta-section" id="download">
   <div class="cta-inner">
     <img src="assets/3d/atteste-seal-3d.jpg" alt="The Attesté seal" class="cta-seal" width="132" height="132" loading="lazy">

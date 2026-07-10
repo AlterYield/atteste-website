@@ -71,6 +71,7 @@
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#bitcoin-anchoring", "name": "Bitcoin Anchoring", "description": "Recording a certificate's fingerprint onto the Bitcoin blockchain (via OpenTimestamps) so its existence at a given moment can be proven independently and permanently — even if the issuing platform disappears." },
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#tamper-evident", "name": "Tamper-Evident Record", "description": "A record built so that any alteration is immediately detectable. Tamper-evident is stronger than tamper-proof: it does not claim a record cannot be changed, only that changes cannot be hidden." },
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#talking-provenance", "name": "Talking Provenance", "description": "Spoken commentary about an artwork — by the artist, gallery, or collector — captured as a permanent, cryptographically chained recording that travels with the work, preserving the story and context that paper records lose." },
+    { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#first-witness", "name": "First Witness", "description": "The very first record in an artwork’s provenance chain, made by the artist at the moment of creation — their own spoken account of the work, sealed with a SHA-256 fingerprint and Bitcoin-anchored. Because it is recorded forward at the source rather than reconstructed years later, it is the origin the whole chain of custody builds on, and it cannot be backfilled." },
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#catalogue-raisonne", "name": "Catalogue Raisonné", "description": "A comprehensive, scholarly listing of all known works by an artist, used as a reference for authenticity. An artwork's inclusion in the catalogue raisonné strongly supports its provenance." },
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#condition-report", "name": "Condition Report", "description": "A detailed account of an artwork's physical state — damage, restoration, wear — at a point in time. Condition history is part of provenance and affects value and insurability." },
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#estimated-value", "name": "Estimated Value", "description": "An informed estimate of what an artwork is worth. Attesté treats documented evidence — invoices, professional valuations, revaluations — as authoritative, and clearly separates any experimental AI estimate from it." }
@@ -215,6 +216,7 @@ h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; 
     <a href="#bitcoin-anchoring">Bitcoin Anchoring</a>
     <a href="#tamper-evident">Tamper-Evident Record</a>
     <a href="#talking-provenance">Talking Provenance</a>
+    <a href="#first-witness">First Witness</a>
     <a href="#catalogue-raisonne">Catalogue Raisonné</a>
     <a href="#condition-report">Condition Report</a>
     <a href="#estimated-value">Estimated Value</a>
@@ -272,6 +274,12 @@ h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; 
     <h2>Talking Provenance</h2>
     <p>Spoken commentary about an artwork — by the artist, the gallery, or the collector — captured as a permanent recording that travels with the work.</p>
     <p>For five centuries the knowledge behind a work lived in private letters and was lost when galleries closed and owners passed on. Talking Provenance captures it instead: a hash-chained recording, attributed to its speaker, that becomes part of the chain of custody. It preserves the context that paper records cannot.</p>
+  </article>
+
+  <article class="term" id="first-witness">
+    <h2>First Witness</h2>
+    <p>The very first record in an artwork’s provenance chain — made by the artist, in their own voice, at the moment of creation.</p>
+    <p>Every other approach reconstructs provenance backwards, years later, from whatever paper survived. First Witness records it forward: when an artist registers a new work, they record its story themselves, and that account is sealed with a SHA-256 fingerprint and Bitcoin-anchored as the origin every later link builds on. Recorded at the source and never backfillable, it is the strongest possible starting point a work can have — and no record made after the fact can replace it.</p>
   </article>
 
   <article class="term" id="catalogue-raisonne">
