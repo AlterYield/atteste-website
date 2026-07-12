@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Troubleshooting — Attesté Help Centre</title>
+  <meta name="description" content="Fixes for common Attesté issues — subscription not showing, restore purchases, NFC scanning, login, and web-version limitations.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://atteste.art/help/troubleshooting.html">
+  <style>
+    :root { --ink:#1a1a2e; --ink-muted:#4a4a6e; --bg:#faf8f5; --gold:#c9a96e; --rule:#e6e0d4; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',Roboto,sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; font-size:16px; padding:0 1.5rem; }
+    main { max-width:760px; margin:0 auto; padding:3rem 0 6rem; }
+    header { border-bottom:1px solid var(--rule); padding-bottom:1.5rem; margin-bottom:2.5rem; }
+    header a { color:var(--gold); text-decoration:none; font-size:.875rem; letter-spacing:.08em; text-transform:uppercase; font-weight:600; }
+    h1,h2,h3 { font-family:'Playfair Display','Times New Roman',Georgia,serif; color:var(--ink); font-weight:600; line-height:1.25; }
+    h1 { font-size:2rem; margin:0 0 .5rem; }
+    h2 { font-size:1.4rem; margin:2.25rem 0 .75rem; }
+    p { margin:0 0 1rem; }
+    a { color:var(--gold); }
+    ul,ol { padding-left:1.5rem; margin:0 0 1rem; }
+    li { margin:.3rem 0; }
+    footer { margin-top:4rem; padding-top:1.5rem; border-top:1px solid var(--rule); color:var(--ink-muted); font-size:.875rem; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink:#f0ece3; --ink-muted:#b0a896; --bg:#1a1a2e; --rule:#333355; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <a href="/help/">← Help Centre</a>
+    </header>
+    <article>
+      <h1>Troubleshooting</h1>
+
+      <h2>I paid, but my new tier isn't showing</h2>
+      <p>Right after a purchase or restore, your new tier can take a short moment to propagate. In order:</p>
+      <ol>
+        <li>Wait a minute, then close and reopen the app.</li>
+        <li>Open any upgrade screen and tap <strong>Restore Purchases</strong>.</li>
+        <li>Confirm the device is signed in to the same Apple ID / Google account that made the purchase.</li>
+        <li>Still stuck? Email <a href="mailto:info@atteste.art">info@atteste.art</a> with your store receipt — we'll fix it on our side.</li>
+      </ol>
+
+      <h2>Restore Purchases says "No active subscription found"</h2>
+      <p>This almost always means the device's store account differs from the one that bought the subscription. Check Settings → your Apple ID → Subscriptions (iOS) or Play → Payments &amp; subscriptions (Android) to see which account holds it.</p>
+
+      <h2>I can't subscribe on the web version</h2>
+      <p>That's expected — subscriptions are only available in the iOS and Android apps. Subscribe on your phone and your tier applies everywhere you sign in.</p>
+
+      <h2>An NFC tag won't scan</h2>
+      <p>See the tips in <a href="/help/nfc-tags.html">NFC tags</a> — antenna position and thick cases are the usual culprits. NFC doesn't work in the web version.</p>
+
+      <h2>Voice recording is greyed out on the web</h2>
+      <p>Voice-story recording isn't supported in the web version yet — use the iOS or Android app. Playback works everywhere.</p>
+
+      <h2>Data export on the web didn't download a file</h2>
+      <p>On the web version the JSON export is copied to your clipboard rather than downloaded — paste it into a text editor and save. The mobile apps produce a shareable file.</p>
+
+      <h2>Login problems</h2>
+      <ul>
+        <li>Try the sign-in method you originally used (Apple, Google, or email) — accounts aren't merged across methods.</li>
+        <li>For email sign-in, use the password reset link on the sign-in screen.</li>
+        <li>If a sign-in method errors persistently, email us the platform (iOS/Android/web), what you tapped, and any message shown.</li>
+      </ul>
+
+      <h2>I've hit my monthly AI limit</h2>
+      <p>Free accounts include 5 AI actions/month and Collector 50; limits reset monthly. Everything that doesn't use AI keeps working. If you're on a paid plan and believe the limit is wrong, contact us — include your account email.</p>
+
+      <h2>Reporting a bug</h2>
+      <p>Email <a href="mailto:info@atteste.art">info@atteste.art</a> with: your device and OS version, app platform (iOS/Android/web), what you did, what happened, and a screenshot if possible. See <a href="/help/contact.html">Contact support</a>.</p>
+    </article>
+    <footer>
+      <p>Operator: Yield SPM (Pty) Ltd, Republic of South Africa.<br>
+      Contact: <a href="mailto:info@atteste.art">info@atteste.art</a></p>
+    </footer>
+  </main>
+</body>
+</html>
