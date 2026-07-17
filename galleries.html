@@ -124,7 +124,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260616">
+<link rel="stylesheet" href="assets/css/site.css?v=20260717">
 <style>
 :root {
   --navy: #1A1A2E;
@@ -585,6 +585,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   <p class="subtitle">Galleria does the busywork &mdash; drafting invoices and certificates, following up with collectors, posting exhibitions &mdash; and turns collector insights into action. It eases the workflows you already run, so your team spends its hours selling, not on admin.</p>
   <div class="hero-ctas">
     <a href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-primary">Launch Galleria</a>
+    <a href="#contact" class="btn-secondary">Book a Demo</a>
     <a href="#tiers" class="btn-secondary">Gallery Plans</a>
     <a href="#how-it-works" class="btn-secondary">See how it works</a>
   </div>
@@ -927,13 +928,55 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" id="contact">
-  <h2>Ready to Get Started?</h2>
-  <p>Launch Galleria to set up your gallery on the web in minutes &mdash; or tell us about your gallery for bespoke onboarding. We reply within 24 hours.</p>
-  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-    <a href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-primary">Launch Galleria</a>
-    <a href="mailto:galleries@atteste.art?subject=Gallery%20Subscription%20Enquiry" class="btn-secondary">galleries@atteste.art</a>
+<!-- CTA + BOOK A DEMO -->
+<section class="cta-section" id="contact" style="text-align:left;">
+  <div class="container" style="max-width:1080px; position:relative; z-index:1;">
+    <div class="att-form-grid">
+      <div>
+        <div class="hero-eyebrow" style="letter-spacing:2.5px; font-size:12px; font-weight:700; color:var(--gold); margin-bottom:14px;">BOOK A DEMO</div>
+        <h2 style="font-size:40px; color:var(--white); margin-bottom:16px;">See Galleria with your own eyes.</h2>
+        <p style="font-size:17px; color:var(--text-light); margin-bottom:28px; line-height:1.7;">Twenty minutes on a video call. We&rsquo;ll walk you through Galleria, answer your questions, and help you work out whether it fits the way your gallery runs. No slides, no hard sell &mdash; we reply within 24 hours.</p>
+        <ul style="list-style:none; margin-bottom:32px;">
+          <li style="display:flex; gap:12px; padding:7px 0; color:var(--text-light); font-size:15px;"><span style="color:var(--gold); font-weight:700;">&#10003;</span> A live walkthrough, on your questions</li>
+          <li style="display:flex; gap:12px; padding:7px 0; color:var(--text-light); font-size:15px;"><span style="color:var(--gold); font-weight:700;">&#10003;</span> Honest answers on plans and pricing</li>
+          <li style="display:flex; gap:12px; padding:7px 0; color:var(--text-light); font-size:15px;"><span style="color:var(--gold); font-weight:700;">&#10003;</span> No obligation &mdash; explore at your own pace</li>
+        </ul>
+        <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+          <a href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-primary">Launch Galleria</a>
+          <a href="mailto:galleries@atteste.art?subject=Gallery%20Subscription%20Enquiry" class="btn-secondary">galleries@atteste.art</a>
+        </div>
+      </div>
+      <form class="att-form-card" name="gallery-demo-request" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" aria-label="Book a Galleria demo">
+        <input type="hidden" name="form-name" value="gallery-demo-request">
+        <p style="display:none;" aria-hidden="true">
+          <label>Don&rsquo;t fill this in if you&rsquo;re human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+        <div class="att-field-row">
+          <div class="att-field">
+            <label for="demo-name">Your name</label>
+            <input class="att-input" type="text" id="demo-name" name="name" autocomplete="name" required placeholder="Sarah van der Merwe">
+          </div>
+          <div class="att-field">
+            <label for="demo-gallery">Gallery</label>
+            <input class="att-input" type="text" id="demo-gallery" name="gallery" autocomplete="organization" required placeholder="Your gallery&rsquo;s name">
+          </div>
+        </div>
+        <div class="att-field">
+          <label for="demo-email">Email</label>
+          <input class="att-input" type="email" id="demo-email" name="email" autocomplete="email" required placeholder="you@yourgallery.com">
+        </div>
+        <div class="att-field">
+          <label for="demo-message">Anything you&rsquo;d like us to cover? <span class="att-optional">&mdash; optional</span></label>
+          <textarea class="att-input" id="demo-message" name="message" placeholder="Number of artists, exhibitions a year, what you&rsquo;re hoping to hand off&hellip;"></textarea>
+        </div>
+        <label class="att-consent">
+          <input type="checkbox" name="consent" value="yes" required>
+          <span>I&rsquo;d like Attest&eacute; to email me about booking my demo and about Galleria gallery plans. My details are used for this and nothing else &mdash; <a href="/privacy.html">Privacy Policy</a>.</span>
+        </label>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">Book My Demo</button>
+        <p class="att-form-note">A human reads every request &mdash; expect a reply within 24 hours.</p>
+      </form>
+    </div>
   </div>
 </section>
 
