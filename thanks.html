@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — Attesté</title>
+<meta name="description" content="Thank you — your message is with the Attesté team.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VBQZX830K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VBQZX830K');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=20260717">
+<style>
+.thanks-hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1e1e38 100%);
+  display: flex; align-items: center; justify-content: center;
+  padding: 120px 24px 80px;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+.thanks-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(201,169,110,0.1) 0%, transparent 70%);
+}
+.thanks-inner { position: relative; z-index: 1; max-width: 560px; }
+.thanks-seal {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: rgba(201,169,110,0.12); border: 1.5px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 28px;
+  color: var(--gold); font-size: 38px;
+}
+.thanks-inner h1 { font-size: 44px; color: var(--white); margin-bottom: 16px; }
+.thanks-inner h1 em { color: var(--gold); font-style: italic; }
+.thanks-inner p { font-size: 17px; color: var(--text-light); line-height: 1.7; margin-bottom: 36px; }
+.thanks-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+@media (max-width: 600px) { .thanks-inner h1 { font-size: 32px; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Attest<span>e</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="artists.html">For Artists</a></li>
+    <li><a href="galleries.html">For Galleries</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('mobile-show')" aria-label="Menu">&#9776;</button>
+</nav>
+
+<section class="thanks-hero">
+  <div class="thanks-inner">
+    <div class="thanks-seal" aria-hidden="true">&#10003;</div>
+    <h1>Lovely &mdash; <em>it&rsquo;s on the record.</em></h1>
+    <p>Thank you. Your details are safely with us, and a human reads every single one. If a reply is needed, expect to hear from us within 24 hours &mdash; we&rsquo;re quick like that.</p>
+    <div class="thanks-ctas">
+      <a href="index.html" class="btn-primary">Back to Attest&eacute;</a>
+      <a href="features.html" class="btn-secondary">Explore the Features</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
