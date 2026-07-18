@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>You're invited to Attesté — a month of Premium free</title>
+<meta name="description" content="A fellow collector has invited you to Attesté. Redeem your invitation code within 7 days of signing up and your first month of Premium is free.">
+<!-- Personalised landing (/r/{code}) — every code shares this page; keep it out of the index. -->
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#1A1A2E">
+
+<!-- Smart App Banner (iOS Safari) — offers "Open in app" / "View on App Store". -->
+<meta name="apple-itunes-app" content="app-id=6763944507">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Analytics (same property as the rest of the site) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VBQZX830K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VBQZX830K');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260616">
+
+<style>
+  /* ===== Referral invite — focused dark page, no full nav ===== */
+  body {
+    background: var(--navy);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .invite-top {
+    padding: 28px 24px 0;
+    text-align: center;
+  }
+  .invite-top a {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+  .invite-top a span { color: var(--gold); }
+
+  .invite-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px 64px;
+  }
+  .invite-card {
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .invite-card .eyebrow { margin-bottom: 16px; }
+  .invite-card h1 {
+    font-size: 42px;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .invite-card h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .invite-lead {
+    font-size: var(--fs-lead);
+    line-height: 1.7;
+    color: rgba(255,255,255,0.75);
+    margin: 0 auto 36px;
+    max-width: 460px;
+  }
+
+  /* ----- Code panel ----- */
+  .code-panel {
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,169,110,0.35);
+    border-radius: var(--radius-md);
+    padding: 24px 24px 20px;
+    margin-bottom: 36px;
+    box-shadow: var(--shadow-card);
+  }
+  .code-panel-label {
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .code-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .code-value {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    color: var(--gold-light);
+    user-select: all;
+    -webkit-user-select: all;
+  }
+  .code-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: var(--fs-btn);
+    font-weight: 600;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+    transition: all var(--transition);
+  }
+  .code-copy:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .code-copy.copied { background: var(--gold-light); }
+  .code-hint {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 14px;
+  }
+
+  /* ----- How it works ----- */
+  .invite-steps {
+    display: flex;
+    justify-content: center;
+    gap: 8px 28px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+  .invite-steps li {
+    counter-increment: step;
+    font-size: var(--fs-small);
+    color: rgba(255,255,255,0.65);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .invite-steps li::before {
+    content: counter(step);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,169,110,0.5);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .invite-card .store-badges { justify-content: center; margin-bottom: 28px; }
+
+  .invite-or {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 auto 24px;
+    max-width: 320px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .invite-or::before, .invite-or::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .invite-web-link {
+    font-size: var(--fs-small);
+    font-weight: 500;
+    color: var(--gold-light);
+    border-bottom: 1px solid rgba(201,169,110,0.4);
+    padding-bottom: 2px;
+    transition: color var(--transition), border-color var(--transition);
+  }
+  .invite-web-link:hover { color: var(--white); border-color: var(--gold-light); }
+
+  .invite-fineprint {
+    font-size: 12px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.4);
+    margin-top: 40px;
+  }
+  .invite-fineprint a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    .invite-card h1 { font-size: 32px; }
+    .code-value { font-size: 24px; letter-spacing: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="invite-top">
+  <a href="/">Attest<span>é</span></a>
+</div>
+
+<main class="invite-main">
+  <div class="invite-card">
+    <div class="eyebrow">A gift from a fellow collector</div>
+    <h1>You've been invited to Attest&eacute; — <em>a month of Premium free</em></h1>
+    <p class="invite-lead">Someone who loves art thinks you will too. Redeem their code within 7 days of creating your account and your first month of Premium is on us.</p>
+
+    <div class="code-panel" id="codePanel" hidden>
+      <div class="code-panel-label">Your invitation code</div>
+      <div class="code-row">
+        <span class="code-value" id="codeValue"></span>
+        <button type="button" class="code-copy" id="copyBtn">Copy code</button>
+      </div>
+      <p class="code-hint">Enter it in the app under <strong>Refer a friend &rarr; I have a referral code</strong>.</p>
+    </div>
+
+    <p class="invite-lead" id="noCodeNote" hidden>This invite link is missing its code — ask your friend to re-share their referral link, or for the code itself.</p>
+
+    <ol class="invite-steps">
+      <li>Get the app</li>
+      <li>Create your free account</li>
+      <li>Enter the code — Premium unlocks</li>
+    </ol>
+
+    <div class="store-badges">
+      <a href="https://apps.apple.com/app/id6763944507" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store">
+        <img src="/assets/badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-apple" width="120" height="40">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=art.atteste.atteste" target="_blank" rel="noopener" aria-label="Get Attesté on Google Play">
+        <img src="/assets/badges/google-play-badge.png" alt="Get it on Google Play" class="store-badge-google" width="134" height="40">
+      </a>
+    </div>
+
+    <div class="invite-or">or</div>
+
+    <a class="invite-web-link" id="webLink" href="https://atteste-b6409.web.app/">Continue on the web &mdash; your code is applied automatically &rarr;</a>
+
+    <p class="invite-fineprint">
+      One redemption per account, within 7 days of sign-up. The free month is a Premium promotional period — no card required, nothing renews automatically.
+      <a href="/terms">Terms</a> &middot; <a href="/privacy">Privacy</a>
+    </p>
+  </div>
+</main>
+
+<script>
+(function () {
+  // The Netlify rewrite `/r/* → /r/index.html 200` preserves the path,
+  // so the code arrives as the path segment after /r/.
+  var match = window.location.pathname.match(/^\/r\/([^\/]+)\/?$/);
+  var raw = match ? decodeURIComponent(match[1]) : '';
+  // Codes are 8 chars from the unambiguous alphabet (no I/O/0/1), but be
+  // lenient about length in case the format ever changes. Strip anything
+  // that isn't alphanumeric so nothing untrusted is rendered or linked.
+  var code = raw.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 24);
+
+  var panel = document.getElementById('codePanel');
+  var noCode = document.getElementById('noCodeNote');
+  var webLink = document.getElementById('webLink');
+
+  if (code.length >= 4) {
+    document.getElementById('codeValue').textContent = code;
+    panel.hidden = false;
+    // The Flutter web app's /r/:code route stashes the code and
+    // auto-redeems it after sign-up (Atteste PR #350).
+    webLink.href = 'https://atteste-b6409.web.app/r/' + encodeURIComponent(code);
+  } else {
+    noCode.hidden = false;
+    webLink.textContent = 'Continue on the web →';
+  }
+
+  var copyBtn = document.getElementById('copyBtn');
+  copyBtn.addEventListener('click', function () {
+    function done() {
+      copyBtn.textContent = 'Copied ✓';
+      copyBtn.classList.add('copied');
+      setTimeout(function () {
+        copyBtn.textContent = 'Copy code';
+        copyBtn.classList.remove('copied');
+      }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, function () { fallbackCopy(); });
+    } else {
+      fallbackCopy();
+    }
+    function fallbackCopy() {
+      var ta = document.createElement('textarea');
+      ta.value = code;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) { /* leave button as-is */ }
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
