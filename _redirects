@@ -17,3 +17,11 @@ https://www.atteste.art/* https://atteste.art/:splat 301!
 # resolves. App-installed users never see this redirect — the OS
 # routes the URL into the app before the network request fires.
 /v/* https://atteste-b6409.web.app/verify/:splat 302
+
+# Referral invite links — /r/{code} rewrites (200, path preserved) to the
+# landing page, which reads the code from the path via JS and offers store
+# badges + a "continue on the web" hand-off to the Flutter web app's
+# /r/:code route (auto-redeem after sign-up). Like /v/*, installed apps
+# intercept /r/* via Universal Links (AASA component added alongside this
+# rule) before the request ever reaches Netlify.
+/r/* /r/index.html 200
