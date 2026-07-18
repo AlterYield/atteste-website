@@ -7,6 +7,10 @@
           {
             "/": "/v/*",
             "comment": "Attesté NFC tag verify URLs — taps on /v/{certId} open the app when installed, otherwise fall through to the website verify page."
+          },
+          {
+            "/": "/r/*",
+            "comment": "Referral invite links — /r/{code} opens the app's referral route (stash + auto-redeem, Atteste PR #350) when installed, otherwise falls through to the /r/ landing page."
           }
         ]
       }
