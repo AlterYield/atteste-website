@@ -16,14 +16,9 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- Analytics (same property as the rest of the site) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VBQZX830K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6VBQZX830K');
-</script>
+<!-- Consent-gated analytics & marketing (same property as the rest of the site).
+     Nothing loads before an explicit opt-in — see /assets/js/consent.js. -->
+<script defer src="/assets/js/consent.js?v=20260801"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
