@@ -110,11 +110,14 @@
       '#atteste-consent button{font:inherit;font-size:14px;font-weight:600;border-radius:8px;',
       'padding:10px 18px;cursor:pointer;border:1px solid transparent;}',
       '#atteste-consent .ac-accept{background:#c9a96e;color:#1a1a2e;}',
-      '#atteste-consent .ac-decline{background:#f0ece3;color:#1a1a2e;}',
-      '#atteste-consent .ac-manage{background:transparent;color:#d8d3c6;border-color:rgba(216,211,198,.4);}',
+      '#atteste-consent .ac-essential{background:#f0ece3;color:#1a1a2e;}',
+      '#atteste-consent .ac-deny{background:#f0ece3;color:#1a1a2e;}',
+      '#atteste-consent .ac-save{background:#c9a96e;color:#1a1a2e;display:none;}',
       '#atteste-consent button:hover{filter:brightness(1.08);}',
       '#atteste-consent .ac-panel{display:none;margin:4px 0 14px;border-top:1px solid rgba(201,169,110,.25);padding-top:14px;}',
-      '#atteste-consent .ac-panel.open{display:block;}',
+      '#atteste-consent.ac-mode-prefs .ac-panel{display:block;}',
+      '#atteste-consent.ac-mode-prefs .ac-save{display:inline-block;}',
+      '#atteste-consent.ac-mode-prefs .ac-essential{display:none;}',
       '#atteste-consent label{display:flex;gap:10px;align-items:flex-start;font-size:14px;',
       'line-height:1.5;color:#d8d3c6;margin:0 0 10px;cursor:pointer;}',
       '#atteste-consent input[type=checkbox]{margin-top:3px;accent-color:#c9a96e;width:16px;height:16px;}',
@@ -134,40 +137,46 @@
   }
 
   // Static markup only — nothing user- or network-supplied is interpolated.
+  // Copy stays category-based (no cookie counts) so adding a category later
+  // doesn't invalidate the wording.
   var BANNER_MARKUP =
     '<div class="ac-card">' +
     '<h2>Your call on cookies</h2>' +
-    '<p>We&rsquo;d love to set two optional cookies: Google Analytics (to see how the site is doing) ' +
-    'and the Meta Pixel (so our ads reach the right people). Neither is set unless you say yes &mdash; ' +
-    'and &ldquo;no&rdquo; is one tap too. Details in our <a href="/cookies.html">Cookie Policy</a>.</p>' +
+    '<p>We&rsquo;d love to use optional cookies to see how the site is doing (analytics) and to help ' +
+    'our ads reach the right people (marketing). None are set unless you say yes &mdash; and ' +
+    '&ldquo;no&rdquo; is one tap too. Details in our <a href="/cookies.html">Cookie Policy</a>.</p>' +
     '<div class="ac-panel">' +
-    '<label><input type="checkbox" class="ac-cb-analytics"><span><strong>Analytics</strong> &mdash; Google Analytics. ' +
+    '<label><input type="checkbox" class="ac-cb-analytics"><span><strong>Analytics</strong> &mdash; e.g. Google Analytics. ' +
     'Helps us see which pages resonate. Off by default.</span></label>' +
-    '<label><input type="checkbox" class="ac-cb-marketing"><span><strong>Marketing</strong> &mdash; Meta Pixel. ' +
+    '<label><input type="checkbox" class="ac-cb-marketing"><span><strong>Marketing</strong> &mdash; e.g. the Meta Pixel. ' +
     'Measures our Facebook/Instagram ads and enables retargeting. Off by default.</span></label>' +
     '</div>' +
     '<div class="ac-actions">' +
+    '<button type="button" class="ac-save">Save choices</button>' +
     '<button type="button" class="ac-accept">Accept all</button>' +
-    '<button type="button" class="ac-decline">Essential only</button>' +
-    '<button type="button" class="ac-manage" aria-expanded="false">Manage choices</button>' +
+    '<button type="button" class="ac-essential">Accept essential</button>' +
+    '<button type="button" class="ac-deny">Deny</button>' +
     '</div>' +
-    '<p class="ac-note">Change your mind any time via &ldquo;Cookie preferences&rdquo; in the footer or on the Cookie Policy page.</p>' +
+    '<p class="ac-note">Essential cookies (sign-in, security) always work and need no consent. ' +
+    '<a href="#" class="ac-open-prefs">Manage individual choices</a>, or change your mind any time via ' +
+    '&ldquo;Cookie preferences&rdquo; in the footer or on the Cookie Policy page.</p>' +
     '</div>';
 
-  function showBanner(prefill) {
+  // mode: 'banner' (first ask — Accept all / Accept essential / Deny) or
+  //       'prefs'  (preferences centre — per-category toggles + Save)
+  function showBanner(mode, prefill) {
     injectStyles();
     removeBanner();
     banner = document.createElement('div');
     banner.id = 'atteste-consent';
+    banner.className = mode === 'prefs' ? 'ac-mode-prefs' : '';
     banner.setAttribute('role', 'region');
     banner.setAttribute('aria-label', 'Cookie consent');
     banner.appendChild(document.createRange().createContextualFragment(BANNER_MARKUP));
     document.body.appendChild(banner);
 
-    var panel = banner.querySelector('.ac-panel');
     var cbA = banner.querySelector('.ac-cb-analytics');
     var cbM = banner.querySelector('.ac-cb-marketing');
-    var manageBtn = banner.querySelector('.ac-manage');
 
     if (prefill) {
       cbA.checked = !!prefill.analytics;
@@ -189,22 +198,19 @@
     }
 
     banner.querySelector('.ac-accept').addEventListener('click', function () { decide(true, true); });
-    banner.querySelector('.ac-decline').addEventListener('click', function () { decide(false, false); });
-    var saveMode = false;
-    manageBtn.addEventListener('click', function () {
-      if (!saveMode) {
-        saveMode = true;
-        panel.classList.add('open');
-        manageBtn.setAttribute('aria-expanded', 'true');
-        manageBtn.textContent = 'Save choices';
-      } else {
-        decide(cbA.checked, cbM.checked);
-      }
+    // "Accept essential" and "Deny" mean the same thing here: essential
+    // cookies never needed consent, so both store a no to everything optional.
+    banner.querySelector('.ac-essential').addEventListener('click', function () { decide(false, false); });
+    banner.querySelector('.ac-deny').addEventListener('click', function () { decide(false, false); });
+    banner.querySelector('.ac-save').addEventListener('click', function () { decide(cbA.checked, cbM.checked); });
+    banner.querySelector('.ac-open-prefs').addEventListener('click', function (e) {
+      e.preventDefault();
+      banner.className = 'ac-mode-prefs';
     });
   }
 
   window.attesteConsent = {
-    open: function () { showBanner(readConsent() || undefined); },
+    open: function () { showBanner('prefs', readConsent() || undefined); },
     status: readConsent
   };
 
