@@ -21,10 +21,11 @@
 (function () {
   'use strict';
 
-  // Supplied by Karel from Meta Events Manager (Move 4 of the FB strategy).
-  // While this is empty the Meta Pixel NEVER loads, even for visitors who
-  // opt in — their consent is stored and honoured once the ID lands.
-  var META_PIXEL_ID = '';
+  // "Atteste Pixel" dataset in Meta Events Manager, owned by the
+  // "Charl le Roux" Business portfolio (verified 2026-08-01).
+  // If ever emptied, the pixel simply never loads — even for visitors
+  // who opt in; their consent is stored and honoured once an ID lands.
+  var META_PIXEL_ID = '2040419150235877';
 
   var GA_ID = 'G-6VBQZX830K';
   var STORAGE_KEY = 'atteste_consent_v1';
