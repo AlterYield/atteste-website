@@ -25,3 +25,20 @@ https://www.atteste.art/* https://atteste.art/:splat 301!
 # intercept /r/* via Universal Links (AASA component added alongside this
 # rule) before the request ever reaches Netlify.
 /r/* /r/index.html 200
+
+# One-click unsubscribe (RFC 8058) for outreach + lifecycle mail. Mirrors the
+# /v/* pattern above: atteste.art is served by Netlify, so a Firebase Hosting
+# rewrite alone is unreachable here — this hop is what makes the branded URL
+# resolve to the `emailUnsubscribe` Cloud Function.
+#
+# THE WHOLE PAYLOAD IS THE QUERY STRING (?u=<address>&t=<hmac>). Netlify appends
+# the incoming query to a destination that carries none of its own, which is why
+# this rule has no :splat and no query params on the target — do not add either.
+# If this line is ever rewritten, re-verify a real link end-to-end: a redirect
+# that drops ?u/?t yields "400 — This unsubscribe link is not valid", which is
+# strictly worse than having no unsubscribe link at all, because mailbox
+# providers action one-click on the recipient's behalf and record the failure.
+#
+# 302, not 301: a permanent redirect gets cached by intermediaries, and this
+# target may need to move.
+/unsubscribe https://atteste-b6409.web.app/unsubscribe 302
