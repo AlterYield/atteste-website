@@ -3,3 +3,6 @@
 
 # macOS
 .DS_Store
+
+# Claude Code worktrees + session state (18M, never part of the site)
+.claude/
