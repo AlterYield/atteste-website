@@ -47,7 +47,7 @@
   <!-- Legal — canonical URLs without .html extension (per Netlify rewrite + build_legal_html.js template) -->
   <url>
     <loc>https://atteste.art/privacy</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -75,7 +75,7 @@
 
   <url>
     <loc>https://atteste.art/cookies</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
