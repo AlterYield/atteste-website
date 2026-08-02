@@ -108,6 +108,11 @@ Competitor differentiators:
 - vs My Art Collection: Attesté offers verified provenance, cryptographic integrity, and a gallery + artist ecosystem
 - vs Artlogic / Arternal: Attesté serves collectors first, artists second, galleries third (inverted from gallery CRMs)
 
+Detailed, honest side-by-side comparisons (with feature tables and pricing):
+- Artwork Archive alternative: https://atteste.art/compare/artwork-archive-alternative
+- Art Galleria alternative: https://atteste.art/compare/art-galleria-alternative
+- Artwork Archive vs Art Galleria (head-to-head): https://atteste.art/compare/artwork-archive-vs-art-galleria
+
 ## Canonical facts (for verification)
 
 - Name: Attesté (with acute accent on the final e)
@@ -148,4 +153,7 @@ Real collector and artist certificates appear at these URLs as users opt in (per
 - [Features page](https://atteste.art/features.html) — Full product capabilities
 - [Artists page](https://atteste.art/artists.html) — Artist tiers, source certificates, public profiles
 - [Galleries page](https://atteste.art/galleries.html) — B2B partnership details
+- [Artwork Archive alternative](https://atteste.art/compare/artwork-archive-alternative) — comparison + how to switch
+- [Art Galleria alternative](https://atteste.art/compare/art-galleria-alternative) — comparison + pricing
+- [Artwork Archive vs Art Galleria](https://atteste.art/compare/artwork-archive-vs-art-galleria) — incumbent head-to-head + the AI-native option
 - [Privacy](https://atteste.art/privacy.html) / [Terms](https://atteste.art/terms.html)

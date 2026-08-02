@@ -44,6 +44,28 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Comparison / alternative pages (competitive SEO + GEO) -->
+  <url>
+    <loc>https://atteste.art/compare/artwork-archive-alternative</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atteste.art/compare/art-galleria-alternative</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atteste.art/compare/artwork-archive-vs-art-galleria</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Legal — canonical URLs without .html extension (per Netlify rewrite + build_legal_html.js template) -->
   <url>
     <loc>https://atteste.art/privacy</loc>
