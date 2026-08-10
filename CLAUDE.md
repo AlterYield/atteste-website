@@ -30,11 +30,12 @@ The previous "Gallery Launch Kit" (R5,000 once-off) was deprecated 2026-04-24 an
 - `artists.html` — Dedicated artists page (Studio / Professional / Represented tiers, source certificates, public profile)
 - `_headers` — Netlify HTTP security headers
 - `_redirects` — Netlify redirect rules
-- `marketing/` — All marketing strategy documents (personas, FOMO tactics, content calendar, launch plan)
-
 ## Marketing Personas (11 total)
 
-All persona definitions live in `marketing/`. Always reference these when doing marketing, copywriting, or UX work.
+Full persona definitions and marketing strategy live in the **private** repo
+`AlterYield/atteste-website-internal` (moved out of this repo when it went
+public on 2026-08-10). Always reference these when doing marketing,
+copywriting, or UX work.
 
 ### Consumer Personas (C1–C8)
 
@@ -65,27 +66,11 @@ All persona definitions live in `marketing/`. Always reference these when doing 
 | B2 | Michael Hartley | The Art Advisor | Gallery: Professional ($1,188/yr) |
 | B3 | Nomsa Dlamini | The Institutional Curator | Gallery: Enterprise ($1,908/yr) |
 
-### Persona Detail Files
+### Persona Detail + Strategy Files
 
-- `marketing/01-persona-spectrum.md` — Master overview, journey map, feature mapping matrix, revenue potential
-- `marketing/02a-personas-c1-c2.md` — Mia (C1) and James (C2) full profiles
-- `marketing/02b-personas-c3-c4.md` — Priya (C3) and David (C4) full profiles
-- `marketing/02c-persona-c5.md` — Catherine (C5) full profile
-- `marketing/02d-persona-c6.md` — Richard (C6) full profile
-- `marketing/02e-persona-c7.md` — Zanele (C7) full profile
-- `marketing/02f-persona-c8.md` — Thabo (C8) full profile
-- `marketing/02g-persona-b1.md` — Sarah (B1) full profile
-- `marketing/02h-persona-b2.md` — Michael (B2) full profile
-- `marketing/02i-persona-b3.md` — Nomsa (B3) full profile
-
-### Marketing Strategy Files
-
-- `marketing/03a-fomo-platform-strategy.md` — Channel strategy (Instagram, Twitter/X, LinkedIn, Google, Email, Partnerships)
-- `marketing/03b-fomo-content-calendar.md` — 12-month content plan
-- `marketing/03c-fomo-content-templates.md` — Persona-specific messaging matrix, ad copy, email subject lines
-- `marketing/03d-fomo-launch-sequence.md` — Pre-launch through post-launch execution plan
-- `marketing/03e-fomo-tactics.md` — Psychological FOMO mechanics and ethics charter
-- `marketing/03f-fomo-metrics-kpis.md` — KPIs, funnel metrics, budget allocation
+All detail files (persona deep-dives `01`/`02a`–`02i`, FOMO strategy
+`03a`–`03f`) live under `marketing/` in the private
+`AlterYield/atteste-website-internal` repo.
 
 ## Key Markets
 
@@ -96,7 +81,7 @@ All persona definitions live in `marketing/`. Always reference these when doing 
 ## Working with Marketing Content
 
 When asked to create copy, campaigns, emails, ads, or any marketing material:
-1. Read the relevant persona files in `marketing/` for tone, pain points, desires, and FOMO triggers
-2. Reference `marketing/03c-fomo-content-templates.md` for the messaging matrix
+1. Read the relevant persona files in `atteste-website-internal/marketing/` for tone, pain points, desires, and FOMO triggers
+2. Reference `03c-fomo-content-templates.md` there for the messaging matrix
 3. Match content to the appropriate persona segment and tier
-4. Follow the FOMO ethics charter in `marketing/03e-fomo-tactics.md`
+4. Follow the FOMO ethics charter in `03e-fomo-tactics.md`
