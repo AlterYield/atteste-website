@@ -9,7 +9,7 @@
 **Site:** https://atteste.art
 **iOS app:** https://apps.apple.com/app/id6763944507
 **Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste (live on Google Play; package: art.atteste.atteste)
-**Last updated:** 2026-07-10
+**Last updated:** 2026-08-10
 
 ---
 
@@ -25,7 +25,7 @@
 | Operator | Yield SPM (Pty) Ltd |
 | Registration | 2024/185151/07 (CIPC, South Africa) |
 | Markets | globally available; primary launch markets: South Africa, United Kingdom, United States. Localised support for 30 priority markets. |
-| Status | iOS Internal Testing 1.0.0 (build 7) and Android Internal Testing live as of April 2026 |
+| Status | iOS LIVE on the App Store worldwide since 2026-06-11 (current version 1.1.0); Android LIVE on Google Play at 1.1.0, full production rollout; web app (1.1.0) live |
 | Platforms | iOS, Android, Web (Flutter 3.x) |
 | Backend | Firebase in `africa-south1` (Johannesburg data residency) |
 | AI stack | Gemini 2.5 Flash (vision, fast gen), Claude (sommelier reasoning, narrative), Gemini Live (voice companion) |
@@ -136,8 +136,38 @@ Working artists on Studio or Professional tiers publish a gallery-grade public p
 ### Verification Inbox (Artists)
 Collectors and galleries request authentication directly from artists via the Verification Inbox. The artist decides what's verified — one tap to confirm or deny — without back-channel emails or low-resolution photographs.
 
-### For Galleries: Annual Subscription Plans
-Pure digital annual subscriptions. **No physical kit, no setup fees.** Three tiers (Boutique / Professional / Enterprise) covering inventory, exhibitions, anonymous collector analytics, AI-generated social tools, and a measurable collector pipeline.
+### Document Scan-to-Fill (OCR)
+Photograph an invoice, receipt, gallery label, or old paper certificate. AI reads the document and pre-fills the artwork record — title, artist, date, price, source. Decades of paper provenance become structured, searchable data in seconds, attached to the artwork's dossier as supporting evidence.
+
+### Artwork Dossier
+Every artwork gets a single dossier view: the full provenance chain, attached documents, condition history, valuation timeline, recorded stories, and certificates. One place where everything known about a work lives.
+
+### Condition Vault + AI Condition Analyzer + Insurance Manager (Premium)
+Photo-based condition reports with AI damage analysis — photograph a work and get a structured condition assessment over time. The Insurance Manager tracks per-artwork policies, coverage amounts, and renewal dates, and condition reports can be exported for insurers.
+
+### NFC Tag Binding (Artists)
+Artists bind a physical NFC tag to a work's source certificate. A tap on the physical artwork opens its live provenance record — the physical-digital link that makes the certificate inseparable from the object.
+
+### Ownership Transfers
+When a work is sold or gifted, its full provenance record transfers with it — hash chain intact, condition history, documents, and recorded stories preserved for the next owner. Provenance compounds instead of resetting at every sale.
+
+### CSV Import
+Bring an existing catalogue across from spreadsheets or other platforms (e.g. Artwork Archive) in one import. Designed so switching costs are measured in minutes, not weekends.
+
+### Community Trails
+Collectors create and publish their own art walks for others to follow, alongside the curated Discovery Trails — neighbourhood by neighbourhood, city by city.
+
+### Market & Auction Intelligence (Premium)
+Auction context and market signals for artists and works you own or watch — recent results, trend direction, and context for valuation conversations.
+
+### Referral Programme
+Give-get referrals for collectors and artists.
+
+### Multilingual AI
+AI responses are available in the user's own language (applies to AI responses; the app UI is English).
+
+### For Galleries: Monthly Subscription Plans
+Pure digital monthly subscriptions, sold directly via the web as bespoke onboardings. **No physical kit, no setup fees, no annual lock-in.** Three tiers (Boutique / Professional / Enterprise) covering inventory, exhibitions, anonymous collector analytics, AI-generated social tools, and a measurable collector pipeline.
 
 ---
 
@@ -165,7 +195,7 @@ Pure digital annual subscriptions. **No physical kit, no setup fees.** Three tie
 
 ### Gallery tiers (B2B)
 
-| Tier | Annual price | Monthly equivalent | Artworks | Exhibitions | Key features |
+| Tier | Monthly price | Annual price | Artworks | Exhibitions | Key features |
 |---|---|---|---|---|---|
 | Gallery Boutique | $64.99 / month | — | 50 | 6 / year | Anonymous aggregate collector analytics, gallery directory listing, 30% off the first 12 months for the first 25 founding galleries (≈$45.49/mo) |
 | Gallery Professional | $158.99 / month | — | 100 | 12 / year | Talking Provenance (Curator's Commentary), AI-generated exhibition social posts (Instagram, LinkedIn), content calendar, full collector pipeline, time-series analytics |
@@ -277,7 +307,7 @@ A: Yes, for core documentation. Photograph artworks, log encounters, add notes �
 A: Yield SPM (Pty) Ltd. The same team operates Practacular (AI practice management for accountants), so Attesté benefits from shared AI infrastructure.
 
 **Q: Is Attesté available in my country?**
-A: The app is live globally on the Apple App Store (since 2026-06-11); the Google Play listing follows on approval of the Android build currently in review. Pricing is USD primary; local equivalents render in the user's storefront currency (the stores handle conversion). The app provides localised currency display and a country picker covering 30 priority markets (with an "Other" fallback). Privacy Policy v1.1 has explicit regional addenda for POPIA (South Africa), GDPR (EU/EEA), and CCPA/CPRA (California), plus general provisions covering all other jurisdictions at GDPR-grade safeguards. Ask `info@atteste.art` for the latest on your market.
+A: The app is live globally on the Apple App Store (since 2026-06-11) and on Google Play (full production rollout). Pricing is USD primary; local equivalents render in the user's storefront currency (the stores handle conversion). The app provides localised currency display and a country picker covering 30 priority markets (with an "Other" fallback). Privacy Policy v1.1 has explicit regional addenda for POPIA (South Africa), GDPR (EU/EEA), and CCPA/CPRA (California), plus general provisions covering all other jurisdictions at GDPR-grade safeguards. Ask `info@atteste.art` for the latest on your market.
 
 **Q: How do galleries use Attesté?**
 A: Galleries join on a monthly subscription sold via the web — Boutique ($64.99/mo), Professional ($158.99/mo), or Enterprise ($259.00/mo). They get inventory and exhibition tools, an aggregate collector analytics dashboard, AI-generated exhibition posts, a daily Pulse briefing, the Almanac AI concierge (Professional+), and a measurable collector pipeline. Analytics are aggregate-only — individual collector data is never shared with galleries.
@@ -289,7 +319,7 @@ A: Artists subscribe directly (Studio $14.99/mo with 14-day trial, or Profession
 A: When a working artist on Attesté marks a work as authentic and tied to a specific sale, that record becomes the gold-standard provenance for the work. Subsequent owners carry it forward; auction houses, galleries, and insurers can cite the certificate URL as primary-source provenance.
 
 **Q: What's on the roadmap?**
-A: Voice Stories (recording UI), Art Fair seed data, additional Discovery Trail cities, gallery subscription expiry/renewal automation, artist tier billing, EU/UK GDPR Representative appointment, POPIA Information Officer registration, PhotoDNA integration, NCMEC CyberTipline API access, stolen-art database cross-check.
+A: Additional Discovery Trail cities, Art Fair seed data, gallery subscription expiry/renewal automation, EU/UK GDPR Representative appointment, POPIA Information Officer registration, PhotoDNA integration, NCMEC CyberTipline API access, stolen-art database cross-check.
 
 ---
 

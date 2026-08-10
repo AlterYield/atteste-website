@@ -23,6 +23,16 @@
 - **Public Artist Profiles** — Working artists publish a gallery-grade public profile with bio, signature, statement, and curated portfolio at `atteste.art/artist/{handle}`.
 - **For Galleries: Monthly Subscription Plans** — Inventory and exhibition tools, anonymous collector analytics, Talking Provenance (Curator's Commentary), AI-generated exhibition posts, and a measurable collector pipeline. From $64.99/month, sold directly via the web as a bespoke gallery onboarding.
 - **Almanac + Daily Pulse (Galleries — rolling out now)** — The new Attesté gallery experience: a daily Pulse briefing computed overnight from real collector activity (encounters, watchlists, certificate scans, inquiries, suggested actions), the Almanac AI concierge that answers questions about the gallery's live inventory/collectors/pipeline in voice or text, a cross-role collector activity stream with zero CRM data entry, six AI generators (exhibition copy, artist bios, artwork descriptions, follow-up emails, on-demand insights, annual Gallery Wrapped), and multi-venue support.
+- **Document Scan-to-Fill (OCR)** — Photograph an invoice, receipt, gallery label, or old paper certificate; AI reads it and pre-fills the artwork record. Paper provenance becomes structured data in seconds.
+- **Artwork Dossier** — Every artwork gets a single dossier view: provenance chain, attached documents, condition history, valuation timeline, and the stories recorded about it.
+- **Condition Vault + AI Condition Analyzer + Insurance Manager** — Photo-based condition reports with AI damage analysis, plus per-artwork insurance policy and coverage tracking (Premium).
+- **NFC Tag Binding (Artists)** — Bind a physical NFC tag to a work's source certificate; a tap on the physical artwork opens its live provenance record.
+- **Ownership Transfer** — When a work is sold or gifted, its full provenance record transfers with it — hash chain intact, history preserved for the next owner.
+- **CSV Import** — Bring an existing catalogue across from spreadsheets or other platforms (e.g. Artwork Archive) in one import.
+- **Community Trails** — Collectors create and publish their own art walks for others to follow, alongside the curated Discovery Trails.
+- **Market & Auction Intelligence** — Auction context and market signals for artists and works you own or watch (Premium).
+- **Referral programme** — Give-get referrals for collectors and artists.
+- **Multilingual AI** — AI responses available in the user's own language (applies to AI responses; the app UI is English).
 
 ## Who it's for
 
@@ -122,7 +132,7 @@ Detailed, honest side-by-side comparisons (with feature tables and pricing):
 - Registration: 2024/185151/07 (South Africa, CIPC)
 - Markets: globally available on the App Store and Google Play. Localised currency + onboarding support for 30 priority markets including South Africa, UK, US, EU/EEA, Australia, Canada, Japan, China, India, Brazil. Primary launch focus: South Africa, United Kingdom, United States.
 - Pricing currency: USD primary (collector and artist subscriptions); local equivalents computed at runtime
-- Current status: iOS LIVE on the App Store worldwide since 2026-06-11 (v1.0, build 47, app id 6763944507). Android is LIVE on Google Play (build 1.0.0+48, package art.atteste.atteste). Paid subscriptions are configured on both stores. The web app is live at https://atteste-b6409.web.app
+- Current status: iOS LIVE on the App Store worldwide since 2026-06-11 (current version 1.1.0, app id 6763944507). Android LIVE on Google Play at version 1.1.0, full production rollout (package art.atteste.atteste). Paid subscriptions live on both stores. The web app (v1.1.0) is live at https://atteste-b6409.web.app
 
 ## Public Provenance Graph
 
