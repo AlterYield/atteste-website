@@ -35,16 +35,16 @@ Wrap the UTMs URL-encoded inside `referrer=`:
 
 iOS has no install referrer; every iOS signup stamps `ios-organic` in-app.
 Campaign splits live in App Store Connect → App Analytics → Acquisition →
-Campaigns, keyed by `ct` token. **`ct` only reports when paired with the
-provider token `pt`** — read it from any campaign link generated in ASC App
-Analytics and replace `<PT>` below; until then the `ct` param is inert but
-harmless.
+Campaigns, keyed by `ct` token paired with the provider token
+**`pt=128824584`** (read from the ASC campaign-link generator 2026-08-10).
+Keep every iOS campaign link in the full `/app/apple-store/` + `pt` + `ct`
+form below — `ct` without `pt` does not report.
 
 | Placement | Link |
 |---|---|
-| Website badge (in-page) | `https://apps.apple.com/app/id6763944507?ct=website&mt=8` |
-| Instagram bio (full form) | `https://apps.apple.com/app/apple-store/id6763944507?pt=<PT>&ct=instagram-bio&mt=8` |
-| Consent / outreach email (full form) | `https://apps.apple.com/app/apple-store/id6763944507?pt=<PT>&ct=consent-email&mt=8` |
+| Website badge (in-page) | `https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&ct=website&mt=8` |
+| Instagram bio (full form) | `https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&ct=instagram-bio&mt=8` |
+| Consent / outreach email (full form) | `https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&ct=consent-email&mt=8` |
 
 ## Notes
 
