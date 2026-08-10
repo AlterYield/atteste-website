@@ -8,6 +8,9 @@ https://www.atteste.art/* https://atteste.art/:splat 301!
 /marketing/* /404.html 404!
 /scripts/*   /404.html 404!
 /.claude/*   /404.html 404!
+/docs/*      /404.html 404!
+/CLAUDE.md   /404.html 404!
+/README.md   /404.html 404!
 
 # NFC tag verify URLs — taps on /v/{certId} are intercepted by the
 # Atteste app via Universal Links / App Links (see /.well-known/
