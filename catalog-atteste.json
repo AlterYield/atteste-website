@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-08 — gallery plans are monthly, sold directly via the web as bespoke installs (not in-app purchase); annual gallery plans scrapped; app builds in store review (iOS 1.0.0+47, Android 1.0.0+48)",
+  "generated": "2026-08-10 — gallery plans are monthly, sold directly via the web as bespoke installs (not in-app purchase); annual gallery plans scrapped; apps LIVE: iOS 1.1.0 on the App Store, Android 1.1.0 on Google Play (full rollout)",
   "source": "live atteste.art pages + ios/Atteste app store products + RevenueCat dashboard",
   "currency_policy": "USD is primary; App Store and Play Store handle local-currency conversion via their regional pricing tables across all 174 storefronts. The app provides localised currency display and country selection for 30 priority markets, with an \"Other\" fallback for all remaining jurisdictions. ZAR is no longer tracked as the primary currency on any tier.",
   "count": 9,
@@ -17,13 +17,24 @@
       "launched_on": "2026-04-18",
       "retired_on": null,
       "price": {
-        "primary": {"amount": 0, "currency": "USD", "period": "month"},
+        "primary": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "month"
+        },
         "trial_days": 0,
         "setup_fee_amount": null,
         "free_tier_terms": "Free forever with capacity limits. No credit card required."
       },
-      "billing": {"provider": "none", "variant_id": null},
-      "capacity": {"artworks": 25, "ai_analyses_monthly": 5, "storage_gb": 1},
+      "billing": {
+        "provider": "none",
+        "variant_id": null
+      },
+      "capacity": {
+        "artworks": 25,
+        "ai_analyses_monthly": 5,
+        "storage_gb": 1
+      },
       "features_included": [
         "Collection management for up to 25 artworks",
         "5 AI artwork analyses per month",
@@ -32,7 +43,10 @@
         "XP gamification + community badges",
         "Community-grade support"
       ],
-      "target_personas": ["[[c1-mia-chen]]", "[[c2-james-whitfield]]"]
+      "target_personas": [
+        "[[c1-mia-chen]]",
+        "[[c2-james-whitfield]]"
+      ]
     },
     {
       "id": "sku_atteste_collector",
@@ -47,8 +61,17 @@
       "launched_on": "2026-04-26",
       "retired_on": null,
       "price": {
-        "primary": {"amount": 9.99, "currency": "USD", "period": "month"},
-        "annual": {"amount": 99.99, "currency": "USD", "period": "year", "savings_pct": 17},
+        "primary": {
+          "amount": 9.99,
+          "currency": "USD",
+          "period": "month"
+        },
+        "annual": {
+          "amount": 99.99,
+          "currency": "USD",
+          "period": "year",
+          "savings_pct": 17
+        },
         "trial_days": 0
       },
       "billing": {
@@ -59,7 +82,11 @@
         "android_product_id_annual": "collector_yearly",
         "rc_entitlement": "collector"
       },
-      "capacity": {"artworks": 200, "ai_analyses_monthly": 50, "storage_gb": 10},
+      "capacity": {
+        "artworks": 200,
+        "ai_analyses_monthly": 50,
+        "storage_gb": 10
+      },
       "features_included": [
         "Up to 200 artworks",
         "50 AI artwork analyses per month",
@@ -69,7 +96,12 @@
         "Full Discovery Trails",
         "The Curator (voice-companion AI)"
       ],
-      "target_personas": ["[[c3-priya-naidoo]]", "[[c4-david-park]]", "[[c5-catherine]]", "[[c8-thabo-mokoena]]"]
+      "target_personas": [
+        "[[c3-priya-naidoo]]",
+        "[[c4-david-park]]",
+        "[[c5-catherine]]",
+        "[[c8-thabo-mokoena]]"
+      ]
     },
     {
       "id": "sku_atteste_premium",
@@ -84,8 +116,17 @@
       "launched_on": "2026-04-26",
       "retired_on": null,
       "price": {
-        "primary": {"amount": 19.99, "currency": "USD", "period": "month"},
-        "annual": {"amount": 199.99, "currency": "USD", "period": "year", "savings_pct": 17},
+        "primary": {
+          "amount": 19.99,
+          "currency": "USD",
+          "period": "month"
+        },
+        "annual": {
+          "amount": 199.99,
+          "currency": "USD",
+          "period": "year",
+          "savings_pct": 17
+        },
         "trial_days": 0
       },
       "billing": {
@@ -96,7 +137,11 @@
         "android_product_id_annual": "premium_yearly",
         "rc_entitlement": "premium"
       },
-      "capacity": {"artworks": "unlimited", "ai_analyses_monthly": "unlimited", "storage_gb": 100},
+      "capacity": {
+        "artworks": "unlimited",
+        "ai_analyses_monthly": "unlimited",
+        "storage_gb": 100
+      },
       "features_included": [
         "Unlimited artworks and AI analyses",
         "Legacy Vault — multi-generational provenance + estate planning",
@@ -107,7 +152,11 @@
         "Priority support",
         "Full data export (JSON + PDF catalogue)"
       ],
-      "target_personas": ["[[c5-catherine]]", "[[c6-richard-de-villiers]]", "[[c7-zanele-khumalo]]"]
+      "target_personas": [
+        "[[c5-catherine]]",
+        "[[c6-richard-de-villiers]]",
+        "[[c7-zanele-khumalo]]"
+      ]
     },
     {
       "id": "sku_atteste_artist_studio",
@@ -122,8 +171,17 @@
       "launched_on": "2026-04-29",
       "retired_on": null,
       "price": {
-        "primary": {"amount": 14.99, "currency": "USD", "period": "month"},
-        "annual": {"amount": 149.99, "currency": "USD", "period": "year", "savings_pct": 17},
+        "primary": {
+          "amount": 14.99,
+          "currency": "USD",
+          "period": "month"
+        },
+        "annual": {
+          "amount": 149.99,
+          "currency": "USD",
+          "period": "year",
+          "savings_pct": 17
+        },
         "trial_days": 14
       },
       "billing": {
@@ -131,7 +189,11 @@
         "rc_entitlement": "artist_studio",
         "status": "paywall wired to RevenueCat purchase flow + webhook entitlement mapping live; store products (App Store / Play Console) pending console setup"
       },
-      "capacity": {"works": 50, "source_certs_monthly": 5, "storage_gb": 5},
+      "capacity": {
+        "works": 50,
+        "source_certs_monthly": 5,
+        "storage_gb": 5
+      },
       "features_included": [
         "Public artist profile at atteste.art/artist/{handle}",
         "Studio archive of up to 50 works",
@@ -140,7 +202,9 @@
         "Verification Inbox (collector + gallery auth requests)",
         "14-day free trial for new subscribers"
       ],
-      "target_personas": ["[[a1-working-artist]]"]
+      "target_personas": [
+        "[[a1-working-artist]]"
+      ]
     },
     {
       "id": "sku_atteste_artist_professional",
@@ -155,8 +219,17 @@
       "launched_on": "2026-04-29",
       "retired_on": null,
       "price": {
-        "primary": {"amount": 24.99, "currency": "USD", "period": "month"},
-        "annual": {"amount": 249.99, "currency": "USD", "period": "year", "savings_pct": 17},
+        "primary": {
+          "amount": 24.99,
+          "currency": "USD",
+          "period": "month"
+        },
+        "annual": {
+          "amount": 249.99,
+          "currency": "USD",
+          "period": "year",
+          "savings_pct": 17
+        },
         "trial_days": 0
       },
       "billing": {
@@ -164,7 +237,11 @@
         "rc_entitlement": "artist_professional",
         "status": "paywall wired to RevenueCat purchase flow + webhook entitlement mapping live; store products (App Store / Play Console) pending console setup"
       },
-      "capacity": {"works": 500, "source_certs_monthly": "unlimited", "storage_gb": 50},
+      "capacity": {
+        "works": 500,
+        "source_certs_monthly": "unlimited",
+        "storage_gb": 50
+      },
       "features_included": [
         "Public artist profile",
         "500 works in studio archive",
@@ -174,7 +251,9 @@
         "Priority verification on collector/gallery requests",
         "Collector reach analytics (Sommelier match scores)"
       ],
-      "target_personas": ["[[a2-professional-artist]]"]
+      "target_personas": [
+        "[[a2-professional-artist]]"
+      ]
     },
     {
       "id": "sku_atteste_artist_represented",
@@ -189,19 +268,31 @@
       "launched_on": "2026-04-29",
       "retired_on": null,
       "price": {
-        "primary": {"amount": 0, "currency": "USD", "period": "covered_by_gallery"},
+        "primary": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "covered_by_gallery"
+        },
         "trial_days": 0,
         "free_tier_terms": "Cost is borne by the representing gallery's Professional or Enterprise subscription."
       },
-      "billing": {"provider": "gallery_provisioned", "rc_entitlement": "artist_represented"},
-      "capacity": {"works": "unlimited", "source_certs_monthly": "unlimited"},
+      "billing": {
+        "provider": "gallery_provisioned",
+        "rc_entitlement": "artist_represented"
+      },
+      "capacity": {
+        "works": "unlimited",
+        "source_certs_monthly": "unlimited"
+      },
       "features_included": [
         "All Studio features",
         "All Professional features",
         "Linked to representing gallery's profile and exhibitions",
         "No personal billing — gallery covers cost"
       ],
-      "target_personas": ["[[a3-represented-artist]]"]
+      "target_personas": [
+        "[[a3-represented-artist]]"
+      ]
     },
     {
       "id": "sku_atteste_gallery_boutique",
@@ -217,12 +308,26 @@
       "retired_on": null,
       "supersedes": "sku_atteste_gallery_launch_kit (deprecated 2026-04-24)",
       "price": {
-        "primary": {"amount": 64.99, "currency": "USD", "period": "month"},
+        "primary": {
+          "amount": 64.99,
+          "currency": "USD",
+          "period": "month"
+        },
         "trial_days": 0,
-        "founding_gallery_discount": {"applies_to_first": 25, "first_12_months_discount_pct": 30}
+        "founding_gallery_discount": {
+          "applies_to_first": 25,
+          "first_12_months_discount_pct": 30
+        }
       },
-      "billing": {"provider": "web", "model": "sold via the web as a bespoke gallery install; not in-app purchase"},
-      "capacity": {"artworks": 50, "exhibitions_yearly": 6, "staff_seats": 2},
+      "billing": {
+        "provider": "web",
+        "model": "sold via the web as a bespoke gallery install; not in-app purchase"
+      },
+      "capacity": {
+        "artworks": 50,
+        "exhibitions_yearly": 6,
+        "staff_seats": 2
+      },
       "features_included": [
         "50 artworks in catalogue",
         "6 exhibitions per year",
@@ -230,7 +335,9 @@
         "Gallery directory listing",
         "Encounter-logged artworks dashboard"
       ],
-      "target_personas": ["[[b1-sarah-vandermerwe]]"]
+      "target_personas": [
+        "[[b1-sarah-vandermerwe]]"
+      ]
     },
     {
       "id": "sku_atteste_gallery_professional",
@@ -245,11 +352,22 @@
       "launched_on": "2026-04-24",
       "retired_on": null,
       "price": {
-        "primary": {"amount": 158.99, "currency": "USD", "period": "month"},
+        "primary": {
+          "amount": 158.99,
+          "currency": "USD",
+          "period": "month"
+        },
         "trial_days": 0
       },
-      "billing": {"provider": "web", "model": "sold via the web as a bespoke gallery install; not in-app purchase"},
-      "capacity": {"artworks": 100, "exhibitions_yearly": 12, "staff_seats": 5},
+      "billing": {
+        "provider": "web",
+        "model": "sold via the web as a bespoke gallery install; not in-app purchase"
+      },
+      "capacity": {
+        "artworks": 100,
+        "exhibitions_yearly": 12,
+        "staff_seats": 5
+      },
       "features_included": [
         "200 artworks in catalogue",
         "12 exhibitions per year",
@@ -259,7 +377,9 @@
         "Collector pipeline (encounter → match → push opt-in)",
         "Provision Represented artists at no extra cost"
       ],
-      "target_personas": ["[[b2-michael-hartley]]"]
+      "target_personas": [
+        "[[b2-michael-hartley]]"
+      ]
     },
     {
       "id": "sku_atteste_gallery_enterprise",
@@ -274,11 +394,22 @@
       "launched_on": "2026-04-24",
       "retired_on": null,
       "price": {
-        "primary": {"amount": 259.00, "currency": "USD", "period": "month"},
+        "primary": {
+          "amount": 259.0,
+          "currency": "USD",
+          "period": "month"
+        },
         "trial_days": 0
       },
-      "billing": {"provider": "web", "model": "sold via the web as a bespoke gallery install; not in-app purchase"},
-      "capacity": {"artworks": "unlimited", "exhibitions_yearly": "unlimited", "staff_seats": "unlimited"},
+      "billing": {
+        "provider": "web",
+        "model": "sold via the web as a bespoke gallery install; not in-app purchase"
+      },
+      "capacity": {
+        "artworks": "unlimited",
+        "exhibitions_yearly": "unlimited",
+        "staff_seats": "unlimited"
+      },
       "features_included": [
         "Unlimited artworks and exhibitions",
         "Unlimited AI-generated content",
@@ -288,7 +419,9 @@
         "API access for custom integrations",
         "Provision Represented artists at no extra cost"
       ],
-      "target_personas": ["[[b3-nomsa-dlamini]]"]
+      "target_personas": [
+        "[[b3-nomsa-dlamini]]"
+      ]
     }
   ],
   "retired_skus": [

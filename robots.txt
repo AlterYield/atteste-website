@@ -38,6 +38,22 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+# OAI-SearchBot powers ChatGPT Search citations — critical for GEO
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
 User-agent: cohere-ai
 Allow: /
 
