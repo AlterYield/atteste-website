@@ -1,38 +1,50 @@
 [
- {
-  "n": 1,
-  "slug": "1-io-makandal",
-  "published": true,
-  "name": "Io Makandal",
-  "igHandle": "@iomakandal",
-  "workTitle": "Frondescent",
-  "date": "2026-08-11",
-  "card": "atelier-notes-01-io-makandal.png",
-  "prospectId": "artist-io-makandal",
-  "read": "A floating assemblage of foliage, textiles and paintings that refuses to hold still — the organic matter inside ‘Frondescent’ keeps decaying, so the work is never the same twice. Entropy isn’t fought here; it’s the medium. Most artists race time. This one collaborates with it."
- },
- {
-  "n": 2,
-  "slug": "2-zizipho-poswa",
-  "published": true,
-  "name": "Zizipho Poswa",
-  "igHandle": "@zizipo_poswa",
-  "workTitle": "ooMolokazana boZikhali",
-  "date": "2026-08-12",
-  "card": "atelier-notes-02-zizipho-poswa.png",
-  "prospectId": "artist-zizipho-poswa",
-  "read": "Bronze-cast crowns resting on monumental hand-coiled earthenware — two materials, two tempos, one gesture of honour. ‘ooMolokazana boZikhali’ carries ceremony and weight in the same breath. On now in ‘iMbewu (The Seed)’ at Southern Guild NY until 21 Aug."
- },
- {
-  "n": 3,
-  "slug": "3-kilmany-jo-liversage",
-  "published": true,
-  "name": "Kilmany-Jo Liversage",
-  "igHandle": "@kilmany_jo",
-  "workTitle": "PREKARIA",
-  "date": "2026-08-13",
-  "card": "atelier-notes-03-kilmany-jo-liversage.png",
-  "prospectId": "artist-kilmany-jo-liversage",
-  "read": "Acrylic, aerosol and marker across 150×150 — and the contour drips stay raw, speed kept on purpose as evidence. ‘PREKARIA’ is signed under the graffiti alias ORDA: the street stays visible inside the gallery. The unfinished edge is the honesty."
- }
+  {
+    "n": 1,
+    "slug": "1-io-makandal",
+    "published": true,
+    "name": "Io Makandal",
+    "igHandle": "@iomakandal",
+    "workTitle": "Frondescent",
+    "date": "2026-08-11",
+    "card": "atelier-notes-01-io-makandal.png",
+    "prospectId": "artist-io-makandal",
+    "read": "A floating assemblage of foliage, textiles and paintings that refuses to hold still — the organic matter inside ‘Frondescent’ keeps decaying, so the work is never the same twice. Entropy isn’t fought here; it’s the medium. Most artists race time. This one collaborates with it."
+  },
+  {
+    "n": 2,
+    "slug": "2-zizipho-poswa",
+    "published": true,
+    "name": "Zizipho Poswa",
+    "igHandle": "@zizipo_poswa",
+    "workTitle": "ooMolokazana boZikhali",
+    "date": "2026-08-12",
+    "card": "atelier-notes-02-zizipho-poswa.png",
+    "prospectId": "artist-zizipho-poswa",
+    "read": "Bronze-cast crowns resting on monumental hand-coiled earthenware — two materials, two tempos, one gesture of honour. ‘ooMolokazana boZikhali’ carries ceremony and weight in the same breath. On now in ‘iMbewu (The Seed)’ at Southern Guild NY until 21 Aug."
+  },
+  {
+    "n": 3,
+    "slug": "3-kilmany-jo-liversage",
+    "published": true,
+    "name": "Kilmany-Jo Liversage",
+    "igHandle": "@kilmany_jo",
+    "workTitle": "PREKARIA",
+    "date": "2026-08-13",
+    "card": "atelier-notes-03-kilmany-jo-liversage.png",
+    "prospectId": "artist-kilmany-jo-liversage",
+    "read": "Acrylic, aerosol and marker across 150×150 — and the contour drips stay raw, speed kept on purpose as evidence. ‘PREKARIA’ is signed under the graffiti alias ORDA: the street stays visible inside the gallery. The unfinished edge is the honesty."
+  },
+  {
+    "n": 5,
+    "slug": "5-thenjiwe-niki-nkosi",
+    "published": true,
+    "name": "Thenjiwe Niki Nkosi",
+    "igHandle": "@thenjiwe_niki_nkosi",
+    "workTitle": "Injury",
+    "date": "2026-08-15",
+    "card": "atelier-notes-05-thenjiwe-niki-nkosi.png",
+    "prospectId": "artist-thenjiwe-niki-nkosi",
+    "read": "The gymnasts are never at the peak of the move — only just before it, or just after. ‘Injury’ (oil, 122×153) pushes into the aftermath, where composure gets rebuilt in front of everyone. The drama was never the fall; it is the standing back up."
+  }
 ]
