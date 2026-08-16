@@ -1,0 +1,34 @@
+# Guards the cache-busting contract.
+#
+# _headers serves /assets/js/* and /assets/css/* immutable for a year, so the
+# ?v= query is the ONLY way a change reaches a returning visitor. On 2026-08-16
+# chat-widget.js was fixed without bumping ?v=, and every browser that had
+# already loaded the page kept the broken file — the fix was live on the server
+# and unreachable in practice for 78 minutes' worth of visitors.
+#
+# ?v= is now a content hash, and this job fails the moment a page references a
+# hash that does not match the file on disk.
+#
+# This workflow reads no user-controlled event data (no titles, branch names or
+# commit messages reach a run: step), so there is no script-injection surface.
+name: asset versions
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  versions:
+    name: "?v= matches file content"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node scripts/asset-versions.mjs --check
