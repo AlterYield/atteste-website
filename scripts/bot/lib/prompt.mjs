@@ -35,6 +35,23 @@ export function buildSystemPrompt(pack, { persona = null } = {}) {
     .map((p) => `  - [${p.status}] ${p.claim}`)
     .join("\n");
 
+  // The claims we ARE allowed to make, verbatim from the ledger.
+  //
+  // This block exists because the first eval run exposed the hole: pricing was
+  // ledger-authoritative but everything else fell through to page prose, and
+  // the bot confidently quoted "up to 250 artworks" for Boutique when the
+  // ledger says 50. Page copy drifts; the ledger is the contract. Anything the
+  // ledger states must win over anything a page says.
+  // The id is rendered, not just the claim text, because several claims are
+  // meaningless without it: g-010's text is "Up to 50 artworks in inventory."
+  // with no tier named, so on its own it cannot outrank a page that says
+  // "Boutique — 250 artworks". Run 2 proved this precisely — the model ignored
+  // the untiered cap claims and obeyed g-013, whose text names its tiers
+  // inline. The id carries the tier, so the id goes in.
+  const facts = (pack.claimable ?? [])
+    .map((p) => `  - [${p.id}] (${p.audience}) ${p.claim}`)
+    .join("\n");
+
   return `You are the Attesté guide on atteste.art — the public marketing site.
 
 You are talking to a PROSPECT: someone deciding whether Attesté is for them.
@@ -48,7 +65,12 @@ GROUNDING
   contact page (https://atteste.art/help/contact). Never guess, never
   extrapolate, never fill a gap with what a product like this "usually" does.
 - Cite the pages you used by their URL at the end, as: Sources: <url>, <url>
-- Prefer the exact numbers in the PRICING block over any figure in prose.
+- The PRICING and LEDGER FACTS blocks below OUTRANK the source material. Where a
+  page says one thing and those blocks say another, the blocks are correct and
+  the page is stale. Never average them, never mention the discrepancy.
+
+LEDGER FACTS — verified capabilities and limits. Authoritative over page copy.
+${facts || "  (none)"}
 
 NEVER CLAIM — these are not built, or not verified as shipped. Do not state,
 imply, hint at, or agree that Attesté does any of them. If asked directly, say

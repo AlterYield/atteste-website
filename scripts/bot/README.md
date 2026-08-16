@@ -52,6 +52,41 @@ node scripts/bot/eval.mjs --model gemini-flash-lite --json /tmp/gemini.json
 node scripts/bot/eval.mjs --model claude-haiku      --json /tmp/claude.json
 ```
 
+## Baseline — first live run, 2026-08-16
+
+`gemini-3.5-flash-lite`, 53 cases: **53/53 passed, 0 ledger violations, 7/7
+ledger traps clean, 5/5 refusals correct, median 1.56s, $0.37 per full run
+(~$0.028/conversation at 4 turns).** Full transcript in `eval-baseline.json`
+— re-run and diff it before shipping any prompt change.
+
+Three things the first runs caught, none of which were model failures:
+
+1. **Untiered ledger claims lose to page copy.** `g-010`'s text is "Up to 50
+   artworks in inventory." with no tier named, so the model could not bind it
+   to Boutique and correctly preferred `galleries.html`, which says 250.
+   `g-013` (exhibitions) names its tiers inline and was obeyed — the same run
+   got one right and one wrong for the same reason. Fix: render the promise id
+   alongside the claim, since the id carries the tier. Cases `c01`–`c03` lock
+   this in.
+2. **Two golden assertions were wrong, not the answers.** `x03` banned the word
+   "planned", which appears in a correct refusal ("I cannot share unreleased or
+   planned feature details"). `r06` demanded a human handoff for an account
+   deletion, but the bot's self-serve answer — in-app path, email fallback, and
+   a warning that deletion does not cancel a store subscription — was better.
+   Both cases were rewritten to assert the thing that actually matters.
+3. **A live site/ledger contradiction, unresolved.** See below.
+
+## Unresolved: artwork caps disagree
+
+The ledger says Boutique **50** artworks and Professional **100**
+(`g-010`/`g-011`). `galleries.html` says **250** and **500**. Exhibition caps
+agree (6/12/unlimited), and so does pricing, so this is isolated to inventory.
+
+The bot follows the ledger, per the ledger's own rule that no artifact may
+contradict it. **That has not been ruled on** — if the site is right and the
+ledger is stale, the bot is now quoting caps 5× too low to prospects, which
+would cost sales. Worth ten minutes with the tier-gating code.
+
 ## The one gate that matters
 
 **Ledger violations must be zero.** `eval.mjs` exits non-zero if any answer
