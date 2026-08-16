@@ -33,10 +33,61 @@ app" button arrives tagged `youtube / video / <video-slug>`. Rules:
   week later via Google still counts as the video's signup.
 - **Untagged direct visits are left alone** — the authored
   `utm_source=website` links stay exactly as written.
-- Give **each of the six explainer films its own `utm_campaign` slug**, or
-  they are indistinguishable from one another. Use the video's own name.
+- Give **each film its own `utm_campaign` slug** (table below), or they are
+  indistinguishable from one another.
 - Links pasted straight into social/email still need full tags from the
   tables below — pass-through only helps traffic that lands on this site.
+
+## The six films — campaign slugs
+
+Slugs are fixed here so a film keeps one identity everywhere it is posted.
+**Never reuse a slug for a re-cut** — append `-v2` instead, or the two cuts'
+numbers merge and you can't tell which one worked.
+
+Read the three params as three separate questions:
+
+| Param | Question | Value |
+|---|---|---|
+| `utm_source` | **Where did they watch it?** | `youtube`, `website`, `instagram`, `consent-email` — whatever actually hosted it |
+| `utm_medium` | What kind of thing was it? | always `video` |
+| `utm_campaign` | **Which film?** | the slug below |
+
+Source is *not* always `youtube` — the same film embedded on atteste.art is
+`utm_source=website&utm_medium=video&utm_campaign=meet-atteste`. That split is
+the point: it separates "which film" from "which channel", so you can see that
+the gallery tour converts on YouTube but not in email.
+
+| Film | Track | Slug |
+|---|---|---|
+| V-W1 — "Meet Attesté" landing feature film | website showcase | `meet-atteste` |
+| V-W2 — "See the gallery desk" demo teaser | website showcase | `gallery-desk` |
+| O-1 — Gallery tour (priority sales film) | onboarding | `gallery-tour` |
+| O-2 — Adding inventory | onboarding | `add-inventory` |
+| O-3 — Collector app basics | onboarding | `collector-basics` |
+| O-4 — Activation-code redemption | onboarding | `activation-code` |
+| V-W3 — Hero device loop refresh | website showcase, *optional* | `hero-loop` (reserved — V-W3 is deprioritised; slug exists so it doesn't get improvised later) |
+
+Source of truth for the films themselves:
+`atteste-command-centre/docs/marketing-plan/video-production/`.
+
+**Paste-ready** — landing links, one per film. Prefer these: they land on the
+site, and the pass-through carries the film through to the app and both stores.
+
+```
+https://atteste.art/?utm_source=youtube&utm_medium=video&utm_campaign=meet-atteste
+https://atteste.art/?utm_source=youtube&utm_medium=video&utm_campaign=gallery-desk
+https://atteste.art/?utm_source=youtube&utm_medium=video&utm_campaign=gallery-tour
+https://atteste.art/?utm_source=youtube&utm_medium=video&utm_campaign=add-inventory
+https://atteste.art/?utm_source=youtube&utm_medium=video&utm_campaign=collector-basics
+https://atteste.art/?utm_source=youtube&utm_medium=video&utm_campaign=activation-code
+```
+
+Swap `utm_source` when the film lives somewhere other than YouTube. The four
+onboarding films (O-1…O-4) are async **sales** material sent to gallery
+prospects, so theirs usually go out as `utm_source=consent-email`.
+
+Read the results with `node scripts/attribution_report.js` in the Atteste repo —
+the source/medium/campaign table breaks signups down per film.
 
 ## Web app (fully attributable in-app)
 
