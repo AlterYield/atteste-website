@@ -56,47 +56,81 @@
 
   // ── Styles. Scoped under #atteste-chat, using the help pages' own tokens
   //    with fallbacks so the widget looks native wherever it is dropped. ────
+  // ── Styles ────────────────────────────────────────────────────────────
+  //
+  // SELF-CONTAINED PALETTE. An earlier version inherited the host page's
+  // --ink/--bg tokens and added a prefers-color-scheme override. That shipped
+  // broken: the help pages define those tokens AND flip them on OS dark mode,
+  // but the marketing pages (assets/css/site.css) define neither — they use
+  // --navy/--cream and have no dark mode at all. So on a marketing page with
+  // the OS in dark mode the override fired against a permanently-light page
+  // and painted #1a1a2e text on a #1a1a2e pill. The launcher was invisible.
+  //
+  // A floating overlay must own its colours. It reads nothing from the page
+  // and has no colour-scheme media query, so it renders identically on both
+  // page families. Brand values are hard-coded from site.css deliberately:
+  // copies of three hex codes beat a dependency on tokens that do not exist
+  // everywhere the widget is mounted.
+  //
+  // Contrast (WCAG AA needs 4.5:1 for body text):
+  //   navy #1A1A2E on gold #C9A96E ....... ~7.6:1  launcher
+  //   navy #1A1A2E on white  ............. ~16:1   bot text
+  //   #3D3D3D on white ................... ~10:1   body
+  //   #6B6B6B on white ................... ~5.7:1  muted/secondary
+  //   white on navy #1A1A2E .............. ~16:1   user bubble
   var CSS = [
-    // --c-surface and --c-on-ink are the widget's own; everything else is
-    // inherited from the host page so the widget follows its theme. They must
-    // NOT be hard-coded #fff/#000: the help pages flip --ink to a light cream
-    // under prefers-color-scheme:dark, so a literal white bubble ends up with
-    // near-white text on white. Caught in the browser; no headless test sees it.
-    '#atteste-chat{--c-ink:var(--ink,#1a1a2e);--c-muted:var(--ink-muted,#4a4a6e);--c-bg:var(--bg,#faf8f5);',
-    '--c-surface:#fff;--c-on-ink:#fff;',
-    '--c-gold:var(--gold,#c9a96e);--c-rule:var(--rule,#e6e0d4);position:fixed;right:1.25rem;bottom:1.25rem;',
-    'z-index:9999;font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,sans-serif;font-size:15px}',
-    '#atteste-chat *{box-sizing:border-box}',
-    '@media (prefers-color-scheme:dark){#atteste-chat{--c-surface:#242440;--c-on-ink:#1a1a2e}}',
-    '#ac-launch{display:flex;align-items:center;gap:.5rem;background:var(--c-ink);color:var(--c-on-ink);border:0;',
-    'border-radius:999px;padding:.7rem 1.15rem;font:inherit;font-weight:500;cursor:pointer;',
-    'box-shadow:0 6px 22px rgba(26,26,46,.22)}',
-    '#ac-launch:hover{filter:brightness(1.15)}',
-    '#ac-launch:focus-visible,#atteste-chat button:focus-visible,#ac-input:focus-visible{outline:2px solid var(--c-gold);outline-offset:2px}',
-    '#ac-panel{display:none;flex-direction:column;width:min(23rem,calc(100vw - 2.5rem));height:min(31rem,calc(100vh - 6rem));',
-    'background:var(--c-bg);border:1px solid var(--c-rule);border-radius:14px;overflow:hidden;',
-    'box-shadow:0 18px 48px rgba(26,26,46,.2)}',
+    '#atteste-chat{--navy:#1A1A2E;--navy-mid:#232340;--gold:#C9A96E;--cream:#FAF8F5;',
+    '--white:#fff;--body:#3D3D3D;--muted:#6B6B6B;--rule:#E4DFD5;',
+    'position:fixed;right:1.25rem;bottom:1.25rem;z-index:2147483000;',
+    'font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,sans-serif;font-size:15px;line-height:1.5}',
+    '#atteste-chat *{box-sizing:border-box;font-family:inherit}',
+
+    // Gold pill with navy text: the one combination that reads on both the
+    // cream marketing pages and the navy hero sections.
+    // Solid navy border, not just a shadow. The gold fill is only ~2.1:1
+    // against the cream marketing background — below the 3:1 WCAG wants for a
+    // UI component's boundary — and shadows do not count toward that. The
+    // border defines the pill on light pages; on the dark help pages the gold
+    // fill already carries ~7.6:1 on its own. One static rule, both cases, no
+    // colour-scheme detection to get wrong again.
+    '#ac-launch{display:flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--navy);',
+    'border:2px solid var(--navy);border-radius:999px;padding:.64rem 1.15rem;font-size:15px;font-weight:600;cursor:pointer;',
+    'box-shadow:0 4px 18px rgba(26,26,46,.28)}',
+    '#ac-launch:hover{background:#D8BC85}',
+    '#ac-launch:focus-visible,#atteste-chat button:focus-visible,#ac-input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}',
+
+    '#ac-panel{display:none;flex-direction:column;width:min(23rem,calc(100vw - 2.5rem));',
+    'height:min(31rem,calc(100vh - 6rem));background:var(--cream);border:1px solid var(--rule);',
+    'border-radius:14px;overflow:hidden;box-shadow:0 18px 52px rgba(26,26,46,.28)}',
     '#atteste-chat[data-open="true"] #ac-panel{display:flex}',
     '#atteste-chat[data-open="true"] #ac-launch{display:none}',
-    '#ac-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.75rem .9rem;',
-    'border-bottom:1px solid var(--c-rule);background:var(--c-surface)}',
-    '#ac-head strong{font-weight:600;color:var(--c-ink);font-size:.95rem}',
-    '#ac-head span{display:block;font-size:.75rem;color:var(--c-muted);font-weight:400}',
-    '#ac-close{background:none;border:0;font-size:1.4rem;line-height:1;color:var(--c-muted);cursor:pointer;padding:.15rem .35rem;border-radius:6px}',
-    '#ac-close:hover{color:var(--c-ink)}',
-    '#ac-log{flex:1;overflow-y:auto;padding:.9rem;display:flex;flex-direction:column;gap:.7rem}',
-    '.ac-msg{max-width:88%;padding:.6rem .75rem;border-radius:11px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}',
-    '.ac-user{align-self:flex-end;background:var(--c-ink);color:var(--c-on-ink);border-bottom-right-radius:3px}',
-    '.ac-bot{align-self:flex-start;background:var(--c-surface);border:1px solid var(--c-rule);color:var(--c-ink);border-bottom-left-radius:3px}',
-    '.ac-src{display:block;margin-top:.5rem;padding-top:.45rem;border-top:1px solid var(--c-rule);font-size:.76rem;line-height:1.5}',
-    '.ac-src a{color:var(--c-muted);text-decoration:underline;text-underline-offset:2px}',
-    '.ac-src a:hover{color:var(--c-ink)}',
-    '.ac-note{align-self:center;text-align:center;font-size:.78rem;color:var(--c-muted);max-width:92%;line-height:1.5}',
-    '.ac-dots span{display:inline-block;width:5px;height:5px;margin-right:3px;border-radius:50%;background:var(--c-muted);opacity:.4}',
+
+    '#ac-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem;',
+    'padding:.8rem .9rem;background:var(--navy);color:var(--white)}',
+    '#ac-head strong{display:block;font-weight:600;font-size:.95rem;color:var(--white)}',
+    '#ac-head span{display:block;font-size:.75rem;color:rgba(255,255,255,.72);font-weight:400}',
+    '#ac-close{background:none;border:0;font-size:1.5rem;line-height:1;color:rgba(255,255,255,.72);',
+    'cursor:pointer;padding:.1rem .35rem;border-radius:6px}',
+    '#ac-close:hover{color:var(--white)}',
+
+    '#ac-log{flex:1;overflow-y:auto;padding:.9rem;display:flex;flex-direction:column;gap:.7rem;background:var(--cream)}',
+    '.ac-msg{max-width:88%;padding:.62rem .78rem;border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14.5px}',
+    '.ac-user{align-self:flex-end;background:var(--navy);color:var(--white);border-bottom-right-radius:4px}',
+    '.ac-bot{align-self:flex-start;background:var(--white);color:var(--navy);border:1px solid var(--rule);border-bottom-left-radius:4px}',
+    '.ac-src{display:block;margin-top:.5rem;padding-top:.45rem;border-top:1px solid var(--rule);font-size:.76rem;color:var(--muted)}',
+    '.ac-src a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}',
+    '.ac-src a:hover{color:var(--navy)}',
+    '.ac-note{align-self:center;text-align:center;font-size:.78rem;color:var(--muted);max-width:92%}',
+    '.ac-dots span{display:inline-block;width:5px;height:5px;margin-right:3px;border-radius:50%;background:var(--muted);opacity:.4}',
     reduceMotion ? '' : '.ac-dots span{animation:ac-b 1.1s infinite}.ac-dots span:nth-child(2){animation-delay:.15s}.ac-dots span:nth-child(3){animation-delay:.3s}@keyframes ac-b{0%,60%,100%{opacity:.25}30%{opacity:.9}}',
-    '#ac-form{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid var(--c-rule);background:var(--c-surface)}',
-    '#ac-input{flex:1;border:1px solid var(--c-rule);border-radius:9px;padding:.55rem .7rem;font:inherit;color:var(--c-ink);background:var(--c-bg);resize:none;max-height:5.5rem}',
-    '#ac-send{background:var(--c-ink);color:var(--c-on-ink);border:0;border-radius:9px;padding:0 .95rem;font:inherit;font-weight:500;cursor:pointer}',
+
+    '#ac-form{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid var(--rule);background:var(--white)}',
+    '#ac-input{flex:1;border:1px solid var(--rule);border-radius:9px;padding:.58rem .7rem;font-size:15px;',
+    'color:var(--navy);background:var(--white);resize:none;max-height:5.5rem}',
+    '#ac-input::placeholder{color:var(--muted)}',
+    '#ac-send{background:var(--navy);color:var(--white);border:0;border-radius:9px;padding:0 1rem;',
+    'font-size:15px;font-weight:600;cursor:pointer}',
+    '#ac-send:hover{background:var(--navy-mid)}',
     '#ac-send[disabled]{opacity:.45;cursor:default}',
     '@media (max-width:480px){#atteste-chat{right:.75rem;bottom:.75rem;left:.75rem}#ac-panel{width:auto}}'
   ].join('');
