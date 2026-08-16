@@ -19,7 +19,7 @@ import pack from "../../scripts/bot/knowledge.json" with { type: "json" };
 import { selectChunks } from "../../scripts/bot/lib/knowledge.mjs";
 import { buildTurn } from "../../scripts/bot/lib/prompt.mjs";
 import { checkAnswer, FALLBACK } from "../../scripts/bot/lib/ledger.mjs";
-import { generate } from "../../scripts/bot/lib/model.mjs";
+import { generate, MODELS } from "../../scripts/bot/lib/model.mjs";
 
 const ALLOWED_ORIGINS = ["https://atteste.art", "https://www.atteste.art"];
 
@@ -71,6 +71,18 @@ export default async function handler(request, context) {
   // the bot down in seconds without a deploy — the widget hides itself on 503.
   if ((process.env.SITE_CHAT_ENABLED ?? "true").toLowerCase() === "false") {
     return json(503, { error: "disabled" });
+  }
+
+  // Unconfigured is NOT the same as broken. If the provider key is missing —
+  // most likely because this branch reached production before the Netlify env
+  // var was set — behave exactly like the kill switch: 503, and the widget
+  // quietly hides itself. The alternative is answering every visitor on 12
+  // help pages with "something went wrong", which is worse than no bot at all.
+  const provider = MODELS[process.env.SITE_CHAT_MODEL || "gemini-flash-lite"]?.provider ?? "gemini";
+  const keyVar = provider === "gemini" ? "GEMINI_API_KEY" : "CLAUDE_API_KEY";
+  if (!(process.env[keyVar] ?? "").trim()) {
+    console.error(`chat_unconfigured: ${keyVar} is not set — serving 503`);
+    return json(503, { error: "unconfigured" });
   }
 
   // Same-origin only. The widget is first-party; nothing else has a reason to

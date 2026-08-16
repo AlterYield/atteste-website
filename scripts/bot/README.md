@@ -138,15 +138,35 @@ mobile), plus 8 headless request scenarios against the live model — happy path
 ledger trap, refusal, caps, multi-turn, GET, cross-origin, empty body.
 
 **One step remains before this can work in production: set `GEMINI_API_KEY` in
-the Netlify site environment.** It is not set today (`netlify env:list` → none),
-so the deployed endpoint would return its degraded "contact the team" message
-for every question. That is a deliberate fail-closed, but it is not useful.
+the Netlify site environment.** It is not set today (`netlify env:list` → none).
+Deploying without it is now harmless — the function 503s and the widget hides
+itself — but the bot simply will not exist for visitors until the key lands.
+
+Setting it has one trap worth knowing. **`firebase functions:secrets:access`
+writes the secret VALUE to stderr and its warning banner to stdout**, which is
+backwards from the obvious assumption and poisons every naive capture: a bare
+`$(...)` returns ~613 characters of banner, and `2>/dev/null` returns the empty
+string. `netlify env:set` accepts either without complaint and exits 0 having
+written nothing, so it looks like success. Always merge the streams, extract
+the key pattern, and assert the length before using it:
+
+```bash
+K="$(firebase functions:secrets:access GEMINI_API_KEY --project atteste-b6409 2>&1 \
+     | grep -oE 'AIza[0-9A-Za-z_-]{30,}' | tail -1)"
+[ ${#K} -ge 35 ] && netlify env:set GEMINI_API_KEY "$K" \
+     --scope functions --context production deploy-preview branch-deploy --secret --force
+```
+
+Note `--context` is required with `--secret`, and Netlify will not attach a
+secret variable to the `dev` context — so `netlify dev` can never see it. Local
+runs need the key exported into the dev server's own shell.
 
 Operational controls:
 
 | Control | Where | Effect |
 |---|---|---|
 | `SITE_CHAT_ENABLED=false` | Netlify env | Kill switch. Function 503s, widget hides itself. No deploy needed. |
+| *(key absent)* | — | Fails **safe**, not loud: a missing provider key 503s exactly like the kill switch, so the widget hides rather than telling every visitor "something went wrong". Unconfigured is not the same as broken. |
 | `SITE_CHAT_MODEL` | Netlify env | Swap model without a deploy (`gemini-flash-lite`, `gemini-flash`, `claude-haiku`). |
 | rate limit | `chat.mjs` | 20 requests / 10 min / IP / instance. |
 
