@@ -118,15 +118,15 @@
     </header>
     <article>
 <h1>AI Processing Disclosure</h1>
-<p><strong>Effective Date:</strong> 25 April 2026
-<strong>Version:</strong> 1.1
-<strong>Last Updated:</strong> 25 April 2026</p>
+<p><strong>Effective Date:</strong> 16 August 2026
+<strong>Version:</strong> 1.2
+<strong>Last Updated:</strong> 16 August 2026</p>
 <p>At Atteste, we believe transparency about artificial intelligence is not optional. This disclosure explains every AI system we use, what data each system processes, how outputs appear in the application, and your rights regarding AI-assisted features.</p>
 <h2>1. AI Systems We Use</h2>
 <p>Atteste integrates two external AI services. Neither system is trained on your data, and neither provider retains your inputs for model improvement under our API agreements.</p>
-<h3>1.1 Google Gemini 2.0 Flash</h3>
+<h3>1.1 Google Gemini</h3>
 <p><strong>Provider:</strong> Google LLC, Mountain View, California, United States
-<strong>Model:</strong> Gemini 2.0 Flash (via Gemini API)
+<strong>Model:</strong> Gemini (current-generation Flash models, via the Gemini API). Google releases new versions of these models regularly and we adopt them as they become available, so the exact version in use changes over time. Different features may run on different Gemini models.
 <strong>Purpose:</strong> Visual analysis of artwork images and structured data extraction.</p>
 <p>Gemini is used for the following features:</p>
 <ul>
@@ -153,8 +153,8 @@
 <strong>Model:</strong> Gemini Flash-Lite (via Gemini API, paid tier — inputs are not used to train Google's models)
 <strong>Purpose:</strong> Answering questions about Attesté on this website.</p>
 <p>The assistant is the &ldquo;Ask about Attesté&rdquo; panel on our public pages. It answers only from the published content of this website and cannot see, reach, or change any Attesté account. It does not provide valuations, authenticity opinions, or legal, tax or financial advice, and it will direct you to a person for anything account-specific.</p>
-<p><strong>What is processed:</strong> the question you type, the earlier messages in that same browser tab, and the page you asked from. We do not record your IP address. Conversations are grouped by a random identifier created in your browser that is discarded when you close the tab; it is not linked to you and does not persist between visits.</p>
-<p><strong>What we keep, and why:</strong> we retain a record of questions and answers so we can see what people need and improve our help pages. Before any record is stored, email addresses, telephone numbers and long numeric identifiers are automatically replaced with placeholders such as <code>[email]</code>, so please still avoid typing personal details into the assistant &mdash; you never need to in order to get an answer.</p>
+<p><strong>What is processed:</strong> the question you type, the earlier messages in that same browser tab, and the page you asked from. Your IP address is used only momentarily, and only to limit how many questions a single visitor can ask in a short period so the assistant cannot be abused; it is held in memory for that check and is never written into the conversation record. Like any website, our hosting provider keeps standard server logs, which include IP addresses, as described in our <a href="/privacy.html">Privacy Policy</a>. Conversations are grouped by a random identifier created in your browser that is discarded when you close the tab; it is not linked to you and does not persist between visits.</p>
+<p><strong>What we keep, and why:</strong> we retain a record of questions and answers so we can see what people need and improve our help pages. Before any record is stored, email addresses, telephone numbers and long numeric identifiers are automatically replaced with placeholders such as <code>[email]</code>, so please still avoid typing personal details into the assistant &mdash; you never need to in order to get an answer. Each record is deleted automatically 180 days after it is created; this is enforced by the database itself, not by a manual clean-up.</p>
 
 <h2>2. What Data Is Processed</h2>
 <p>We are committed to sending only the minimum data necessary for each AI function. No data is shared between the two AI providers.</p>
