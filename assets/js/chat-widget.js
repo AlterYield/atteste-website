@@ -82,6 +82,12 @@
     '#atteste-chat{--navy:#1A1A2E;--navy-mid:#232340;--gold:#C9A96E;--cream:#FAF8F5;',
     '--white:#fff;--body:#3D3D3D;--muted:#6B6B6B;--rule:#E4DFD5;',
     'position:fixed;right:1.25rem;bottom:1.25rem;z-index:2147483000;',
+    // Base text colour, not just backgrounds. Without this the widget inherits
+    // the HOST page's colour: on the dark help pages that is #F0ECE3, which
+    // lands on our cream panel at 1.11:1. Nothing is visibly broken today only
+    // because every element below happens to set its own colour — so this is
+    // here to make the next element added without one readable by default.
+    'color:var(--body);',
     'font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,sans-serif;font-size:15px;line-height:1.5}',
     '#atteste-chat *{box-sizing:border-box;font-family:inherit}',
 
