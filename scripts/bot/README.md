@@ -121,8 +121,37 @@ stacks three at once, because agreeableness is the failure mode.
   On `gemini-flash-lite` that's a few cents per full run; the report prints the
   exact figure.
 
-## Not built yet (Phase 1+)
+## Phase 1 — shipped to the branch, NOT deployed
 
-Widget, `/api/chat` Netlify Function, streaming, the Collector/Artist/Gallery
-router, screenshot and video cards, agentic tools (cert verify, book-a-call,
-lead capture), conversation logging. Phase 0 stops at the CLI on purpose.
+- `netlify/functions/chat.mjs` — POST /api/chat. Imports `lib/*.mjs` verbatim;
+  there is no second copy of the prompt or the guard.
+- `assets/js/chat-widget.js` — ~300 lines, no dependencies, inherits the host
+  page's CSS tokens so it follows light/dark automatically.
+- `_redirects` — `/api/chat → /.netlify/functions/chat  200`. A **rewrite, not
+  a redirect**: the browser only ever sees atteste.art, which is what keeps the
+  widget inside the existing `connect-src 'self'` CSP. **No CSP change was
+  needed anywhere.** Verified: zero console errors, zero CSP violations.
+- Injected into the 12 `help/*.html` pages only. Narrow blast radius.
+
+Verified in a real browser against `netlify dev` (light, dark, and 375px
+mobile), plus 8 headless request scenarios against the live model — happy path,
+ledger trap, refusal, caps, multi-turn, GET, cross-origin, empty body.
+
+**One step remains before this can work in production: set `GEMINI_API_KEY` in
+the Netlify site environment.** It is not set today (`netlify env:list` → none),
+so the deployed endpoint would return its degraded "contact the team" message
+for every question. That is a deliberate fail-closed, but it is not useful.
+
+Operational controls:
+
+| Control | Where | Effect |
+|---|---|---|
+| `SITE_CHAT_ENABLED=false` | Netlify env | Kill switch. Function 503s, widget hides itself. No deploy needed. |
+| `SITE_CHAT_MODEL` | Netlify env | Swap model without a deploy (`gemini-flash-lite`, `gemini-flash`, `claude-haiku`). |
+| rate limit | `chat.mjs` | 20 requests / 10 min / IP / instance. |
+
+## Not built yet (Phase 2+)
+
+Streaming, the Collector/Artist/Gallery router, screenshot and video cards,
+agentic tools (cert verify, book-a-call, lead capture), durable conversation
+logging. Today the function logs a PII-free one-line record per turn.

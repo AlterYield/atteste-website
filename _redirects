@@ -45,3 +45,12 @@ https://www.atteste.art/* https://atteste.art/:splat 301!
 # 302, not 301: a permanent redirect gets cached by intermediaries, and this
 # target may need to move.
 /unsubscribe https://atteste-b6409.web.app/unsubscribe 302
+
+# Site bot (Phase 1) — same-origin rewrite, NOT a redirect.
+#
+# 200 = Netlify proxies internally, so the browser only ever sees
+# https://atteste.art/api/chat. That is what keeps the widget inside the
+# existing `connect-src 'self'` CSP with no header change: a 30x to
+# /.netlify/functions/chat would expose a second origin and break it.
+# The function itself enforces origin allowlist, rate limit, and kill switch.
+/api/chat  /.netlify/functions/chat  200

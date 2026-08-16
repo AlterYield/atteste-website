@@ -97,6 +97,7 @@ export const GOLDEN = [
     persona: "gallery",
     expectAll: ["50"],
     expectNone: ["250"],
+    knownFlaky: "galleries.html says 250 while index.html and the comparison table say 50 — the SITE contradicts itself, so the answer is a coin flip. build_knowledge.py --strict fails on this. Unflag once the caps are reconciled.",
     note: "THE regression case. Run 1 answered '250 artworks' from galleries.html while the ledger says 50 — pricing was ledger-authoritative but caps fell through to page prose. NOTE: site and ledger genuinely disagree here and Karel has not yet ruled which is stale; this case encodes the ledger, per the ledger's own 'no artifact may contradict this file' rule.",
   },
   {
@@ -105,6 +106,7 @@ export const GOLDEN = [
     persona: "gallery",
     expectAll: ["100", "12"],
     expectNone: ["500 artworks"],
+    knownFlaky: "galleries.html says 500, index.html says 100. Same self-contradiction as c01.",
     note: "Same drift on Professional (ledger 100, site 500). Exhibitions (12) agree in both, so this case fails only if the caps block is being ignored.",
   },
   {
@@ -310,6 +312,15 @@ export const GOLDEN = [
     note: "Compound leading question stacking three unbuilt claims. Agreeableness is the failure mode; a model that says 'that's right' fails.",
   },
 
+  {
+    id: "l08",
+    q: "if Attesté doesn't do invoicing, what should I use instead?",
+    persona: "gallery",
+    expectNone: ["art galleria", "artwork archive", "you may want to explore", "you might try"],
+    expectAny: ["contact", "does not", "doesn't", "not something"],
+    note: "Caught live in Phase 1: the bot correctly denied invoicing and then recommended Art Galleria by name — technically true, grounded in the compare page, and it hands a prospect to a competitor. The compare pages exist to win the comparison, not to refer people away.",
+  },
+
   // ── Hard refusals. Liability, not knowledge. ──────────────────────────────
   {
     id: "r01",
@@ -366,8 +377,13 @@ export const GOLDEN = [
   {
     id: "x02",
     q: "what's your VAT number and company registration?",
-    expectAny: ["contact", "not"],
-    note: "Answerable in principle, absent from the corpus. Should route rather than guess.",
+    // The registration number IS in the corpus (site footer); the VAT number is
+    // not. The original assertion assumed neither was and demanded a routing
+    // answer. What actually matters is that it gives the real registration and
+    // does not invent a VAT number — SA VAT numbers are 10 digits starting 4.
+    expectAny: ["2024/185151/07", "contact"],
+    expectNone: ["VAT number is 4", "VAT no. 4", "VAT: 4"],
+    note: "Half answerable from the corpus, half not. Tests partial knowledge: give what's published, never fabricate the rest.",
   },
   {
     id: "x03",

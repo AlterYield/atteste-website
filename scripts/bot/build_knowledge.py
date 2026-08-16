@@ -198,9 +198,67 @@ def load_ledgers() -> tuple[list[dict], list[dict], dict]:
     return claimable, never, pricing
 
 
+def find_contradictions(chunks: list[dict], claimable: list[dict]) -> list[str]:
+    """Flag ledger numbers the site's own pages contradict.
+
+    Targeted rather than general on purpose: it checks numeric *caps*, the one
+    class where a disagreement has actually bitten. The gallery ledger says
+    Boutique holds 50 artworks; `galleries.html` says 250. The bot cannot
+    reliably arbitrate that — a prompt instruction saying "the ledger wins" is
+    probabilistic and was observed flipping between runs at temperature 0.2.
+    The only durable fix is to stop the two sources disagreeing, so surface it
+    loudly at build time instead of letting a model pick.
+    """
+    issues: list[str] = []
+    corpus = " ".join(c["text"] for c in chunks).lower()
+
+    for entry in claimable:
+        cid = entry["id"] or ""
+        if "-cap-" not in cid and not cid.endswith("-cap"):
+            continue
+        claimed = set(re.findall(r"\b(\d{2,4})\b", entry["claim"]))
+        if not claimed:
+            continue
+        # The tier lives in the id (g-010-inventory-cap-boutique), not the text.
+        tier = cid.rsplit("-", 1)[-1]
+        if tier == "cap":
+            continue  # g-013 names every tier inline; nothing to disambiguate
+        noun = "artworks" if "inventory" in cid else "exhibitions"
+
+        # Proximity matters: the corpus legitimately contains 50 AND 250 next to
+        # "artworks" for different tiers, so a global presence check finds
+        # nothing. Only numbers stated near the tier's own name are comparable.
+        near: set[str] = set()
+        for m in re.finditer(rf"\b{re.escape(tier)}\b", corpus):
+            window = corpus[m.end() : m.end() + 220]
+            near.update(re.findall(rf"(\d{{1,4}})\s+{noun}", window))
+
+        # Two distinct failures, and the second is the one that actually bit:
+        #   - the pages disagree with the ledger, or
+        #   - the pages disagree with EACH OTHER about the same tier.
+        # galleries.html says Boutique holds 250 artworks while index.html and
+        # the comparison table say 50. A model shown both in one prompt picks
+        # one at random — observed flipping between eval runs at temperature
+        # 0.2. No prompt instruction fixes contradictory input.
+        if len(near) > 1:
+            issues.append(
+                f"{cid}: the SITE contradicts itself — '{tier}' appears with "
+                f"{'/'.join(sorted(near, key=int))} {noun} on different pages "
+                f"(ledger says {'/'.join(sorted(claimed, key=int))}). "
+                f"The bot's answer here is a coin flip until this is reconciled."
+            )
+        elif near and not (claimed & near):
+            issues.append(
+                f"{cid}: ledger says {'/'.join(sorted(claimed, key=int))} {noun} for "
+                f"'{tier}', but pages near that word say {'/'.join(sorted(near, key=int))}"
+            )
+    return issues
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--stats", action="store_true", help="report sizes, write nothing")
+    ap.add_argument("--strict", action="store_true", help="exit 1 if the ledger and the pages contradict")
     args = ap.parse_args()
 
     chunks: list[dict] = []
@@ -232,6 +290,18 @@ def main() -> None:
     print(f"claimable {len(claimable)}   never_claim {len(never)}")
     for e in never:
         print(f"  NEVER   [{e['status']:>8}] {e['id']}")
+
+    issues = find_contradictions(chunks, claimable)
+    for i in issues:
+        print(f"  \033[33mCONTRADICTION\033[0m  {i}", file=sys.stderr)
+    if issues:
+        print(
+            "\n  The bot cannot reliably arbitrate these — reconcile the ledger and the\n"
+            "  pages, then rebuild. Run with --strict to make this fatal in CI.",
+            file=sys.stderr,
+        )
+        if args.strict:
+            sys.exit(1)
 
     if args.stats:
         return
