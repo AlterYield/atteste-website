@@ -28,7 +28,7 @@
 | Status | iOS LIVE on the App Store worldwide since 2026-06-11 (current version 1.1.0); Android LIVE on Google Play at 1.1.0, full production rollout; web app (1.1.0) live |
 | Platforms | iOS, Android, Web (Flutter 3.x) |
 | Backend | Firebase in `africa-south1` (Johannesburg data residency) |
-| AI stack | Gemini 2.5 Flash (vision, fast gen), Claude (sommelier reasoning, narrative), Gemini Live (voice companion) |
+| AI stack | Gemini Flash, current generation (vision, fast gen), Claude (sommelier reasoning, narrative), Gemini Live (voice companion) |
 | Billing | RevenueCat orchestrator + Apple StoreKit 2 + Google Play Billing |
 | Security | SHA-256 provenance certificates, POPIA + GDPR aware, HTTPS-only, strict CSP |
 | Content moderation | Cloud Vision SafeSearch on all uploads; CSAM zero tolerance + NCMEC reporting; mature content opt-in |
@@ -50,7 +50,7 @@
 ## Product features (complete list)
 
 ### AI Art Scout
-Photograph any artwork. Gemini 2.5 Flash vision analysis identifies:
+Photograph any artwork. Gemini Flash vision analysis identifies:
 - Likely artist (ranked by confidence)
 - Medium (oil, acrylic, mixed media, print, sculpture, photograph, digital, etc.)
 - Estimated period/style
@@ -289,7 +289,7 @@ A: Attesté combines AI identification (no more "what's this artist's name again
 A: Yes. By default, every collection is private. Public profiles require an explicit opt-in per collection. Firebase backend runs in `africa-south1` (Johannesburg data residency), so personal data never leaves Africa by default. POPIA and GDPR compliance are core. Mature content (artistic nudity) is blurred by default and requires opt-in.
 
 **Q: What AI models does Attesté use? Where does my data go?**
-A: Artwork photographs are analysed by Google's Gemini 2.5 Flash (vision API). Text reasoning uses Claude. Voice features use Gemini Live. Every image upload is also screened by Cloud Vision SafeSearch for content moderation. These are all disclosed at onboarding with an explicit consent gate (Terms, Privacy, Age 18+, Community Guidelines). You can opt out of AI features; you keep the collection database regardless.
+A: Artwork photographs are analysed by Google's current-generation Gemini Flash models (vision API). Text reasoning uses Claude. Voice features use Gemini Live. Every image upload is also screened by Cloud Vision SafeSearch for content moderation. These are all disclosed at onboarding with an explicit consent gate (Terms, Privacy, Age 18+, Community Guidelines). You can opt out of AI features; you keep the collection database regardless.
 
 **Q: Does Attesté guarantee my artwork is authentic?**
 A: For pre-existing works, no — Attesté creates tamper-proof records of **what you reported**. Authentication remains a gallery, auction house, or expert's job. **For works originating on Attesté with an artist source certificate**, the artist confirmed authorship at the source — this is the gold standard. For inherited or bought works, you can attach professional authentication documents to your Attesté Certificate.
@@ -328,7 +328,7 @@ A: Additional Discovery Trail cities, Art Fair seed data, gallery subscription e
 - **Google Maps** — encounter GPS + gallery discovery
 - **Firebase Auth** — Google, Apple, email/password sign-in
 - **Sign in with Apple** — wired, parity with Google Sign-In on iOS and web
-- **Gemini 2.5 Flash** — vision and fast generation
+- **Gemini Flash** (current generation) — vision and fast generation
 - **Claude** — sommelier reasoning and provenance narrative
 - **Gemini Live** — voice + vision companion (Atelier) and gallery concierge (Almanac)
 - **Cloud Vision SafeSearch** — image moderation gate on every upload

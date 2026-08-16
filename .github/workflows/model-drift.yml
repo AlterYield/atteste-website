@@ -1,0 +1,54 @@
+# Keeps the model names we publish honest.
+#
+# Two jobs, deliberately split by what they need:
+#
+#   guard  — pure text scan, no key, no network. Runs on every push and PR, so
+#            a stale version number cannot reach main. This is the job that
+#            would have caught "Gemini 2.0 Flash" sitting in the AI disclosure
+#            and privacy policy for months.
+#
+#   live   — asks the Gemini API whether the ids we actually call still exist.
+#            Weekly, because model retirement is a slow-moving risk and this
+#            half needs a key. Skips (does not fail) when the secret is absent.
+#
+# The site has no build step — Netlify publishes the files as they are — so CI
+# is the only place a check like this can live.
+#
+# No job here consumes user-controlled event data (titles, branch names, commit
+# messages), so there is no injection surface to guard against.
+name: model drift
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays 06:00 UTC / 08:00 SAST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    name: no pinned versions in published copy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node scripts/check-models.mjs
+
+  live:
+    name: pinned ids still exist
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node scripts/check-models.mjs --live
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
