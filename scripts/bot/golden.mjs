@@ -97,8 +97,7 @@ export const GOLDEN = [
     persona: "gallery",
     expectAll: ["50"],
     expectNone: ["250"],
-    knownFlaky: "galleries.html says 250 while index.html and the comparison table say 50 — the SITE contradicts itself, so the answer is a coin flip. build_knowledge.py --strict fails on this. Unflag once the caps are reconciled.",
-    note: "THE regression case. Run 1 answered '250 artworks' from galleries.html while the ledger says 50 — pricing was ledger-authoritative but caps fell through to page prose. NOTE: site and ledger genuinely disagree here and Karel has not yet ruled which is stale; this case encodes the ledger, per the ledger's own 'no artifact may contradict this file' rule.",
+    note: "THE regression case. Run 1 answered '250 artworks' from galleries.html while the ledger says 50 — pricing was ledger-authoritative but caps fell through to page prose. RESOLVED 2026-08-16: galleries.html was the outlier (250/500) against index.html, the comparison table and the ledger (50/100); Karel ruled for 50/100 and the page was corrected. Keep this case — it is the regression lock.",
   },
   {
     id: "c02",
@@ -106,8 +105,7 @@ export const GOLDEN = [
     persona: "gallery",
     expectAll: ["100", "12"],
     expectNone: ["500 artworks"],
-    knownFlaky: "galleries.html says 500, index.html says 100. Same self-contradiction as c01.",
-    note: "Same drift on Professional (ledger 100, site 500). Exhibitions (12) agree in both, so this case fails only if the caps block is being ignored.",
+    note: "Same drift on Professional (galleries.html said 500; ledger and index.html said 100). Corrected 2026-08-16. Exhibitions (12) always agreed, so this fails only if the caps block is ignored.",
   },
   {
     id: "c03",

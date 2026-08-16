@@ -198,7 +198,7 @@ def load_ledgers() -> tuple[list[dict], list[dict], dict]:
     return claimable, never, pricing
 
 
-def find_contradictions(chunks: list[dict], claimable: list[dict]) -> list[str]:
+def find_contradictions(chunks: list[dict], claimable: list[dict], pricing: dict) -> list[str]:
     """Flag ledger numbers the site's own pages contradict.
 
     Targeted rather than general on purpose: it checks numeric *caps*, the one
@@ -211,6 +211,7 @@ def find_contradictions(chunks: list[dict], claimable: list[dict]) -> list[str]:
     """
     issues: list[str] = []
     corpus = " ".join(c["text"] for c in chunks).lower()
+    tiers_by_audience = {a: set(d.get("tiers", {})) for a, d in pricing.items()}
 
     for entry in claimable:
         cid = entry["id"] or ""
@@ -230,7 +231,24 @@ def find_contradictions(chunks: list[dict], claimable: list[dict]) -> list[str]:
         # nothing. Only numbers stated near the tier's own name are comparable.
         near: set[str] = set()
         for m in re.finditer(rf"\b{re.escape(tier)}\b", corpus):
+            # Skip cross-references. Higher tiers describe themselves as
+            # "Everything in Boutique, plus: Up to 100 artworks" — the word
+            # 'boutique' is there, but the number belongs to the tier that
+            # mentions it, not the one named. Counting those makes every
+            # inheriting tier look like a contradiction.
+            if re.search(r"\b(everything|all|unlike|versus|vs\.?|than|from)\s+(in\s+)?$", corpus[max(0, m.start() - 24) : m.start()]):
+                continue
             window = corpus[m.end() : m.end() + 220]
+            # Stop at the next tier name. A fixed window bleeds across pricing
+            # cards — "start with Boutique" sits 200 chars before Professional's
+            # own "100 artworks", and a comparison list runs the tiers back to
+            # back. Truncating keeps each number with the tier that owns it,
+            # and incidentally kills the adjectival use ("a single boutique
+            # space to an unlimited enterprise estate").
+            others = tiers_by_audience.get(entry["audience"], set()) - {tier}
+            cuts = [i for i in (window.find(o) for o in others) if i != -1]
+            if cuts:
+                window = window[: min(cuts)]
             near.update(re.findall(rf"(\d{{1,4}})\s+{noun}", window))
 
         # Two distinct failures, and the second is the one that actually bit:
@@ -291,7 +309,7 @@ def main() -> None:
     for e in never:
         print(f"  NEVER   [{e['status']:>8}] {e['id']}")
 
-    issues = find_contradictions(chunks, claimable)
+    issues = find_contradictions(chunks, claimable, pricing)
     for i in issues:
         print(f"  \033[33mCONTRADICTION\033[0m  {i}", file=sys.stderr)
     if issues:
