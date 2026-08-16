@@ -22,6 +22,9 @@ Design doc: Brain `wiki/concepts/atteste-site-onboarding-bot-stack.md`
 | `golden.mjs` | 50-case evaluation set |
 | `eval.mjs` | Run the set, report pass rate / ledger violations / cost / latency |
 | `test-ledger.mjs` | Self-test for the ledger guard — no key, no network |
+| `test-redaction.mjs` | Self-test for conversation-log PII redaction — no key, no network |
+| `lib/chatlog.mjs` | Conversation logging: PII redaction, record shape, sinks |
+| `inject_widget.py` | Idempotent widget placement across the site (`--check`, `--remove`) |
 
 `lib/*.mjs` is zero-dependency ESM on purpose: Phase 1's
 `netlify/functions/chat.mjs` imports these files **verbatim**. There is no port
@@ -131,7 +134,21 @@ stacks three at once, because agreeableness is the failure mode.
   a redirect**: the browser only ever sees atteste.art, which is what keeps the
   widget inside the existing `connect-src 'self'` CSP. **No CSP change was
   needed anywhere.** Verified: zero console errors, zero CSP violations.
-- Injected into the 12 `help/*.html` pages only. Narrow blast radius.
+- **Site-wide as of 2026-08-16**: 37 pages. Placement is driven by
+  `inject_widget.py`, not hand-edits — `--check` reports drift (usable as a CI
+  gate when someone adds a page), `--remove` strips it everywhere.
+  Three pages are excluded on purpose, each with its reason in the script:
+  `r/index.html` (single-CTA referral landing), `thanks.html` (post-conversion),
+  `delete-account.html` (a chat bubble in front of a data-subject right reads
+  as friction). Certificate pages ARE included — a QR or NFC tap brings a
+  stranger there, which is precisely the audience.
+- **Consent-banner gate.** `consent.js` pins `#atteste-consent` to the bottom of
+  the viewport at the same z-index as the launcher. The help pages don't load
+  it, so going site-wide is what surfaced the collision — the launcher sat over
+  the banner, including its Deny button. The launcher now hides until the
+  banner is answered. Note `offsetParent` is null for every `position: fixed`
+  element, so detection measures `getBoundingClientRect()` instead; the first
+  attempt used `offsetParent` and never fired.
 
 Verified in a real browser against `netlify dev` (light, dark, and 375px
 mobile), plus 8 headless request scenarios against the live model — happy path,
@@ -170,8 +187,39 @@ Operational controls:
 | `SITE_CHAT_MODEL` | Netlify env | Swap model without a deploy (`gemini-flash-lite`, `gemini-flash`, `claude-haiku`). |
 | rate limit | `chat.mjs` | 20 requests / 10 min / IP / instance. |
 
+## Conversation logging
+
+One JSON record per turn: question, answer, persona, originating page, token
+counts, latency, cost, and any ledger violation. The questions strangers ask
+are the FAQ page we haven't written — that is the point of this, not telemetry.
+
+**Privacy posture.** Everything passes `redact()` before it reaches any sink:
+other people's email addresses, phone numbers and long numeric identifiers
+(SA ID numbers are 13 digits, cards 16) become `[email]` / `[phone]` /
+`[number]`. Our own `@atteste.art` and `@atteste.work` addresses survive, since
+knowing the bot routed someone to `galleries@` is signal rather than personal
+data. IP addresses are never recorded. Conversations group by a random id the
+browser makes per tab, held in `sessionStorage` — it dies with the tab and
+never follows anyone between visits, so it is not tracking and needs no
+consent. Disclosed in `ai-disclosure.html` §1.3.
+
+**Sinks.** `console` is always on and free but rotates and isn't queryable — a
+stopgap. `webhook` is opt-in: set `SITE_CHAT_LOG_WEBHOOK` (and
+`SITE_CHAT_LOG_SECRET` for HMAC) and each record is POSTed there, 2s timeout,
+failures logged and swallowed so telemetry can never break an answer.
+
+**The webhook has no destination yet — that's the open decision.** The right
+home is a small public Cloud Function in the Atteste functions repo writing to
+Firestore, same shape as `public_site/stephen_site.ts`; then the logs are
+queryable and joinable with the rest of the funnel, and wiring it is one env
+var with no code change. Rejected alternatives, so they aren't relitigated:
+Netlify Blobs needs a `package.json` dependency and this site's publish
+directory is the repo root, so an install would publish `node_modules`; its raw
+HTTP contract is undocumented. Firestore direct needs a service-account key
+placed in Netlify env.
+
 ## Not built yet (Phase 2+)
 
 Streaming, the Collector/Artist/Gallery router, screenshot and video cards,
-agentic tools (cert verify, book-a-call, lead capture), durable conversation
-logging. Today the function logs a PII-free one-line record per turn.
+agentic tools (cert verify, book-a-call, lead capture), and a durable
+destination for the log webhook.

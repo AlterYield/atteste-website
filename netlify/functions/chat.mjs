@@ -20,6 +20,7 @@ import { selectChunks } from "../../scripts/bot/lib/knowledge.mjs";
 import { buildTurn } from "../../scripts/bot/lib/prompt.mjs";
 import { checkAnswer, FALLBACK } from "../../scripts/bot/lib/ledger.mjs";
 import { generate, MODELS } from "../../scripts/bot/lib/model.mjs";
+import { buildRecord, logTurn } from "../../scripts/bot/lib/chatlog.mjs";
 
 const ALLOWED_ORIGINS = ["https://atteste.art", "https://www.atteste.art"];
 
@@ -113,6 +114,11 @@ export default async function handler(request, context) {
   if (!message) return json(400, { error: "empty message" });
 
   const persona = ["collector", "artist", "gallery"].includes(body?.persona) ? body.persona : null;
+  // Grouping key and origin page, both client-supplied and both harmless:
+  // `cid` is a random per-tab id that dies with the session, and `page` is a
+  // path we already serve. Bounded so neither can be used as a smuggling lane.
+  const cid = typeof body?.cid === "string" ? body.cid.replace(/[^a-z0-9-]/gi, "").slice(0, 24) : null;
+  const page = typeof body?.page === "string" ? body.page.replace(/[^\w/.-]/g, "").slice(0, 120) : null;
   const history = Array.isArray(body?.history)
     ? body.history
         .slice(-MAX_HISTORY_TURNS)
@@ -125,18 +131,24 @@ export default async function handler(request, context) {
     const res = await generate(turn, { model: process.env.SITE_CHAT_MODEL || "gemini-flash-lite" });
     const verdict = checkAnswer(res.text, pack.never_claim);
 
-    // Deliberately terse and PII-free: no message body, no IP, no history.
-    // Enough to spot a spike, a cost drift, or a guard trip; not enough to
-    // reconstruct what a visitor asked. Phase 4 adds opt-in question logging.
-    console.log(
-      JSON.stringify({
-        evt: "chat",
-        ok: verdict.ok,
-        chars: message.length,
-        turns: history.length,
-        tok: res.usage,
+    // One record per turn, PII-redacted in chatlog.mjs before it reaches any
+    // sink. Awaited rather than fired-and-forgotten: on a serverless runtime
+    // the instance can be frozen the moment the response is returned, which
+    // silently drops in-flight work. 2s webhook timeout bounds the cost.
+    await logTurn(
+      buildRecord({
+        question: message,
+        answer: res.text,
+        persona,
+        cid,
+        page,
+        turnIndex: history.length / 2,
+        usage: res.usage,
         ms: res.ms,
-        ...(verdict.ok ? {} : { violated: verdict.violations.map((v) => v.id) }),
+        costUsd: res.costUsd,
+        model: res.model,
+        verdict,
+        withheld: !verdict.ok,
       })
     );
 

@@ -19,7 +19,23 @@
 
   var ENDPOINT = '/api/chat';
   var STORE_KEY = 'atteste_chat_v1';
+  var CID_KEY = 'atteste_chat_cid';
   var MAX_CHARS = 600;
+
+  // Conversation id: a random per-TAB grouping key so the logs can reconstruct
+  // "these six questions were one person's session". Deliberately in
+  // sessionStorage, not localStorage or a cookie — it dies when the tab closes,
+  // never follows anyone between visits, and so is not tracking and needs no
+  // consent. Do not promote it to a durable identifier.
+  var cid;
+  try {
+    cid = sessionStorage.getItem(CID_KEY);
+    if (!cid) {
+      cid = (crypto && crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2))
+        .replace(/-/g, '').slice(0, 16);
+      sessionStorage.setItem(CID_KEY, cid);
+    }
+  } catch (e) { cid = null; }
 
   // Honour the same reduced-motion contract the rest of the site should.
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -135,7 +151,12 @@
       var res = await fetch(ENDPOINT, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ message: text, history: history.slice(0, -1).slice(-8) })
+        body: JSON.stringify({
+          message: text,
+          history: history.slice(0, -1).slice(-8),
+          cid: cid,
+          page: location.pathname
+        })
       });
 
       pending.remove();
@@ -220,6 +241,53 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && open) toggle(false);
     });
+
+    gateOnConsentBanner();
+  }
+
+  // Stand clear of the cookie banner.
+  //
+  // consent.js pins #atteste-consent to the bottom of the viewport at the same
+  // z-index we use. The help pages don't load it, so this only surfaced when
+  // the widget went site-wide: the launcher landed on top of the banner, and
+  // sitting over a "Deny" button is a consent problem, not a cosmetic one.
+  //
+  // The launcher stays hidden while a consent banner is on screen and appears
+  // once the visitor has answered. Pages that load consent.js in manage-only
+  // mode never show a banner, so they get the launcher immediately.
+  function gateOnConsentBanner() {
+    var CONSENT_ID = 'atteste-consent';
+    var tries = 0;
+
+    function bannerVisible() {
+      var b = document.getElementById(CONSENT_ID);
+      if (!b) return false;
+      // NOT offsetParent: it is null for every position:fixed element, and the
+      // consent banner is fixed — so an offsetParent check silently reports
+      // "no banner" always, and the gate would never fire. Measure instead.
+      var cs = getComputedStyle(b);
+      if (cs.display === 'none' || cs.visibility === 'hidden') return false;
+      return b.getBoundingClientRect().height > 0;
+    }
+
+    function settle() {
+      if (!bannerVisible()) {
+        root.style.visibility = '';
+        return true;
+      }
+      root.style.visibility = 'hidden';
+      return false;
+    }
+
+    if (settle()) return;
+
+    // consent.js injects and removes the banner without firing an event, so
+    // watch the DOM rather than guessing. Bounded so a stuck banner can never
+    // leave an observer running for the life of the page.
+    var obs = new MutationObserver(function () {
+      if (settle() || ++tries > 200) obs.disconnect();
+    });
+    obs.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
   }
 
   function toggle(next) {
