@@ -24,6 +24,20 @@ import { buildRecord, logTurn } from "../../scripts/bot/lib/chatlog.mjs";
 
 const ALLOWED_ORIGINS = ["https://atteste.art", "https://www.atteste.art"];
 
+// Netlify's own preview hosts for THIS site: deploy-preview-16--atteste-website
+// .netlify.app and branch--atteste-website.netlify.app. Without this the
+// allowlist 403s every preview, which means the bot can only ever be tested by
+// merging it to production — exactly the wrong place to find out. Anchored to
+// the site slug so it is our deploys and not any netlify.app subdomain.
+const NETLIFY_PREVIEW = /^https:\/\/[a-z0-9][a-z0-9-]*--atteste-website\.netlify\.app$/;
+
+function originAllowed(origin) {
+  if (!origin) return true;                       // same-origin fetches send none
+  if (ALLOWED_ORIGINS.includes(origin)) return true;
+  if (NETLIFY_PREVIEW.test(origin)) return true;
+  return origin.startsWith("http://localhost:");
+}
+
 // Keep a lid on both abuse and spend. Mirrors the in-memory sliding window in
 // functions/src/public_site/stephen_site.ts (MED-07): per-instance, no write
 // per check. It is not a distributed limiter and does not pretend to be — it
@@ -89,9 +103,7 @@ export default async function handler(request, context) {
   // Same-origin only. The widget is first-party; nothing else has a reason to
   // call this, and no CORS headers are sent, so browsers block cross-site use.
   const origin = request.headers.get("origin");
-  if (origin && !ALLOWED_ORIGINS.includes(origin) && !origin.startsWith("http://localhost:")) {
-    return json(403, { error: "forbidden" });
-  }
+  if (!originAllowed(origin)) return json(403, { error: "forbidden" });
 
   const ip = context?.ip ?? request.headers.get("x-nf-client-connection-ip") ?? "unknown";
   if (rateLimited(ip)) {
