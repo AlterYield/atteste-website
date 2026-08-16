@@ -1,0 +1,1603 @@
+{
+ "generated_from": "atteste-website @ build time",
+ "chunk_count": 118,
+ "word_count": 11416,
+ "approx_tokens": 15183,
+ "pricing": {
+  "gallery": {
+   "tiers": {
+    "boutique": {
+     "monthly_usd": 64.99,
+     "founding_discount_pct": 30,
+     "founding_discount_cap": 25
+    },
+    "professional": {
+     "monthly_usd": 158.99
+    },
+    "enterprise": {
+     "monthly_usd": 259.0
+    }
+   },
+   "ledger_version": 0.4,
+   "last_audit": "2026-08-01"
+  },
+  "artist": {
+   "tiers": {
+    "studio": {
+     "monthly_usd": 14.99,
+     "yearly_usd": 149.99,
+     "trial_days": 14,
+     "caps": "50 works, 5 source certificates/month, public artist profile"
+    },
+    "professional": {
+     "monthly_usd": 24.99,
+     "yearly_usd": 249.99,
+     "caps": "500 works, unlimited source certificates, career analytics, market-positioning AI"
+    },
+    "represented": {
+     "monthly_usd": 0,
+     "note": "Gallery-paid — activated when a gallery links the artist; not purchasable in-app."
+    }
+   },
+   "ledger_version": 0.1,
+   "last_audit": "2026-07-09"
+  }
+ },
+ "claimable": [
+  {
+   "id": "g-001-directory-listing",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Featured placement in the Attesté gallery directory.",
+   "category": "discovery"
+  },
+  {
+   "id": "g-002-sommelier-visibility",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "AI Sommelier surfaces gallery exhibitions to collectors with matching taste profiles.",
+   "category": "discovery"
+  },
+  {
+   "id": "g-003-discovery-trail-inclusion",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Your gallery appears as a stop on collector-curated discovery trails in your area.",
+   "category": "discovery"
+  },
+  {
+   "id": "g-010-inventory-cap-boutique",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Up to 50 artworks in inventory.",
+   "category": "inventory"
+  },
+  {
+   "id": "g-011-inventory-cap-professional",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Up to 100 artworks in inventory.",
+   "category": "inventory"
+  },
+  {
+   "id": "g-012-inventory-cap-enterprise",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Unlimited artworks & exhibitions.",
+   "category": "inventory"
+  },
+  {
+   "id": "g-013-exhibitions-cap",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Up to 6 (boutique) / 12 (professional) / unlimited (enterprise) exhibitions per year.",
+   "category": "inventory"
+  },
+  {
+   "id": "g-020-anonymous-visitor-analytics",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Anonymous visitor analytics — without compromising visitor privacy. Never individuals.",
+   "category": "analytics"
+  },
+  {
+   "id": "g-021-top-artworks-dwell-time",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Top-artworks & dwell-time insights.",
+   "category": "analytics"
+  },
+  {
+   "id": "g-022-repeat-visitor-tracking",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Repeat-visitor tracking.",
+   "category": "analytics"
+  },
+  {
+   "id": "g-030-collector-lead-pipeline",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Collector lead pipeline.",
+   "category": "crm"
+  },
+  {
+   "id": "g-031-collector-pipeline-full-stages",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Full collector pipeline (lead stages, notes).",
+   "category": "crm"
+  },
+  {
+   "id": "g-040-consignment-tracking",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Consignment tracking with artist split calculations and status updates.",
+   "category": "provenance"
+  },
+  {
+   "id": "g-041-provenance-request-bridge",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Provenance request bridge — contribute exhibition history and sale records to collector provenance chains.",
+   "category": "provenance"
+  },
+  {
+   "id": "g-042-talking-provenance",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Talking Provenance — Curator's Commentary recording, hash-verified, attributed to your gallery, travels with the work for life. Unlimited recordings, ≤240 seconds per session.",
+   "category": "provenance"
+  },
+  {
+   "id": "g-050-ai-social-posts",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "AI social post generation — 10 per month (Professional), unlimited (Enterprise).",
+   "category": "ai"
+  },
+  {
+   "id": "g-051-ai-follow-up-drafts",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "AI follow-up message drafts — 20 per month (Professional), unlimited (Enterprise).",
+   "category": "ai"
+  },
+  {
+   "id": "g-052-content-calendar",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Content calendar & scheduling.",
+   "category": "ai"
+  },
+  {
+   "id": "g-053-ai-artist-reports",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "AI artist reports — monthly per artist.",
+   "category": "ai"
+  },
+  {
+   "id": "g-093-atelier-multilingual",
+   "audience": "gallery",
+   "status": "live",
+   "claim": "The Atelier and Almanac respond in the gallery owner's language — Afrikaans, French, or German — for chat, insights, drafts, and AI writing. AI responses only for now; the app interface remains English.",
+   "category": "ai"
+  },
+  {
+   "id": "g-100-ai-exhibition-copy",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "AI-drafted exhibition copy — blurb + press release from the planner's draft details.",
+   "category": "ai"
+  },
+  {
+   "id": "g-101-ai-artist-bio-refresh",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "AI artist-bio refresh — rewrites a represented artist's bio into gallery-quality copy, human-approved before save.",
+   "category": "ai"
+  },
+  {
+   "id": "g-102-ai-artwork-description",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "AI artwork descriptions — editorial copy drafted from the work's photo, labelled AI-assisted and human-reviewed.",
+   "category": "ai"
+  },
+  {
+   "id": "g-103-ai-on-demand-insight",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "On-demand AI insights — ad-hoc analytical questions answered against the gallery's own data.",
+   "category": "ai"
+  },
+  {
+   "id": "g-104-gallery-wrapped",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Gallery Wrapped — the year auto-curated into a shareable story each December, generatable on demand any time.",
+   "category": "ai"
+  },
+  {
+   "id": "g-105-almanac-concierge",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Almanac — ask your gallery anything, in voice or text, grounded in live inventory, exhibitions, collector activity, and pipeline.",
+   "category": "ai"
+  },
+  {
+   "id": "g-106-daily-pulse",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Daily Pulse briefing — computed overnight from real collector activity, with suggested next actions.",
+   "category": "analytics"
+  },
+  {
+   "id": "g-107-no-crm-data-entry",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "No CRM data entry, ever — collector leads flow in from encounters, watchlists, and scans automatically.",
+   "category": "crm"
+  },
+  {
+   "id": "g-060-exhibition-promotion-push",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Exhibition promotion push to matched collectors.",
+   "category": "targeting"
+  },
+  {
+   "id": "g-061-aesthetic-taste-targeting",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Collector targeting by aesthetic taste profile.",
+   "category": "targeting"
+  },
+  {
+   "id": "g-070-pdf-export-reports",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "PDF export of reports for artists & consignors.",
+   "category": "export"
+  },
+  {
+   "id": "g-080-priority-support",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Priority support.",
+   "category": "support"
+  },
+  {
+   "id": "g-094-referral-give-get",
+   "audience": "gallery",
+   "status": "live",
+   "claim": "Attesté runs a give-a-month/get-a-month referral program for individual users (live on the web app since 2026-07-18): refer a friend, both sides get 31 days of Premium — the B2C collector tier. It does NOT apply to gallery subscriptions: no gallery-tier discount, credit, or free months via referral.",
+   "category": "billing"
+  },
+  {
+   "id": "g-091-no-commission",
+   "audience": "gallery",
+   "status": "live",
+   "claim": "No commission on artwork sales. No per-scan or per-visitor charges. No setup fees. Cancel any time.",
+   "category": "billing"
+  },
+  {
+   "id": "a-001-free-to-download",
+   "audience": "artist",
+   "status": "live",
+   "claim": "Attesté is free to download — App Store and Google Play. Documenting your work costs nothing; no card needed to start.",
+   "category": "access"
+  },
+  {
+   "id": "a-002-no-fees-no-commission",
+   "audience": "artist",
+   "status": "live",
+   "claim": "No fees, no commission on sales, no exclusivity — Attesté never takes a cut of an artist's work.",
+   "category": "access"
+  },
+  {
+   "id": "a-010-artwork-documentation",
+   "audience": "artist",
+   "status": "shipping",
+   "claim": "Document an artwork in minutes — photos, details, the story behind it — into a permanent, organised record.",
+   "category": "documentation"
+  },
+  {
+   "id": "a-011-multi-angle-capture",
+   "audience": "artist",
+   "status": "shipping",
+   "claim": "Guided multi-angle capture — full front, signature, details — so the record is gallery-grade.",
+   "category": "documentation"
+  },
+  {
+   "id": "a-012-document-ocr-autofill",
+   "audience": "artist",
+   "status": "shipping",
+   "claim": "Scan a paper document — invoice, certificate, condition note — and the details fill themselves in.",
+   "category": "documentation"
+  },
+  {
+   "id": "a-020-ai-description-draft",
+   "audience": "artist",
+   "status": "shipping",
+   "claim": "Photograph a work and the Atelier drafts the description, medium, style and tags for you.",
+   "category": "ai"
+  },
+  {
+   "id": "a-021-atelier-companion",
+   "audience": "artist",
+   "status": "shipping",
+   "claim": "The Atelier — an in-app companion you can talk to about your practice, your works, and what to do next.",
+   "category": "ai"
+  },
+  {
+   "id": "a-030-source-certificates",
+   "audience": "artist",
+   "status": "shipping",
+   "claim": "Issue a Source Certificate for a work — the artist-signed genesis record that travels with it for life.",
+   "category": "provenance"
+  },
+  {
+   "id": "a-031-nfc-tag-binding",
+   "audience": "artist",
+   "status": "shipping",
+   "claim": "Bind a physical NFC tag to a work's certificate — tap the canvas, see the record.",
+   "category": "provenance"
+  },
+  {
+   "id": "a-032-provenance-transfer",
+   "audience": "artist",
+   "status": "shipping",
+   "claim": "When a work moves on — sold, gifted, consigned — its record and provenance move with it.",
+   "category": "provenance"
+  },
+  {
+   "id": "a-040-artist-portal-catalogue",
+   "audience": "artist",
+   "status": "shipping",
+   "claim": "Your whole catalogue in one place — every work, every detail, searchable.",
+   "category": "portfolio"
+  },
+  {
+   "id": "a-041-public-artist-profile",
+   "audience": "artist",
+   "status": "shipping",
+   "claim": "A public artist profile collectors can verify — your works, your certificates, your story.",
+   "category": "portfolio"
+  },
+  {
+   "id": "a-060-referral-give-get",
+   "audience": "artist",
+   "status": "live",
+   "claim": "Invite a friend to Attesté on the web app: if they redeem your code within their first 7 days, they get 31 days of Premium — and you get 31 days of Premium per successful referral (capped 12/rolling year). Share link: https://atteste.art/r/{CODE}. Reward is service time — never cash.",
+   "category": "access"
+  }
+ ],
+ "never_claim": [
+  {
+   "id": "g-108-invoice-drafting",
+   "audience": "gallery",
+   "status": "gap",
+   "claim": "Galleria drafts invoices (hero: 'Galleria does the busywork — drafting invoices and certificates…').",
+   "category": "ai"
+  },
+  {
+   "id": "g-090-web-checkout-activation",
+   "audience": "gallery",
+   "status": "planned",
+   "claim": "Galleries activate their tier by redeeming an activation code in-app, which flips them to the right tier instantly. Self-serve web checkout (Paddle) is planned but not yet wired — codes are issued by Attesté today.",
+   "category": "billing"
+  },
+  {
+   "id": "g-092-mobile-iap-subscription",
+   "audience": "gallery",
+   "status": "planned",
+   "claim": "Subscribe directly in the iOS or Android app via App Store / Play Store. Monthly or annual.",
+   "category": "billing"
+  },
+  {
+   "id": "a-050-artist-collections",
+   "audience": "artist",
+   "status": "planned",
+   "claim": "Group works into a named, priced Collection and offer it as one bundle.",
+   "category": "selling"
+  },
+  {
+   "id": "a-051-wearable-import-capture",
+   "audience": "artist",
+   "status": "planned",
+   "claim": "Capture works hands-free from smartglasses or import straight from your camera roll into the Atelier.",
+   "category": "capture"
+  },
+  {
+   "id": "a-052-artist-consignment-dashboard",
+   "audience": "artist",
+   "status": "planned",
+   "claim": "See every work you have on consignment with galleries — status and splits in one view.",
+   "category": "selling"
+  }
+ ],
+ "chunks": [
+  {
+   "id": "help/index.html#0",
+   "page": "help/index.html",
+   "url": "https://atteste.art/help",
+   "title": "Help Centre",
+   "heading": "Getting started",
+   "kind": "help",
+   "audience": "all",
+   "text": "- Getting started as a collector — what Attesté does, the free Explorer tier, and your first artwork\n\n- Attesté for artists — artist plans and source certificates\n\n- Attesté for galleries — activating your gallery subscription and what's included"
+  },
+  {
+   "id": "help/index.html#1",
+   "page": "help/index.html",
+   "url": "https://atteste.art/help",
+   "title": "Help Centre",
+   "heading": "Subscriptions & account",
+   "kind": "help",
+   "audience": "all",
+   "text": "- Subscriptions, billing & refunds — plans, prices, cancelling, restoring purchases, free trials\n\n- Your account & your data — exporting your data, deleting your account, privacy rights"
+  },
+  {
+   "id": "help/index.html#2",
+   "page": "help/index.html",
+   "url": "https://atteste.art/help",
+   "title": "Help Centre",
+   "heading": "Using Attesté",
+   "kind": "help",
+   "audience": "all",
+   "text": "- Provenance & certificates — certificates of attestation, QR verification, Talking Provenance\n\n- NFC tags — tap-to-verify physical tags on artworks\n\n- AI features — the Companion, AI Sommelier, condition reports, and how we handle AI honestly\n\n- Gallery tools — inventory, analytics, Almanac, and Enterprise priority support"
+  },
+  {
+   "id": "help/index.html#3",
+   "page": "help/index.html",
+   "url": "https://atteste.art/help",
+   "title": "Help Centre",
+   "heading": "Problems?",
+   "kind": "help",
+   "audience": "all",
+   "text": "- Troubleshooting — login, purchases not showing, NFC, web limitations\n\n- Contact support — who to email and what to include\n\nQuick contacts\n\nGeneral & account: info@atteste.art\n\nGalleries: galleries@atteste.art\n\nEnterprise priority support: priority-support@atteste.art\n\nPolicy pages: Terms of Service · Privacy Policy · Refunds & Cancellation · Account deletion · Community Guidelines · AI Disclosure"
+  },
+  {
+   "id": "help/getting-started-collectors.html#0",
+   "page": "help/getting-started-collectors.html",
+   "url": "https://atteste.art/help/getting-started-collectors",
+   "title": "Getting started as a collector",
+   "heading": "What is Attesté?",
+   "kind": "help",
+   "audience": "collector",
+   "text": "Attesté is an art collection companion for collectors: it keeps a living record of the artworks you own and the art you encounter. You can log gallery visits into a personal Art Journey timeline, hold certificates of attestation for your artworks, track condition over time, and get AI-assisted recommendations for what to see next.\n\nThe app is free to download on the App Store (iOS) and Google Play (Android), with optional paid subscriptions. A web version exists, but subscriptions can only be purchased on iOS or Android."
+  },
+  {
+   "id": "help/getting-started-collectors.html#1",
+   "page": "help/getting-started-collectors.html",
+   "url": "https://atteste.art/help/getting-started-collectors",
+   "title": "Getting started as a collector",
+   "heading": "What's free, forever",
+   "kind": "help",
+   "audience": "collector",
+   "text": "The Explorer tier is free and includes:\n\n- Up to 25 artworks in your collection\n\n- Basic collection management\n\n- Your Art Journey timeline of gallery visits\n\n- Walk discovery trails through local galleries\n\n- 5 AI-assisted actions per month"
+  },
+  {
+   "id": "help/getting-started-collectors.html#2",
+   "page": "help/getting-started-collectors.html",
+   "url": "https://atteste.art/help/getting-started-collectors",
+   "title": "Getting started as a collector",
+   "heading": "Paid tiers at a glance",
+   "kind": "help",
+   "audience": "collector",
+   "text": "Tier Price Adds\nCollector $9.99/mo or $99.99/yr 200 artworks, 50 AI actions/mo, unlimited certificates, Condition Vault & insurance reports, Art Fair Companion, AI Sommelier recommendations, Auction Intelligence\nPremium $19.99/mo or $199.99/yr Unlimited artworks and AI actions, Legacy & Estate Vault, priority AI enrichment, collection memoir, public collector profile, community trail creation\n\nPrices shown are USD reference prices; your store shows local pricing. See Subscriptions, billing & refunds for trials, cancelling, and restoring purchases."
+  },
+  {
+   "id": "help/getting-started-collectors.html#3",
+   "page": "help/getting-started-collectors.html",
+   "url": "https://atteste.art/help/getting-started-collectors",
+   "title": "Getting started as a collector",
+   "heading": "Your first ten minutes",
+   "kind": "help",
+   "audience": "collector",
+   "text": "- Download and sign in. You'll be asked to accept the Terms of Service, Privacy Policy, age confirmation, and Community Guidelines once.\n\n- Add your first artwork. Photograph it and fill in what you know — details can always be edited later.\n\n- Log a gallery visit. Check in when you visit a gallery and it joins your Art Journey timeline and map.\n\n- Try a discovery trail. Trails guide you through galleries near you."
+  },
+  {
+   "id": "help/getting-started-artists.html#0",
+   "page": "help/getting-started-artists.html",
+   "url": "https://atteste.art/help/getting-started-artists",
+   "title": "Attesté for artists",
+   "heading": "Artist plans",
+   "kind": "help",
+   "audience": "artist",
+   "text": "Plan For Includes\nStudio Working artists Up to 50 works, 5 source certificates per month\nProfessional Established practices Up to 500 works, unlimited source certificates, analytics\nRepresented Gallery-represented artists Free to the artist — provisioned and paid for by a Professional or Enterprise gallery partner\n\nCurrent plan pricing is on the artists page ."
+  },
+  {
+   "id": "help/getting-started-artists.html#1",
+   "page": "help/getting-started-artists.html",
+   "url": "https://atteste.art/help/getting-started-artists",
+   "title": "Attesté for artists",
+   "heading": "How do I subscribe?",
+   "kind": "help",
+   "audience": "artist",
+   "text": "Artist plan signup is rolling out. To get set up today, email info@atteste.art with a link to your practice (website or Instagram) and we'll get you started. If a gallery represents you and has an Attesté Professional or Enterprise subscription, ask them to provision your Represented access — there's no cost to you."
+  },
+  {
+   "id": "help/getting-started-artists.html#2",
+   "page": "help/getting-started-artists.html",
+   "url": "https://atteste.art/help/getting-started-artists",
+   "title": "Attesté for artists",
+   "heading": "Need help?",
+   "kind": "help",
+   "audience": "artist",
+   "text": "Email info@atteste.art . For questions about gallery-paid Represented access, your gallery can contact galleries@atteste.art ."
+  },
+  {
+   "id": "help/getting-started-galleries.html#0",
+   "page": "help/getting-started-galleries.html",
+   "url": "https://atteste.art/help/getting-started-galleries",
+   "title": "Attesté for galleries",
+   "heading": "How gallery subscriptions work today",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "Gallery subscriptions are activated with an activation code issued by our team after you sign up. Email galleries@atteste.art to get started; we'll set up your gallery and send your code."
+  },
+  {
+   "id": "help/getting-started-galleries.html#1",
+   "page": "help/getting-started-galleries.html",
+   "url": "https://atteste.art/help/getting-started-galleries",
+   "title": "Attesté for galleries",
+   "heading": "Redeeming your activation code",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "- Open your gallery in the Attesté app and go to the activation screen (the link in your activation email takes you straight there).\n\n- Enter the 12-character code from your email. Don't worry about capitalisation or dashes — the field handles both.\n\n- Tap Activate Subscription . You'll see a confirmation with your access period (typically 12 months) and the date your subscription runs until.\n\nIf the code is rejected:\n\n- \"Invalid code\" — check for typos against the email; codes are 12 characters.\n\n- \"Already used\" — each code can be redeemed once. If you believe this is an error, contact us.\n\n- \"Expired\" — codes have a redemption window; email us for a fresh one.\n\nActivation help: galleries@atteste.art ."
+  },
+  {
+   "id": "help/getting-started-galleries.html#2",
+   "page": "help/getting-started-galleries.html",
+   "url": "https://atteste.art/help/getting-started-galleries",
+   "title": "Attesté for galleries",
+   "heading": "What activation unlocks",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "- Artwork inventory management\n\n- Exhibition listings\n\n- Visitor analytics & traffic reports (anonymous and privacy-preserving)\n\n- Inclusion in Discovery Trails and AI Sommelier recommendations\n\n- QR code attribution\n\n- Consignment tracking\n\n- The Attesté Partner badge\n\nFeature depth varies by tier — see Gallery tools for details, including the Almanac AI assistant and Enterprise priority support."
+  },
+  {
+   "id": "help/getting-started-galleries.html#3",
+   "page": "help/getting-started-galleries.html",
+   "url": "https://atteste.art/help/getting-started-galleries",
+   "title": "Attesté for galleries",
+   "heading": "Need help?",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "Email galleries@atteste.art . Enterprise galleries can use priority-support@atteste.art with guaranteed response times."
+  },
+  {
+   "id": "help/provenance-and-certificates.html#0",
+   "page": "help/provenance-and-certificates.html",
+   "url": "https://atteste.art/help/provenance-and-certificates",
+   "title": "Provenance & certificates",
+   "heading": "What is a certificate of attestation?",
+   "kind": "help",
+   "audience": "all",
+   "text": "An Attesté certificate is a digital record that attests to an artwork's identity and history. Each certificate carries a cryptographic integrity hash (SHA-256) — if anything in the certificate were altered, the hash would no longer match, so tampering is detectable. Certificate hashes are additionally anchored to the Bitcoin blockchain via OpenTimestamps, which proves the certificate existed at a given point in time without publishing any of its contents.\n\nUnlimited certificates are included from the Collector tier up; artists issue source certificates from their artist plan."
+  },
+  {
+   "id": "help/provenance-and-certificates.html#1",
+   "page": "help/provenance-and-certificates.html",
+   "url": "https://atteste.art/help/provenance-and-certificates",
+   "title": "Provenance & certificates",
+   "heading": "Verifying a certificate",
+   "kind": "help",
+   "audience": "all",
+   "text": "Anyone can verify a certificate — no account needed:\n\n- QR code: every certificate has a QR code that opens a public verification view showing the certificate's status and integrity check.\n\n- NFC tag: if the artwork carries an Attesté NFC tag, tapping a phone against it opens the same verification — see NFC tags .\n\nThe public view shows only what the certificate holder chose to make verifiable — not your private collection data."
+  },
+  {
+   "id": "help/provenance-and-certificates.html#2",
+   "page": "help/provenance-and-certificates.html",
+   "url": "https://atteste.art/help/provenance-and-certificates",
+   "title": "Provenance & certificates",
+   "heading": "Talking Provenance",
+   "kind": "help",
+   "audience": "all",
+   "text": "Talking Provenance (the Curator's Commentary) lets you record spoken provenance — the story of a work in your own voice, guided by the AI Companion. Recordings become permanent, integrity-hashed artefacts attached to the artwork, and travel with it if it is transferred. Recordings are capped at 4 minutes each.\n\n- Recording is available on Premium and Patron collector plans, Artist Professional and Represented plans, and Gallery Professional and Enterprise plans.\n\n- Voice recording asks for its own consent the first time you use it — see the voice-data section of Your account & your data ."
+  },
+  {
+   "id": "help/provenance-and-certificates.html#3",
+   "page": "help/provenance-and-certificates.html",
+   "url": "https://atteste.art/help/provenance-and-certificates",
+   "title": "Provenance & certificates",
+   "heading": "A note on AI valuations",
+   "kind": "help",
+   "audience": "all",
+   "text": "Where the app shows AI-generated price or valuation context, it is explicitly experimental: clearly labelled, collapsed by default, and never included in your portfolio totals. Provenance and authenticity records are sacred; speculative numbers are kept out of them."
+  },
+  {
+   "id": "help/nfc-tags.html#0",
+   "page": "help/nfc-tags.html",
+   "url": "https://atteste.art/help/nfc-tags",
+   "title": "NFC tags",
+   "heading": "What NFC tags do",
+   "kind": "help",
+   "audience": "all",
+   "text": "A physical NFC tag can be bound to an artwork's certificate of attestation. Once bound, tapping a phone against the tag opens the certificate's verification view — a physical handshake between the artwork and its digital provenance. See Provenance & certificates for what verification shows."
+  },
+  {
+   "id": "help/nfc-tags.html#1",
+   "page": "help/nfc-tags.html",
+   "url": "https://atteste.art/help/nfc-tags",
+   "title": "NFC tags",
+   "heading": "Scanning a tag",
+   "kind": "help",
+   "audience": "all",
+   "text": "- Open the Scan NFC screen in the app (or use the scan action on a certificate).\n\n- Hold the top of your phone flat against the tag until it is detected.\n\n- The linked certificate opens automatically.\n\nTips if a tag isn't reading:\n\n- Make sure NFC is enabled (Android: Settings → Connected devices; iPhone: always on, no setting needed).\n\n- The antenna is at the top edge of most phones — move the phone slowly over the tag.\n\n- Remove thick cases, and avoid metal surfaces directly behind the tag.\n\n- NFC requires the iOS or Android app — the web version can't scan tags."
+  },
+  {
+   "id": "help/nfc-tags.html#2",
+   "page": "help/nfc-tags.html",
+   "url": "https://atteste.art/help/nfc-tags",
+   "title": "NFC tags",
+   "heading": "Getting tags",
+   "kind": "help",
+   "audience": "all",
+   "text": "Interested in tagging your works? Galleries: galleries@atteste.art . Collectors and artists: info@atteste.art ."
+  },
+  {
+   "id": "help/ai-features.html#0",
+   "page": "help/ai-features.html",
+   "url": "https://atteste.art/help/ai-features",
+   "title": "AI features",
+   "heading": "The Companion (voice)",
+   "kind": "help",
+   "audience": "all",
+   "text": "The Companion is a real-time voice assistant you can talk to about your collection and the art around you. It can answer questions about your artworks, guide you through the app on a spoken tour, and coach a Talking Provenance recording. It uses read-only access to your collection — it can look things up and navigate, but it doesn't change your data.\n\nVoice conversations ask for consent on first use. Audio is streamed to Google's Gemini Live service in real time, is not stored after the session, and is never used for voice identification or to train models. There's also a text-based AI chat if you'd rather type."
+  },
+  {
+   "id": "help/ai-features.html#1",
+   "page": "help/ai-features.html",
+   "url": "https://atteste.art/help/ai-features",
+   "title": "AI features",
+   "heading": "AI Sommelier",
+   "kind": "help",
+   "audience": "all",
+   "text": "The Sommelier builds a taste profile from your collection and activity, then recommends exhibitions and discoveries matched to it (available from the Collector tier). It works from your artwork metadata and notes — it never receives your photos, financial data, or personal messages."
+  },
+  {
+   "id": "help/ai-features.html#2",
+   "page": "help/ai-features.html",
+   "url": "https://atteste.art/help/ai-features",
+   "title": "AI features",
+   "heading": "Condition analysis",
+   "kind": "help",
+   "audience": "all",
+   "text": "The condition analyzer guides you through multi-angle photos of a work and drafts an AI condition assessment you review and edit before saving — building a condition history over time. Included with the Condition Vault from the Collector tier; condition reports can be exported for insurance purposes."
+  },
+  {
+   "id": "help/ai-features.html#3",
+   "page": "help/ai-features.html",
+   "url": "https://atteste.art/help/ai-features",
+   "title": "AI features",
+   "heading": "Year in Art",
+   "kind": "help",
+   "audience": "all",
+   "text": "An annual, narrated review of your collecting year, generated from your own activity."
+  },
+  {
+   "id": "help/ai-features.html#4",
+   "page": "help/ai-features.html",
+   "url": "https://atteste.art/help/ai-features",
+   "title": "AI features",
+   "heading": "AI usage limits",
+   "kind": "help",
+   "audience": "all",
+   "text": "- Explorer (free): 5 AI actions per month\n\n- Collector: 50 AI actions per month\n\n- Premium / Patron: unlimited\n\nLimits reset monthly. If you hit a limit, features that don't use AI keep working normally."
+  },
+  {
+   "id": "help/ai-features.html#5",
+   "page": "help/ai-features.html",
+   "url": "https://atteste.art/help/ai-features",
+   "title": "AI features",
+   "heading": "Questions or something looks wrong?",
+   "kind": "help",
+   "audience": "all",
+   "text": "If an AI answer looks off, you can flag it in-app or email info@atteste.art — AI-content reviews go to the same address."
+  },
+  {
+   "id": "help/subscriptions-and-billing.html#0",
+   "page": "help/subscriptions-and-billing.html",
+   "url": "https://atteste.art/help/subscriptions-and-billing",
+   "title": "Subscriptions, billing & refunds",
+   "heading": "Plans",
+   "kind": "help",
+   "audience": "all",
+   "text": "Collector plans: Collector ($9.99/mo or $99.99/yr) and Premium ($19.99/mo or $199.99/yr) — see what each includes . Your store shows local pricing. Subscriptions are purchased inside the iOS or Android app and billed by Apple or Google; subscriptions cannot be purchased on the web version ."
+  },
+  {
+   "id": "help/subscriptions-and-billing.html#1",
+   "page": "help/subscriptions-and-billing.html",
+   "url": "https://atteste.art/help/subscriptions-and-billing",
+   "title": "Subscriptions, billing & refunds",
+   "heading": "Free trials",
+   "kind": "help",
+   "audience": "all",
+   "text": "Where offered, the 14-day free trial is delivered through the App Store or Google Play introductory-offer system when you start a subscription. It converts to a paid subscription automatically unless you cancel in your store settings before the trial ends."
+  },
+  {
+   "id": "help/subscriptions-and-billing.html#2",
+   "page": "help/subscriptions-and-billing.html",
+   "url": "https://atteste.art/help/subscriptions-and-billing",
+   "title": "Subscriptions, billing & refunds",
+   "heading": "Managing or cancelling",
+   "kind": "help",
+   "audience": "all",
+   "text": "Because Apple or Google bill you, subscriptions are managed in your store account (the in-app Settings → Subscription tile takes you to your plan):\n\n- Apple: Settings → your Apple ID → Subscriptions. Cancellation takes effect at the end of the current billing period.\n\n- Google: Google Play app → Payments & subscriptions → Subscriptions.\n\nAfter cancelling you keep paid features until the end of the period you've paid for, then your account reverts to the free Explorer tier. Your data is never deleted by a downgrade — anything over free-tier limits simply becomes read-only until you resubscribe."
+  },
+  {
+   "id": "help/subscriptions-and-billing.html#3",
+   "page": "help/subscriptions-and-billing.html",
+   "url": "https://atteste.art/help/subscriptions-and-billing",
+   "title": "Subscriptions, billing & refunds",
+   "heading": "Restoring purchases",
+   "kind": "help",
+   "audience": "all",
+   "text": "If your subscription isn't showing (new phone, reinstall, signed out): open any upgrade screen and tap Restore Purchases . Make sure the device is signed in to the same Apple ID / Google account that made the original purchase.\n\nRight after a purchase or restore it can take a short moment for your new tier to appear — see Troubleshooting if it doesn't."
+  },
+  {
+   "id": "help/subscriptions-and-billing.html#4",
+   "page": "help/subscriptions-and-billing.html",
+   "url": "https://atteste.art/help/subscriptions-and-billing",
+   "title": "Subscriptions, billing & refunds",
+   "heading": "Refunds",
+   "kind": "help",
+   "audience": "all",
+   "text": "App Store and Google Play purchases are refunded by Apple ( reportaproblem.apple.com ) or Google (Play order history), under their own policies. If you cancel within 14 days of your first paid subscription and haven't substantially used paid features, you can also ask us to help: info@atteste.art . Full details, including EU/UK withdrawal rights and South African consumer protections, are in our Refund & Cancellation Policy .\n\nNote: deleting your account does not by itself refund the remainder of the current billing period."
+  },
+  {
+   "id": "help/subscriptions-and-billing.html#5",
+   "page": "help/subscriptions-and-billing.html",
+   "url": "https://atteste.art/help/subscriptions-and-billing",
+   "title": "Subscriptions, billing & refunds",
+   "heading": "Gallery and Almanac billing",
+   "kind": "help",
+   "audience": "all",
+   "text": "Gallery subscriptions are activated by code — see Attesté for galleries . The Almanac gallery assistant is billed separately as an in-app purchase — see Gallery tools ."
+  },
+  {
+   "id": "help/subscriptions-and-billing.html#6",
+   "page": "help/subscriptions-and-billing.html",
+   "url": "https://atteste.art/help/subscriptions-and-billing",
+   "title": "Subscriptions, billing & refunds",
+   "heading": "Still stuck?",
+   "kind": "help",
+   "audience": "all",
+   "text": "Email info@atteste.art with the email address on your account and, for billing questions, your store receipt."
+  },
+  {
+   "id": "help/account-and-data.html#0",
+   "page": "help/account-and-data.html",
+   "url": "https://atteste.art/help/account-and-data",
+   "title": "Your account & your data",
+   "heading": "Exporting your data",
+   "kind": "help",
+   "audience": "all",
+   "text": "You can take a complete, machine-readable copy of your data at any time:\n\n- Open Settings → Privacy → Export My Data .\n\n- The app produces a JSON archive of your artworks, encounters, certificates, provenance records, condition reports, taste profile, and account data.\n\n- On iOS/Android you can share or save the file. On the web version the export is copied to your clipboard instead of downloaded.\n\nThis is your data-portability right under POPIA (section 24) and GDPR (Article 20) — no charge, no questions."
+  },
+  {
+   "id": "help/account-and-data.html#1",
+   "page": "help/account-and-data.html",
+   "url": "https://atteste.art/help/account-and-data",
+   "title": "Your account & your data",
+   "heading": "Deleting your account",
+   "kind": "help",
+   "audience": "all",
+   "text": "Deletion is immediate and permanent. Consider exporting your data first — a deleted account cannot be restored.\n\n- Open Profile → Settings , scroll to Account , and tap Delete account .\n\n- Type DELETE (exactly, in capitals) to confirm, then tap the delete button.\n\n- Your account is deleted server-side immediately and you are signed out.\n\nIf you can't access the app, email info@atteste.art from your registered address with the subject \"Delete my account\" . We complete emailed requests within 30 calendar days (typically within 72 hours) and may ask a couple of verification questions.\n\nWhat's deleted: your profile, artworks and photos, encounters, certificates, trails, taste profile and Companion history, and related records. What's retained: anonymised purchase records (7 years, tax law), anonymised certificate hashes (so previously issued certificates stay verifiable), and backup snapshots for up to 35 days. Full detail is on the account deletion page .\n\nDeleting your account does not cancel a store subscription — cancel it in your Apple/Google settings too, or it will keep renewing. See Subscriptions & billing ."
+  },
+  {
+   "id": "help/account-and-data.html#2",
+   "page": "help/account-and-data.html",
+   "url": "https://atteste.art/help/account-and-data",
+   "title": "Your account & your data",
+   "heading": "Your privacy rights",
+   "kind": "help",
+   "audience": "all",
+   "text": "Wherever you are, you can: access your data, correct it, delete it, withdraw consent, export it (portability), and lodge a complaint with your data-protection authority. Most of these are self-service in Settings; anything else, email info@atteste.art — we respond within 30 days. Our Privacy Policy has the full picture, including where data is stored (Google Cloud, primarily europe-west and africa-south1 regions)."
+  },
+  {
+   "id": "help/account-and-data.html#3",
+   "page": "help/account-and-data.html",
+   "url": "https://atteste.art/help/account-and-data",
+   "title": "Your account & your data",
+   "heading": "Voice data",
+   "kind": "help",
+   "audience": "all",
+   "text": "Voice features (the Companion's voice mode and spoken provenance recording) ask for separate consent on first use. Live microphone audio is streamed to Google's Gemini Live service in real time, is not stored by Google after the session ends, and is never used for biometric identification or model training. See AI features ."
+  },
+  {
+   "id": "help/gallery-tools.html#0",
+   "page": "help/gallery-tools.html",
+   "url": "https://atteste.art/help/gallery-tools",
+   "title": "Gallery tools",
+   "heading": "Presence & discovery",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "- Directory profile in the app's gallery directory\n\n- Inclusion in AI Sommelier recommendations and Discovery Trails that route collectors past your door\n\n- QR code attribution, so walk-ins from Attesté are visible"
+  },
+  {
+   "id": "help/gallery-tools.html#1",
+   "page": "help/gallery-tools.html",
+   "url": "https://atteste.art/help/gallery-tools",
+   "title": "Gallery tools",
+   "heading": "Inventory & exhibitions",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "- Artwork inventory with per-tier capacity (unlimited on Enterprise)\n\n- Exhibition listings — 6 per year on Boutique, 12 on Professional, unlimited on Enterprise\n\n- Consignment tracking with artist splits\n\n- Provenance request bridge to collectors, and Talking Provenance recording on Professional and Enterprise"
+  },
+  {
+   "id": "help/gallery-tools.html#2",
+   "page": "help/gallery-tools.html",
+   "url": "https://atteste.art/help/gallery-tools",
+   "title": "Gallery tools",
+   "heading": "Analytics",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "Visitor analytics are anonymous by design: metrics are aggregated and small samples are suppressed, so you see traffic patterns, top artworks, dwell time, and repeat-visitor trends — never an individual collector's identity. A collector lead pipeline (with full stages and notes on Professional and up) covers the collectors who choose to make contact."
+  },
+  {
+   "id": "help/gallery-tools.html#3",
+   "page": "help/gallery-tools.html",
+   "url": "https://atteste.art/help/gallery-tools",
+   "title": "Gallery tools",
+   "heading": "AI marketing",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "- AI social post drafts — 10/month on Professional, unlimited on Enterprise\n\n- AI follow-up email drafts and a content calendar\n\n- Enterprise: AI artist reports and exhibition promotion pushed to taste-matched collectors (counts only — no collector identities)\n\n- Enterprise: PDF exports"
+  },
+  {
+   "id": "help/gallery-tools.html#4",
+   "page": "help/gallery-tools.html",
+   "url": "https://atteste.art/help/gallery-tools",
+   "title": "Gallery tools",
+   "heading": "The Almanac (add-on)",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "The Almanac is an AI business copilot for gallery owners — it answers questions from your own inventory, collectors, and exhibition data, drafts documents (emails, press releases, condition reports), and researches the art world with cited sources. It is billed separately from your gallery plan:\n\nTier Price Includes\nAlmanac Plus $29/mo 100 assistant turns/mo, 10 AI image generations, Studio canvas & marketing plans\nAlmanac Deluxe — Coming soon\n\nA free teaser mode lets you try it before subscribing. Purchase is in-app from the Almanac screen."
+  },
+  {
+   "id": "help/gallery-tools.html#5",
+   "page": "help/gallery-tools.html",
+   "url": "https://atteste.art/help/gallery-tools",
+   "title": "Gallery tools",
+   "heading": "Enterprise priority support",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "Enterprise galleries have a contractual support SLA:\n\n- First response within 2 business hours (08:00–18:00 SAST, weekdays) via priority-support@atteste.art or the in-app Priority Support tile\n\n- WhatsApp line (shared in your welcome packet): 30-minute response in business hours\n\n- Critical issues: acknowledged within 30 minutes on weekdays, with a fix or workaround targeted within 4 business hours — and a 15% credit on the next month's bill if we miss it"
+  },
+  {
+   "id": "help/gallery-tools.html#6",
+   "page": "help/gallery-tools.html",
+   "url": "https://atteste.art/help/gallery-tools",
+   "title": "Gallery tools",
+   "heading": "Support",
+   "kind": "help",
+   "audience": "gallery",
+   "text": "All galleries: galleries@atteste.art . Enterprise: priority-support@atteste.art ."
+  },
+  {
+   "id": "help/troubleshooting.html#0",
+   "page": "help/troubleshooting.html",
+   "url": "https://atteste.art/help/troubleshooting",
+   "title": "Troubleshooting",
+   "heading": "I paid, but my new tier isn't showing",
+   "kind": "help",
+   "audience": "all",
+   "text": "Right after a purchase or restore, your new tier can take a short moment to propagate. In order:\n\n- Wait a minute, then close and reopen the app.\n\n- Open any upgrade screen and tap Restore Purchases .\n\n- Confirm the device is signed in to the same Apple ID / Google account that made the purchase.\n\n- Still stuck? Email info@atteste.art with your store receipt — we'll fix it on our side."
+  },
+  {
+   "id": "help/troubleshooting.html#1",
+   "page": "help/troubleshooting.html",
+   "url": "https://atteste.art/help/troubleshooting",
+   "title": "Troubleshooting",
+   "heading": "Restore Purchases says \"No active subscription found\"",
+   "kind": "help",
+   "audience": "all",
+   "text": "This almost always means the device's store account differs from the one that bought the subscription. Check Settings → your Apple ID → Subscriptions (iOS) or Play → Payments & subscriptions (Android) to see which account holds it."
+  },
+  {
+   "id": "help/troubleshooting.html#2",
+   "page": "help/troubleshooting.html",
+   "url": "https://atteste.art/help/troubleshooting",
+   "title": "Troubleshooting",
+   "heading": "I can't subscribe on the web version",
+   "kind": "help",
+   "audience": "all",
+   "text": "That's expected — subscriptions are only available in the iOS and Android apps. Subscribe on your phone and your tier applies everywhere you sign in."
+  },
+  {
+   "id": "help/troubleshooting.html#3",
+   "page": "help/troubleshooting.html",
+   "url": "https://atteste.art/help/troubleshooting",
+   "title": "Troubleshooting",
+   "heading": "An NFC tag won't scan",
+   "kind": "help",
+   "audience": "all",
+   "text": "See the tips in NFC tags — antenna position and thick cases are the usual culprits. NFC doesn't work in the web version."
+  },
+  {
+   "id": "help/troubleshooting.html#4",
+   "page": "help/troubleshooting.html",
+   "url": "https://atteste.art/help/troubleshooting",
+   "title": "Troubleshooting",
+   "heading": "Voice recording is greyed out on the web",
+   "kind": "help",
+   "audience": "all",
+   "text": "Voice-story recording isn't supported in the web version yet — use the iOS or Android app. Playback works everywhere."
+  },
+  {
+   "id": "help/troubleshooting.html#5",
+   "page": "help/troubleshooting.html",
+   "url": "https://atteste.art/help/troubleshooting",
+   "title": "Troubleshooting",
+   "heading": "Data export on the web didn't download a file",
+   "kind": "help",
+   "audience": "all",
+   "text": "On the web version the JSON export is copied to your clipboard rather than downloaded — paste it into a text editor and save. The mobile apps produce a shareable file."
+  },
+  {
+   "id": "help/troubleshooting.html#6",
+   "page": "help/troubleshooting.html",
+   "url": "https://atteste.art/help/troubleshooting",
+   "title": "Troubleshooting",
+   "heading": "Login problems",
+   "kind": "help",
+   "audience": "all",
+   "text": "- Try the sign-in method you originally used (Apple, Google, or email) — accounts aren't merged across methods.\n\n- For email sign-in, use the password reset link on the sign-in screen.\n\n- If a sign-in method errors persistently, email us the platform (iOS/Android/web), what you tapped, and any message shown."
+  },
+  {
+   "id": "help/troubleshooting.html#7",
+   "page": "help/troubleshooting.html",
+   "url": "https://atteste.art/help/troubleshooting",
+   "title": "Troubleshooting",
+   "heading": "I've hit my monthly AI limit",
+   "kind": "help",
+   "audience": "all",
+   "text": "Free accounts include 5 AI actions/month and Collector 50; limits reset monthly. Everything that doesn't use AI keeps working. If you're on a paid plan and believe the limit is wrong, contact us — include your account email."
+  },
+  {
+   "id": "help/troubleshooting.html#8",
+   "page": "help/troubleshooting.html",
+   "url": "https://atteste.art/help/troubleshooting",
+   "title": "Troubleshooting",
+   "heading": "Reporting a bug",
+   "kind": "help",
+   "audience": "all",
+   "text": "Email info@atteste.art with: your device and OS version, app platform (iOS/Android/web), what you did, what happened, and a screenshot if possible. See Contact support ."
+  },
+  {
+   "id": "help/contact.html#0",
+   "page": "help/contact.html",
+   "url": "https://atteste.art/help/contact",
+   "title": "Contact support",
+   "heading": "What to include",
+   "kind": "help",
+   "audience": "all",
+   "text": "- The email address on your Attesté account\n\n- Platform (iOS / Android / web) and device\n\n- What you were doing, what happened, and a screenshot if you can\n\n- For billing: your App Store / Play receipt\n\nThe more of this you include, the faster the first reply can actually fix things."
+  },
+  {
+   "id": "help/contact.html#1",
+   "page": "help/contact.html",
+   "url": "https://atteste.art/help/contact",
+   "title": "Contact support",
+   "heading": "Response times",
+   "kind": "help",
+   "audience": "all",
+   "text": "We're a small team and answer everything. We aim to respond within a few business days — usually much faster. Enterprise gallery partners have a contractual SLA with a 2-business-hour first response — see Gallery tools .\n\nPrivacy and data-protection requests are answered within 30 days as required by law — usually far sooner."
+  },
+  {
+   "id": "help/contact.html#2",
+   "page": "help/contact.html",
+   "url": "https://atteste.art/help/contact",
+   "title": "Contact support",
+   "heading": "Before you write",
+   "kind": "help",
+   "audience": "all",
+   "text": "The fastest answers are self-service: Troubleshooting , Subscriptions & billing , and Your account & your data ."
+  },
+  {
+   "id": "glossary.html#0",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Provenance",
+   "kind": "reference",
+   "audience": "all",
+   "text": "The documented history of an artwork's ownership, exhibition, and custody — from the moment it was created to the present day.\n\nProvenance is the single biggest factor in an artwork's authenticity and value. A clear, unbroken record tells a buyer that a work is what it claims to be; a thin or broken record raises questions that can be expensive to answer later."
+  },
+  {
+   "id": "glossary.html#1",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Certificate of Authenticity",
+   "kind": "reference",
+   "audience": "all",
+   "text": "A document attesting that an artwork is genuine and recording its key facts — artist, title, medium, dimensions, and year.\n\nA certificate is only as trustworthy as the person who issued it and the ease with which it can be checked. A certificate that cannot be independently verified carries little weight; one backed by the artist and a tamper-evident record carries a great deal."
+  },
+  {
+   "id": "glossary.html#2",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Source Certificate",
+   "kind": "reference",
+   "audience": "all",
+   "text": "A certificate issued by the artist directly from their studio, confirming authorship at the point of origin.\n\nBecause it comes from the source rather than being reconstructed years later, a source certificate is the gold-standard provenance record — the strongest possible starting point for the chain a collector carries forward."
+  },
+  {
+   "id": "glossary.html#3",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Attestation",
+   "kind": "reference",
+   "audience": "all",
+   "text": "A formal, recorded statement that something is true — here, a signed assertion about an artwork's authorship, ownership, or history.\n\nThe word gives Attesté its name. An attestation is only meaningful if it can be checked, which is why a credible attestation pairs a clear statement with the means to verify it."
+  },
+  {
+   "id": "glossary.html#4",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Chain of Custody",
+   "kind": "reference",
+   "audience": "all",
+   "text": "The unbroken, ordered record of everyone who has owned or held an artwork over time.\n\nEach ownership change is a link in the chain. Gaps weaken provenance, because an undocumented period is a period in which a work's identity cannot be vouched for. A complete chain — where every transfer is recorded and verifiable — is what separates a confident sale from a cautious one."
+  },
+  {
+   "id": "glossary.html#5",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "SHA-256 Integrity Hash",
+   "kind": "reference",
+   "audience": "all",
+   "text": "A unique cryptographic fingerprint calculated from a certificate's exact contents.\n\nChange a single character of the record and the fingerprint changes completely. That property makes the hash a tamper detector: anyone can recompute it and confirm the certificate has not been altered since it was issued."
+  },
+  {
+   "id": "glossary.html#6",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Bitcoin Anchoring",
+   "kind": "reference",
+   "audience": "all",
+   "text": "Recording a certificate's fingerprint onto the Bitcoin blockchain — via the open OpenTimestamps standard — so its existence at a given moment can be proven independently.\n\nThis is what makes a record outlast its issuer. Even if the original platform disappears, the holder of a certificate can prove it existed at the timestamped moment using only the proof file and any Bitcoin node. Independent verifiability, not platform trust, is the point."
+  },
+  {
+   "id": "glossary.html#7",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Tamper-Evident Record",
+   "kind": "reference",
+   "audience": "all",
+   "text": "A record built so that any alteration is immediately detectable.\n\nTamper-evident is a stronger, more honest claim than \"tamper-proof.\" It does not pretend a record can never be changed — it guarantees that changes cannot be hidden. For provenance, that is exactly what matters: not that history is frozen, but that any rewriting of it is visible."
+  },
+  {
+   "id": "glossary.html#8",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Talking Provenance",
+   "kind": "reference",
+   "audience": "all",
+   "text": "Spoken commentary about an artwork — by the artist, the gallery, or the collector — captured as a permanent recording that travels with the work.\n\nFor five centuries the knowledge behind a work lived in private letters and was lost when galleries closed and owners passed on. Talking Provenance captures it instead: a hash-chained recording, attributed to its speaker, that becomes part of the chain of custody. It preserves the context that paper records cannot."
+  },
+  {
+   "id": "glossary.html#9",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "First Witness",
+   "kind": "reference",
+   "audience": "all",
+   "text": "The very first record in an artwork’s provenance chain — made by the artist, in their own voice, at the moment of creation.\n\nEvery other approach reconstructs provenance backwards, years later, from whatever paper survived. First Witness records it forward: when an artist registers a new work, they record its story themselves, and that account is sealed with a SHA-256 fingerprint and Bitcoin-anchored as the origin every later link builds on. Recorded at the source and never backfillable, it is the strongest possible starting point a work can have — and no record made after the fact can replace it."
+  },
+  {
+   "id": "glossary.html#10",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Catalogue Raisonné",
+   "kind": "reference",
+   "audience": "all",
+   "text": "A comprehensive, scholarly listing of all known works by an artist, used as the reference for authenticity.\n\nInclusion in the catalogue raisonné is one of the strongest external signals of a work's legitimacy; absence from one can be a red flag worth investigating before a purchase."
+  },
+  {
+   "id": "glossary.html#11",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Condition Report",
+   "kind": "reference",
+   "audience": "all",
+   "text": "A detailed account of an artwork's physical state at a point in time — damage, restoration, wear, and any conservation work.\n\nCondition is part of provenance. A documented condition history affects value and insurability, and protects both buyer and seller by recording exactly how a work looked when it changed hands."
+  },
+  {
+   "id": "glossary.html#12",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Estimated Value",
+   "kind": "reference",
+   "audience": "all",
+   "text": "An informed estimate of what an artwork is worth.\n\nAttesté treats documented evidence as authoritative — an invoice, a professional valuation, a formal revaluation — in that order. Any experimental AI estimate is kept clearly separate and never counted in a collection's value. When it comes to worth, the receipt is king."
+  },
+  {
+   "id": "glossary.html#13",
+   "page": "glossary.html",
+   "url": "https://atteste.art/glossary",
+   "title": "Art Provenance Glossary",
+   "heading": "Give your collection a verifiable memory",
+   "kind": "reference",
+   "audience": "all",
+   "text": "Attesté turns these ideas into practice — certificates you can prove, provenance that travels, and a record built to outlast any single platform.\n\nExplore Attesté"
+  },
+  {
+   "id": "features.html#0",
+   "page": "features.html",
+   "url": "https://atteste.art/features",
+   "title": "Attesté Features",
+   "heading": "Collection Management",
+   "kind": "marketing",
+   "audience": "all",
+   "text": "Attesté Certificate\n\nLiving digital provenance with SHA-256 integrity hashing, tiered certification (Standard / Enhanced / Professional), QR codes, and shareable certificate faces. Your artwork's verified biography — which, for artist-made works, begins with its First Witness : the maker’s own account, recorded and sealed at creation.\n\nProvenance\n\nAI Art Scout\n\nPhotograph any artwork. AI identifies the artist, medium, period, and estimated significance. Add it to your watchlist or log it as an encounter on your journey.\n\nAI-Powered\n\nArtist & Dealer Hub\n\nFull profiles for artists and dealers with AI enrichment, nationality context, contact info, and market positioning. The foundation for understanding every piece in your collection.\n\nResearch\n\nDashboard\n\nCollection summary stats, featured artpiece, quick actions, gamification progress, and journey highlights at a glance. Your collection's command centre.\n\nOverview\n\nCSV Import\n\nDrag-and-drop bulk import with intelligent column mapping. Migrate your existing spreadsheet collection in minutes, not hours.\n\nUtility"
+  },
+  {
+   "id": "features.html#1",
+   "page": "features.html",
+   "url": "https://atteste.art/features",
+   "title": "Attesté Features",
+   "heading": "AI & Intelligence",
+   "kind": "marketing",
+   "audience": "all",
+   "text": "AI Art Sommelier\n\nClaude-powered taste profiling across 8 aesthetic axes. Weekly discovery digests introduce you to artists you'll love but haven't found yet. Your personal art advisor.\n\nAI-Powered\n\nAtelier — Voice & Vision Companion\n\nThe signature Attesté experience. Point your camera at a work and simply talk — Atelier sees what you see, answers aloud about style, technique and provenance, and saves every session as a journal entry pinned to the artwork. Text chat with full collection context included.\n\nSignature · Premium\n\nAI Trail Generator\n\nDescribe your interests, choose a region, set your pace. AI creates a custom walking trail with curated stops, descriptions, and GPS coordinates tailored to your taste.\n\nAI-Powered\n\nMarket Intelligence\n\nAutomated art market news, discoveries, and pricing trends delivered to your feed. Stay informed without the noise.\n\nIntelligence"
+  },
+  {
+   "id": "features.html#2",
+   "page": "features.html",
+   "url": "https://atteste.art/features",
+   "title": "Attesté Features",
+   "heading": "Journey & Discovery",
+   "kind": "marketing",
+   "audience": "all",
+   "text": "Discovery Trails\n\nWalk curated art trails in cities worldwide. GPS geofencing triggers stories at each stop. Complete trails, earn badges, share your experience.\n\nExploration\n\nArt Fair Companion\n\nRapid encounter logging at fairs. Quick-tag pieces as you walk (love, interested, must-have). Booth check-in. Post-fair AI summary of your highlights and taste patterns.\n\nEvents\n\nCommunity Trails\n\nCreate and share your own trails with the collector community. Ratings, categories, AI-enhanced descriptions, and a four-stage submission pipeline.\n\nCommunity\n\nTravel Mode\n\nExplore art scenes in any country. Switch context seamlessly while keeping your home collection intact. The world's galleries are your playground.\n\nExploration"
+  },
+  {
+   "id": "features.html#3",
+   "page": "features.html",
+   "url": "https://atteste.art/features",
+   "title": "Attesté Features",
+   "heading": "Social & Engagement",
+   "kind": "marketing",
+   "audience": "all",
+   "text": "Collector Gamification\n\nEarn XP for encounters, acquisitions, and trail walks. Unlock achievements. Complete monthly challenges. Level up from Apprentice to Grand Master. Your collecting journey, quantified.\n\nEngagement\n\nYear in Art\n\nYour annual \"Spotify Wrapped for Art.\" Gallery visits, new acquisitions, favourite artists, taste evolution, journey milestones — all wrapped in a shareable, beautiful summary.\n\nSocial\n\nPublic Collector Profile\n\nOpt-in public profile showcasing your collection highlights, taste profile, milestones, and journey stats. Connect with fellow collectors who share your aesthetic.\n\nSocial\n\nCollection Memoirs\n\nAI-generated narratives that weave your collection into a literary story of your life with art. A memoir that grows with every acquisition.\n\nAI-Powered"
+  },
+  {
+   "id": "features.html#4",
+   "page": "features.html",
+   "url": "https://atteste.art/features",
+   "title": "Attesté Features",
+   "heading": "Protection & Legacy",
+   "kind": "marketing",
+   "audience": "all",
+   "text": "Insurance & Condition Vault\n\nAI condition analysis via Gemini Vision. PDF condition reports. Insurance coverage summaries. Valuation timeline tracking. Professional appraisal management.\n\nProtection\n\nAuction Intelligence\n\nTrack auction houses across multiple countries. Browse upcoming lots with estimate ranges. Set alerts for artists you collect. Track your bids. Historical price records.\n\nIntelligence\n\nLegacy & Estate Vault\n\nDesignate heirs for each artwork. Create emergency access tokens. Write living letters — personal messages attached to pieces for future generations. Estate duty guidance.\n\nLegacy"
+  },
+  {
+   "id": "features.html#5",
+   "page": "features.html",
+   "url": "https://atteste.art/features",
+   "title": "Attesté Features",
+   "heading": "Ready to start your art journey?",
+   "kind": "marketing",
+   "audience": "all",
+   "text": "Join collectors who are capturing, documenting, and sharing their path with art."
+  },
+  {
+   "id": "artists.html#0",
+   "page": "artists.html",
+   "url": "https://atteste.art/artists",
+   "title": "Attesté for Artists",
+   "heading": "The artwork now speaks.",
+   "kind": "marketing",
+   "audience": "artist",
+   "text": "For 500 years, art provenance has been paper. Receipts. Certificates. Gallery letters. Talking Provenance changes that. Record a Director’s Commentary on any work you’ve made — your voice, your studio, your context. The recording is hash-verified, attached permanently to the artwork, and travels with the piece to every future owner. The strongest provenance signal an artist has ever left on their own work.\n\nThis is First Witness. The very first commentary you record on a new work — at the moment of making — is its First Witness : the origin of its provenance chain, in your own voice, SHA-256-sealed and Bitcoin-anchored. Every later record links back to it, and because it’s recorded at creation it can never be backfilled. Provenance written forward, from the source.\n\n-->\n\nDemo Film · In Production\n\nWatch an artist record a Director’s Commentary in the studio.\n\n1\n\nDirector’s Commentary\n\nSit with the work. Tap record. The Curator AI prompts gently for the details collectors care about — medium, year, intent, the moment of making. You stay in editorial control of every word that lands on the record.\n\n2\n\nHash-verified Permanence\n\nEach session is SHA-256 chained into the artwork’s provenance ledger. Tamper-evident, timestamped, and forensically grade. The same standing as a gallery invoice or a condition report.\n\n3\n\nTravels With the Work\n\nWhen the piece sells, your commentary goes with it. The next owner — and every owner after — hears your voice describing what you made and why. A generational asset attached to your studio practice.\n\nAvailable on Professional and Represented tiers. Unlimited recordings · up to 240 seconds per session · addenda welcome.\n\nSee Plans\n\nFrom the Studio"
+  },
+  {
+   "id": "artists.html#1",
+   "page": "artists.html",
+   "url": "https://atteste.art/artists",
+   "title": "Attesté for Artists",
+   "heading": "The catalogue lives where you work.",
+   "kind": "marketing",
+   "audience": "artist",
+   "text": "Fifteen seconds in a working studio: a finished piece photographed, catalogued and issued its source certificate before it leaves the room. The work’s story starts with you — not with whoever resells it in twenty years.\n\nStudio tier · 14-day free trial · tap the corner toggle for sound\n\nStudio practice, on record. Catalogue the work, issue the source certificate, own the narrative."
+  },
+  {
+   "id": "artists.html#2",
+   "page": "artists.html",
+   "url": "https://atteste.art/artists",
+   "title": "Attesté for Artists",
+   "heading": "How Artists Use Attesté",
+   "kind": "marketing",
+   "audience": "artist",
+   "text": "A simple flow from catalogue to certificate to collector relationship.\n\n1\n\nSet Up Your Profile\n\nPublic artist page with bio, statement, links, and selected works. The page lives at attesté.art and is indexable on the gallery directory.\n\n2\n\nCatalogue Your Works\n\nUpload images, dimensions, medium, year, edition, and your own narrative. Bulk import from CSV or add one piece at a time.\n\n3\n\nIssue Source Certificates\n\nWhen you sell, generate a tamper-evident certificate of attestation. Each one carries a public QR-verified record that proves the piece came from you.\n\n4\n\nStay in the Loop\n\nWhen a collector logs an encounter or asks to verify a piece they bought from you, you get a notification. Approve, decline, or add provenance."
+  },
+  {
+   "id": "artists.html#3",
+   "page": "artists.html",
+   "url": "https://atteste.art/artists",
+   "title": "Attesté for Artists",
+   "heading": "What Every Artist Tier Includes",
+   "kind": "marketing",
+   "audience": "artist",
+   "text": "The catalogue, certificate, and verification tools every working artist needs — on every plan.\n\n✓\n\nPublic Artist Profile\n\nClean, fast-loading page with your bio, statement, social links, and work selections. Shareable URL you can put on business cards or in email signatures.\n\n✓\n\nCatalogue Management\n\nAdd, edit, and organise your works with metadata that matters: medium, dimensions, year, edition, provenance notes, exhibition history.\n\n✓\n\nSource Certificates\n\nIssue cryptographically signed certificates of attestation when you sell or gift a work. Each one verifies on a public URL that anyone can scan.\n\n✓\n\nBulk CSV Import\n\nBring an existing catalogue across in a single step. We accept the column conventions you already use.\n\n✓\n\nVerification Inbox\n\nWhen a collector wants to verify ownership of one of your pieces, the request lands in your inbox. Approve, decline, or attach context.\n\n✓\n\nAI-Assisted Descriptions\n\nThe Curator drafts catalogue copy from your photos and notes — you keep editorial control. Useful when you have 40 new works to write up before a fair."
+  },
+  {
+   "id": "artists.html#4",
+   "page": "artists.html",
+   "url": "https://atteste.art/artists",
+   "title": "Attesté for Artists",
+   "heading": "Artist Plans",
+   "kind": "marketing",
+   "audience": "artist",
+   "text": "Studio for emerging practice. Professional for galleries and analytics. Represented for artists whose gallery covers the cost.\n\nStudio\n\nGet Started\n\n$14.99 /mo\n\nor $149.99/yr (save 17%) · 14-day free trial\n\n- 50 works in catalogue\n\n- 5 source certificates per month\n\n- Public artist profile\n\n- Verification inbox\n\n- Bulk CSV import\n\n- AI-assisted descriptions\n\n- Talking Provenance — Director’s Commentary\n\n- Collector network visibility\n\n- Career analytics & market positioning\n\n- Gallery relationship tracker\n\nDownload the App\n\nRECOMMENDED\n\nProfessional\n\nFull Practice\n\n$24.99 /mo\n\nor $249.99/yr (save 17%) · for artists with active gallery relationships\n\n- Everything in Studio, plus:\n\n- 500 works in catalogue\n\n- Unlimited source certificates\n\n- Talking Provenance — Director’s Commentary recording\n\n- Collector network visibility\n\n- Career analytics & insights\n\n- Gallery relationship tracker\n\n- Market positioning AI\n\nDownload the App\n\nRepresented\n\nGallery-Paid\n\nFree\n\nwhen your gallery subscribes to Attesté and links you\n\n- Everything in Professional, plus:\n\n- Unlimited works\n\n- Unlimited source certificates\n\n- Full analytics suite\n\n- Gallery integration (consignments & sales sync)\n\n- Direct collector network\n\nHave your Gallery Contact Us\n\nStudio and Professional are billed monthly or annually via the App Store and Google Play. Subscriptions auto-renew until cancelled. Represented is provisioned by your gallery — if your gallery subscribes to Attesté on Boutique tier or higher, ask them to add you."
+  },
+  {
+   "id": "artists.html#5",
+   "page": "artists.html",
+   "url": "https://atteste.art/artists",
+   "title": "Attesté for Artists",
+   "heading": "Why Working Artists Choose Attesté",
+   "kind": "marketing",
+   "audience": "artist",
+   "text": "We built this for artists who treat their practice seriously. Here’s what that looks like in product terms.\n\n✓\n\nYou Issue the Certificates — Not a Marketplace\n\nSource certificates are signed by you. Provenance starts at your hand and stays attributable, no matter who resells.\n\n✓\n\nNo Commission on Sales\n\nAttesté doesn’t take a cut of your sales. We’re a subscription tool, not a marketplace. Your relationships with collectors and galleries stay yours.\n\n✓\n\nCatalogue-First, Not Feed-First\n\nYour profile shows your work as a body of practice, not chronological posts. Curated. Searchable. Designed to be referenced, not scrolled.\n\n✓\n\nPrivacy for Collectors Builds Trust for You\n\nCollectors who use Attesté know their encounter logs are private. That’s exactly why they’re comfortable verifying ownership with you when the moment calls for it.\n\nTHE ARTIST LIST"
+  },
+  {
+   "id": "artists.html#6",
+   "page": "artists.html",
+   "url": "https://atteste.art/artists",
+   "title": "Attesté for Artists",
+   "heading": "Be first through the studio door.",
+   "kind": "marketing",
+   "audience": "artist",
+   "text": "New artist tools land on Attesté all the time. Leave your email and you’re first in line for early access — plus the occasional note from our studio on cataloguing, certificates, and the craft of provenance. No noise, unsubscribe whenever you like.\n\nDon’t fill this in if you’re human:\n\nName — optional\n\nEmail\n\nI’d like Attesté to email me about early access to new artist features and occasional studio updates — Privacy Policy .\n\nJoin the Artist List\nOne email now and then, from people who make things too."
+  },
+  {
+   "id": "artists.html#7",
+   "page": "artists.html",
+   "url": "https://atteste.art/artists",
+   "title": "Attesté for Artists",
+   "heading": "Start Building Your Catalogue",
+   "kind": "marketing",
+   "audience": "artist",
+   "text": "Studio comes with a 14-day free trial. Cancel any time inside the app, before or after the trial. No commission, no hidden fees.\n\nQuestions? Email info@atteste.art — we read every message."
+  },
+  {
+   "id": "galleries.html#0",
+   "page": "galleries.html",
+   "url": "https://atteste.art/galleries",
+   "title": "Attesté Galleria",
+   "heading": "Consignments arrive with their stories attached.",
+   "kind": "marketing",
+   "audience": "gallery",
+   "text": "Fifteen seconds on a gallery floor: a consigned work photographed, certified and listed — and when it sells, the collector leaves with the provenance already in their pocket.\n\nSee Gallery Plans\nLaunch Galleria · billed monthly · tap the corner toggle for sound\n\nIntake to sale. Every work on the floor certified, listed and accounted for — and the buyer takes the story home."
+  },
+  {
+   "id": "galleries.html#1",
+   "page": "galleries.html",
+   "url": "https://atteste.art/galleries",
+   "title": "Attesté Galleria",
+   "heading": "Your Gallery Wakes Up Briefed",
+   "kind": "marketing",
+   "audience": "gallery",
+   "text": "The new Attesté gallery experience is rolling out now — a workspace that briefs you every morning and answers when you ask.\n\nAlmanac — ask your gallery anything\n\n“Who should I call today?” “What moved this week?” “Draft a follow-up for the collector who watchlisted the Khumalo.” Almanac answers in voice or text — grounded in your live inventory, exhibitions, collector activity, and pipeline.\n\nDaily Pulse. Computed overnight from real collector activity: encounters, watchlists, certificate scans, inquiries — with suggested next actions, not just numbers.\n\nA living collector stream. Every interaction with your works in one feed. No CRM data entry, ever. Anonymous and aggregated — never individuals.\n\nSix AI writers on staff. Exhibition copy, artist bios, artwork descriptions, follow-up emails, on-demand insights — and Gallery Wrapped, your year auto-curated into a shareable story each December.\n\nThis Morning’s Pulse\n\nTuesday · 07:00\n\n3 new encounters overnight — two on the Khumalo charcoal, one in your winter group show.\n\nThe Wenning landscape was watchlisted twice this week. A collector who saw it in March is back in town.\n\nCertificate #ATC-2026-0042 was scanned in Rosebank — your provenance is travelling.\n\nSuggested: follow up with the Khumalo collector. Almanac has drafted the note — review and send.\n\nIllustrative briefing · Pulse is computed nightly from your gallery’s real activity · Almanac voice on Professional and Enterprise"
+  },
+  {
+   "id": "galleries.html#2",
+   "page": "galleries.html",
+   "url": "https://atteste.art/galleries",
+   "title": "Attesté Galleria",
+   "heading": "How Galleries Use Attesté",
+   "kind": "marketing",
+   "audience": "gallery",
+   "text": "Your gallery's digital home for the way collectors actually discover, log, and remember art.\n\n1\n\nCatalogue\n\nUpload your inventory and exhibitions. Each work gets a public-ready listing with provenance ready to attach.\n\n2\n\nDiscover\n\nYour gallery appears in Attesté's directory and the AI Sommelier matches your style to collectors' taste profiles.\n\n3\n\nEncounter\n\nVisitors who use Attesté log encounters with your works. You see anonymous, aggregated patterns — never individuals.\n\n4\n\nRe-engage\n\nTrack repeat visitors as a pipeline. Higher tiers add AI-drafted social posts, follow-up messages, and exhibition pushes to matched collectors.\n\nNew · Talking Provenance"
+  },
+  {
+   "id": "galleries.html#3",
+   "page": "galleries.html",
+   "url": "https://atteste.art/galleries",
+   "title": "Attesté Galleria",
+   "heading": "And every consigned work can speak.",
+   "kind": "marketing",
+   "audience": "gallery",
+   "text": "For 500 years, gallery knowledge has lived in private letters and lost when galleries closed. Talking Provenance changes that. Record a Curator’s Commentary on works you’ve consigned or historically represented — market context, attribution, exhibition history. The recording is hash-verified, attributed to your gallery, and travels with the work for life. Institutional memory, finally on the record.\n\n-->\n\nDemo Film · In Production\n\nWatch a gallery record a Curator’s Commentary on a consigned work.\n\n1\n\nCurator’s Commentary\n\nWalk a work in your space, microphone in hand. The Curator AI surfaces gaps in the record and probes for what only your gallery knows: exhibition history, attribution, market chronology. You answer; the system captures.\n\n2\n\nYour Gallery’s Voice on the Record\n\nEvery recording carries your gallery’s identity, hash-chained to the artwork. When the piece resurfaces at auction in twenty years, your gallery’s voice is part of the chain of custody — institutional memory turned into a permanent asset.\n\n3\n\nCumulative Across Your Inventory\n\nRecord on currently consigned works and on works you’ve ever represented historically. Galleries that record consistently build a compounding portfolio — every artwork they’ve ever touched carries their voice forward.\n\nAvailable on Professional and Enterprise tiers. Unlimited recordings per gallery account · up to 240 seconds per session · addenda welcome.\n\nSee Plans"
+  },
+  {
+   "id": "galleries.html#4",
+   "page": "galleries.html",
+   "url": "https://atteste.art/galleries",
+   "title": "Attesté Galleria",
+   "heading": "What Every Gallery Tier Includes",
+   "kind": "marketing",
+   "audience": "gallery",
+   "text": "Inventory, exhibitions, analytics, and provenance tools — the foundation across every plan.\n\n✓\n\nGallery Directory Listing\n\nFeatured placement in the Attesté gallery directory. Collectors browse by region, specialty, and exhibition.\n\n✓\n\nAI Sommelier Recommendations\n\nYour exhibitions surface to collectors whose taste profiles match your gallery's artists and style.\n\n✓\n\nAnonymous Visitor Analytics\n\nSee which artists draw attention, what gets watchlisted, peak visit times, and dwell duration. No individual tracking.\n\n✓\n\nTraffic Reports & Insights\n\nMonthly reports on visitor trends, top-performing works, and exhibition engagement.\n\n✓\n\nUp to 50 Artworks & 6 Exhibitions\n\nManage your inventory on the platform. List current and upcoming exhibitions with artist details.\n\n✓\n\nDiscovery Trail Inclusion\n\nYour gallery appears as a stop on collector-curated discovery trails in your area.\n\n✓\n\nConsignment Tracking\n\nTrack artworks on consignment with artist split calculations and status updates.\n\n✓\n\nProvenance Request Bridge\n\nContribute exhibition history and sale records to collector provenance chains. Build trust through verified records."
+  },
+  {
+   "id": "galleries.html#5",
+   "page": "galleries.html",
+   "url": "https://atteste.art/galleries",
+   "title": "Attesté Galleria",
+   "heading": "Gallery Plans",
+   "kind": "marketing",
+   "audience": "gallery",
+   "text": "Launch Galleria and set your gallery up on the web in minutes. Monthly subscription · no commission on sales · no physical kit fees · cancel any time.\n\nBoutique\n\nGet Discovered\n\n$64.99 /mo\n\nFounding-gallery 30% off for 12 months · ≈$45.49/mo for first 25 galleries\n\n- Up to 50 artworks in inventory\n\n- Up to 6 exhibitions per year\n\n- Anonymous visitor analytics\n\n- Top-artworks & dwell-time insights\n\n- Repeat-visitor tracking\n\n- Collector lead pipeline\n\n- Featured in gallery directory\n\n- AI Sommelier visibility\n\n- Consignment tracking\n\n- Provenance request bridge\n\n- Talking Provenance — Curator’s Commentary\n\n- AI social posts\n\n- Content calendar\n\n- Exhibition promotion push\n\nStart with Boutique\n\nRECOMMENDED\n\nProfessional\n\nFull Power\n\n$158.99 /mo\n\nFor galleries that publish weekly · AI social posts + content calendar + collector pipeline\n\n- Everything in Boutique, plus:\n\n- Up to 100 artworks in inventory\n\n- Up to 12 exhibitions per year\n\n- Talking Provenance — Curator’s Commentary recording\n\n- AI social post generation (10 / month)\n\n- AI follow-up message drafts (20 / month)\n\n- Content calendar & scheduling\n\n- Full collector pipeline (lead stages, notes)\n\n- Unlimited AI generation\n\n- AI artist reports\n\n- Exhibition promotion push\n\nStart with Professional\n\nEnterprise\n\nUnlimited\n\n$259.00 /mo\n\nFor galleries that target collectors directly · unlimited AI + artist reports + aesthetic targeting\n\n- Everything in Professional, plus:\n\n- Unlimited artworks & exhibitions\n\n- Unlimited AI generation\n\n- AI artist reports (monthly per artist)\n\n- PDF export of reports for artists & consignors\n\n- Exhibition promotion push to matched collectors\n\n- Collector targeting by aesthetic taste profile\n\n- Priority support\n\nStart with Enterprise\n\nLaunch Galleria to get started — monthly billing, cancel any time. Subscription expiry triggers a renewal reminder; collector data is preserved across cycles."
+  },
+  {
+   "id": "galleries.html#6",
+   "page": "galleries.html",
+   "url": "https://atteste.art/galleries",
+   "title": "Attesté Galleria",
+   "heading": "The Numbers Make Sense",
+   "kind": "marketing",
+   "audience": "gallery",
+   "text": "Even conservative estimates show clear return on a Boutique monthly subscription.\n\nAverage gallery foot traffic\n200 visitors/month\n\nConservative Attesté usage rate\n10% = 20 encounters/month\n\nEncounters logged over 12 months\n240 attributed to your gallery\n\nSommelier-driven return visits (10%)\n24 return visits\n\nIf 5% of returns result in a purchase\n1.2 additional sales\n\nAt avg. artwork price $825\n$990 return on $779.88 Boutique/year = $210 net (27% ROI) — or $444 net (81% ROI) on founding pricing\n\nPilots have seen 25%+ adoption among visiting collectors, where the ROI multiplies. Numbers scale with gallery size."
+  },
+  {
+   "id": "galleries.html#7",
+   "page": "galleries.html",
+   "url": "https://atteste.art/galleries",
+   "title": "Attesté Galleria",
+   "heading": "What You Don't Pay",
+   "kind": "marketing",
+   "audience": "gallery",
+   "text": "We believe galleries should keep their margins.\n\n✕\nNo commission on artwork sales\n\n✕\nNo per-scan or per-visitor charges\n\n✕\nNo setup or activation fees\n\n✕\nNo long-term lock-in — cancel any time\n\nBOOK A DEMO"
+  },
+  {
+   "id": "galleries.html#8",
+   "page": "galleries.html",
+   "url": "https://atteste.art/galleries",
+   "title": "Attesté Galleria",
+   "heading": "See Galleria with your own eyes.",
+   "kind": "marketing",
+   "audience": "gallery",
+   "text": "Twenty minutes on a video call. We’ll walk you through Galleria, answer your questions, and help you work out whether it fits the way your gallery runs. No slides, no hard sell — we reply within 24 hours.\n\n- ✓ A live walkthrough, on your questions\n\n- ✓ Honest answers on plans and pricing\n\n- ✓ No obligation — explore at your own pace\n\nLaunch Galleria\ninfo@atteste.art\n\nDon’t fill this in if you’re human:\n\nYour name\n\nGallery\n\nEmail\n\nAnything you’d like us to cover? — optional\n\nI’d like Attesté to email me about booking my demo and about Galleria gallery plans. My details are used for this and nothing else — Privacy Policy .\n\nBook My Demo\nA human reads every request — expect a reply within 24 hours."
+  },
+  {
+   "id": "index.html#0",
+   "page": "index.html",
+   "url": "https://atteste.art",
+   "title": "Attesté",
+   "heading": "Art Stories Are Dying With Their Owners",
+   "kind": "marketing",
+   "audience": "collector",
+   "text": "Every art collection holds decades of stories — the gallery where you first saw it, the artist who signed it, the trip that changed your taste. But without a system to capture these moments, they vanish. Receipts fade. Memories blur. Heirs inherit art they know nothing about.\n\nInsurance valuations expire in drawers. Provenance lives on Post-it notes. And the personal journey — the most valuable part of any collection — is never recorded at all.\n\n\"My children will inherit the art. But not the stories behind it.\"\n\n— The question every serious collector eventually faces\n\nPaper\n\nwhere most provenance still lives — and fades\n\nDrawers\n\nwhere valuations expire, unseen by anyone\n\nEstates\n\nwhere the stories vanish, one transfer at a time\n\nOne app\n\nbuilt around the collector's journey, start to legacy\n\nHow It Works"
+  },
+  {
+   "id": "index.html#1",
+   "page": "index.html",
+   "url": "https://atteste.art",
+   "title": "Attesté",
+   "heading": "Three Steps to a Living Collection",
+   "kind": "marketing",
+   "audience": "collector",
+   "text": "From gallery floor to generational legacy — Attesté turns every encounter into documented history.\n\n01\n\nEncounter\n\nSee something you love? Photograph it. Our AI identifies the artist, medium, and period instantly. Log the encounter — where you saw it, how it made you feel. Every gallery visit, every fair, every studio becomes part of your story.\n\n02\n\nDocument\n\nBuild a living record of your collection with cryptographic integrity. Upload invoices, track condition, generate certificates. Whether it's your first print or your fiftieth oil painting — every piece deserves provenance.\n\n03\n\nShare & Grow\n\nWalk Discovery Trails in cities worldwide. Earn XP for encounters and acquisitions. Get weekly AI recommendations matched to your taste. Share your Year in Art. Level up from Apprentice to Grand Master — your art journey, quantified and celebrated.\n\nThe Signature Experience"
+  },
+  {
+   "id": "index.html#2",
+   "page": "index.html",
+   "url": "https://atteste.art",
+   "title": "Attesté",
+   "heading": "Stand Before a Work.\nAnd Simply Ask.",
+   "kind": "marketing",
+   "audience": "collector",
+   "text": "Atelier is a voice-first AI companion that sees what you see. Point your camera at a painting and talk — about the brushwork, the period, the provenance. It answers aloud, in your language, grounded in your collection's own records.\n\nYou What am I looking at here — this ridge in the paint, near the horizon?\n\nAtelier That's palette-knife impasto — Wenning built his dusk skies in layers. Your acquisition note places this work in the 1918 Cape series, bought at Everard Read.\n\nYou Keep that with the painting.\n\nAtelier Saved to the journal — pinned to the work, part of its story now.\n\nIt sees\n\nLive camera vision. Pan across a canvas and ask about exactly what's in frame — the AI watches with you, in real time.\n\nIt speaks\n\nNatural voice conversation about style, technique, history — and your own works' documented provenance.\n\nIt remembers\n\nEvery session becomes an Atelier Journal entry, pinned to the artwork. Your conversations join the provenance.\n\nIllustrative conversation · Atelier is a Premium feature · voice & vision powered by Gemini Live\n\nThe Platform"
+  },
+  {
+   "id": "index.html#3",
+   "page": "index.html",
+   "url": "https://atteste.art",
+   "title": "Attesté",
+   "heading": "Everything Your Collection Needs",
+   "kind": "marketing",
+   "audience": "collector",
+   "text": "More than thirty-five integrated features designed around one idea: your art journey is worth remembering. Every feature earns its place.\n\nAttesté Certificate\n\nLiving digital provenance with SHA-256 integrity hashing, tiered certification, QR codes, and shareable certificate faces. Your artwork's verified biography.\n\nProvenance\n\nTalking Provenance\n\nTap your phone to the NFC tag on a work and hear its story told aloud — the artist, the journey, the proof. Provenance that speaks, for anyone standing in front of the piece.\n\nSignature\n\nAI Art Scout\n\nPhotograph any artwork. Attesté's vision AI identifies the artist, medium, and period in seconds — with an honest confidence score, never a bluff.\n\nAI-Powered\n\nAI Art Sommelier\n\nTaste profiling that learns your aesthetic across eight axes. Weekly discovery digests introduce you to artists you'll love but haven't found yet.\n\nAI-Powered\n\nDiscovery Trails\n\nWalk curated art trails through Cape Town, Johannesburg, and beyond. GPS geofencing triggers stories at each stop. Create and share your own.\n\nCommunity\n\nYear in Art\n\nYour collecting year, wrapped — encounters, acquisitions, taste evolution, milestones — auto-curated into a story worth sharing.\n\nCelebrate\n\nView All Features →\n\nField Notes"
+  },
+  {
+   "id": "index.html#4",
+   "page": "index.html",
+   "url": "https://atteste.art",
+   "title": "Attesté",
+   "heading": "Collectors, In the Wild",
+   "kind": "marketing",
+   "audience": "collector",
+   "text": "Fifteen seconds at a time: a legacy collection kept assessor-ready in the Insurance Vault, and a Stellenbosch wine-and-art route navigated stop by stop on the day.\n\nFilmed phone-in-hand — the app as collectors actually hold it. Tap the corner toggle for sound.\n\nThe Insurance Vault. Valuations, coverage gaps, condition history — the collection your family inherits, organised.\n\nAlso on the trail\n\nArt Routes\n\nStellenbosch's wine-and-art estates, mapped stop by stop — collect the day, not just the work. Follow the route, check in at each stop, and let every encounter log itself.\n\nThe Provenance Promise\n\nBank-Grade Integrity for Art\n\nEvery record in Attesté is secured with SHA-256 cryptographic hashing — the same standard used in financial transactions. Our provenance chain is append-only: records can be added but never altered or deleted.\n\nThis isn't blockchain hype. It's the quiet certainty that your collection's story — every acquisition, every valuation, every transfer — is sealed in cryptographic truth. Permanent. Verifiable. Yours.\n\nAnd our valuation philosophy is simple: invoice is king. AI provides experimental insight, but your portfolio totals only reflect documented, professional valuations. We believe trust is earned through honesty, not inflated numbers.\n\nFirst Witness. When a work is born in an artist’s studio on Attesté, its chain begins at creation — the artist’s own recorded account, sealed and Bitcoin-anchored as the origin every later record links back to. Provenance written forward, not reconstructed.\n\nSHA-256 Integrity\n\nAppend-Only Chain\n\nInvoice First\n\nAcquisition\n\nPurchased at Everard Read Gallery, Cape Town. Invoice R45,000. Oil on canvas, 60×80cm.\n\nsha256:7f83b...e4a1c\n\nProfessional Valuation\n\nThe Valuator Group appraisal. Estimated replacement cost R68,000. Paul Myson (FRSA, FIFAAAA).\n\nsha256:3a9f1...b72d8\n\nCondition Assessment\n\nAI condition analysis: Excellent. Minor frame wear noted. UV-protected glass recommended.\n\nsha256:9c2d5...a83f7\n\nAttesté Certificate Issued\n\nEnhanced-tier certificate #ATC-2026-0042. Provenance quality score: 4/5. QR verification active.\n\nsha256:1b4e8...d56c3\n\nPricing"
+  },
+  {
+   "id": "index.html#5",
+   "page": "index.html",
+   "url": "https://atteste.art",
+   "title": "Attesté",
+   "heading": "Start Free. Grow With Your Collection.",
+   "kind": "marketing",
+   "audience": "collector",
+   "text": "Every collector starts somewhere. Attesté grows with you — from your first encounter to your legacy.\n\nEvery new account includes a 14-day Premium trial — experience everything before you choose.\n\nExplorer\n\nFree / forever\n\nStart your art journey. Walk trails, log encounters, earn XP.\n\n- Up to 25 artworks\n\n- 5 AI analyses per month\n\n- Walk existing trails\n\n- Log unlimited encounters\n\n- Earn XP & achievements\n\n- 14-day Premium trial\n\nStart Exploring\n\nCollector\n\n$9.99 / month\n\nFor collectors who want full documentation and AI insight. Annual: $99.99/yr (save ~17%).\n\n- Up to 200 artworks\n\n- 50 AI analyses per month\n\n- Attesté Certificates + QR\n\n- Full provenance chain\n\n- AI Art Sommelier\n\n- Condition Vault + reports\n\n- Auction intelligence\n\n- Art Fair Companion\n\nBecome a Collector\n\nPremium\n\n$19.99 / month\n\nFor collectors who want the complete platform and creative tools. Annual: $199.99/yr (save ~17%).\n\n- Unlimited artworks\n\n- Unlimited AI analyses\n\n- Legacy & Estate Vault\n\n- Year in Art wrap\n\n- Public collector profile\n\n- Community trail creation\n\n- AI Trail Generator\n\n- Collection memoirs\n\n- Priority AI processing\n\nGo Premium\n\nRefer a Friend\n\nGive a month, get a month.\n\nInvite a friend and they start with a month of Premium free. When they join with your code, a month of Premium is added to your account too.\n\nYour invite link looks like atteste.art/r/yourcode . New members redeem within their first week of signing up — one redemption per account.\n\nGet your invite link →\nAvailable now in the Attesté web app — the iOS and Android apps pick it up in their next release.\n\nFor Artists"
+  },
+  {
+   "id": "index.html#6",
+   "page": "index.html",
+   "url": "https://atteste.art",
+   "title": "Attesté",
+   "heading": "Your Studio. Your Work. Verified.",
+   "kind": "marketing",
+   "audience": "collector",
+   "text": "A serious tool for working artists — public profile, master catalogue, source certificates, and a verification trail collectors can trust. From $14.99/mo with a 14-day free trial.\n\nBuilt for the Artist's Working Life.\n\nCatalogue every work you've ever made. Issue source certificates that follow each piece into every collector's portfolio. Stay in the conversation long after the work leaves the studio.\n\nPublic Profile. A clean, gallery-grade artist page hosted at atteste.art/artist/your-handle . Bio, signature, statement, and a curated portfolio — searchable inside the app.\n\nSource Certificates. When you mark a work as authentic, that certificate becomes the gold-standard record collectors carry forward. Their re-sale, your provenance.\n\nVerification Inbox. Collectors and galleries request authentication directly. You decide what's verified — without back-channel emails or photographs of photographs.\n\nArtist Tiers\n\nStudio $14.99/mo\n\n$149.99/yr (save ~17%). 14-day free trial. 50 works, 5 source certs/mo, public profile, basic analytics.\n\nProfessional $24.99/mo\n\n$249.99/yr (save ~17%). 500 works, unlimited certs, AI descriptions, exhibition history, priority verification.\n\nRepresented Free\n\nGallery-paid. Provisioned by your gallery on Professional or Enterprise. Unlimited works, unlimited certificates.\n\nLearn More →\nContact Us\n\nWorks Catalogued\n\n312\n\nacross studio + archive\n\nCerts Issued\n\n87\n\nlast 12 months\n\nVerification\n\n100%\n\nartist-confirmed\n\nCollectors Reached\n\n1,240\n\nvia Sommelier\n\nIllustrative — a working studio on Attesté\n\nFor Galleries"
+  },
+  {
+   "id": "index.html#7",
+   "page": "index.html",
+   "url": "https://atteste.art",
+   "title": "Attesté",
+   "heading": "Your Gallery Wakes Up Briefed",
+   "kind": "marketing",
+   "audience": "collector",
+   "text": "The new Attesté gallery experience is rolling out now: a daily Pulse briefing computed overnight from real collector activity, an AI concierge that knows your inventory by name, and six AI writers on staff.\n\nAlmanac. Ask Your Gallery Anything.\n\n\"Who should I call today?\" \"What moved this week?\" \"Draft a follow-up for the collector who watchlisted the Khumalo.\" Almanac answers in voice or text — grounded in your live inventory, exhibitions, collector activity, and pipeline.\n\nDaily Pulse. Every morning, a briefing computed overnight: new encounters, watchlists, certificate scans, inquiries — with suggested next actions, not just numbers.\n\nA living collector stream. Every encounter, watchlist, and scan on your works flows into one feed. No CRM data entry, ever. All anonymised — no tracking individuals.\n\nSix AI writers. Exhibition copy, artist bios, artwork descriptions, follow-up emails, on-demand insights — and Gallery Wrapped, your year auto-curated into a shareable story.\n\nEvery venue, one home. Multi-venue support scales from a single boutique space to an unlimited Enterprise estate.\n\nAttesté Galleria — monthly plans, on the web\n\nBoutique $64.99/mo\n\n50 artworks, 6 exhibitions a year, anonymous collector analytics, directory listing. Founding galleries: 30% off the first 12 months.\n\nProfessional $158.99/mo\n\n100 artworks, 12 exhibitions, Talking Provenance Curator's Commentary, AI social posts, content calendar, collector pipeline.\n\nEnterprise $259.00/mo\n\nUnlimited artworks and exhibitions, AI artist reports, promotion push to matched collectors, priority support.\n\nLaunch Galleria\nLearn More →\nContact Us\n\nThis Morning's Pulse\n\nTuesday · 07:00\n\n3 new encounters overnight — two on the Khumalo charcoal, one in your winter group show.\n\nThe Wenning landscape was watchlisted twice this week. A collector who saw it in March is back in town.\n\nCertificate #ATC-2026-0042 was scanned in Rosebank — your provenance is travelling.\n\nSuggested: follow up with the Khumalo collector. Almanac has drafted the note — review and send.\n\nIllustrative briefing · Pulse is computed nightly from your gallery's real activity\n\nBuilt in South Africa\n\nA father's project became his daughters' business\n\nAttesté started when a private collector realised his children would inherit his art — but not the stories behind it. What began as a weekend project to digitise one collection grew into a platform that could serve every collector.\n\nToday, Attesté is a family enterprise: built by a father, operated by three daughters, and powered by the belief that every art collection tells a story worth preserving.\n\nOur Story\n\nBuilt for Art. Powered by Integrity.\n\nWe didn't set out to build a startup. We set out to solve a real problem for a real collection. That honesty is coded into every decision we've made — from our \"invoice is king\" valuation philosophy to our append-only provenance chain.\n\nProven Infrastructure\n\nSHA-256 integrity chain with append-only provenance records. Every record is cryptographically sealed and independently verifiable.\n\nAI That Amplifies, Never Replaces\n\nDual AI (Google Gemini + Anthropic Claude) provides insight and discovery. But your documented provenance always comes first.\n\nBorn in South Africa, Built for Every Collector\n\nAuction intelligence across multiple markets. Discovery trails in cities worldwide. A platform designed for collectors everywhere.\n\nQuestions & Answers"
+  },
+  {
+   "id": "index.html#8",
+   "page": "index.html",
+   "url": "https://atteste.art",
+   "title": "Attesté",
+   "heading": "Frequently Asked",
+   "kind": "marketing",
+   "audience": "collector",
+   "text": "Straight answers on cost, privacy, provenance, and how the AI works.\n\nWhat is Attesté?\nAttesté is an AI-powered art collection management platform. It helps collectors catalogue their art, verify provenance with SHA-256 cryptographic certificates, discover new galleries and artists via GPS-gated trails, and document collection history across generations.\n\nHow much does Attesté cost?\nAttesté has a free Explorer tier (25 artworks, 5 AI analyses/month). Paid collector tiers start at $9.99/month (Collector — 200 artworks, full AI Sommelier) and $19.99/month (Premium — unlimited, Legacy Vault), with 17% savings on annual plans. Artist plans start at $14.99/month (Studio, 14-day free trial). Gallery plans are monthly subscriptions sold via the web: Boutique $64.99/mo, Professional $158.99/mo, Enterprise $259.00/mo.\n\nIs my art collection data private?\nYes. By default every collection is private. Public profiles require an explicit opt-in. Data is hosted in Firebase's Johannesburg data centre (africa-south1), so personal data stays in Africa by default. Attesté is POPIA and GDPR aware.\n\nHow does AI Art Identification work?\nYou photograph an artwork with the Attesté app. Google's latest Gemini vision models analyse the image and return likely artist, medium, period and similar works, with an explicit confidence score. Low-confidence guesses are flagged for human verification.\n\nWhat is an Attesté Certificate?\nA SHA-256 cryptographically-secured provenance certificate. It includes the owner, acquisition date and source, a photograph fingerprint, condition and valuation history, and the chain of custody. The hash is published to an immutable log so tampering is detectable.\n\nDoes Attesté authenticate whether an artwork is real?\nNo. Attesté generates a tamper-proof record of what the owner reported. Authentication is a gallery, auction house or expert's job. You can upload professional authentication documents and attach them to the certificate.\n\nCan Attesté help me document an inherited art collection?\nYes. Attesté's AI Art Scout is especially useful for inheritors: photograph each piece and the app identifies likely artist, medium and period. Upgrade to Premium to unlock the Legacy Vault for preserving stories, artist interviews, and acquisition context across generations.\n\nHow do galleries use Attesté?\nGalleries join on a monthly subscription sold via the web — Boutique ($64.99/mo), Professional ($158.99/mo), or Enterprise ($259.00/mo). They get inventory and exhibition tools, an aggregate collector analytics dashboard, Talking Provenance Curator's Commentary (Professional+), AI-generated exhibition posts, a daily Pulse briefing, the Almanac AI concierge, and a measurable collector pipeline. Analytics are aggregate-only — individual collector data is never shared with galleries.\n\nWhere is Attesté available?\nThe Attesté app works worldwide. POPIA compliance (South Africa) is complete; GDPR compliance (EU) is in progress; US and UK markets are supported. Payment methods vary by region. Contact info@atteste.art for your specific market.\n\nWho built Attesté?\nAttesté is built by Yield SPM (Pty) Ltd, founded by Karel Kraai in Bloemfontein, South Africa. Company registration: 2024/185151/07. The same team also operates Practacular, an AI practice management platform for accountants."
+  },
+  {
+   "id": "index.html#9",
+   "page": "index.html",
+   "url": "https://atteste.art",
+   "title": "Attesté",
+   "heading": "Begin Your Collection's Story",
+   "kind": "marketing",
+   "audience": "collector",
+   "text": "Attesté is live on the App Store and Google Play. Start free with your first 25 works — every account opens with a 14-day Premium trial. Your collection's memory begins with the first encounter.\n\nFree to start. No credit card required.\n\nRather start in your inbox?\n\nOccasional collecting stories and news from Attesté — a letter, not a feed.\n\nDon’t fill this in if you’re human:\n\nEmail address\n\nKeep Me Posted\n\nI’d like Attesté to email me occasional updates and collecting stories — Privacy Policy ."
+  },
+  {
+   "id": "compare/artwork-archive-alternative.html#0",
+   "page": "compare/artwork-archive-alternative.html",
+   "url": "https://atteste.art/compare/artwork-archive-alternative",
+   "title": "Artwork Archive Alternative",
+   "heading": "Attesté vs Artwork Archive",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Feature-by-feature, verified against each product's current site and help centre (2026). \"Partial\" means a lighter version of the capability.\n\nCapability Attesté Artwork Archive\n\nBuilt-in AI assistant Yes Atelier — voice + camera No\nAI artwork identification & descriptions Yes No\nAI condition & insurance documentation Yes No manual condition reports\nDocument OCR scan-to-fill Yes No\nGenuine free tier (no credit card) Yes Explorer — 25 works No 14-day trial\nNative mobile app (iOS + Android) Yes No web only\nProvenance recorded at creation Yes First Witness No\nCryptographic (SHA-256) provenance + NFC Yes Partial record-keeping fields\nCertificates of authenticity Yes 3 verification tiers Yes PDF\nConsignment management No Yes mature\nPublic collection pages + embeds No Yes\nDiscovery marketplace / Call for Entry No Yes\nData-import service Partial AI / OCR import Yes free on org plans\nMulti-user roles Partial Yes up to 10 users\nConsumer experience (\"Strava for Art\") Yes trails, XP, Wrapped No\nTrack record 2026 launch Since 2010\nCollector unlimited price $19.99/mo ~$36–42/mo\n\nAttesté feature claims are limited to shipped, live capabilities. Artwork Archive figures reflect its current published plans; third-party directories often list stale pricing.\n\nWhere Artwork Archive is the better choice\n\n- Consignment-heavy galleries: Artwork Archive's consignment workflows are mature; Attesté doesn't offer them yet.\n\n- You want a public presence: Artwork Archive gives you a public profile, embeddable pages, and a Discovery marketplace with a Call-for-Entry board.\n\n- Track record matters to you: 15 years in market, used across 130+ countries — trust a new brand can't match yet.\n\n- Larger teams: up to 10 users with view-only roles and white-glove data import on organisation plans."
+  },
+  {
+   "id": "compare/artwork-archive-alternative.html#1",
+   "page": "compare/artwork-archive-alternative.html",
+   "url": "https://atteste.art/compare/artwork-archive-alternative",
+   "title": "Artwork Archive Alternative",
+   "heading": "Moving from Artwork Archive is easy",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Export your full collection from Artwork Archive as a CSV, then let Attesté's AI-assisted import and document scan-to-fill bring your records in. Photograph anything missing an image and Atelier helps fill the details — artist, medium, period.\n\nTry it free — no card"
+  },
+  {
+   "id": "compare/artwork-archive-alternative.html#2",
+   "page": "compare/artwork-archive-alternative.html",
+   "url": "https://atteste.art/compare/artwork-archive-alternative",
+   "title": "Artwork Archive Alternative",
+   "heading": "Pricing for collectors",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Attesté has a real free tier and lower prices for unlimited cataloguing. Compare like-for-like.\n\nAttesté\n\nFree · Explorer\n\n25 artworks, 5 AI analyses/mo, no card. Collector $9.99 · Premium $19.99 (unlimited).\n\nArtwork Archive\n\n~$10 /mo start\n\n14-day trial (no card), then Starter ~$10 → Premier ~$36–42/mo. No permanently free plan."
+  },
+  {
+   "id": "compare/artwork-archive-alternative.html#3",
+   "page": "compare/artwork-archive-alternative.html",
+   "url": "https://atteste.art/compare/artwork-archive-alternative",
+   "title": "Artwork Archive Alternative",
+   "heading": "Frequently asked questions",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Artwork Archive alternative — the questions people actually ask.\n\nIs Artwork Archive free? No. Artwork Archive offers a 14-day free trial (no credit card required) but has no permanently free plan; paid plans start around $10/month. Attesté has a genuine free tier — Explorer — with no card, so you can start cataloguing for free.\n\nDoes Artwork Archive have a mobile app? Artwork Archive is web-based and does not offer a native mobile app. Attesté is mobile-first on iOS and Android, so you can photograph and catalogue a work right at the wall.\n\nDoes Artwork Archive use AI? No. Artwork Archive has no AI features. Attesté includes Atelier, a voice-and-camera AI assistant that identifies works from a photo, drafts descriptions and follow-ups, and helps document condition and insurance.\n\nHow do I switch from Artwork Archive to Attesté? Export your collection from Artwork Archive as a CSV, then use Attesté's AI-assisted import and document scan-to-fill to bring records in. Photograph any works that need images and Atelier helps fill in the details.\n\nIs Attesté cheaper than Artwork Archive? For individual collectors, yes. Attesté Premium is $19.99/month for unlimited artworks, versus Artwork Archive's top collector plan at roughly $36–42/month. Attesté also has a free tier; Artwork Archive does not. Feature sets differ — see the comparison above."
+  },
+  {
+   "id": "compare/artwork-archive-alternative.html#4",
+   "page": "compare/artwork-archive-alternative.html",
+   "url": "https://atteste.art/compare/artwork-archive-alternative",
+   "title": "Artwork Archive Alternative",
+   "heading": "Start documenting your collection free",
+   "kind": "compare",
+   "audience": "all",
+   "text": "No credit card. Photograph a work and let Atelier do the cataloguing. iOS, Android and web.\n\nDownload on iOS\nGet it on Android\n\nAlso compare: Art Galleria alternative · Artwork Archive vs Art Galleria\n\nLast verified: July 2026. This comparison is based on publicly available information from each product's own website and help centre as of this date; features and pricing may change. Spotted something out of date? Email info@atteste.art and we'll correct it. Attesté claims reflect capabilities live at the time of writing.\n\nArtwork Archive is a trademark of its respective owner, referenced here for identification and comparison purposes only. This page is independent and is not affiliated with, endorsed by, or sponsored by Artwork Archive."
+  },
+  {
+   "id": "compare/art-galleria-alternative.html#0",
+   "page": "compare/art-galleria-alternative.html",
+   "url": "https://atteste.art/compare/art-galleria-alternative",
+   "title": "Art Galleria Alternative",
+   "heading": "Attesté vs Art Galleria",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Feature-by-feature, verified against each product's current site (2026). Both are mobile — the real differences are AI, a free tier, provenance-at-creation, and back-office depth.\n\nCapability Attesté Art Galleria\n\nBuilt-in AI assistant Yes Atelier — voice + camera No\nAI gallery content (copy, bios, follow-ups) Yes Almanac + 6 generators No\nGenuine free tier Yes no card No 14-day trial, card required\nNative mobile app Yes iOS + Android Yes iOS/Android, Apple TV, AR\nProvenance recorded at creation Yes First Witness No\nCryptographic provenance + NFC + Talking Provenance Yes Partial basic provenance\nCertificates of authenticity Yes 3 tiers Yes customizable PDF\nE-commerce / payment processing No never processes payment Yes Stripe, Apple/Google Pay\nWebsite builder / CMS sync No Yes WP/Shopify/Wix/Squarespace\nAccounting sync (Xero / QuickBooks) No Yes\nPublic API / webhooks No Yes\nConsignment management No Yes mature\nIncluded onboarding + data import Partial AI / OCR import Yes all plans\nConsumer experience (\"Strava for Art\") Yes No\nCollector unlimited price $19.99/mo ~$150–180/mo\nGallery entry price $64.99/mo ~$65–78/mo\nTrack record 2026 launch Since 2013\n\nAttesté feature claims are limited to shipped, live capabilities. Art Galleria figures reflect its current published plans; third-party directories often list stale pricing.\n\nWhere Art Galleria is the better choice\n\n- You sell online: Art Galleria has built-in e-commerce (Stripe, Apple/Google Pay) and invoicing; Attesté never processes payments by design.\n\n- You want a website: Art Galleria includes a website builder and syncs to WordPress, Shopify, Wix and Squarespace.\n\n- Accounting + integrations: Xero auto-sync, QuickBooks export, and a public API/webhooks — Attesté has none of these yet.\n\n- Consignment-driven galleries: in/out consignment, due-backs and reports are mature in Art Galleria.\n\n- Established operation: in market since 2013, six currencies, included setup and 1:1 onboarding on all plans."
+  },
+  {
+   "id": "compare/art-galleria-alternative.html#1",
+   "page": "compare/art-galleria-alternative.html",
+   "url": "https://atteste.art/compare/art-galleria-alternative",
+   "title": "Art Galleria Alternative",
+   "heading": "Pricing — the collector gap is large",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Where Attesté clearly wins is a real free tier and unlimited collecting at a fraction of the price.\n\nAttesté · Collector\n\n$19.99 /mo unlimited\n\nPlus a free Explorer tier (no card). Gallery plans from $64.99/mo via Paddle web checkout.\n\nArt Galleria · Collector\n\n~$180 /mo unlimited\n\n14-day trial (card required), then Starter ~$36 → Unlimited ~$150–180/mo. No free plan."
+  },
+  {
+   "id": "compare/art-galleria-alternative.html#2",
+   "page": "compare/art-galleria-alternative.html",
+   "url": "https://atteste.art/compare/art-galleria-alternative",
+   "title": "Art Galleria Alternative",
+   "heading": "Frequently asked questions",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Art Galleria alternative — the questions people actually ask.\n\nIs Art Galleria free? No. Art Galleria offers a 14-day free trial that requires a credit card, and has no permanently free plan. Attesté has a genuine free tier — Explorer — with no card required.\n\nDoes Art Galleria have AI? No. Art Galleria has no AI features. Attesté includes Atelier, a voice-and-camera AI assistant, plus Almanac, an AI gallery concierge that drafts exhibition copy, artist bios, artwork descriptions and collector follow-ups.\n\nIs Attesté cheaper than Art Galleria? For collectors, dramatically. Attesté Premium is $19.99/month for unlimited artworks versus Art Galleria's unlimited collector plan at roughly $150–180/month. Attesté's gallery entry plan ($64.99/month) is also lower than Art Galleria's starter ($65–78/month), though feature sets differ.\n\nDoes Attesté do e-commerce and websites like Art Galleria? No. Art Galleria is stronger here — it offers built-in e-commerce (Stripe, Apple/Google Pay), a website builder with CMS sync, and accounting integrations. Attesté deliberately never processes payments; it focuses on cataloguing, AI, and provenance.\n\nDoes Art Galleria have a mobile app? Yes — Art Galleria has iOS and Android apps plus an Apple TV app and AR wall preview. Attesté is also mobile-first on iOS and Android; the difference is Attesté's built-in AI and consumer \"Strava for Art\" experience, not app availability."
+  },
+  {
+   "id": "compare/art-galleria-alternative.html#3",
+   "page": "compare/art-galleria-alternative.html",
+   "url": "https://atteste.art/compare/art-galleria-alternative",
+   "title": "Art Galleria Alternative",
+   "heading": "Start free, or bring your gallery",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Collectors start free with no card. Galleries get an AI concierge and provenance built in — plans from $64.99/month on the web.\n\nDownload on iOS\nFor galleries\n\nAlso compare: Artwork Archive alternative · Artwork Archive vs Art Galleria\n\nLast verified: July 2026. This comparison is based on publicly available information from each product's own website and help centre as of this date; features and pricing may change. Spotted something out of date? Email info@atteste.art and we'll correct it. Attesté claims reflect capabilities live at the time of writing.\n\nArt Galleria (ArtGalleria) is a trademark of its respective owner, referenced here for identification and comparison purposes only. This page is independent and is not affiliated with, endorsed by, or sponsored by Art Galleria."
+  },
+  {
+   "id": "compare/artwork-archive-vs-art-galleria.html#0",
+   "page": "compare/artwork-archive-vs-art-galleria.html",
+   "url": "https://atteste.art/compare/artwork-archive-vs-art-galleria",
+   "title": "Artwork Archive vs Art Galleria (2026)",
+   "heading": "Side by side",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Verified against each product's current site and help centre (2026). \"Partial\" means a lighter version of the capability.\n\nCapability Artwork Archive Art Galleria Attesté\n\nBuilt-in AI assistant No No Yes\nGenuine free tier No trial, no card No trial, card req Yes no card\nNative mobile app No web only Yes + Apple TV, AR Yes\nProvenance recorded at creation No No Yes First Witness\nCryptographic provenance + NFC Partial Partial Yes\nE-commerce / payments Partial PayPal invoicing Yes Stripe, Apple/Google Pay No by design\nWebsite builder / CMS sync Partial profile + embeds Yes No\nMarketplace / discovery Yes Discovery, Call for Entry No No\nConsignment management Yes Yes No\nAccounting sync (Xero / QuickBooks) Partial expense tracking Yes No\nPublic API / webhooks No Yes No\nCollector price (entry → unlimited) ~$10 → $42 ~$36 → $180 Free → $19.99\nGallery entry price ~$39–46 ~$65–78 $64.99\nTrack record Since 2010 Since 2013 2026 launch\n\nFigures reflect each product's current published plans; third-party directories often list stale pricing. Attesté claims are limited to shipped, live capabilities."
+  },
+  {
+   "id": "compare/artwork-archive-vs-art-galleria.html#1",
+   "page": "compare/artwork-archive-vs-art-galleria.html",
+   "url": "https://atteste.art/compare/artwork-archive-vs-art-galleria",
+   "title": "Artwork Archive vs Art Galleria (2026)",
+   "heading": "Which should you choose?",
+   "kind": "compare",
+   "audience": "all",
+   "text": "There's no single winner — it depends on whether you're collecting, selling, or want AI doing the work.\n\nChoose Artwork Archive\n\n- You're a collector or artist on a budget\n\n- You want a Discovery marketplace + Call for Entry\n\n- Web-only is fine — no app needed\n\n- A 15-year track record reassures you\n\nChoose Art Galleria\n\n- You're a gallery that sells online\n\n- You need a website + CMS sync\n\n- Accounting sync + a public API matter\n\n- You want native apps + Apple TV / AR\n\nConsider Attesté\n\n- You want AI doing the work — identify, describe, follow up\n\n- A genuine free tier to start, no card\n\n- Provenance recorded at the moment of creation\n\n- A mobile-first \"Strava for Art\" experience\n\nAttesté is newer and lighter on consignment, e-commerce and websites — see the honest breakdowns: vs Artwork Archive · vs Art Galleria ."
+  },
+  {
+   "id": "compare/artwork-archive-vs-art-galleria.html#2",
+   "page": "compare/artwork-archive-vs-art-galleria.html",
+   "url": "https://atteste.art/compare/artwork-archive-vs-art-galleria",
+   "title": "Artwork Archive vs Art Galleria (2026)",
+   "heading": "Frequently asked questions",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Artwork Archive vs Art Galleria — the questions people actually ask.\n\nWhat is the main difference between Artwork Archive and Art Galleria? Artwork Archive is a web-based cataloguing tool that's better value for individual collectors and artists and includes a Discovery marketplace, but has no native mobile app. Art Galleria is a heavier gallery back-office with built-in e-commerce, a website builder, accounting sync and native apps (including Apple TV), aimed at selling galleries — and it costs more.\n\nWhich is cheaper, Artwork Archive or Art Galleria? Artwork Archive is cheaper, especially for collectors — plans start around $10/month and top out near $42, versus Art Galleria's roughly $36 to $180 for collectors. On gallery/organisation plans Artwork Archive also generally undercuts Art Galleria.\n\nDo Artwork Archive or Art Galleria have AI? No. As of 2026 neither Artwork Archive nor Art Galleria offers AI features. If AI matters to you — identifying works from a photo, drafting descriptions and follow-ups, voice assistance — Attesté is the AI-native option in this category.\n\nWhich has a mobile app, Artwork Archive or Art Galleria? Art Galleria has native iOS and Android apps (plus Apple TV and AR wall preview). Artwork Archive is web-only with no native app. Attesté is also mobile-first on iOS and Android.\n\nIs there a free alternative to Artwork Archive and Art Galleria? Yes. Neither Artwork Archive nor Art Galleria has a permanently free plan (both use trials). Attesté offers a genuine free tier — Explorer — with no credit card, plus a built-in AI assistant and provenance recorded at creation."
+  },
+  {
+   "id": "compare/artwork-archive-vs-art-galleria.html#3",
+   "page": "compare/artwork-archive-vs-art-galleria.html",
+   "url": "https://atteste.art/compare/artwork-archive-vs-art-galleria",
+   "title": "Artwork Archive vs Art Galleria (2026)",
+   "heading": "See what an AI-native option looks like",
+   "kind": "compare",
+   "audience": "all",
+   "text": "Start free with no card. Photograph a work and let Atelier catalogue it — artist, medium, period — then seal its provenance. iOS, Android and web.\n\nDownload on iOS\nGet it on Android\n\nLast verified: July 2026. This comparison is based on publicly available information from each product's own website and help centre as of this date; features and pricing may change. Spotted something out of date? Email info@atteste.art and we'll correct it. Attesté claims reflect capabilities live at the time of writing.\n\nArtwork Archive and Art Galleria are trademarks of their respective owners, referenced here for identification and comparison purposes only. This page is independent and is not affiliated with, endorsed by, or sponsored by either company."
+  }
+ ]
+}
