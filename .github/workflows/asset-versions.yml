@@ -9,6 +9,12 @@
 # ?v= is now a content hash, and this job fails the moment a page references a
 # hash that does not match the file on disk.
 #
+# The attribution tag rides along in the same job because it is the other half
+# of the same contract: asset-versions.mjs answers "is this tag's version
+# right?", and it cannot answer "is this tag on the page at all?". A new page
+# that never gets /assets/js/attribution.js loses acquisition data silently —
+# no error, no 404, just a visitor whose source is gone.
+#
 # This workflow reads no user-controlled event data (no titles, branch names or
 # commit messages reach a run: step), so there is no script-injection surface.
 name: asset versions
@@ -31,4 +37,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: node scripts/asset-versions.mjs --check
+      - name: attribution.js is on every page
+        run: python3 scripts/inject_attribution.py --check
+      - name: "?v= matches the file's content hash"
+        run: node scripts/asset-versions.mjs --check

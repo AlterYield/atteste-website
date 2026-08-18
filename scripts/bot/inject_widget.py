@@ -2,8 +2,8 @@
 """Add or remove the site-bot widget tag across the site, idempotently.
 
 Twelve hand-edits was fine for the help-centre pilot. Site-wide it isn't:
-pages get added, the cache-busting version changes, and a rollback needs to be
-one command rather than a careful sweep. So the tag placement is a script.
+pages get added, and a rollback needs to be one command rather than a careful
+sweep. So the tag placement is a script.
 
   python3 scripts/bot/inject_widget.py            # apply the policy below
   python3 scripts/bot/inject_widget.py --check    # report drift, change nothing
@@ -11,6 +11,13 @@ one command rather than a careful sweep. So the tag placement is a script.
 
 `--check` exits non-zero when a page's state disagrees with the policy, so it
 can gate CI once a new page is added without the tag.
+
+This script owns PRESENCE only, never the ?v= query — that belongs to
+scripts/asset-versions.mjs, which derives it from the asset's own bytes. Same
+contract as scripts/inject_attribution.py, and for the same reason: a
+hand-maintained version here overwrites the content hash and re-points every
+page at a version that does not match the file. Inject bare, then run
+`node scripts/asset-versions.mjs` to stamp any newly added tag.
 
 Rollback note: removing the tag needs a deploy. The instant kill is the
 `SITE_CHAT_ENABLED=false` env var, which 503s the endpoint and makes the
@@ -25,8 +32,10 @@ import sys
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parents[2]
-VERSION = "20260816"
-TAG = f'  <script defer src="/assets/js/chat-widget.js?v={VERSION}"></script>\n'
+# Deliberately no ?v= — see the module docstring. asset-versions.mjs stamps it.
+TAG = '  <script defer src="/assets/js/chat-widget.js"></script>\n'
+# Matches the tag at ANY version (or none), so presence and idempotence never
+# depend on the query string.
 TAG_RE = re.compile(r'[ \t]*<script[^>]*src="/assets/js/chat-widget\.js[^"]*"[^>]*></script>\n?')
 
 # Pages that deliberately do NOT get the widget, and why. Everything else
@@ -61,7 +70,7 @@ def wanted(rel: str) -> bool:
 
 
 def apply(path: Path, want: bool) -> str:
-    """Return 'added' | 'removed' | 'updated' | 'ok'."""
+    """Return 'added' | 'removed' | 'ok' | 'no-body'."""
     text = path.read_text(encoding="utf-8")
     present = TAG_RE.search(text)
 
@@ -72,10 +81,7 @@ def apply(path: Path, want: bool) -> str:
         return "added"
 
     if want and present:
-        if present.group(0) == TAG:
-            return "ok"
-        path.write_text(TAG_RE.sub(TAG, text, count=1), encoding="utf-8")
-        return "updated"  # version bump
+        return "ok"  # already there — whatever ?v= it carries is not ours to touch
 
     if not want and present:
         path.write_text(TAG_RE.sub("", text), encoding="utf-8")

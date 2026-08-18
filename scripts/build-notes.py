@@ -145,6 +145,7 @@ INDEX_HEAD = """<!DOCTYPE html>
 <meta name="theme-color" content="#1A1A2E">
 <link rel="canonical" href="https://atteste.art/notes/">
 <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="alternate" type="application/rss+xml" title="Attesté Updates" href="/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://atteste.art/notes/">
 <meta property="og:site_name" content="Attesté">
