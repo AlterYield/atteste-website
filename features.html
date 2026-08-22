@@ -87,6 +87,25 @@
   }
 }
 </script>
+
+<!-- JSON-LD: VideoObject — Feature 02, Scan the invoice. The transcript is what
+     makes the film findable; a bare MP4 is opaque to search. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Attest\u00e9 \u00b7 Feature 02 \u2014 Scan the invoice",
+  "description": "Recording a new acquisition in Attest\u00e9: photograph the invoice you already have, and the price, seller and transaction date are read off the page and filled in for you \u2014 each one shown for review before saving.",
+  "thumbnailUrl": "https://atteste.art/assets/video/features/feature-02-scan-invoice.jpg",
+  "contentUrl": "https://atteste.art/assets/video/features/feature-02-scan-invoice-hero.mp4",
+  "uploadDate": "2026-08-22",
+  "duration": "PT47S",
+  "inLanguage": "en",
+  "isFamilyFriendly": true,
+  "publisher": { "@type": "Organization", "name": "Attest\u00e9", "url": "https://atteste.art/" },
+  "transcript": "My receipts live in three places. Email, WhatsApp, and a drawer. Here's the part I wish I'd known sooner \u2014 I don't retype any of them any more. Here's how to log what you paid, who you bought it from, and when, without typing any of it. When you add a work, Attest\u00e9 asks for the invoice. The one you already have. Point it at the document. A photo, or a PDF. It reads the price, the seller and the date straight off the page. Every field ticked. Yours to check, before you save."
+}
+</script>
 <!-- Consent-gated analytics & marketing (Google Analytics + Meta Pixel).
      Nothing loads before an explicit opt-in — see assets/js/consent.js. -->
 <script defer src="/assets/js/consent.js?v=ebd395e1"></script>
@@ -291,10 +310,60 @@
   transition: transform var(--transition);
 }
 .feature-screenshot:hover .feature-shot-frame { transform: translateY(-4px); }
-.feature-shot-frame img {
+.feature-shot-frame img,
+.feature-shot-frame video {
   display: block; width: 100%; aspect-ratio: 1000 / 1586;
   object-fit: cover; border-radius: 28px; background: #15152A;
 }
+/* Films are 9:16; the frame is 1000/1586. `cover` would crop ~6% off the top
+   and bottom — enough to clip the FEATURE NN badge and the burned captions,
+   which are the two things the film cannot lose. `contain` letterboxes to
+   narrow slivers of #15152A that read as bezel. Box is identical either way. */
+.feature-shot-frame video { object-fit: contain; }
+
+/* Transcript — spans the full item width so it sits beneath BOTH columns,
+   in every layout. order:3 keeps it last inside .reversed items too. */
+.feature-transcript {
+  grid-column: 1 / -1;
+  order: 3;
+  margin-top: 28px;
+  border-top: 1px solid var(--cream-dark);
+  padding-top: 18px;
+}
+.feature-transcript > summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold);
+}
+.feature-transcript > summary::-webkit-details-marker { display: none; }
+.feature-transcript > summary::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform var(--transition);
+}
+.feature-transcript[open] > summary::before { transform: rotate(45deg); }
+.feature-transcript > summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+.feature-transcript-body {
+  max-width: 640px;
+  margin-top: 14px;
+}
+.feature-transcript-body p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--text-body);
+  margin-bottom: 12px;
+}
+.feature-transcript-body p:last-child { margin-bottom: 0; }
 
 /* ========== CTA SECTION ========== */
 .features-cta {
@@ -360,6 +429,10 @@
     grid-template-columns: 1fr;
     gap: 24px;
   }
+  /* .feature-item.reversed sets its own two-track grid and out-specifies the
+     single-column rule above, so reversed items never stacked on mobile — the
+     phone mockup collapsed to ~43px beside the text. Restate it here. */
+  .feature-item.reversed { grid-template-columns: 1fr; }
   .feature-item.reversed .feature-text { order: 1; }
   .feature-item.reversed .feature-screenshot { order: 2; }
   .feature-shot-frame { max-width: 230px; margin: 0 auto; }
@@ -486,13 +559,44 @@
         <div class="feature-shot-frame"><img src="screenshots/import.png" alt="CSV import with drag and drop" loading="lazy"></div>
       </div>
     </div>
+
+    <!-- 6. Scan the Invoice -->
+    <div class="feature-item reversed">
+      <div class="feature-text">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="14" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg></div>
+        <h3>Scan the Invoice</h3>
+        <p>Record what you paid, who you bought it from, and when &mdash; without typing any of it. When you add a work, Attest&eacute; asks for the invoice you already have. Photograph it or attach the PDF, and the price, seller and transaction date are read straight off the page and filled in for you. Every field is shown for you to check before anything is saved. Optional, always &mdash; you can still type the details yourself.</p>
+        <span class="feature-tag">Acquisition</span>
+      </div>
+      <div class="feature-screenshot">
+        <div class="feature-shot-frame">
+          <video class="feature-video" controls playsinline preload="metadata"
+                 poster="assets/video/features/feature-02-scan-invoice.jpg"
+                 aria-label="Feature 02 — Scan the invoice: recording an acquisition in Attesté by photographing the invoice">
+            <source src="assets/video/features/feature-02-scan-invoice-hero.mp4" type="video/mp4">
+            <track kind="captions" label="English" srclang="en"
+                   src="assets/video/features/feature-02-scan-invoice.vtt">
+            Your browser cannot play this video. The full transcript is below.
+          </video>
+        </div>
+      </div>
+      <details class="feature-transcript">
+        <summary>Transcript &mdash; Feature 02, Scan the invoice</summary>
+        <div class="feature-transcript-body">
+          <p>My receipts live in three places. Email, WhatsApp, and a drawer. Here&rsquo;s the part I wish I&rsquo;d known sooner &mdash; I don&rsquo;t retype any of them any more.</p>
+          <p>Here&rsquo;s how to log what you paid, who you bought it from, and when, without typing any of it.</p>
+          <p>When you add a work, Attest&eacute; asks for the invoice. The one you already have. Point it at the document. A photo, or a PDF.</p>
+          <p>It reads the price, the seller and the date straight off the page. Every field ticked. Yours to check, before you save.</p>
+        </div>
+      </details>
+    </div>
   </div>
 
   <!-- ===== AI & INTELLIGENCE ===== -->
   <div class="feature-category">
     <h2 class="category-heading">AI &amp; Intelligence</h2>
 
-    <!-- 6. AI Art Sommelier -->
+    <!-- 7. AI Art Sommelier -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
@@ -505,7 +609,7 @@
       </div>
     </div>
 
-    <!-- 7. AI Assistant -->
+    <!-- 8. AI Assistant -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
@@ -518,7 +622,7 @@
       </div>
     </div>
 
-    <!-- 8. AI Trail Generator -->
+    <!-- 9. AI Trail Generator -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
@@ -531,7 +635,7 @@
       </div>
     </div>
 
-    <!-- 9. Market Intelligence -->
+    <!-- 10. Market Intelligence -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
@@ -549,7 +653,7 @@
   <div class="feature-category">
     <h2 class="category-heading">Journey &amp; Discovery</h2>
 
-    <!-- 10. Discovery Trails -->
+    <!-- 11. Discovery Trails -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
@@ -562,7 +666,7 @@
       </div>
     </div>
 
-    <!-- 11. Art Fair Companion -->
+    <!-- 12. Art Fair Companion -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -575,7 +679,7 @@
       </div>
     </div>
 
-    <!-- 12. Community Trails -->
+    <!-- 13. Community Trails -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
@@ -588,7 +692,7 @@
       </div>
     </div>
 
-    <!-- 13. Travel Mode -->
+    <!-- 14. Travel Mode -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
@@ -606,7 +710,7 @@
   <div class="feature-category">
     <h2 class="category-heading">Social &amp; Engagement</h2>
 
-    <!-- 14. Collector Gamification -->
+    <!-- 15. Collector Gamification -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
@@ -619,7 +723,7 @@
       </div>
     </div>
 
-    <!-- 15. Year in Art -->
+    <!-- 16. Year in Art -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
@@ -632,7 +736,7 @@
       </div>
     </div>
 
-    <!-- 16. Public Collector Profile -->
+    <!-- 17. Public Collector Profile -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
@@ -645,7 +749,7 @@
       </div>
     </div>
 
-    <!-- 17. Collection Memoirs -->
+    <!-- 18. Collection Memoirs -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
@@ -663,7 +767,7 @@
   <div class="feature-category">
     <h2 class="category-heading">Protection &amp; Legacy</h2>
 
-    <!-- 18. Insurance & Condition Vault -->
+    <!-- 19. Insurance & Condition Vault -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
@@ -676,7 +780,7 @@
       </div>
     </div>
 
-    <!-- 19. Auction Intelligence -->
+    <!-- 20. Auction Intelligence -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
@@ -689,7 +793,7 @@
       </div>
     </div>
 
-    <!-- 20. Legacy & Estate Vault -->
+    <!-- 21. Legacy & Estate Vault -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
