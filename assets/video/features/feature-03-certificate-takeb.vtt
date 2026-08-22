@@ -1,0 +1,42 @@
+WEBVTT
+
+1
+00:00:00.050 --> 00:00:02.300
+Every app says your records are secured.
+
+2
+00:00:02.820 --> 00:00:05.720
+Almost none of them tell you what that actually means.
+
+3
+00:00:06.320 --> 00:00:08.090
+So here is exactly what happens,
+
+4
+00:00:08.470 --> 00:00:11.900
+step by step, when this one says it.
+
+5
+00:00:12.600 --> 00:00:18.680
+The certificate gets a fingerprint. A SHA-256 hash.
+
+6
+00:00:18.980 --> 00:00:25.119
+That hash goes to OpenTimestamps. Two independent calendars witness
+
+7
+00:00:25.119 --> 00:00:25.480
+it.
+
+8
+00:00:25.780 --> 00:00:31.080
+The next Bitcoin block absorbs it. About an hour.
+
+9
+00:00:31.380 --> 00:00:34.448
+After that, the proof stands on its own. You
+
+10
+00:00:34.448 --> 00:00:36.562
+don't need us to vouch for it.
+

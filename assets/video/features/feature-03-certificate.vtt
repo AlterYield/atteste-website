@@ -1,0 +1,50 @@
+WEBVTT
+
+1
+00:00:00.050 --> 00:00:02.750
+Every certificate I've ever been handed asked me to trust somebody.
+
+2
+00:00:02.900 --> 00:00:05.250
+This one doesn't.
+
+3
+00:00:06.033 --> 00:00:09.569
+Here's what actually happens the moment you issue a
+
+4
+00:00:09.569 --> 00:00:10.453
+certificate.
+
+5
+00:00:10.803 --> 00:00:14.112
+It's signed, and its fingerprint is sealed to the
+
+6
+00:00:14.112 --> 00:00:14.641
+moment.
+
+7
+00:00:14.991 --> 00:00:19.757
+That fingerprint goes out to the OpenTimestamps network, witnessed
+
+8
+00:00:19.757 --> 00:00:21.891
+by two independent calendars.
+
+9
+00:00:22.241 --> 00:00:25.523
+Within the hour, the next Bitcoin block folds it
+
+10
+00:00:25.523 --> 00:00:28.001
+in, and the proof becomes permanent.
+
+11
+00:00:28.351 --> 00:00:33.135
+You can check it yourself, right there. Not our
+
+12
+00:00:33.135 --> 00:00:34.431
+word for it.
+
