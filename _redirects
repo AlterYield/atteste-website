@@ -54,3 +54,10 @@ https://www.atteste.art/* https://atteste.art/:splat 301!
 # /.netlify/functions/chat would expose a second origin and break it.
 # The function itself enforces origin allowlist, rate limit, and kill switch.
 /api/chat  /.netlify/functions/chat  200
+
+# Feature-film short links — used in social captions, carry attribution.
+/f02  /features?utm_source=social&utm_medium=video&utm_campaign=feature-02  302
+/f01  /features?utm_source=social&utm_medium=video&utm_campaign=feature-01  302
+/f03  /features?utm_source=social&utm_medium=video&utm_campaign=feature-03  302
+/f04  /features?utm_source=social&utm_medium=video&utm_campaign=feature-04  302
+/f05  /features?utm_source=social&utm_medium=video&utm_campaign=feature-05  302
