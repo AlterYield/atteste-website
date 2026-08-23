@@ -140,6 +140,57 @@
   "transcript": "Some of these have been on my walls for forty years. If there were a fire tonight, I could tell you exactly what I lost. I could not prove a single piece of it. Everything you own, in one view. What it's documented at. How much of it is actually insured. Then the part nobody enjoys. The gaps, counted. Four with no policy at all. And one that quietly lapsed in June. You would have found that out at the claim. Condition, broken down. Eight excellent. Four good. It isn't telling you you're covered. It's showing you where you aren't. Attest\u00e9."
 }
 </script>
+<!-- JSON-LD: VideoObject — Feature 03, The certificate that proves it. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Attest\u00e9 \u00b7 Feature 03 \u2014 The certificate that proves it",
+  "description": "What happens the moment an Attest\u00e9 certificate is issued: it is signed, its fingerprint is sealed to the moment, and that fingerprint goes out to the OpenTimestamps network to be witnessed \u2014 so the proof can be checked without taking Attest\u00e9's word for it.",
+  "thumbnailUrl": "https://atteste.art/assets/video/features/feature-03-certificate.jpg",
+  "contentUrl": "https://atteste.art/assets/video/features/feature-03-certificate-hero.mp4",
+  "uploadDate": "2026-08-23",
+  "duration": "PT34S",
+  "inLanguage": "en",
+  "isFamilyFriendly": true,
+  "publisher": { "@type": "Organization", "name": "Attest\u00e9", "url": "https://atteste.art/" },
+  "transcript": "Every certificate I've ever been handed asked me to trust somebody. This one doesn't. Here's what actually happens the moment you issue a certificate. It's signed, and its fingerprint is sealed to the moment. That fingerprint goes out to the OpenTimestamps network, witnessed by two independent calendars. Within the hour, the next Bitcoin block folds it in, and the proof becomes permanent. You can check it yourself, right there. Not our word for it."
+}
+</script>
+<!-- JSON-LD: VideoObject — Feature 05, The schedule. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Attest\u00e9 \u00b7 Feature 05 \u2014 The schedule",
+  "description": "Exporting a collection inventory from Attest\u00e9: every work with title, artist, medium, year, condition and documented value, each figure shown with the source it came from, prepared in your name and ready to send to a broker.",
+  "thumbnailUrl": "https://atteste.art/assets/video/features/feature-05-schedule.jpg",
+  "contentUrl": "https://atteste.art/assets/video/features/feature-05-schedule.mp4",
+  "uploadDate": "2026-08-23",
+  "duration": "PT40S",
+  "inLanguage": "en",
+  "isFamilyFriendly": true,
+  "publisher": { "@type": "Organization", "name": "Attest\u00e9", "url": "https://atteste.art/" },
+  "transcript": "My broker asked me for a schedule of the collection. I sent him a shoebox. Actual receipts, in an actual box. It took him three weeks. One tap. Collection inventory. Every work. Title, artist, medium, year, condition, documented value. And where each number came from. Invoice. Not a guess. Prepared for you, by name. Dated, page numbered, totalled. Print it, or send it straight to your broker. The document you hope you never need."
+}
+</script>
+<!-- JSON-LD: VideoObject — Feature 06, The tag on the frame. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Attest\u00e9 \u00b7 Feature 06 \u2014 The tag on the frame",
+  "description": "Holding a phone against the NFC tag bound to an artwork: the tag points at the record rather than carrying it, and the work's certificate comes back verified.",
+  "thumbnailUrl": "https://atteste.art/assets/video/features/feature-06-nfc.jpg",
+  "contentUrl": "https://atteste.art/assets/video/features/feature-06-nfc-hero.mp4",
+  "uploadDate": "2026-08-23",
+  "duration": "PT21S",
+  "inLanguage": "en",
+  "isFamilyFriendly": true,
+  "publisher": { "@type": "Organization", "name": "Attest\u00e9", "url": "https://atteste.art/" },
+  "transcript": "The record lives on your phone. But the tag lives on the frame. Tap one against the other, and the painting knows its own record. There's a tag on the back of the frame. Hold your phone against it. The tag doesn't carry the record \u2014 it points at it. And the certificate comes back verified."
+}
+</script>
 <!-- Consent-gated analytics & marketing (Google Analytics + Meta Pixel).
      Nothing loads before an explicit opt-in — see assets/js/consent.js. -->
 <script defer src="/assets/js/consent.js?v=ebd395e1"></script>
@@ -538,8 +589,26 @@
         <span class="feature-tag">Provenance</span>
       </div>
       <div class="feature-screenshot">
-        <div class="feature-shot-frame"><img src="screenshots/certificate.png" alt="Attesté Certificate with SHA-256 provenance" loading="lazy"></div>
+        <div class="feature-shot-frame">
+          <video class="feature-video" controls playsinline preload="metadata"
+                 poster="assets/video/features/feature-03-certificate.jpg"
+                 aria-label="Feature 03 — The certificate that proves it: what happens the moment an Attesté certificate is issued">
+            <source src="assets/video/features/feature-03-certificate-hero.mp4" type="video/mp4">
+            <track kind="captions" label="English" srclang="en"
+                   src="assets/video/features/feature-03-certificate.vtt">
+            Your browser cannot play this video. The full transcript is below.
+          </video>
+        </div>
       </div>
+      <details class="feature-transcript">
+        <summary>Transcript &mdash; Feature 03, The certificate that proves it</summary>
+        <div class="feature-transcript-body">
+          <p>Every certificate I&rsquo;ve ever been handed asked me to trust somebody. This one doesn&rsquo;t.</p>
+          <p>Here&rsquo;s what actually happens the moment you issue a certificate. It&rsquo;s signed, and its fingerprint is sealed to the moment.</p>
+          <p>That fingerprint goes out to the OpenTimestamps network, witnessed by two independent calendars. Within the hour, the next Bitcoin block folds it in, and the proof becomes permanent.</p>
+          <p>You can check it yourself, right there. Not our word for it.</p>
+        </div>
+      </details>
     </div>
 
     <!-- 2. AI Art Scout -->
@@ -641,13 +710,43 @@
         </div>
       </details>
     </div>
+
+    <!-- 7. Tap the Tag -->
+    <div class="feature-item">
+      <div class="feature-text">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12h.01"/><path d="M8.5 15.5a5 5 0 0 1 0-7"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M5.5 18.5a9 9 0 0 1 0-13"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></div>
+        <h3>Tap the Tag</h3>
+        <p>A physical NFC tag can be bound to an artwork&rsquo;s certificate of attestation. Once bound, holding your phone against the tag opens that certificate&rsquo;s verification view &mdash; a physical handshake between the work on the wall and its digital provenance. The tag carries no record of its own; it points at the one already in the app. Requires the iOS or Android app.</p>
+        <span class="feature-tag">Verification</span>
+      </div>
+      <div class="feature-screenshot">
+        <div class="feature-shot-frame">
+          <video class="feature-video" controls playsinline preload="metadata"
+                 poster="assets/video/features/feature-06-nfc.jpg"
+                 aria-label="Feature 06 — The tag on the frame: holding a phone against an artwork’s NFC tag to open its verified certificate">
+            <source src="assets/video/features/feature-06-nfc-hero.mp4" type="video/mp4">
+            <track kind="captions" label="English" srclang="en"
+                   src="assets/video/features/feature-06-nfc.vtt">
+            Your browser cannot play this video. The full transcript is below.
+          </video>
+        </div>
+      </div>
+      <details class="feature-transcript">
+        <summary>Transcript &mdash; Feature 06, The tag on the frame</summary>
+        <div class="feature-transcript-body">
+          <p>The record lives on your phone. But the tag lives on the frame. Tap one against the other, and the painting knows its own record.</p>
+          <p>There&rsquo;s a tag on the back of the frame. Hold your phone against it. The tag doesn&rsquo;t carry the record &mdash; it points at it.</p>
+          <p>And the certificate comes back verified.</p>
+        </div>
+      </details>
+    </div>
   </div>
 
   <!-- ===== AI & INTELLIGENCE ===== -->
   <div class="feature-category">
     <h2 class="category-heading">AI &amp; Intelligence</h2>
 
-    <!-- 7. AI Art Sommelier -->
+    <!-- 8. AI Art Sommelier -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
@@ -660,7 +759,7 @@
       </div>
     </div>
 
-    <!-- 8. AI Assistant -->
+    <!-- 9. AI Assistant -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
@@ -673,7 +772,7 @@
       </div>
     </div>
 
-    <!-- 9. AI Trail Generator -->
+    <!-- 10. AI Trail Generator -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
@@ -686,7 +785,7 @@
       </div>
     </div>
 
-    <!-- 10. Market Intelligence -->
+    <!-- 11. Market Intelligence -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
@@ -704,7 +803,7 @@
   <div class="feature-category">
     <h2 class="category-heading">Journey &amp; Discovery</h2>
 
-    <!-- 11. Discovery Trails -->
+    <!-- 12. Discovery Trails -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
@@ -717,7 +816,7 @@
       </div>
     </div>
 
-    <!-- 12. Art Fair Companion -->
+    <!-- 13. Art Fair Companion -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -730,7 +829,7 @@
       </div>
     </div>
 
-    <!-- 13. Community Trails -->
+    <!-- 14. Community Trails -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
@@ -743,7 +842,7 @@
       </div>
     </div>
 
-    <!-- 14. Travel Mode -->
+    <!-- 15. Travel Mode -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
@@ -761,7 +860,7 @@
   <div class="feature-category">
     <h2 class="category-heading">Social &amp; Engagement</h2>
 
-    <!-- 15. Collector Gamification -->
+    <!-- 16. Collector Gamification -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
@@ -774,7 +873,7 @@
       </div>
     </div>
 
-    <!-- 16. Year in Art -->
+    <!-- 17. Year in Art -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
@@ -787,7 +886,7 @@
       </div>
     </div>
 
-    <!-- 17. Public Collector Profile -->
+    <!-- 18. Public Collector Profile -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
@@ -800,7 +899,7 @@
       </div>
     </div>
 
-    <!-- 18. Collection Memoirs -->
+    <!-- 19. Collection Memoirs -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
@@ -818,7 +917,7 @@
   <div class="feature-category">
     <h2 class="category-heading">Protection &amp; Legacy</h2>
 
-    <!-- 19. Insurance & Condition Vault -->
+    <!-- 20. Insurance & Condition Vault -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
@@ -848,7 +947,7 @@
       </details>
     </div>
 
-    <!-- 20. Auction Intelligence -->
+    <!-- 21. Auction Intelligence -->
     <div class="feature-item reversed">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
@@ -861,7 +960,7 @@
       </div>
     </div>
 
-    <!-- 21. Legacy & Estate Vault -->
+    <!-- 22. Legacy & Estate Vault -->
     <div class="feature-item">
       <div class="feature-text">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
@@ -872,6 +971,38 @@
       <div class="feature-screenshot">
         <div class="feature-shot-frame"><img src="screenshots/legacy.png" alt="Legacy and Estate Vault" loading="lazy"></div>
       </div>
+    </div>
+
+    <!-- 23. Collection Inventory -->
+    <div class="feature-item reversed">
+      <div class="feature-text">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="8" y1="9" x2="10" y2="9"/></svg></div>
+        <h3>Collection Inventory</h3>
+        <p>The schedule your broker asks for, in one tap. Every work with its title, artist, medium, year, condition and documented value &mdash; and, beside each number, where that number came from. Prepared in your name, dated, page numbered and totalled, ready to print or send.</p>
+        <span class="feature-tag">Protection</span>
+      </div>
+      <div class="feature-screenshot">
+        <div class="feature-shot-frame">
+          <video class="feature-video" controls playsinline preload="metadata"
+                 poster="assets/video/features/feature-05-schedule.jpg"
+                 aria-label="Feature 05 — The schedule: exporting a collection inventory document from Attesté">
+            <source src="assets/video/features/feature-05-schedule.mp4" type="video/mp4">
+            <track kind="captions" label="English" srclang="en"
+                   src="assets/video/features/feature-05-schedule.vtt">
+            Your browser cannot play this video. The full transcript is below.
+          </video>
+        </div>
+      </div>
+      <details class="feature-transcript">
+        <summary>Transcript &mdash; Feature 05, The schedule</summary>
+        <div class="feature-transcript-body">
+          <p>My broker asked me for a schedule of the collection. I sent him a shoebox. Actual receipts, in an actual box. It took him three weeks.</p>
+          <p>One tap. Collection inventory. Every work. Title, artist, medium, year, condition, documented value.</p>
+          <p>And where each number came from. Invoice. Not a guess.</p>
+          <p>Prepared for you, by name. Dated, page numbered, totalled.</p>
+          <p>Print it, or send it straight to your broker. The document you hope you never need.</p>
+        </div>
+      </details>
     </div>
   </div>
 
