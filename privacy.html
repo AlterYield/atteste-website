@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy — Attesté</title>
-  <meta name="description" content="Privacy Policy for Attesté, the AI-powered art collection platform. Operator: Yield SPM (Pty) Ltd, South Africa. Version 2.1, effective 2026-08-01.">
+  <meta name="description" content="Privacy Policy for Attesté, the AI-powered art collection platform. Operator: Yield SPM (Pty) Ltd, South Africa. Version 2.2, effective 2026-09-19.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://atteste.art/privacy">
   <style>
@@ -118,8 +118,9 @@
     </header>
     <article>
 <h1>Privacy Policy</h1>
-<p><strong>Version 2.1 | Effective Date: 2026-08-01</strong></p>
-<p>Version 2.1 adds two things, both marketing-website-only and both opt-in: consent-gated analytics and advertising cookies (Google Analytics, Meta Pixel — Section 10), and the processing of contact details we receive when you submit a Meta lead-ad form (Section 2.8). Nothing about the Atteste application&rsquo;s data practices has changed.</p>
+<p><strong>Version 2.2 | Effective Date: 2026-09-19</strong></p>
+<p>Version 2.2 adds Section 4.4 (AI assistant connections) and the matching retention rows in Section 7.1. It describes an optional feature you switch on yourself; nothing else changed.</p>
+<p>Version 2.1 added two things, both marketing-website-only and both opt-in: consent-gated analytics and advertising cookies (Google Analytics, Meta Pixel — Section 10), and the processing of contact details we receive when you submit a Meta lead-ad form (Section 2.8). Nothing about the Atteste application&rsquo;s data practices has changed.</p>
 <hr>
 <h2>At a Glance</h2>
 <blockquote>
@@ -583,6 +584,15 @@ Email: <a href="mailto:info@atteste.art">info@atteste.art</a>
 <li>Gemini receives only the specific image(s) being analysed, with no account identifiers</li>
 <li>Claude receives artwork metadata and encounter summaries, with no financial data, passwords, or email addresses</li>
 </ul>
+<h3>4.4 AI Assistant Connections</h3>
+<p>You can connect an AI assistant that you use (for example Claude, Grok or ChatGPT) to Attest&eacute; at <strong>mcp.atteste.art</strong>. There are two kinds of access:</p>
+<ul>
+<li><strong>Public certificate checks</strong> (no sign-in): an assistant can look up one Attest&eacute; certificate by its ID and read the same public verification record anyone can see on its verify page: artwork title, artist name as recorded, issue date, signature status, integrity hash, Bitcoin timestamp proof, and ownership transfers shown as roles (artist, gallery, collector) and dates. It can also search works that galleries and artists have chosen to list for AI assistants. It cannot list or browse certificates.</li>
+<li><strong>Your account</strong> (only if you sign in and approve): on the Attest&eacute; consent page you choose what the assistant may read &mdash; <em>your collection</em> (titles, artists, media, dates, condition, certificates and Bitcoin anchors) and, separately, <em>values you recorded</em> (purchase price, professional valuations, revaluations, insured value). It never receives your address or where a work is kept, the people you bought from or sold to, insurance policy numbers, documents, photos, or your email address. AI estimates are marked experimental and are never included in a value or total. No assistant can change, delete, buy, sell or transfer anything.</li>
+</ul>
+<p><strong>Who receives it, and where.</strong> When you ask your assistant about your collection, the assistant&rsquo;s provider receives the results under <em>its own</em> terms and privacy policy, and may process them outside South Africa, the EU or the UK. You choose that provider; Attest&eacute; does not control it. The lawful basis is your specific consent, given on the consent page for that assistant (POPIA section 72(1)(b); GDPR Article 49(1)(a)).</p>
+<p><strong>What we record.</strong> For each connection: which assistant, the permissions you approved, the consent text version, when you connected and last used it, and a shortened network address. For each request: the time, the tool used, a one-way hash of its inputs, whether a record was found, the response time, the assistant&rsquo;s self-reported name, the user-agent string and a shortened network address (the first three blocks of an IPv4 address or the first four of an IPv6 address). Request logs do not contain your user ID.</p>
+<p><strong>Your control.</strong> You can disconnect any assistant at any time at <strong>mcp.atteste.art/oauth/connections</strong>, or from within the assistant; it loses access within a minute. Deleting your Attest&eacute; account deletes your connections and their tokens.</p>
 <hr>
 <h2>5. Data Sharing &amp; Third Parties</h2>
 <blockquote>
@@ -752,6 +762,16 @@ Email: <a href="mailto:info@atteste.art">info@atteste.art</a>
 <td><strong>Profile photo</strong></td>
 <td>Until you remove it or delete account</td>
 <td>Photo removal or account deletion</td>
+</tr>
+<tr>
+<td><strong>AI assistant connections</strong> (assistant, permissions, consent version, dates)</td>
+<td>While connected; 12 months after you disconnect</td>
+<td>Automatic deletion 12 months after disconnection, or account deletion</td>
+</tr>
+<tr>
+<td><strong>AI assistant request logs</strong> (no user ID)</td>
+<td>12 months</td>
+<td>Automatic deletion</td>
 </tr>
 <tr>
 <td><strong>Artwork records and metadata</strong></td>
@@ -1531,14 +1551,14 @@ Email: <a href="mailto:info@atteste.art">info@atteste.art</a>
 <h3>Addendum M: Other Jurisdictions</h3>
 <p>If you are located in a jurisdiction not specifically addressed above, the general provisions of this Privacy Policy apply, and we will apply GDPR-grade safeguards as a universal baseline. We are committed to respecting the privacy rights granted to you under your local law. If you have questions about how your local law applies to your use of the Service, please contact <a href="mailto:info@atteste.art">info@atteste.art</a>.</p>
 <hr>
-<p><em>This Privacy Policy was last updated on 2026-04-25 (Version 2.0).</em></p>
+<p><em>This Privacy Policy was last updated on 2026-09-19 (Version 2.2).</em></p>
 <p><em>Copyright 2026 Yield SPM (Pty) Ltd. All rights reserved.</em></p>
 
     </article>
     <footer>
       <p>Operator: Yield SPM (Pty) Ltd, Republic of South Africa.<br>
       Contact: <a href="mailto:info@atteste.art">info@atteste.art</a><br>
-      Version 2.0 · Effective 2026-04-25</p>
+      Version 2.2 · Effective 2026-09-19</p>
     </footer>
   </main>
   <script defer src="/assets/js/attribution.js?v=9216b441"></script>
