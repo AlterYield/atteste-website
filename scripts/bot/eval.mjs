@@ -19,7 +19,7 @@ import { writeFile } from "node:fs/promises";
 import { loadKnowledge, selectChunks } from "./lib/knowledge.mjs";
 import { buildTurn } from "./lib/prompt.mjs";
 import { checkAnswer } from "./lib/ledger.mjs";
-import { generate, DEFAULT_MODEL } from "./lib/model.mjs";
+import { generate, DEFAULT_MODEL, MODELS } from "./lib/model.mjs";
 import { GOLDEN } from "./golden.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -181,7 +181,28 @@ if (ledgerViolations.length) {
 }
 
 if (JSON_OUT) {
-  await writeFile(JSON_OUT, JSON.stringify({ model: MODEL, when: new Date().toISOString(), results }, null, 1));
+  // The RESOLVED id, not just the alias. `generate()` returns
+  // "gemini-flash-lite (gemini-3.5-flash-lite)" and eval.mjs used to discard
+  // it, writing only the alias — so a baseline compared across a
+  // GEMINI_MODEL_ID change looked identical. `modelId` is the pinned id;
+  // `model` keeps the alias for backwards compatibility with eval-baseline.json.
+  const resolved = results.find((r) => r.model)?.model ?? null;
+  await writeFile(
+    JSON_OUT,
+    JSON.stringify(
+      {
+        model: MODEL,
+        modelId: MODELS[MODEL]?.id ?? null,
+        modelResolved: resolved,
+        when: new Date().toISOString(),
+        casesTotal: cases.length,
+        casesScored: results.filter((r) => Array.isArray(r.fails) && !r.error && !r.skipped).length,
+        results,
+      },
+      null,
+      1,
+    ),
+  );
   console.log(`\nwrote ${JSON_OUT}`);
 }
 
