@@ -36,7 +36,7 @@
 
 ## For AI agents (MCP)
 
-- **Attesté MCP connector** — public, read-only Model Context Protocol server at `https://mcp.atteste.art/mcp` (Streamable HTTP, no auth). Tools: `verify_certificate`, `get_bitcoin_anchor`, `get_provenance_timeline`, `search_listed_artworks` (owner-opted-in works only), `get_gallery_public_profile`, `get_artist_public_profile`, `explain_attestation`. Cannot buy, sell, offer or change anything. Certificates are fetched by exact ID only. Docs: https://atteste.art/agents
+- **Attesté MCP connector** — public, read-only Model Context Protocol server at `https://mcp.atteste.art/mcp` (Streamable HTTP, no auth). Tools: `verify_certificate`, `get_bitcoin_anchor`, `get_provenance_timeline`, `search_listed_artworks` (owner-opted-in works only), `get_gallery_public_profile`, `get_artist_public_profile`, `explain_attestation`. Cannot buy, sell, offer or change anything. Certificates are fetched by exact ID only. Account endpoint `https://mcp.atteste.art/mcp/account` (OAuth 2.1): with the owner's consent, read their own collection (summary, works, detail, similar works listed on Attesté); values only if separately allowed; AI estimates never in totals. Docs: https://atteste.art/agents
 
 ## Who it's for
 
