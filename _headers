@@ -8,8 +8,9 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 # Apple Universal Links manifest. iOS fetches this to confirm the
-# Atteste app may handle https://atteste.art/v/* URLs from NFC tag
-# taps. Must be served as application/json, NO file extension.
+# Atteste app may handle https://atteste.art/v/* (NFC pointer tags),
+# /t/* (security seals) and /r/* URLs. Must be served as application/json,
+# NO file extension.
 /.well-known/apple-app-site-association
   Content-Type: application/json
   Cache-Control: public, max-age=3600
