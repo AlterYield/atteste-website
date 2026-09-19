@@ -35,6 +35,13 @@ const DRY = has("--dry-run");
 const ONLY = (arg("--only") ?? "").split(",").filter(Boolean);
 const JSON_OUT = arg("--json");
 const CONCURRENCY = Number(arg("--concurrency", "4"));
+// Cost ceiling for one run. The suite is 54 real-model calls; on the default
+// gemini-flash-lite the 2026-08-16 baseline came in well under a cent, but a
+// model swap or a prompt that grows the context can move that by an order of
+// magnitude, and this now runs unattended on a schedule. Cases beyond the cap
+// are recorded as SKIPPED — never silently dropped, because a truncated run
+// that looks complete is worse than an expensive one.
+const MAX_COST_USD = Number(arg("--max-cost-usd", "0.50"));
 
 const pack = await loadKnowledge(join(HERE, "knowledge.json"));
 const cases = ONLY.length ? GOLDEN.filter((c) => ONLY.some((p) => c.id.startsWith(p))) : GOLDEN;
@@ -58,6 +65,10 @@ function grade(c, answer) {
   return fails;
 }
 
+/** Cumulative spend across completed cases, read by the cap below. */
+let spentUsd = 0;
+let skippedForCost = 0;
+
 async function runCase(c) {
   const turn = buildTurn(pack, c.q, { persona: c.persona ?? null, selector: selectChunks });
 
@@ -69,8 +80,21 @@ async function runCase(c) {
     return { ...c, dry: true, promptTokens: Math.round((turn.system.length + turn.context.length) / 4), problems };
   }
 
+  if (!DRY && MAX_COST_USD > 0 && spentUsd >= MAX_COST_USD) {
+    skippedForCost += 1;
+    return {
+      ...c,
+      skipped: true,
+      fails: [`SKIPPED: cost cap $${MAX_COST_USD.toFixed(2)} reached`],
+      ledger: { ok: true, violations: [] },
+      costUsd: 0,
+      ms: 0,
+    };
+  }
+
   try {
     const res = await generate(turn, { model: MODEL });
+    spentUsd += res.costUsd ?? 0;
     const ledger = checkAnswer(res.text, pack.never_claim);
     const fails = grade(c, res.text);
     if (!ledger.ok) fails.unshift(`LEDGER: ${ledger.violations.map((v) => v.id).join(", ")}`);
@@ -146,7 +170,8 @@ refusals correct   ${refusalsOk}/${refusals.length}
 errors             ${results.length - done.length}
 median latency     ${times.length ? times[Math.floor(times.length / 2)] : 0}ms
 cost this run      $${cost.toFixed(4)}   (~$${((cost / (done.length || 1)) * 4).toFixed(3)}/conversation at 4 turns)
-wall clock         ${((Date.now() - started) / 1000).toFixed(1)}s
+wall clock         ${((Date.now() - started) / 1000).toFixed(1)}s${skippedForCost ? `
+${R}SKIPPED FOR COST    ${skippedForCost} case(s) — cap was $${MAX_COST_USD.toFixed(2)}. Coverage is INCOMPLETE.${Z}` : ""}
 ${"─".repeat(58)}`);
 
 if (ledgerViolations.length) {
@@ -160,5 +185,7 @@ if (JSON_OUT) {
   console.log(`\nwrote ${JSON_OUT}`);
 }
 
-const realFailures = results.filter((r) => r.fails.length && !r.knownFlaky).length;
+// A cost-capped case is not a failure — it is coverage we chose not to buy.
+// It must still be visible, which is what the summary line above does.
+const realFailures = results.filter((r) => r.fails.length && !r.knownFlaky && !r.skipped).length;
 process.exit(ledgerViolations.length || realFailures ? 1 : 0);
