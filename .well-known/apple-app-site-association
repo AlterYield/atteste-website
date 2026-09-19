@@ -9,6 +9,10 @@
             "comment": "Attesté NFC tag verify URLs — taps on /v/{certId} open the app when installed, otherwise fall through to the website verify page."
           },
           {
+            "/": "/t/*",
+            "comment": "Attesté security seals (NTAG 424 DNA SUN) — a tap emits /t/{g}?p=…&c=… with a fresh single-use MAC. iOS background tag reading opens the app when installed; otherwise the website sends it to the public seal check. Atteste PR (nfc seal), memo 2026-09-18-nfc-tag-security-decision.md §6.4."
+          },
+          {
             "/": "/r/*",
             "comment": "Referral invite links — /r/{code} opens the app's referral route (stash + auto-redeem, Atteste PR #350) when installed, otherwise falls through to the /r/ landing page."
           }

@@ -21,6 +21,21 @@ https://www.atteste.art/* https://atteste.art/:splat 301!
 # routes the URL into the app before the network request fires.
 /v/* https://atteste-b6409.web.app/verify/:splat 302
 
+# Security-seal taps (NTAG 424 DNA SUN) — /t/{g}?p=<PICCData>&c=<SDMMAC>[&t=<TT>].
+# Like /v/*, installed apps intercept /t/* via Universal Links (AASA component)
+# before the request reaches Netlify; without the app, the OS opens the browser
+# and this hop sends the tap to the `tagTapHttp` Cloud Function (Hosting
+# rewrite /t/** in the Atteste repo's firebase.json), which verifies the seal
+# and NEVER releases money.
+#
+# THE MAC IS IN THE QUERY STRING. Netlify appends the incoming query to a
+# destination that carries none of its own (the property /unsubscribe relies
+# on), so the target has no query params — do not add any. If this line is
+# ever rewritten, re-verify a real tap end to end: a hop that drops ?p/?c makes
+# every seal read as "couldn't check". 302, not 301: each URL is single-use and
+# must never be cached by an intermediary.
+/t/* https://atteste-b6409.web.app/t/:splat 302
+
 # Referral invite links — /r/{code} rewrites (200, path preserved) to the
 # landing page, which reads the code from the path via JS and offers store
 # badges + a "continue on the web" hand-off to the Flutter web app's
