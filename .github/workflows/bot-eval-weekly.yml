@@ -1,0 +1,125 @@
+# Weekly real-model eval for the site bot.
+#
+# The 54-case golden set has existed since 2026-08-16 with a committed baseline
+# and has never run on a schedule — it was a thing someone ran by hand, once.
+# Across the whole estate the 2026-09-19 harness audit found ~8 real-model eval
+# suites and ZERO of them running anywhere. This is the cheapest one to fix:
+# the runner already exists, already computes per-case cost and latency, and
+# already fails on a ledger violation.
+#
+# NON-BLOCKING ON PURPOSE, for now. The eval step is continue-on-error so a
+# flaky week cannot wedge the repo before we know what normal looks like. The
+# job summary still shows red/green, and the committed history file makes a
+# regression a diff. Flip `continue-on-error: false` once two consecutive runs
+# agree — that is the moment it becomes a gate worth having.
+#
+# A run that CANNOT happen fails loudly rather than skipping: a missing key is
+# not a pass. (GEMINI_API_KEY already exists on this repo — set 2026-08-16 for
+# the model-drift workflow.)
+#
+# No github.event payload value is interpolated into any run: block.
+
+name: bot eval (weekly)
+
+on:
+  schedule:
+    # Tuesdays 06:00 UTC / 08:00 SAST — a day after model-drift's Monday run,
+    # so a model retirement is already visible when this spends money.
+    - cron: '0 6 * * 2'
+  workflow_dispatch:
+    inputs:
+      max_cost_usd:
+        description: 'Cost ceiling for this run (USD)'
+        required: false
+        default: '0.50'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bot-eval-weekly
+  cancel-in-progress: false
+
+jobs:
+  eval:
+    name: 54-case golden set against a real model
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify the key is present
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "::error::GEMINI_API_KEY is missing — the eval cannot run. This is a failure, not a skip: an eval that did not run must never look like one that passed."
+            exit 1
+          fi
+
+      - name: Validate the case set (no API calls)
+        run: node scripts/bot/eval.mjs --dry-run
+
+      - name: Run the eval
+        id: eval
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MAX_COST_USD: ${{ github.event.inputs.max_cost_usd || '0.50' }}
+        run: |
+          node scripts/bot/eval.mjs \
+            --json scripts/bot/eval-results/latest.json \
+            --max-cost-usd "$MAX_COST_USD"
+
+      - name: Summarise + append history
+        if: always()
+        run: |
+          if [ ! -f scripts/bot/eval-results/latest.json ]; then
+            echo "::warning::no results file — the eval step produced nothing to summarise"
+            exit 0
+          fi
+          node scripts/bot/eval-summary.mjs \
+            scripts/bot/eval-results/latest.json \
+            scripts/bot/eval-results/history.jsonl
+
+      - name: Commit results
+        if: always()
+        run: |
+          if [ ! -f scripts/bot/eval-results/latest.json ]; then exit 0; fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/bot/eval-results/latest.json scripts/bot/eval-results/history.jsonl
+          if git diff --cached --quiet; then
+            echo "results unchanged — nothing to commit"
+            exit 0
+          fi
+          git commit -m "chore(evals): weekly bot eval results $(date -u +%Y-%m-%d) [skip ci]"
+          # Branch protection may refuse this. That must not fail the job — the
+          # artifact below is the fallback record.
+          if ! git push; then
+            echo "::warning::could not push results (branch protection?) — see the uploaded artifact instead"
+          fi
+
+      - name: Upload results artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bot-eval-${{ github.run_id }}
+          path: scripts/bot/eval-results/
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Report the eval's own verdict
+        if: always()
+        env:
+          OUTCOME: ${{ steps.eval.outcome }}
+        run: |
+          echo "eval step outcome: $OUTCOME"
+          if [ "$OUTCOME" != "success" ]; then
+            echo "::warning::The eval reported failures or a ledger violation. Non-blocking for now — read the job summary. Flip continue-on-error to false once the baseline is trusted."
+          fi
