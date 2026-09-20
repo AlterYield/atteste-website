@@ -17,6 +17,20 @@
 # not a pass. (GEMINI_API_KEY already exists on this repo — set 2026-08-16 for
 # the model-drift workflow.)
 #
+# 2026-09-19: the key check above was the only honest part. Four other shapes
+# of "did not run" still rendered as a pass, so `eval-gate` was added as the
+# LAST step and it, not `continue-on-error`, now decides this job's colour:
+#   1. eval-summary computed `passed === results.length`, which for an empty
+#      array is `0 === 0` → "🟢 all passed", and appended {"passed":0,
+#      "total":0} to the permanent history;
+#   2. `continue-on-error: true` downgraded eval.mjs's exit 1 — which fires on
+#      a ledger violation and on all 54 cases erroring alike — to a warning;
+#   3. the summarise/commit steps exited 0 when no result file existed, so a
+#      crashed run left a GREEN job and NO history line, making the history a
+#      record of successes with invisible gaps;
+#   4. the baseline recorded the model ALIAS and never the resolved id, so a
+#      run either side of a GEMINI_MODEL_ID change looked identical.
+#
 # No github.event payload value is interpolated into any run: block.
 
 name: bot eval (weekly)
@@ -77,11 +91,13 @@ jobs:
             --max-cost-usd "$MAX_COST_USD"
 
       - name: Summarise + append history
-        if: always()
+        if: always() && steps.eval.outcome != 'skipped'
         run: |
+          # A missing result file used to `exit 0` here, which is how a crashed
+          # run produced a green job and no history line at all.
           if [ ! -f scripts/bot/eval-results/latest.json ]; then
-            echo "::warning::no results file — the eval step produced nothing to summarise"
-            exit 0
+            echo "::error::no results file — the eval step produced nothing. This run did not happen; it is not a pass."
+            exit 1
           fi
           node scripts/bot/eval-summary.mjs \
             scripts/bot/eval-results/latest.json \
@@ -114,12 +130,16 @@ jobs:
           retention-days: 90
           if-no-files-found: warn
 
-      - name: Report the eval's own verdict
-        if: always()
+      # ── THE GATE ─────────────────────────────────────────────────────────
+      # The step that decides this job's colour, and the reason
+      # `continue-on-error: true` above is now safe: the eval step may fail
+      # without wedging the commit/upload steps, but it cannot make the JOB
+      # green. The gate needs no key and no network — the check that catches a
+      # missing credential must not itself need one.
+      - name: Eval gate — did a real model score every case?
+        if: always() && steps.eval.outcome != 'skipped'
         env:
           OUTCOME: ${{ steps.eval.outcome }}
         run: |
           echo "eval step outcome: $OUTCOME"
-          if [ "$OUTCOME" != "success" ]; then
-            echo "::warning::The eval reported failures or a ledger violation. Non-blocking for now — read the job summary. Flip continue-on-error to false once the baseline is trusted."
-          fi
+          node scripts/bot/eval-gate.mjs --result scripts/bot/eval-results/latest.json

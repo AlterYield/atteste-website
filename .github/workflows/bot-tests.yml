@@ -1,0 +1,46 @@
+# The bot's three no-key self-tests, in CI.
+#
+# Until 2026-09-19 none of them ran anywhere: test-ledger.mjs, test-redaction.mjs
+# and the eval's own dry-run were in NO workflow at all. So the Promise Ledger
+# guard, the conversation-log redaction and the case-set validation were three
+# checks that existed and were never executed — the same shape as an eval that
+# never runs, one layer down.
+#
+# All four steps are free: no API key, no network, no model.
+name: bot tests
+
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/bot/**', '.github/workflows/bot-tests.yml']
+  pull_request:
+    paths: ['scripts/bot/**', '.github/workflows/bot-tests.yml']
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  bot-tests:
+    name: ledger + redaction + case set + eval gate (no key)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Promise Ledger guard self-test
+        run: node scripts/bot/test-ledger.mjs
+
+      - name: Conversation-log redaction tests
+        run: node scripts/bot/test-redaction.mjs
+
+      - name: The 54 golden cases are well-formed
+        run: node scripts/bot/eval.mjs --dry-run
+
+      # The standing proof that a run which did not happen cannot read as a
+      # pass — including the regression guard for `0 === 0` → "all passed".
+      - name: Eval gate tests (a non-run must fail)
+        run: node scripts/bot/test-eval-gate.mjs
