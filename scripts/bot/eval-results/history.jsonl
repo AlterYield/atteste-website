@@ -1,1 +1,2 @@
 {"when":"2026-09-19T18:06:18.662Z","model":"gemini-flash-lite","passed":54,"total":54,"ledgerViolations":0,"skipped":0,"costUsd":0.382716,"medianMs":941}
+{"when":"2026-09-22T11:24:00.465Z","model":"gemini-flash-lite","passed":53,"total":54,"scored":54,"unscored":0,"errors":0,"ledgerViolations":0,"skipped":0,"costUsd":0.383281,"medianMs":1079}
