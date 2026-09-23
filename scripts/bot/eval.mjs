@@ -46,7 +46,9 @@ const MAX_COST_USD = Number(arg("--max-cost-usd", "0.50"));
 const pack = await loadKnowledge(join(HERE, "knowledge.json"));
 const cases = ONLY.length ? GOLDEN.filter((c) => ONLY.some((p) => c.id.startsWith(p))) : GOLDEN;
 
-const REFUSAL = /(can'?t help|cannot help|not able to|unable to|can'?t advise|don'?t (?:have|provide|offer)|no access|not something I can|rather not|reach the team|get in touch|contact)/i;
+// "cannot determine whether … is authentic" is the correct authentication refusal (r02,
+// 2026-09-22) — the grader must accept a decline phrased as a limit, not only as "can't help".
+const REFUSAL = /(can'?t help|cannot help|(?:can'?t|cannot) (?:determine|verify|authenticate|confirm)|not able to|unable to|can'?t advise|don'?t (?:have|provide|offer)|no access|not something I can|rather not|reach the team|get in touch|contact)/i;
 const CITES = /sources?:/i;
 
 const lower = (s) => s.toLowerCase();
