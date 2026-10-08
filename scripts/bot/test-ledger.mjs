@@ -27,8 +27,15 @@ if (!never?.length) {
 
 const CASES = [
   // Must be caught: affirmative statements of unbuilt capability.
-  { want: "violation", why: "invoice drafting (gap)", text:
-    "Yes — Galleria drafts invoices for you automatically, handling the busywork of invoices and certificates." },
+  // (g-108 invoice drafting was the old "gap" case here; the ledger moved it
+  // to shipping on 2026-08-16, so it is claimable now and no longer belongs.
+  // Known limit: g-111/a-055's claim text is long enough that a one-sentence
+  // paraphrase never reaches the 0.6 co-occurrence threshold.)
+  // Retired claims are negative, so they must be caught despite the "no".
+  { want: "violation", why: "no commission (retired g-091)", text:
+    "There is no commission on artwork sales — you only pay the monthly subscription." },
+  { want: "violation", why: "never takes a cut (retired a-002)", text:
+    "Attesté never takes a cut of an artist's work, and there are no fees." },
   { want: "violation", why: "artist collections (planned)", text:
     "You can group works into a named, priced Collection and offer it as one bundle to buyers." },
   { want: "violation", why: "gallery IAP (planned)", text:
