@@ -146,7 +146,7 @@ for (const f of files) {
 // 7: company identity — every tracked text file (scripts/ is published too)
 {
   const tracked = spawnSync("git", ["ls-files"], { cwd: ROOT, encoding: "utf8" }).stdout.split("\n")
-    .filter((f) => /\.(html|txt|xml|json|js|mjs|md|py|yml|toml)$/.test(f) && !f.startsWith("scripts/bot/eval-results/"));
+    .filter((f) => /\.(html|txt|xml|json|js|mjs|md|py|yml|toml)$/.test(f));
   for (const f of tracked) {
     const src = readFileSync(join(ROOT, f), "utf8");
     if (f === "scripts/claims/rules.mjs" || f === "scripts/claims/test-claims.mjs") continue; // they name the banned strings
