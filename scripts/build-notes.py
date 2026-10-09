@@ -6,7 +6,7 @@ plus notes/index.html listing them (newest first). Pages are self-contained
 (inline styles, site design tokens) like every other page in this repo.
 
 Governance (do not weaken):
-- A note enters notes.json ONLY after Karel approves it on the Brain week
+- A note enters notes.json ONLY after Charl approves it on the Brain week
   queue (wiki/_atelier-notes-week1.json contract). This repo is PUBLIC —
   unapproved artist content must never be committed here, main or branch.
 - The read is containment-guarded upstream (every proper noun byte-verified

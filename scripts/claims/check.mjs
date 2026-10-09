@@ -22,7 +22,8 @@ import {
   ROOT, loadSnapshot, provenHosts, judge, gatedElements, pageClaim, textFences,
   renderHtml, renderText, visibleText, siteFiles,
 } from "./lib.mjs";
-import { RETIRED_PHRASES, ORPHANED_PHRASES, CEILINGS, LEGAL_PAGES } from "./rules.mjs";
+import { RETIRED_PHRASES, ORPHANED_PHRASES, CEILINGS, LEGAL_PAGES, IDENTITY } from "./rules.mjs";
+import { spawnSync } from "node:child_process";
 
 const args = new Set(process.argv.slice(2));
 const snapshot = loadSnapshot();
@@ -138,6 +139,28 @@ for (const f of files) {
         fail.push(`${f}: ceiling [${c.id}] "${m[0]}"`);
         break;
       }
+    }
+  }
+}
+
+// 7: company identity — every tracked text file (scripts/ is published too)
+{
+  const tracked = spawnSync("git", ["ls-files"], { cwd: ROOT, encoding: "utf8" }).stdout.split("\n")
+    .filter((f) => /\.(html|txt|xml|json|js|mjs|md|py|yml|toml)$/.test(f) && !f.startsWith("scripts/bot/eval-results/"));
+  for (const f of tracked) {
+    const src = readFileSync(join(ROOT, f), "utf8");
+    if (f === "scripts/claims/rules.mjs" || f === "scripts/claims/test-claims.mjs") continue; // they name the banned strings
+    for (const re of IDENTITY.banned) {
+      const m = src.match(re);
+      if (m) fail.push(`${f}: identity — "${m[0]}" (the founder is Charl le Roux)`);
+    }
+    if (!/\.(html|txt|xml)$/.test(f) || IDENTITY.bloemfonteinExemptPrefixes.some((p) => f.startsWith(p))) continue;
+    let masked = src;
+    for (const re of IDENTITY.bloemfonteinAllowed) masked = masked.replace(new RegExp(re.source, re.flags + "g"), "");
+    const b = masked.match(IDENTITY.bloemfontein);
+    if (b) {
+      const at = masked.indexOf(b[0]);
+      fail.push(`${f}: identity — unlabelled "Bloemfontein" ("${masked.slice(Math.max(0, at - 60), at + 20).replace(/\s+/g, " ")}"); the place of business is Stellenbosch, Western Cape. Bloemfontein only as a labelled registered office.`);
     }
   }
 }

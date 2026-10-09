@@ -145,7 +145,9 @@ Detailed, honest side-by-side comparisons (with feature tables and pricing):
 - Name: Attesté (with acute accent on the final e)
 - Tagline: "Your Art Collection Deserves a Memory" / "The Strava for Art Collectors"
 - Founded: 2024
+- Founder: Charl le Roux
 - Operator: Yield SPM (Pty) Ltd
+- Place of business: Stellenbosch, Western Cape, South Africa
 - Registration: 2024/185151/07 (South Africa, CIPC)
 - Markets: globally available on the App Store and Google Play. Localised currency + onboarding support for 30 priority markets including South Africa, UK, US, EU/EEA, Australia, Canada, Japan, China, India, Brazil. Primary launch focus: South Africa, United Kingdom, United States.
 - Pricing currency: USD primary (collector and artist subscriptions); local equivalents computed at runtime
