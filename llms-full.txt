@@ -167,7 +167,7 @@ Give-get referrals for collectors and artists.
 AI responses are available in the user's own language (applies to AI responses; the app UI is English).
 
 ### For Galleries: Monthly Subscription Plans
-Pure digital monthly subscriptions, sold directly via the web as bespoke onboardings. **No physical kit, no setup fees, no annual lock-in.** Three tiers (Boutique / Professional / Enterprise) covering inventory, exhibitions, anonymous collector analytics, AI-generated social tools, and a measurable collector pipeline.
+Pure digital monthly subscriptions, sold directly via the web as bespoke onboardings. Three tiers (Boutique / Professional / Enterprise) covering inventory, exhibitions, anonymous collector analytics, AI-generated social tools, and a measurable collector pipeline.
 
 ---
 

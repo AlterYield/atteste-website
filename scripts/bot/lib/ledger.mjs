@@ -24,6 +24,42 @@ const words = (s) =>
 const NEGATED = /\b(not|isn'?t|aren'?t|no|never|cannot|can'?t|don'?t|doesn'?t|without|unavailable|unable|yet to|not yet|coming|planned|roadmap|currently no)\b/i;
 
 /**
+ * Retired claims are usually NEGATIVE ("no commission"), so the affirmative
+ * check above skips them: NEGATED treats "no commission" as a denial. A
+ * retired claim is withdrawn because it stopped being true, so its own
+ * wording is the violation. Keyed by ledger id; the phrases are what the
+ * retired claim said, not what a correct answer about fees would say.
+ * Shared with scripts/check-claims.mjs, which applies them to the site.
+ */
+export const RETIRED_PHRASES = {
+  "g-091-no-commission": [
+    /\bno\s+commissions?\b/i,
+    /\bcommission[-\s]free\b/i,
+    /\bzero\s+commission\b/i,
+    /\bnever\s+(takes?|charges?)\s+(a\s+)?(cut|commission)/i,
+    /\b(doesn['’]t|does\s+not|won['’]t|will\s+not)\s+(take|charge)\s+(a\s+)?(cut|commission)/i,
+    /\bkeep\s+(their|your)\s+margins\b/i,
+  ],
+  "a-002-no-fees-no-commission": [
+    /\bno\s+fees\b/i,
+    /\bno\s+hidden\s+fees\b/i,
+    /\bnever\s+takes?\s+a\s+cut\b/i,
+  ],
+};
+
+/** Every retired-claim phrase found in `text`, as {id, phrase, match}. */
+export function findRetiredPhrases(text, ids = Object.keys(RETIRED_PHRASES)) {
+  const hits = [];
+  for (const id of ids) {
+    for (const re of RETIRED_PHRASES[id] ?? []) {
+      const m = text.match(re);
+      if (m) hits.push({ id, phrase: String(re), match: m[0] });
+    }
+  }
+  return hits;
+}
+
+/**
  * @param {string} answer            the model's output
  * @param {object[]} neverClaim      pack.never_claim entries
  * @param {number} threshold         fraction of a claim's distinctive words that must co-occur
@@ -52,6 +88,14 @@ export function checkAnswer(answer, neverClaim = [], { threshold = 0.6 } = {}) {
         break;
       }
     }
+  }
+
+  // Retired claims: their wording is itself the violation, negated or not.
+  const retiredIds = neverClaim.filter((e) => e.status === "retired").map((e) => e.id);
+  for (const hit of findRetiredPhrases(answer, retiredIds)) {
+    if (violations.some((v) => v.id === hit.id)) continue;
+    const entry = neverClaim.find((e) => e.id === hit.id);
+    violations.push({ id: hit.id, status: "retired", claim: entry?.claim, matched: 1, sentence: hit.match });
   }
 
   return { ok: violations.length === 0, violations };

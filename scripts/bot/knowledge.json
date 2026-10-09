@@ -1,8 +1,8 @@
 {
  "generated_from": "atteste-website @ build time",
- "chunk_count": 118,
- "word_count": 11416,
- "approx_tokens": 15183,
+ "chunk_count": 117,
+ "word_count": 12126,
+ "approx_tokens": 16128,
  "pricing": {
   "gallery": {
    "tiers": {
@@ -18,8 +18,8 @@
      "monthly_usd": 259.0
     }
    },
-   "ledger_version": 0.4,
-   "last_audit": "2026-08-01"
+   "ledger_version": 0.5,
+   "last_audit": "2026-08-16"
   },
   "artist": {
    "tiers": {
@@ -241,6 +241,13 @@
    "category": "crm"
   },
   {
+   "id": "g-108-invoice-drafting",
+   "audience": "gallery",
+   "status": "shipping",
+   "claim": "Galleria drafts invoices (hero: 'Galleria does the busywork — drafting invoices and certificates…').",
+   "category": "ai"
+  },
+  {
    "id": "g-060-exhibition-promotion-push",
    "audience": "gallery",
    "status": "shipping",
@@ -276,24 +283,10 @@
    "category": "billing"
   },
   {
-   "id": "g-091-no-commission",
-   "audience": "gallery",
-   "status": "live",
-   "claim": "No commission on artwork sales. No per-scan or per-visitor charges. No setup fees. Cancel any time.",
-   "category": "billing"
-  },
-  {
    "id": "a-001-free-to-download",
    "audience": "artist",
    "status": "live",
    "claim": "Attesté is free to download — App Store and Google Play. Documenting your work costs nothing; no card needed to start.",
-   "category": "access"
-  },
-  {
-   "id": "a-002-no-fees-no-commission",
-   "audience": "artist",
-   "status": "live",
-   "claim": "No fees, no commission on sales, no exclusivity — Attesté never takes a cut of an artist's work.",
    "category": "access"
   },
   {
@@ -376,13 +369,6 @@
  ],
  "never_claim": [
   {
-   "id": "g-108-invoice-drafting",
-   "audience": "gallery",
-   "status": "gap",
-   "claim": "Galleria drafts invoices (hero: 'Galleria does the busywork — drafting invoices and certificates…').",
-   "category": "ai"
-  },
-  {
    "id": "g-090-web-checkout-activation",
    "audience": "gallery",
    "status": "planned",
@@ -395,6 +381,41 @@
    "status": "planned",
    "claim": "Subscribe directly in the iOS or Android app via App Store / Play Store. Monthly or annual.",
    "category": "billing"
+  },
+  {
+   "id": "g-091-no-commission",
+   "audience": "gallery",
+   "status": "retired",
+   "claim": "No commission on artwork sales. No per-scan or per-visitor charges. No setup fees. Cancel any time.",
+   "category": "billing"
+  },
+  {
+   "id": "g-109-agent-discovery",
+   "audience": "gallery",
+   "status": "planned",
+   "claim": "Opt individual works in to discovery by AI assistants (Grok, Claude, ChatGPT and others): agents can find the work, verify its Attesté certificate and Bitcoin anchor, and read your public gallery profile. Your contact details, clients and floor prices are never exposed.",
+   "category": "discovery"
+  },
+  {
+   "id": "g-110-security-seal",
+   "audience": "gallery",
+   "status": "planned",
+   "claim": "Seal the works you sell with Attesté security seals: every tap makes a single-use code that our server checks against the work's certificate record. A seal confirms the tag, never the artwork itself.",
+   "category": "provenance"
+  },
+  {
+   "id": "g-111-trade-payments",
+   "audience": "gallery",
+   "status": "planned",
+   "claim": "Sell an artwork and get paid inside Attesté: by card or wallet straight into your own Peach Payments account in South Africa, or through a licensed escrow service that holds the buyer's money until the work arrives. Ownership and the certificate move to the buyer once the card payment is secured, or once the buyer confirms delivery to the escrow service. Attesté charges a 1% fee on sales paid through GoSafe escrow; the seller pays it, alongside GoSafe's 1.5%, and the buyer pays the price.",
+   "category": "trade"
+  },
+  {
+   "id": "a-002-no-fees-no-commission",
+   "audience": "artist",
+   "status": "retired",
+   "claim": "No fees, no commission on sales, no exclusivity — Attesté never takes a cut of an artist's work.",
+   "category": "access"
   },
   {
    "id": "a-050-artist-collections",
@@ -416,6 +437,27 @@
    "status": "planned",
    "claim": "See every work you have on consignment with galleries — status and splits in one view.",
    "category": "selling"
+  },
+  {
+   "id": "a-053-agent-discovery",
+   "audience": "artist",
+   "status": "planned",
+   "claim": "Opt individual works in to discovery by AI assistants: agents can find the work, verify its Source Certificate and Bitcoin anchor, and read your public artist profile. Your contact details and studio location are never exposed.",
+   "category": "portfolio"
+  },
+  {
+   "id": "a-054-security-seal",
+   "audience": "artist",
+   "status": "planned",
+   "claim": "Seal a work with an Attesté security seal: every tap makes a single-use code that our server checks against the work's certificate record. A seal confirms the tag, never the artwork itself.",
+   "category": "provenance"
+  },
+  {
+   "id": "a-055-trade-payments",
+   "audience": "artist",
+   "status": "planned",
+   "claim": "Sell a work and get paid inside Attesté: by card or wallet straight into your own Peach Payments account in South Africa, or through a licensed escrow service that holds the buyer's money until the work arrives. Ownership and the certificate move to the buyer once the card payment is secured, or once the buyer confirms delivery to the escrow service. Attesté charges a 1% fee on sales paid through GoSafe escrow; the seller pays it, alongside GoSafe's 1.5%, and the buyer pays the price.",
+   "category": "trade"
   }
  ],
  "chunks": [
@@ -1147,7 +1189,7 @@
    "heading": "Collection Management",
    "kind": "marketing",
    "audience": "all",
-   "text": "Attesté Certificate\n\nLiving digital provenance with SHA-256 integrity hashing, tiered certification (Standard / Enhanced / Professional), QR codes, and shareable certificate faces. Your artwork's verified biography — which, for artist-made works, begins with its First Witness : the maker’s own account, recorded and sealed at creation.\n\nProvenance\n\nAI Art Scout\n\nPhotograph any artwork. AI identifies the artist, medium, period, and estimated significance. Add it to your watchlist or log it as an encounter on your journey.\n\nAI-Powered\n\nArtist & Dealer Hub\n\nFull profiles for artists and dealers with AI enrichment, nationality context, contact info, and market positioning. The foundation for understanding every piece in your collection.\n\nResearch\n\nDashboard\n\nCollection summary stats, featured artpiece, quick actions, gamification progress, and journey highlights at a glance. Your collection's command centre.\n\nOverview\n\nCSV Import\n\nDrag-and-drop bulk import with intelligent column mapping. Migrate your existing spreadsheet collection in minutes, not hours.\n\nUtility"
+   "text": "Attesté Certificate\n\nLiving digital provenance with SHA-256 integrity hashing, tiered certification (Standard / Enhanced / Professional), QR codes, and shareable certificate faces. Your artwork's verified biography — which, for artist-made works, begins with its First Witness : the maker’s own account, recorded and sealed at creation.\n\nProvenance\n\nYour browser cannot play this video. The full transcript is below.\n\nTranscript — Feature 03, The certificate that proves it\n\nEvery app says your records are secured. Almost none of them tell you what that actually means.\n\nSo here is exactly what happens, step by step, when this one says it.\n\nThe certificate gets a fingerprint. A SHA-256 hash. That hash goes to OpenTimestamps. Two independent calendars witness it.\n\nThe next Bitcoin block absorbs it. About an hour.\n\nAfter that, the proof stands on its own. You don’t need us to vouch for it.\n\nAI Art Scout\n\nPhotograph any artwork. AI identifies the artist, medium, period, and estimated significance. Add it to your watchlist or log it as an encounter on your journey.\n\nAI-Powered\n\nTranscript — Feature 04, Ask it about art\n\nThirty years, I’ve told collectors the truth about their paintings. It has rarely made me popular. Your phone is about to do the same.\n\nPoint it at something you don’t own yet. No label. No title. No artist. Just the picture.\n\nIt reads the surface. The impasto. The palette knife. Then it names it. Solitary Sentinel. Oil on canvas. Expressionism.\n\nAnd then it does the thing nobody expects. It refuses to flatter it. Competently executed, it says. Strong decorative appeal. And its collectible value? That would depend on an artist you’d have to go and research.\n\nWhich is the honest answer. Not the flattering one. Attesté.\n\nArtist & Dealer Hub\n\nFull profiles for artists and dealers with AI enrichment, nationality context, contact info, and market positioning. The foundation for understanding every piece in your collection.\n\nResearch\n\nDashboard\n\nCollection summary stats, featured artpiece, quick actions, gamification progress, and journey highlights at a glance. Your collection's command centre.\n\nOverview\n\nCSV Import\n\nDrag-and-drop bulk import with intelligent column mapping. Migrate your existing spreadsheet collection in minutes, not hours.\n\nUtility\n\nScan the Invoice\n\nRecord what you paid, who you bought it from, and when — without typing any of it. When you add a work, Attesté asks for the invoice you already have. Photograph it or attach the PDF, and the price, seller and transaction date are read straight off the page and filled in for you. Every field is shown for you to check before anything is saved. Optional, always — you can still type the details yourself.\n\nAcquisition\n\nYour browser cannot play this video. The full transcript is below.\n\nTranscript — Feature 02, Scan the invoice\n\nMy receipts live in three places. Email, WhatsApp, and a drawer. Here’s the part I wish I’d known sooner — I don’t retype any of them any more.\n\nHere’s how to log what you paid, who you bought it from, and when, without typing any of it.\n\nWhen you add a work, Attesté asks for the invoice. The one you already have. Point it at the document. A photo, or a PDF.\n\nIt reads the price, the seller and the date straight off the page. Every field ticked. Yours to check, before you save.\n\nTap the Tag\n\nA physical NFC tag can be bound to an artwork’s certificate of attestation. Once bound, holding your phone against the tag opens that certificate’s verification view — a physical handshake between the work on the wall and its digital provenance. The tag carries no record of its own; it points at the one already in the app. Requires the iOS or Android app.\n\nVerification\n\nYour browser cannot play this video. The full transcript is below.\n\nTranscript — Feature 06, The tag on the frame\n\nThe record lives on your phone. But the tag lives on the frame. Tap one against the other, and the painting knows its own record.\n\nThere’s a tag on the back of the frame. Hold your phone against it. The tag doesn’t carry the record — it points at it.\n\nAnd the certificate comes back verified."
   },
   {
    "id": "features.html#1",
@@ -1187,7 +1229,7 @@
    "heading": "Protection & Legacy",
    "kind": "marketing",
    "audience": "all",
-   "text": "Insurance & Condition Vault\n\nAI condition analysis via Gemini Vision. PDF condition reports. Insurance coverage summaries. Valuation timeline tracking. Professional appraisal management.\n\nProtection\n\nAuction Intelligence\n\nTrack auction houses across multiple countries. Browse upcoming lots with estimate ranges. Set alerts for artists you collect. Track your bids. Historical price records.\n\nIntelligence\n\nLegacy & Estate Vault\n\nDesignate heirs for each artwork. Create emergency access tokens. Write living letters — personal messages attached to pieces for future generations. Estate duty guidance.\n\nLegacy"
+   "text": "Insurance & Condition Vault\n\nAI condition analysis via Gemini Vision. PDF condition reports. Insurance coverage summaries. Valuation timeline tracking. Professional appraisal management.\n\nProtection\n\nTranscript — Feature 05, The Insurance Vault\n\nSome of these have been on my walls for forty years. If there were a fire tonight, I could tell you exactly what I lost. I could not prove a single piece of it.\n\nEverything you own, in one view. What it’s documented at. How much of it is actually insured.\n\nThen the part nobody enjoys. The gaps, counted. Four with no policy at all. And one that quietly lapsed in June. You would have found that out at the claim.\n\nCondition, broken down. Eight excellent. Four good.\n\nIt isn’t telling you you’re covered. It’s showing you where you aren’t. Attesté.\n\nAuction Intelligence\n\nTrack auction houses across multiple countries. Browse upcoming lots with estimate ranges. Set alerts for artists you collect. Track your bids. Historical price records.\n\nIntelligence\n\nLegacy & Estate Vault\n\nDesignate heirs for each artwork. Create emergency access tokens. Write living letters — personal messages attached to pieces for future generations. Estate duty guidance.\n\nLegacy\n\nCollection Inventory\n\nThe schedule your broker asks for, in one tap. Every work with its title, artist, medium, year, condition and documented value — and, beside each number, where that number came from. Prepared in your name, dated, page numbered and totalled, ready to print or send.\n\nProtection\n\nYour browser cannot play this video. The full transcript is below.\n\nTranscript — Feature 05, The schedule\n\nMy broker asked me for a schedule of the collection. I sent him a shoebox. Actual receipts, in an actual box. It took him three weeks.\n\nOne tap. Collection inventory. Every work. Title, artist, medium, year, condition, documented value.\n\nAnd where each number came from. Invoice. Not a guess.\n\nPrepared for you, by name. Dated, page numbered, totalled.\n\nPrint it, or send it straight to your broker. The document you hope you never need."
   },
   {
    "id": "features.html#5",
@@ -1257,7 +1299,7 @@
    "heading": "Why Working Artists Choose Attesté",
    "kind": "marketing",
    "audience": "artist",
-   "text": "We built this for artists who treat their practice seriously. Here’s what that looks like in product terms.\n\n✓\n\nYou Issue the Certificates — Not a Marketplace\n\nSource certificates are signed by you. Provenance starts at your hand and stays attributable, no matter who resells.\n\n✓\n\nNo Commission on Sales\n\nAttesté doesn’t take a cut of your sales. We’re a subscription tool, not a marketplace. Your relationships with collectors and galleries stay yours.\n\n✓\n\nCatalogue-First, Not Feed-First\n\nYour profile shows your work as a body of practice, not chronological posts. Curated. Searchable. Designed to be referenced, not scrolled.\n\n✓\n\nPrivacy for Collectors Builds Trust for You\n\nCollectors who use Attesté know their encounter logs are private. That’s exactly why they’re comfortable verifying ownership with you when the moment calls for it.\n\nTHE ARTIST LIST"
+   "text": "We built this for artists who treat their practice seriously. Here’s what that looks like in product terms.\n\n✓\n\nYou Issue the Certificates — Not a Marketplace\n\nSource certificates are signed by you. Provenance starts at your hand and stays attributable, no matter who resells.\n\n✓\n\nCatalogue-First, Not Feed-First\n\nYour profile shows your work as a body of practice, not chronological posts. Curated. Searchable. Designed to be referenced, not scrolled.\n\n✓\n\nPrivacy for Collectors Builds Trust for You\n\nCollectors who use Attesté know their encounter logs are private. That’s exactly why they’re comfortable verifying ownership with you when the moment calls for it.\n\nTHE ARTIST LIST"
   },
   {
    "id": "artists.html#6",
@@ -1277,7 +1319,7 @@
    "heading": "Start Building Your Catalogue",
    "kind": "marketing",
    "audience": "artist",
-   "text": "Studio comes with a 14-day free trial. Cancel any time inside the app, before or after the trial. No commission, no hidden fees.\n\nQuestions? Email info@atteste.art — we read every message."
+   "text": "Studio comes with a 14-day free trial. Cancel any time inside the app, before or after the trial.\n\nQuestions? Email info@atteste.art — we read every message."
   },
   {
    "id": "galleries.html#0",
@@ -1337,7 +1379,7 @@
    "heading": "Gallery Plans",
    "kind": "marketing",
    "audience": "gallery",
-   "text": "Launch Galleria and set your gallery up on the web in minutes. Monthly subscription · no commission on sales · no physical kit fees · cancel any time.\n\nBoutique\n\nGet Discovered\n\n$64.99 /mo\n\nFounding-gallery 30% off for 12 months · ≈$45.49/mo for first 25 galleries\n\n- Up to 50 artworks in inventory\n\n- Up to 6 exhibitions per year\n\n- Anonymous visitor analytics\n\n- Top-artworks & dwell-time insights\n\n- Repeat-visitor tracking\n\n- Collector lead pipeline\n\n- Featured in gallery directory\n\n- AI Sommelier visibility\n\n- Consignment tracking\n\n- Provenance request bridge\n\n- Talking Provenance — Curator’s Commentary\n\n- AI social posts\n\n- Content calendar\n\n- Exhibition promotion push\n\nStart with Boutique\n\nRECOMMENDED\n\nProfessional\n\nFull Power\n\n$158.99 /mo\n\nFor galleries that publish weekly · AI social posts + content calendar + collector pipeline\n\n- Everything in Boutique, plus:\n\n- Up to 100 artworks in inventory\n\n- Up to 12 exhibitions per year\n\n- Talking Provenance — Curator’s Commentary recording\n\n- AI social post generation (10 / month)\n\n- AI follow-up message drafts (20 / month)\n\n- Content calendar & scheduling\n\n- Full collector pipeline (lead stages, notes)\n\n- Unlimited AI generation\n\n- AI artist reports\n\n- Exhibition promotion push\n\nStart with Professional\n\nEnterprise\n\nUnlimited\n\n$259.00 /mo\n\nFor galleries that target collectors directly · unlimited AI + artist reports + aesthetic targeting\n\n- Everything in Professional, plus:\n\n- Unlimited artworks & exhibitions\n\n- Unlimited AI generation\n\n- AI artist reports (monthly per artist)\n\n- PDF export of reports for artists & consignors\n\n- Exhibition promotion push to matched collectors\n\n- Collector targeting by aesthetic taste profile\n\n- Priority support\n\nStart with Enterprise\n\nLaunch Galleria to get started — monthly billing, cancel any time. Subscription expiry triggers a renewal reminder; collector data is preserved across cycles."
+   "text": "Launch Galleria and set your gallery up on the web in minutes. Billed monthly.\n\nBoutique\n\nGet Discovered\n\n$64.99 /mo\n\nFounding-gallery 30% off for 12 months · ≈$45.49/mo for first 25 galleries\n\n- Up to 50 artworks in inventory\n\n- Up to 6 exhibitions per year\n\n- Anonymous visitor analytics\n\n- Top-artworks & dwell-time insights\n\n- Repeat-visitor tracking\n\n- Collector lead pipeline\n\n- Featured in gallery directory\n\n- AI Sommelier visibility\n\n- Consignment tracking\n\n- Provenance request bridge\n\n- Talking Provenance — Curator’s Commentary\n\n- AI social posts\n\n- Content calendar\n\n- Exhibition promotion push\n\nStart with Boutique\n\nRECOMMENDED\n\nProfessional\n\nFull Power\n\n$158.99 /mo\n\nFor galleries that publish weekly · AI social posts + content calendar + collector pipeline\n\n- Everything in Boutique, plus:\n\n- Up to 100 artworks in inventory\n\n- Up to 12 exhibitions per year\n\n- Talking Provenance — Curator’s Commentary recording\n\n- AI social post generation (10 / month)\n\n- AI follow-up message drafts (20 / month)\n\n- Content calendar & scheduling\n\n- Full collector pipeline (lead stages, notes)\n\n- Unlimited AI generation\n\n- AI artist reports\n\n- Exhibition promotion push\n\nStart with Professional\n\nEnterprise\n\nUnlimited\n\n$259.00 /mo\n\nFor galleries that target collectors directly · unlimited AI + artist reports + aesthetic targeting\n\n- Everything in Professional, plus:\n\n- Unlimited artworks & exhibitions\n\n- Unlimited AI generation\n\n- AI artist reports (monthly per artist)\n\n- PDF export of reports for artists & consignors\n\n- Exhibition promotion push to matched collectors\n\n- Collector targeting by aesthetic taste profile\n\n- Priority support\n\nStart with Enterprise\n\nLaunch Galleria to get started — monthly billing, cancel any time. Subscription expiry triggers a renewal reminder; collector data is preserved across cycles."
   },
   {
    "id": "galleries.html#6",
@@ -1347,20 +1389,10 @@
    "heading": "The Numbers Make Sense",
    "kind": "marketing",
    "audience": "gallery",
-   "text": "Even conservative estimates show clear return on a Boutique monthly subscription.\n\nAverage gallery foot traffic\n200 visitors/month\n\nConservative Attesté usage rate\n10% = 20 encounters/month\n\nEncounters logged over 12 months\n240 attributed to your gallery\n\nSommelier-driven return visits (10%)\n24 return visits\n\nIf 5% of returns result in a purchase\n1.2 additional sales\n\nAt avg. artwork price $825\n$990 return on $779.88 Boutique/year = $210 net (27% ROI) — or $444 net (81% ROI) on founding pricing\n\nPilots have seen 25%+ adoption among visiting collectors, where the ROI multiplies. Numbers scale with gallery size."
+   "text": "Even conservative estimates show clear return on a Boutique monthly subscription.\n\nAverage gallery foot traffic\n200 visitors/month\n\nConservative Attesté usage rate\n10% = 20 encounters/month\n\nEncounters logged over 12 months\n240 attributed to your gallery\n\nSommelier-driven return visits (10%)\n24 return visits\n\nIf 5% of returns result in a purchase\n1.2 additional sales\n\nAt avg. artwork price $825\n$990 return on $779.88 Boutique/year = $210 net (27% ROI) — or $444 net (81% ROI) on founding pricing\n\nPilots have seen 25%+ adoption among visiting collectors, where the ROI multiplies. Numbers scale with gallery size.\n\nBOOK A DEMO"
   },
   {
    "id": "galleries.html#7",
-   "page": "galleries.html",
-   "url": "https://atteste.art/galleries",
-   "title": "Attesté Galleria",
-   "heading": "What You Don't Pay",
-   "kind": "marketing",
-   "audience": "gallery",
-   "text": "We believe galleries should keep their margins.\n\n✕\nNo commission on artwork sales\n\n✕\nNo per-scan or per-visitor charges\n\n✕\nNo setup or activation fees\n\n✕\nNo long-term lock-in — cancel any time\n\nBOOK A DEMO"
-  },
-  {
-   "id": "galleries.html#8",
    "page": "galleries.html",
    "url": "https://atteste.art/galleries",
    "title": "Attesté Galleria",
