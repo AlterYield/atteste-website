@@ -158,7 +158,8 @@ export function textFences(text) {
 
 export const STAGED_CSS = `<style id="claim-gate-staged">
 [data-claim-staged]{outline:2px dashed #c9a96e;outline-offset:6px}
-[data-claim-staged]::before{content:attr(data-claim-staged);display:block;font:600 11px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.03em;color:#1a1a2e;background:#f3e3bf;border-radius:4px;padding:4px 8px;margin:0 0 10px;width:max-content;max-width:100%;white-space:normal;text-transform:none}
+[data-claim-staged]::before{content:attr(data-claim-staged);display:block;font:600 11px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.03em;color:#1a1a2e;background:#f3e3bf;border-radius:4px;padding:4px 8px;margin:0 0 10px;width:fit-content;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-transform:none}
+nav [data-claim-staged]::before,li[data-claim-staged]::before{content:"STAGED";padding:1px 5px;margin:0 0 2px;font-size:9px}
 </style>`;
 
 /**
