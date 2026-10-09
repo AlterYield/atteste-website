@@ -111,6 +111,16 @@ ok(!(nfc.a.test("The NFC tag points at the record.") && nfc.b.test("The NFC tag 
 ok(RETIRED_PHRASES["g-091-no-commission"].some((r) => r.test("No commission on artwork sales")), "retired g-091 wording is caught");
 ok(visibleText("<td>NFC</td><td>authentic</td>").split("\n").length >= 2, "table cells are separate sentences");
 
+// Company identity
+{
+  const { IDENTITY } = await import("./rules.mjs");
+  const strip = (s) => IDENTITY.bloemfonteinAllowed.reduce((m, re) => m.replace(new RegExp(re.source, re.flags + "g"), ""), s);
+  ok(IDENTITY.banned.some((re) => re.test("founded by Karel Kraai")), "identity: the old founder name fails");
+  ok(!IDENTITY.bloemfontein.test(strip("Registered office: 23 Kameeldoringdraai, Woodland Hills, Bloemfontein, Free State")), "identity: a labelled registered office passes");
+  ok(!IDENTITY.bloemfontein.test(strip('"foundingLocation": { "@type": "Place", "name": "Bloemfontein, South Africa" }')), "identity: foundingLocation passes");
+  ok(IDENTITY.bloemfontein.test(strip("Built in Bloemfontein, South Africa.")), "identity: unlabelled Bloemfontein fails");
+}
+
 // ── B. the real site ─────────────────────────────────────────────────────────
 const realSnap = loadSnapshot();
 const realHosts = provenHosts();

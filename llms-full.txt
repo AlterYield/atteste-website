@@ -18,11 +18,13 @@
 | Field | Value |
 |---|---|
 | Product name | Attesté |
-| Tagline | "Your Art Collection Deserves a Memory" / "The Strava for Art Collectors" |
+| Tagline | "Your art, connected." |
 | Category | Art collection management · Provenance platform · Artist studio toolkit · Gallery analytics |
 | Primary users | Individual art collectors, working artists, gallery directors, art advisors, institutional curators |
 | Pricing | Free tier available; paid collector from $9.99/mo; artist from $14.99/mo (14-day trial); galleries from $64.99/mo (sold via the web) |
 | Operator | Yield SPM (Pty) Ltd |
+| Founder | Charl le Roux |
+| Place of business | Stellenbosch, Western Cape, South Africa |
 | Registration | 2024/185151/07 (CIPC, South Africa) |
 | Markets | globally available; primary launch markets: South Africa, United Kingdom, United States. Localised support for 30 priority markets. |
 | Status | iOS LIVE on the App Store worldwide since 2026-06-11 (current version 1.1.0); Android LIVE on Google Play at 1.1.0, full production rollout; web app (1.1.0) live |

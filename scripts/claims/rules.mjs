@@ -56,3 +56,22 @@ export const CEILINGS = [
   { id: "rail marks not licensed", re: /<img[^>]+(peach|escrow[-_.]?com)[^>]*>/i, raw: true },
   { id: "C5 no voice-capture invitation", sentence: true, a: /\b(record|tell|speak|narrate)\b/i, b: /\b(voice|aloud|out loud)\b[^.]{0,60}\b(provenance|story|stories)\b.*\b(certificate|publish|public)\b/i },
 ];
+
+/**
+ * Company identity (Charl, relayed 2026-10-09; Brain decision 2026-08-22
+ * "two-address model"). The founder is Charl le Roux; the place of business is
+ * Stellenbosch, Western Cape. Bloemfontein is the CIPC registered office:
+ * correct only where it is LABELLED as the registered office, plus two
+ * deliberate exceptions — Attesté's historical foundingLocation (kept by the
+ * 2026-08-22 decision) and certificate provenance data (an artwork's history,
+ * not the company's).
+ */
+export const IDENTITY = {
+  banned: [/\bKarel\b/i, /\bKraai\b/i],
+  bloemfontein: /\bBloemfontein\b/i,
+  bloemfonteinAllowed: [
+    /registered\s+office[^\n]{0,160}Bloemfontein/i,
+    /"foundingLocation":\s*\{[^}]*Bloemfontein/i,
+  ],
+  bloemfonteinExemptPrefixes: ["cert/"],
+};

@@ -97,7 +97,7 @@ export const GOLDEN = [
     persona: "gallery",
     expectAll: ["50"],
     expectNone: ["250"],
-    note: "THE regression case. Run 1 answered '250 artworks' from galleries.html while the ledger says 50 — pricing was ledger-authoritative but caps fell through to page prose. RESOLVED 2026-08-16: galleries.html was the outlier (250/500) against index.html, the comparison table and the ledger (50/100); Karel ruled for 50/100 and the page was corrected. Keep this case — it is the regression lock.",
+    note: "THE regression case. Run 1 answered '250 artworks' from galleries.html while the ledger says 50 — pricing was ledger-authoritative but caps fell through to page prose. RESOLVED 2026-08-16: galleries.html was the outlier (250/500) against index.html, the comparison table and the ledger (50/100); Charl ruled for 50/100 and the page was corrected. Keep this case — it is the regression lock.",
   },
   {
     id: "c02",
