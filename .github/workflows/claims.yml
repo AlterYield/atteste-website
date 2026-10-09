@@ -36,3 +36,14 @@ jobs:
 
       - name: Production build renders cleanly
         run: node scripts/claims/build.mjs --mode production --out "$RUNNER_TEMP/site"
+
+  connector:
+    name: /agents matches the live connector tools/list
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/claims/check-connector.mjs

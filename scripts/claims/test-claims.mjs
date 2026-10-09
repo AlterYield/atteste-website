@@ -75,6 +75,13 @@ ok(prev.html.includes('id="claim-gate-staged"'), "preview: staged style injected
 ok(prev.staged.length === 3, `preview: 3 staged blocks reported (got ${prev.staged.length})`);
 ok(renderHtml("<p>plain</p>", "production", snap, hosts).html === "<p>plain</p>", "ungated document is byte-identical");
 
+{
+  const { mkdtempSync: mk, writeFileSync: wf } = await import("node:fs");
+  const d = mk(join(tmpdir(), "proofs-"));
+  for (const f of ["claude-2026-10-09.png", "meta-attempt-2026-10-09.md", "README.md", "grok.png"]) wf(join(d, f), "x");
+  const h = provenHosts(d);
+  ok(h.has("claude") && !h.has("meta") && !h.has("grok") && h.size === 2, "proof files: dated file proves a host; an -attempt- file and undated files do not");
+}
 ok(pageClaim('<meta name="atteste:claim" content="g-111-trade-payments">') === "g-111-trade-payments", "page-level gate is read");
 
 const txt = "Intro\n<!-- claim:g-111-trade-payments -->\nSell inside Attesté.\n<!-- /claim -->\n<!-- claim:f-shared-cert-view -->\nCertificates.\n<!-- /claim -->\nEnd\n";
