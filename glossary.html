@@ -64,7 +64,7 @@
   "hasDefinedTerm": [
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#provenance", "name": "Provenance", "description": "The documented history of an artwork's ownership, exhibition, and custody, from its creation to the present. Strong provenance is the single biggest factor in an artwork's authenticity and value." },
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#certificate-of-authenticity", "name": "Certificate of Authenticity", "description": "A document attesting that an artwork is genuine and describing its key facts — artist, title, medium, dimensions, year. Its trustworthiness depends entirely on who issued it and whether it can be independently verified." },
-    { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#source-certificate", "name": "Source Certificate", "description": "A certificate issued by the artist from their own studio, confirming authorship at the point of origin. Because it comes from the source, it is the gold-standard provenance record a collector carries forward." },
+    { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#source-certificate", "name": "Source Certificate", "description": "A certificate issued by the artist from their own studio at the point of origin. It records the artist's own statement; Attesté does not verify artist identity. Because it comes from the source, it is the gold-standard provenance record a collector carries forward." },
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#attestation", "name": "Attestation", "description": "A formal, recorded statement that something is true — here, a signed assertion about an artwork's authorship, ownership, or history that can be checked later." },
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#chain-of-custody", "name": "Chain of Custody", "description": "The unbroken, ordered record of who has owned or held an artwork over time. Each transfer is a link; gaps in the chain weaken provenance." },
     { "@type": "DefinedTerm", "@id": "https://atteste.art/glossary.html#sha-256", "name": "SHA-256 Integrity Hash", "description": "A unique cryptographic fingerprint of a certificate's contents. If even one character of the record changes, the hash changes — so it proves the record has not been tampered with." },
@@ -87,7 +87,7 @@
   "mainEntity": [
     { "@type": "Question", "name": "What is art provenance?", "acceptedAnswer": { "@type": "Answer", "text": "Art provenance is the documented history of an artwork's ownership, exhibition, and custody from creation to the present. It is the single biggest factor in establishing authenticity and value — a well-documented chain of ownership is what distinguishes a verified work from an unverifiable one." } },
     { "@type": "Question", "name": "What is a certificate of authenticity?", "acceptedAnswer": { "@type": "Answer", "text": "A certificate of authenticity is a document attesting that an artwork is genuine and recording its key facts — artist, title, medium, dimensions, and year. Its value depends entirely on who issued it and whether it can be independently verified; a certificate that cannot be checked carries little weight." } },
-    { "@type": "Question", "name": "What is a source certificate?", "acceptedAnswer": { "@type": "Answer", "text": "A source certificate is issued by the artist directly from their studio, confirming authorship at the point of origin. Because it originates at the source rather than being reconstructed later, it is the strongest form of provenance a collector can hold." } },
+    { "@type": "Question", "name": "What is a source certificate?", "acceptedAnswer": { "@type": "Answer", "text": "A source certificate is issued by the artist directly from their studio at the point of origin, as the artist's own statement (Attesté does not verify artist identity). Because it originates at the source rather than being reconstructed later, it is the strongest form of provenance a collector can hold." } },
     { "@type": "Question", "name": "How can a digital certificate be verified independently?", "acceptedAnswer": { "@type": "Answer", "text": "A trustworthy digital certificate carries a SHA-256 cryptographic fingerprint of its contents, so any tampering is detectable. When that fingerprint is also anchored to the Bitcoin blockchain via OpenTimestamps, anyone can prove the certificate existed at a given moment — permanently and independently of the platform that issued it." } }
   ]
 }
@@ -237,7 +237,7 @@ h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; 
 
   <article class="term" id="source-certificate">
     <h2>Source Certificate</h2>
-    <p>A certificate issued by the artist directly from their studio, confirming authorship at the point of origin.</p>
+    <p>A certificate issued by the artist directly from their studio at the point of origin. It records the artist&rsquo;s own statement; Attesté does not verify who an artist is.</p>
     <p>Because it comes from the source rather than being reconstructed years later, a source certificate is the gold-standard provenance record — the strongest possible starting point for the chain a collector carries forward.</p>
   </article>
 

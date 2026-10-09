@@ -6,7 +6,7 @@
 
 <!-- Primary SEO -->
 <title>Attesté for Artists — Studio, Source Certificates, Public Profile</title>
-<meta name="description" content="A digital studio for working artists. Record Director's Commentary on every piece — voice provenance that travels with the work. Catalogue, source certificates, public profile. Studio $14.99/mo (14-day trial) · Professional $24.99/mo · Represented (gallery-paid).">
+<meta name="description" content="A digital studio for working artists. Catalogue every piece, issue source certificates anyone can check (even from their AI assistant), and publish a public profile. Studio $14.99/mo (14-day trial) · Professional $24.99/mo · Represented (gallery-paid).">
 <meta name="keywords" content="artist studio software, talking provenance, director's commentary, voice provenance, source certificate of authenticity, public artist profile, art catalogue app, certificate of authenticity for artists, working artist app, atteste for artists">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#1A1A2E">
@@ -560,6 +560,21 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 .att-social-rail .att-social { background:rgba(18,18,20,0.66); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
 @media (max-width:1100px){ .att-social-rail{ display:none; } }
 @media (prefers-reduced-motion:reduce){ .att-social-row .att-social,.att-social-rail .att-social{transition:none;} .att-social-row .att-social:hover,.att-social-rail .att-social:hover{transform:none;} }
+
+/* ===== G12 band: Connect your AI + Sell & get paid (2026-10) ===== */
+.g12-band { background: var(--cream); padding: 96px 48px; }
+.g12-inner { max-width: 1100px; margin: 0 auto; }
+.g12-eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
+.g12-band h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; color: var(--navy); margin-bottom: 14px; line-height: 1.2; }
+.g12-band h2 em { color: var(--gold); font-style: italic; font-weight: 500; }
+.g12-band .g12-lede { font-size: 17px; color: #3D3D3D; line-height: 1.75; max-width: 700px; margin-bottom: 40px; }
+.g12-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.g12-card { background: #fff; border: 1px solid rgba(201,169,110,0.25); border-radius: 20px; padding: 30px 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+.g12-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--navy); margin-bottom: 10px; }
+.g12-card p { font-size: 15px; color: #3D3D3D; line-height: 1.7; margin-bottom: 10px; }
+.g12-card code { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; background: #F5EFE0; padding: 2px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+.g12-card a { color: #9A7B44; font-weight: 600; font-size: 14px; }
+@media (max-width: 640px) { .g12-band { padding: 72px 16px; } .g12-band h2 { font-size: 28px; } }
 </style>
 </head>
 <body>
@@ -581,16 +596,18 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 
 <!-- HERO -->
 <section class="gallery-hero">
-  <h1>Your Studio. Your Work. <em>Verified.</em></h1>
+  <h1>Your Studio. Your Work. <em>On the record.</em></h1>
   <p class="subtitle">A digital home for working artists: catalogue every piece, issue source certificates, build a public profile, and stay connected with the collectors who actually own your work. Built for studio practice, not Instagram theatre.</p>
   <div class="hero-ctas">
-    <a href="#voice-provenance" class="btn-primary">See Talking Provenance</a>
+    <a href="#how-it-works" class="btn-primary">See how it works</a>
     <a href="#tiers" class="btn-secondary">Artist Plans</a>
   </div>
 </section>
 
-<!-- TALKING PROVENANCE — feature lead -->
-<section class="tp-section" id="voice-provenance">
+<!-- TALKING PROVENANCE — feature lead. HELD (claim ceiling 5): it invites voice
+     capture, which stays off atteste.art until the Living Provenance PII
+     redaction lands. Lift by deleting lp-pii-redaction from claims/holds.json. -->
+<section class="tp-section" id="voice-provenance" data-claim="f-companion f-shared-living-provenance-recorder hold:lp-pii-redaction">
   <div class="tp-container">
     <span class="tp-tag">New &middot; Talking Provenance</span>
     <h2 class="tp-headline">The artwork now <em>speaks.</em></h2>
@@ -749,6 +766,32 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   </div>
 </section>
 
+<!-- G12 (2026-10): Connect your AI + Sell & get paid. Claim-gated per card. -->
+<section class="g12-band" id="connected">
+  <div class="g12-inner">
+    <div class="g12-eyebrow">Your studio, connected</div>
+    <h2>Your certificate, checkable from <em>any AI assistant.</em></h2>
+    <p class="g12-lede">A buyer you&rsquo;ve never met asks their assistant about your work. It can open the source certificate you issued, check it against Attesté&rsquo;s signature and the Bitcoin timestamp, and read where the work has been since it left your studio.</p>
+    <div class="g12-cards">
+      <div class="g12-card" data-claim="f-agent-connector-t0-verify a-030-source-certificates">
+        <h3>Connect any MCP assistant</h3>
+        <p>Add <code>https://mcp.atteste.art/mcp</code> to an assistant that supports MCP and paste a certificate link. It reports the signature check, the timestamp proof and the ownership history. It also says plainly that a certificate records the issuing profile&rsquo;s own statement, because Attesté doesn&rsquo;t verify who an artist is.</p>
+        <a href="/agents">Setup guide &rarr;</a>
+      </div>
+      <div class="g12-card" data-claim="a-055-trade-payments">
+        <h3>Sell &amp; get paid</h3>
+        <p>Sell a work inside Attesté. The buyer pays a licensed escrow service that holds the money until the work arrives, or pays by card straight into your own Peach Payments account in South Africa.</p>
+        <p>Attesté charges a 1% fee on sales paid through GoSafe escrow; the seller pays it, alongside GoSafe&rsquo;s 1.5%, and the buyer pays the price.</p>
+        <a href="sell.html">How selling works &rarr;</a>
+      </div>
+      <div class="g12-card" data-claim="a-053-agent-discovery">
+        <h3>Be found by AI assistants</h3>
+        <p>Opt individual works in to discovery by AI assistants. They can find the work, verify its Source Certificate and Bitcoin anchor, and read your public artist profile. Your contact details and studio location are never exposed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TIER COMPARISON -->
 <section class="section-dark" id="tiers">
   <div class="container">
@@ -884,7 +927,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <h2>Start Building Your Catalogue</h2>
-  <p>Studio comes with a 14-day free trial. Cancel any time inside the app, before or after the trial.</p>
+  <p>Studio comes with a 14-day free trial, managed in your App Store or Google Play subscriptions.</p>
   <div class="store-badges" style="justify-content:center;">
     <a href="https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&amp;ct=website&amp;mt=8" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store">
       <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-apple" width="120" height="40" loading="lazy">

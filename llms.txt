@@ -1,22 +1,25 @@
-# Attesté — The AI-powered art collection platform
+# Attesté — Your art, connected
 
-> Attesté is an AI-powered platform for cataloguing art collections, generating
-> cryptographically-verified provenance certificates, supporting working artists,
-> and connecting collectors to galleries. Built in Bloemfontein, South Africa, for
-> collectors, artists, galleries, and institutions worldwide. Three personas,
-> one ecosystem.
+> Attesté is an app for the whole life of an artwork: give it a signed,
+> Bitcoin-timestamped certificate anyone can check, keep its documents,
+> condition and valuations in one place, pass the record on when the work
+> changes hands, and look any certificate up from an AI assistant through
+> Attesté's public MCP connector. For collectors, artists, galleries and
+> institutions worldwide; built in South Africa.
 
 ## What Attesté does
 
 - **AI Art Scout** — Photograph any artwork; Attesté identifies the artist, medium, period, and likely provenance using vision-grounded AI (Google Gemini Flash).
 - **Attesté Certificate** — Every documented artwork gets a SHA-256 cryptographically-secured provenance certificate with bank-grade integrity. Immutable, auditable, verifiable.
-- **Source Certificates (Artists)** — Artists issue authoritative source certificates from their studio. These become the gold-standard provenance record collectors carry forward.
+- **Source Certificates (Artists)** — Artists issue source certificates from their own studio account: the earliest record a work can have, which collectors carry forward. The issuing profile's identity is self-asserted; Attesté does not verify who an artist is.
 - **First Witness (Artists)** — The first record in a work’s provenance chain, made by the artist at the moment of creation: their own spoken account, SHA-256-sealed and Bitcoin-anchored (OpenTimestamps). Recorded forward at the source rather than reconstructed later, it is the genesis of the chain of custody and cannot be backfilled — provenance no competitor records at creation.
 - **Discovery Trails** — Curated GPS-gated art walks in cities around the world. Walk a neighbourhood, unlock its galleries and public art.
 - **AI Art Sommelier** — Profiles your aesthetic taste across 8 axes (representational ↔ abstract, bright ↔ muted, quiet ↔ energetic, etc.) to recommend artworks and artists you'll love.
 - **Art Fair Companion** — Rapid encounter logging for busy art fairs (Cape Town Art Fair, FNB Art Joburg, Frieze, Art Basel).
 - **Atelier** — Voice-first AI art companion with live camera vision (Gemini Live). Point your camera at an artwork and talk about it aloud; Atelier sees what you see, answers grounded in your collection's records, and saves each session as an Atelier Journal entry pinned to the work. Premium feature.
+<!-- claim:f-companion hold:lp-pii-redaction -->
 - **Talking Provenance** — Record AI-coached spoken commentary about an artwork (in the collector's, artist's, or gallery's own voice). Each recording is SHA-256 hash-chained, permanently attached to the work, and travels with it on every ownership transfer — institutional memory turned into a durable provenance asset.
+<!-- /claim -->
 - **Collector Gamification** — XP, achievements, and levelling so building a collection feels rewarding.
 - **Legacy Vault** — Preserve the story behind each artwork — artist interviews, acquisition context, condition history — so it survives intact across generations.
 - **Year in Art** — Annual recap of your collection's evolution (like Spotify Wrapped, for art).
@@ -36,7 +39,17 @@
 
 ## For AI agents (MCP)
 
-- **Attesté MCP connector** — public, read-only Model Context Protocol server at `https://mcp.atteste.art/mcp` (Streamable HTTP, no auth). Tools: `verify_certificate`, `get_bitcoin_anchor`, `get_provenance_timeline`, `explain_attestation`. (The discovery tools `search_listed_artworks`, `get_gallery_public_profile` and `get_artist_public_profile` are built but switched off until a gallery or artist lists a work, so they are not offered to an assistant at all.) Cannot buy, sell, offer or change anything. Certificates are fetched one at a time, by exact ID or by a whole `https://atteste.art/v/<id>` verify link (which is stripped to the ID); the printed certificate number `ATT-YYYYMMDD-XXXX` is deliberately NOT a lookup key. Account endpoint `https://mcp.atteste.art/mcp/account` (OAuth 2.1): with the owner's consent, read their own collection (summary, works, detail, similar works listed on Attesté); values only if separately allowed; AI estimates never in totals. Docs: https://atteste.art/agents
+- **Attesté MCP connector** — public, read-only Model Context Protocol server at `https://mcp.atteste.art/mcp` (Streamable HTTP, no auth). Tools: `verify_certificate`, `get_bitcoin_anchor`, `get_provenance_timeline`, `explain_attestation`. (The discovery tools `search_listed_artworks`, `get_gallery_public_profile` and `get_artist_public_profile` are built but switched off until a gallery or artist lists a work, so they are not offered to an assistant at all.) Cannot buy, sell, offer or change anything. Certificates are fetched one at a time, by exact ID or by a whole `https://atteste.art/v/<id>` verify link (which is stripped to the ID); the printed certificate number `ATT-YYYYMMDD-XXXX` is deliberately NOT a lookup key. Artist certificates come back as `seal_valid_identity_unverified`: the seal holds, but Attesté does not verify that the issuer is the artist named. Works with any assistant that supports MCP remote servers. Docs: https://atteste.art/agents
+<!-- claim:unledgered:t1-account-collection-read -->
+- **Account endpoint** — `https://mcp.atteste.art/mcp/account` (OAuth 2.1): with the owner's consent, read their own collection (summary, works, detail, similar works listed on Attesté); values only if separately allowed; AI estimates never in totals.
+<!-- /claim -->
+
+<!-- claim:g-111-trade-payments a-055-trade-payments -->
+## Selling inside Attesté
+
+- **Sell & get paid** — Sell an artwork and get paid inside Attesté: by card or wallet straight into the seller's own Peach Payments account in South Africa, or through a licensed escrow service that holds the buyer's money until the work arrives. Ownership and the certificate move to the buyer once the card payment is secured, or once the buyer confirms delivery to the escrow service. Attesté charges a 1% fee on sales paid through GoSafe escrow; the seller pays it, alongside GoSafe's 1.5%, and the buyer pays the price. Attesté never holds the buyer's money.
+- **Rails** — South Africa: GoSafe escrow, funded by PayShap or EFT; or card into the seller's own Peach Payments account. International: escrow.com (USD or EUR, US$1,000 minimum); below that, PayPal with no escrow. Details: https://atteste.art/sell
+<!-- /claim -->
 
 ## Who it's for
 
@@ -66,7 +79,7 @@
 - **Professional ($158.99/month)** — 100 artworks, 12 exhibitions, Talking Provenance (Curator's Commentary), AI-generated exhibition social posts, content calendar, full collector pipeline.
 - **Enterprise ($259.00/month)** — Unlimited artworks and exhibitions, AI artist reports, exhibition/push campaigns to matched collectors, priority support.
 
-There is no physical kit and no annual plan. Gallery plans are sold directly via the web as bespoke installs (not via in-app purchase): each gallery is onboarded with a tailored setup and can cancel any time. Founding-gallery discounts apply on Boutique only.
+There is no physical kit and no annual plan. Gallery plans are sold directly via the web as bespoke installs (not via in-app purchase): each gallery is onboarded with a tailored setup. Founding-gallery discounts apply on Boutique only.
 
 ## Platform and integrity
 
@@ -145,7 +158,7 @@ Every artwork documented on Attesté can be attested publicly. Each Attesté Cer
 - **Certificate URL pattern:** `https://atteste.art/cert/{16-char-sha256-prefix}.html`
 - **Certificate index:** https://atteste.art/cert/
 - **What a certificate contains:** artwork title, artist, medium, dimensions, year; full provenance chain; cryptographic integrity proof (SHA-256); valuation and condition history; art-historical context; sister artworks
-- **What a certificate asserts:** the owner reported these facts; the hash chain is intact; if signed by the artist on Attesté, the artist confirmed authorship at the source
+- **What a certificate asserts:** the owner reported these facts; the hash chain is intact; if it is an artist source certificate, the artist's own account issued it at the source (identity is self-asserted: Attesté does not verify who an artist is)
 - **What it does NOT assert:** the artwork's market value, or third-party authentication of pre-existing works without an Attesté source signature
 - **Verification:** any certificate URL can be verified by re-hashing the canonical JSON blob embedded in the page and comparing to the stated hash. Web Crypto compatible.
 

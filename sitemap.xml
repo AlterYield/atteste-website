@@ -85,6 +85,21 @@
   </url>
 
   <url>
+    <loc>https://atteste.art/agents</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Claim-gated (g-111/a-055): the production build drops this entry and the page until the entry is live|shipping. -->
+  <url>
+    <loc>https://atteste.art/sell</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://atteste.art/glossary.html</loc>
     <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>

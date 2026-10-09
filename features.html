@@ -530,6 +530,21 @@
 
 
 
+
+/* ===== G12 band: Connect your AI + Sell & get paid (2026-10) ===== */
+.g12-band { background: var(--cream); padding: 96px 48px; }
+.g12-inner { max-width: 1100px; margin: 0 auto; }
+.g12-eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
+.g12-band h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; color: var(--navy); margin-bottom: 14px; line-height: 1.2; }
+.g12-band h2 em { color: var(--gold); font-style: italic; font-weight: 500; }
+.g12-band .g12-lede { font-size: 17px; color: #3D3D3D; line-height: 1.75; max-width: 700px; margin-bottom: 40px; }
+.g12-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.g12-card { background: #fff; border: 1px solid rgba(201,169,110,0.25); border-radius: 20px; padding: 30px 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+.g12-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--navy); margin-bottom: 10px; }
+.g12-card p { font-size: 15px; color: #3D3D3D; line-height: 1.7; margin-bottom: 10px; }
+.g12-card code { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; background: #F5EFE0; padding: 2px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+.g12-card a { color: #9A7B44; font-weight: 600; font-size: 14px; }
+@media (max-width: 640px) { .g12-band { padding: 72px 16px; } .g12-band h2 { font-size: 28px; } }
 </style>
 </head>
 <body>
@@ -1008,6 +1023,31 @@
   </div>
 
 </div>
+
+<!-- G12 (2026-10): Connect your AI + Sell & get paid. Claim-gated per card. -->
+<section class="g12-band" id="connected">
+  <div class="g12-inner">
+    <div class="g12-eyebrow">Your collection, connected</div>
+    <h2>Ask your AI before you buy, <em>and after.</em></h2>
+    <p class="g12-lede">Someone sends you a certificate link for a work you&rsquo;re eyeing. Paste it into the assistant you already use and it checks the record for you: whether the signature holds, when it was timestamped on Bitcoin, and every recorded change of hands.</p>
+    <div class="g12-cards">
+      <div class="g12-card" data-claim="f-agent-connector-t0-verify">
+        <h3>Connect any MCP assistant</h3>
+        <p>Add <code>https://mcp.atteste.art/mcp</code> to an assistant that supports MCP. It&rsquo;s read-only and there&rsquo;s nothing to sign in to. The connector also tells your assistant what a certificate doesn&rsquo;t prove: that a work is authentic, who made it, or what it&rsquo;s worth.</p>
+        <a href="/agents">Setup guide &rarr;</a>
+      </div>
+      <div class="g12-card" data-claim="g-111-trade-payments a-055-trade-payments">
+        <h3>Buy without wire-and-pray</h3>
+        <p>When a gallery or artist sells through Attesté, you pay a licensed escrow service, not a stranger&rsquo;s account, and the money is released when you confirm the work arrived. You pay the price; the seller pays the fees.</p>
+        <a href="sell.html">How it works &rarr;</a>
+      </div>
+      <div class="g12-card" data-claim="unledgered:t1-account-collection-read">
+        <h3>Your collection in the chat</h3>
+        <p>Sign in once and choose what your assistant may read: your works, certificates, condition notes and, if you allow it, the values you recorded.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CTA SECTION -->
 <section class="features-cta">
