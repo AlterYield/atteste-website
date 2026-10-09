@@ -1,0 +1,38 @@
+# Claim gate (Brain goal G12): every visible claim on atteste.art must rest on
+# a Promise-Ledger entry that is live or shipping, no page may carry a retired
+# entry's wording, and no AI host may be named without a recorded proof.
+#
+# Runs on every PR and push, no path filter: any copy edit anywhere can break
+# it. No key, no network. The ledger itself is private (AlterYield/Atteste), so
+# this checks against the committed snapshot in claims/ledger-snapshot.json;
+# refresh it with scripts/claims/sync_ledger.py.
+name: claim gate
+
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  claims:
+    name: claim gate (ledger ids · retired wording · ceilings · hosts)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Self-test (planned blocks absent from production build)
+        run: node scripts/claims/test-claims.mjs
+
+      - name: Check the site
+        run: node scripts/claims/check.mjs --map >> "$GITHUB_STEP_SUMMARY" && node scripts/claims/check.mjs
+
+      - name: Production build renders cleanly
+        run: node scripts/claims/build.mjs --mode production --out "$RUNNER_TEMP/site"

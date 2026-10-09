@@ -32,6 +32,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 from html import unescape
 from pathlib import Path
@@ -109,13 +110,30 @@ def url_for(rel: str) -> str:
     return f"https://atteste.art/{path}".rstrip("/") or "https://atteste.art/"
 
 
+def published_html(rel: str) -> str | None:
+    """The page as production publishes it: claim-gated blocks for planned
+    ledger entries removed (scripts/claims/). The bot must never learn copy
+    that is only staged on a preview. None if production deletes the page."""
+    r = subprocess.run(
+        ["node", str(SITE / "scripts" / "claims" / "render-one.mjs"), rel],
+        capture_output=True, text=True, encoding="utf-8",
+    )
+    if r.returncode == 3:
+        return None
+    if r.returncode != 0:
+        sys.exit(f"FATAL: claim gate render failed for {rel}:\n{r.stderr}")
+    return r.stdout
+
+
 def chunk_page(rel: str, kind: str, audience: str) -> list[dict]:
     """Split one page into section-sized chunks on its h2 boundaries.
 
     Sections, not whole pages: it keeps citations precise and gives the v2
     retrieval stage something granular to score. Phase 0 sends them all.
     """
-    raw = (SITE / rel).read_text(encoding="utf-8")
+    raw = published_html(rel)
+    if raw is None:
+        return []
     body = NAV_TAGS.sub(" ", BLOCK_TAGS.sub(" ", raw))
     title = page_title(raw, rel)
     url = url_for(rel)

@@ -1,0 +1,10 @@
+# Claim gate (Brain goal G12). The site is static; the only build step renders
+# the Promise-Ledger claim gate:
+#   production      → blocks whose ledger entry is not live|shipping are removed
+#   deploy-preview  → they stay, labelled STAGED, for review
+# See scripts/claims/lib.mjs. Publish dir and functions dir are unchanged from
+# the UI settings this file replaces (repo root, netlify/functions).
+[build]
+  command = "node scripts/claims/build.mjs"
+  publish = "."
+  functions = "netlify/functions"

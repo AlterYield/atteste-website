@@ -71,7 +71,7 @@ Every documented artwork can be issued a cryptographically-secured provenance ce
 The certificate hash is published to an immutable append-only log. Collisions are detected automatically. Export as PDF with QR verification link. Public URLs at `https://atteste.art/cert/{16-char-sha256-prefix}.html`.
 
 ### Source Certificates (Artists)
-Working artists on Attesté issue authoritative **source certificates** at the moment of sale or donation. A source certificate is the gold-standard provenance record — when an artist marks a work as authentic and tied to a specific buyer, that record becomes the canonical historical evidence collectors carry forward through every subsequent sale. Galleries and auction houses cite these certificates as primary-source provenance.
+Working artists on Attesté issue authoritative **source certificates** at the moment of sale or donation. A source certificate is the earliest record a work can have: the artist records it from the studio, tied to a specific buyer, and collectors carry it forward through every later sale. The record is the artist's own statement; Attesté does not verify artist identity.
 
 ### First Witness (Artists)
 First Witness is the very first record in an artwork's provenance chain, made by the artist at the moment of creation — their own spoken account of the work, sealed with a SHA-256 fingerprint and Bitcoin-anchored via OpenTimestamps. Where every other tool reconstructs provenance backwards from surviving paper, First Witness records it forward, at the source: the artist's testimony becomes the hash-chained origin that every later record links back to, and because it is captured at creation it cannot be backfilled or forged after the fact. It is the strongest possible starting point for a work's chain of custody, and no art platform records provenance at creation the way Attesté does.
@@ -283,7 +283,7 @@ Attesté's marketing is calibrated against personas maintained in the Atteste Co
 ## FAQs
 
 **Q: What makes Attesté different from a spreadsheet or a photo album?**
-A: Attesté combines AI identification (no more "what's this artist's name again?"), cryptographic provenance (tamper-proof record of ownership + condition history), artist source certificates (gold-standard provenance from the source), a searchable, location-aware, aesthetically-profiled system, and a gallery + artist ecosystem. Spreadsheets can't do AI identification or cryptographic integrity; photo albums can't do provenance, source certificates, or recommendations.
+A: Attesté combines AI identification (no more "what's this artist's name again?"), cryptographic provenance (tamper-evident record of ownership + condition history), artist source certificates (gold-standard provenance from the source), a searchable, location-aware, aesthetically-profiled system, and a gallery + artist ecosystem. Spreadsheets can't do AI identification or cryptographic integrity; photo albums can't do provenance, source certificates, or recommendations.
 
 **Q: Is my art collection data private?**
 A: Yes. By default, every collection is private. Public profiles require an explicit opt-in per collection. Firebase backend runs in `africa-south1` (Johannesburg data residency), so personal data never leaves Africa by default. POPIA and GDPR compliance are core. Mature content (artistic nudity) is blurred by default and requires opt-in.
@@ -292,7 +292,7 @@ A: Yes. By default, every collection is private. Public profiles require an expl
 A: Artwork photographs are analysed by Google's current-generation Gemini Flash models (vision API). Text reasoning uses Claude. Voice features use Gemini Live. Every image upload is also screened by Cloud Vision SafeSearch for content moderation. These are all disclosed at onboarding with an explicit consent gate (Terms, Privacy, Age 18+, Community Guidelines). You can opt out of AI features; you keep the collection database regardless.
 
 **Q: Does Attesté guarantee my artwork is authentic?**
-A: For pre-existing works, no — Attesté creates tamper-proof records of **what you reported**. Authentication remains a gallery, auction house, or expert's job. **For works originating on Attesté with an artist source certificate**, the artist confirmed authorship at the source — this is the gold standard. For inherited or bought works, you can attach professional authentication documents to your Attesté Certificate.
+A: For pre-existing works, no — Attesté creates tamper-evident records of **what you reported**. Authentication remains a gallery, auction house, or expert's job. **For works originating on Attesté with an artist source certificate**, the record was issued by the artist's own account at the source (identity is self-asserted; Attesté does not verify who an artist is). For inherited or bought works, you can attach professional authentication documents to your Attesté Certificate.
 
 **Q: How accurate is AI Art Scout?**
 A: Very good for well-known artists and clearly-photographed works. Lower confidence for obscure artists, poor-light photographs, or heavily damaged pieces. Every identification includes an explicit confidence score; low-confidence guesses are flagged for human verification. Artist's `provenanceQuality` score (0-5) caps AI confidence.
@@ -316,7 +316,7 @@ A: Galleries join on a monthly subscription sold via the web — Boutique ($64.9
 A: Artists subscribe directly (Studio $14.99/mo with 14-day trial, or Professional $24.99/mo) to get a public profile, catalogue their studio archive, issue source certificates, and manage authentication requests via the Verification Inbox. Artists represented by a gallery on Professional or Enterprise can be provisioned for free under the Represented tier.
 
 **Q: What's an artist source certificate?**
-A: When a working artist on Attesté marks a work as authentic and tied to a specific sale, that record becomes the gold-standard provenance for the work. Subsequent owners carry it forward; auction houses, galleries, and insurers can cite the certificate URL as primary-source provenance.
+A: When a working artist on Attesté issues a source certificate tied to a specific sale, that record becomes the earliest provenance for the work. Subsequent owners carry it forward and can cite the certificate URL. It records what the artist's account stated; Attesté does not verify artist identity.
 
 **Q: What's on the roadmap?**
 A: Additional Discovery Trail cities, Art Fair seed data, gallery subscription expiry/renewal automation, EU/UK GDPR Representative appointment, POPIA Information Officer registration, PhotoDNA integration, NCMEC CyberTipline API access, stolen-art database cross-check.

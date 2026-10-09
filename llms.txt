@@ -66,7 +66,7 @@
 - **Professional ($158.99/month)** — 100 artworks, 12 exhibitions, Talking Provenance (Curator's Commentary), AI-generated exhibition social posts, content calendar, full collector pipeline.
 - **Enterprise ($259.00/month)** — Unlimited artworks and exhibitions, AI artist reports, exhibition/push campaigns to matched collectors, priority support.
 
-There is no physical kit and no annual plan. Gallery plans are sold directly via the web as bespoke installs (not via in-app purchase): each gallery is onboarded with a tailored setup and can cancel any time. Founding-gallery discounts apply on Boutique only.
+There is no physical kit and no annual plan. Gallery plans are sold directly via the web as bespoke installs (not via in-app purchase): each gallery is onboarded with a tailored setup. Founding-gallery discounts apply on Boutique only.
 
 ## Platform and integrity
 
@@ -145,7 +145,7 @@ Every artwork documented on Attesté can be attested publicly. Each Attesté Cer
 - **Certificate URL pattern:** `https://atteste.art/cert/{16-char-sha256-prefix}.html`
 - **Certificate index:** https://atteste.art/cert/
 - **What a certificate contains:** artwork title, artist, medium, dimensions, year; full provenance chain; cryptographic integrity proof (SHA-256); valuation and condition history; art-historical context; sister artworks
-- **What a certificate asserts:** the owner reported these facts; the hash chain is intact; if signed by the artist on Attesté, the artist confirmed authorship at the source
+- **What a certificate asserts:** the owner reported these facts; the hash chain is intact; if it is an artist source certificate, the artist's own account issued it at the source (identity is self-asserted: Attesté does not verify who an artist is)
 - **What it does NOT assert:** the artwork's market value, or third-party authentication of pre-existing works without an Attesté source signature
 - **Verification:** any certificate URL can be verified by re-hashing the canonical JSON blob embedded in the page and comparing to the stated hash. Web Crypto compatible.
 
