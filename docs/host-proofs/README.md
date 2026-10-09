@@ -20,6 +20,23 @@ unless this folder holds a file named:
 Adding a proof file is the whole switch. The next production deploy shows that
 host's steps, with no copy edit.
 
+## Precondition: hold until the connector stops claiming search
+
+Do not record any proof yet. The live server's own `initialize` instructions
+(0.5.1) still tell every host it can "search artworks their owners have opted
+in to AI discovery", while discovery is switched off. A proof recorded now would
+show a host repeating that. Record proofs only after **AlterYield/Atteste#627 is
+merged and the connector has been redeployed** (Charl runs its `deploy.sh`).
+Check with:
+
+```bash
+curl -s -X POST https://mcp.atteste.art/mcp -H 'content-type: application/json' -H 'accept: application/json, text/event-stream' -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"check","version":"1"}}}'
+```
+
+The `instructions` must not contain "search". CI enforces this:
+`scripts/claims/check-connector.mjs` fails if any proof file is on file while
+the live instructions still mention search.
+
 ## What counts as a proof
 
 A transcript or screenshots from the host's own interface showing all of:
