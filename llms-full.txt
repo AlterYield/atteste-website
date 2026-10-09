@@ -9,7 +9,7 @@
 **Site:** https://atteste.art
 **iOS app:** https://apps.apple.com/app/id6763944507
 **Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste (live on Google Play; package: art.atteste.atteste)
-**Last updated:** 2026-08-10
+**Last updated:** 2026-10-09
 
 ---
 
@@ -146,7 +146,7 @@ Every artwork gets a single dossier view: the full provenance chain, attached do
 Photo-based condition reports with AI damage analysis — photograph a work and get a structured condition assessment over time. The Insurance Manager tracks per-artwork policies, coverage amounts, and renewal dates, and condition reports can be exported for insurers.
 
 ### NFC Tag Binding (Artists)
-Artists bind a physical NFC tag to a work's source certificate. A tap on the physical artwork opens its live provenance record — the physical-digital link that makes the certificate inseparable from the object.
+Artists bind a physical NFC tag to a work's source certificate. A tap on the physical artwork opens its live provenance record. The tag points at the record rather than carrying it, and a tap is not, on its own, proof that the object is the one certified.
 
 ### Ownership Transfers
 When a work is sold or gifted, its full provenance record transfers with it — hash chain intact, condition history, documents, and recorded stories preserved for the next owner. Provenance compounds instead of resetting at every sale.
@@ -173,6 +173,39 @@ Pure digital monthly subscriptions, sold directly via the web as bespoke onboard
 
 <!-- CATALOG-PRICING-START -->
 <!-- All pricing is USD primary; local equivalents computed at runtime via exchange-rate API and rendered in the storefront's local currency on iOS / Android. -->
+
+## Connect your AI (MCP connector)
+
+Attesté runs a public, read-only Model Context Protocol (MCP) server at `https://mcp.atteste.art/mcp` (Streamable HTTP, no authentication, rate-limited). Any assistant that supports remote MCP servers can add it as a custom connector. Given a certificate link (`https://atteste.art/v/<id>`) or ID, it serves exactly four tools:
+
+| Tool | What it returns |
+|---|---|
+| `verify_certificate` | Whether the certificate's signature holds, and its public details |
+| `get_bitcoin_anchor` | The integrity hash and OpenTimestamps proof, checkable against a Bitcoin node with no Attesté service involved |
+| `get_provenance_timeline` | Recorded ownership transfers as roles (artist, gallery, collector) and dates, and whether the receipt hash-chain is continuous |
+| `explain_attestation` | What a certificate, its Bitcoin anchor and its timeline prove, and what they do not |
+
+What it cannot do: search, list or browse artworks; buy, sell, make offers or change anything; resolve the printed certificate number (`ATT-YYYYMMDD-XXXX`). What a certificate does not prove: that the work is authentic, who made it (artist identity is self-asserted; artist certificates return `seal_valid_identity_unverified`), or what it is worth. Setup guide: https://atteste.art/agents
+
+<!-- claim:g-109-agent-discovery a-053-agent-discovery -->
+### AI discovery (galleries and artists)
+Galleries and artists opt individual works in to discovery by AI assistants: agents can find the work, verify its certificate and Bitcoin anchor, and read the public gallery or artist profile. Contact details, clients and floor prices are never exposed.
+<!-- /claim -->
+
+<!-- claim:g-111-trade-payments a-055-trade-payments -->
+## Selling inside Attesté
+
+Sell an artwork and get paid inside Attesté: by card or wallet straight into the seller's own Peach Payments account in South Africa, or through a licensed escrow service that holds the buyer's money until the work arrives. Ownership and the certificate move to the buyer once the card payment is secured, or once the buyer confirms delivery to the escrow service. Attesté charges a 1% fee on sales paid through GoSafe escrow; the seller pays it, alongside GoSafe's 1.5%, and the buyer pays the price (plus VAT if the seller is a VAT vendor). Attesté never holds the buyer's money.
+
+| Sale | Buyer pays by | Money held by |
+|---|---|---|
+| South Africa, escrow | PayShap or EFT into GoSafe escrow | GoSafe, until delivery is confirmed |
+| South Africa, direct | Card or wallet into the seller's own Peach Payments account | Nobody in between |
+| International, US$1,000 or more | escrow.com, USD or EUR | escrow.com, until delivery is confirmed |
+| International, under US$1,000 | PayPal | No escrow |
+
+Details: https://atteste.art/sell
+<!-- /claim -->
 
 ## Pricing — all tiers
 

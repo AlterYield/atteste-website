@@ -46,6 +46,7 @@ export const CEILINGS = [
   { id: "C1 identity is self-asserted", re: /\bproves?\s+who\s+(made|painted|created)\b/i },
   { id: "C1 identity is self-asserted", re: /\bconfirm(ed|s|ing)?\s+authorship\b/i },
   { id: "C1 identity is self-asserted", re: /\bmarks?\s+(a|the)\s+work\s+as\s+authentic\b/i },
+  { id: "C1/C4 Attesté does not authenticate art", re: /\b(catalogue|catalog),\s+authenticate\b|\bAttest[ée]\s+authenticates\b|\bauthenticates?\s+(your|the|an?|every)\s+(art|artworks?|works?|collections?)\b/i, negatable: true },
   { id: "C4 NFC points at the record", sentence: true, a: /\bNFC\b/i, b: /tamper|proves?\s+(it['’]?s\s+)?authentic|authenticity|counterfeit-proof|anti-counterfeit/i },
   { id: "C4 no tamper-proof (glossary: dishonest)", re: /\btamper[-\s]proof\b/i, except: ["glossary.html"] },
   { id: "C3/g-111 Attesté never holds funds", re: /\bAttest[ée]\s+(holds?|keeps?|safeguards?|protects?|guarantees?|secures?)(\s+(the|your|their|buyer['’]?s?|seller['’]?s?))*\s+(money|funds|payments?)\b/i },
