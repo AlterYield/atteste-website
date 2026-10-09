@@ -128,6 +128,10 @@ for (const f of siteFiles(ROOT).filter((f) => f.endsWith(".html"))) {
 ok(survivors === 0, `real site: 0 planned/unproven blocks in the production build (of ${plannedInSource} in source)`);
 ok(stagedMissing <= 0, "real site: every staged block is present and labelled in the preview build");
 ok(!existsSync(join(dirs.production, "claims")), "real site: production publish dir has no ledger snapshot");
+const prodSitemap = readFileSync(join(dirs.production, "sitemap.xml"), "utf8");
+const deleted = siteFiles(ROOT).filter((f) => f.endsWith(".html") && !existsSync(join(dirs.production, f)));
+ok(deleted.every((f) => !prodSitemap.includes(`atteste.art/${f.replace(/\.html$/, "")}<`) && !prodSitemap.includes(`atteste.art/${f}<`)),
+  `real site: production sitemap drops gated pages (${deleted.join(", ") || "none"})`);
 
 const planned = Object.entries(realSnap.entries).find(([, e]) => e.status === "planned")?.[0];
 ok(planned && !judge("claim", planned, realSnap, realHosts).ok, `real snapshot: a planned id (${planned}) is gated off`);
