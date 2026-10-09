@@ -74,7 +74,7 @@ for (const f of files) {
       if (!snapshot.holds[h.slice(5)]) warn.push(`${f}: ${h} is not in claims/holds.json (lifted?) — remove it from the markup`);
     }
     const line = g.start != null ? src.slice(0, g.start).split("\n").length : 1;
-    map.push({ file: f, line, kind: g.kind, value: g.value, status: v.status, shown: v.ok });
+    map.push({ file: f, line, kind: g.tag === "page" ? "page" : g.kind, value: g.value, status: v.status, shown: v.ok });
   }
 
   // 2: production render
@@ -146,7 +146,7 @@ if (args.has("--map")) {
   console.log("| Page | Line | Gate | Ledger id / host | Status | On atteste.art |");
   console.log("|---|---|---|---|---|---|");
   for (const r of map) {
-    console.log(`| ${r.file} | ${r.line} | ${r.kind === "host" ? "host" : r.line === 1 && r.kind === "claim" && map.some(() => false) ? "page" : r.kind} | \`${r.value}\` | ${r.status} | ${r.shown ? "yes" : "**staged**"} |`);
+    console.log(`| ${r.file} | ${r.line} | ${r.kind} | \`${r.value}\` | ${r.status} | ${r.shown ? "yes" : "**staged**"} |`);
   }
   console.log();
 }
