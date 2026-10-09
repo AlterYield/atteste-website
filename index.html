@@ -1637,7 +1637,8 @@
 .connected h2 { font-size: 40px; color: var(--text-dark); margin-bottom: 16px; letter-spacing: -0.3px; max-width: 760px; }
 .connected h2 em { color: var(--gold); font-style: italic; font-weight: 500; }
 .connected .lede { font-size: 18px; color: var(--text-muted); max-width: 640px; line-height: 1.75; margin-bottom: 56px; }
-.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.pillars { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+.pillars > .pillar { flex: 0 1 calc((100% - 48px) / 3); min-width: 0; }
 .pillar { background: var(--white); border: 1px solid rgba(201,169,110,0.22); border-radius: var(--radius-lg); padding: 32px 28px; box-shadow: var(--shadow-subtle); }
 .pillar-verb { font-family: var(--font-display); font-size: 30px; color: var(--text-dark); margin-bottom: 4px; }
 .pillar-verb span { color: var(--gold); }
@@ -1666,13 +1667,13 @@
 .connect-hosts .host { background: rgba(255,255,255,0.6); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 12px; font-size: 15px; line-height: 1.6; }
 .connect-soon { margin-top: 24px; border-top: 1px solid rgba(201,169,110,0.35); padding-top: 20px; }
 @media (max-width: 1024px) {
-  .pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pillars > .pillar { flex-basis: calc((100% - 24px) / 2); }
   .connect-ai-inner { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 640px) {
   .connected, .connect-ai { padding: 80px 16px; }
   .connected h2, .connect-ai h2 { font-size: 30px; }
-  .pillars { grid-template-columns: 1fr; }
+  .pillars > .pillar { flex-basis: 100%; }
   .connect-chat .you { margin-left: 12px; }
   .connect-chat .ai { margin-right: 12px; }
 }
