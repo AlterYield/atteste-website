@@ -1,0 +1,10 @@
+{
+  "_comment": "Site-level holds: copy that is backed by a live/shipping ledger entry but must stay off atteste.art until a named condition is met. A block gated data-claim=\"hold:<id>\" (alone or alongside ledger ids) is removed from production while the hold is listed here. Delete the hold to light every such block up again, with no copy change.",
+  "holds": {
+    "lp-pii-redaction": {
+      "reason": "Claim ceiling 5 (Brain goal G12, 2026-10-08): no copy that invites voice capture (Living Provenance / Talking Provenance recording) until the transcript PII redaction lands.",
+      "lift_when": "The Living Provenance PII redaction is merged and deployed in AlterYield/Atteste; the coordinator confirms.",
+      "since": "2026-10-09"
+    }
+  }
+}

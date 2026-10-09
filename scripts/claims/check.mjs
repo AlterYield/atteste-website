@@ -60,11 +60,19 @@ for (const f of files) {
 
   // 1 + map
   const gates = isHtml ? gatedElements(src) : textFences(src);
+  if (!isHtml) {
+    const opens = (src.match(/<!--\s*claim:/g) ?? []).length;
+    const closes = (src.match(/<!--\s*\/claim\s*-->/g) ?? []).length;
+    if (opens !== gates.length || closes !== gates.length) fail.push(`${f}: ${opens} claim fence(s) opened, ${closes} closed, ${gates.length} matched — a malformed fence would ship its text`);
+  }
   const pc = isHtml ? pageClaim(src) : null;
   if (pc) gates.unshift({ kind: "claim", value: pc, tag: "page" });
   for (const g of gates) {
     const v = judge(g.kind, g.value, snapshot, hosts);
     if (v.status === "unknown") fail.push(`${f}: data-claim "${g.value}" — ${v.reason}`);
+    for (const h of g.value.split(/\s+/).filter((x) => x.startsWith("hold:"))) {
+      if (!snapshot.holds[h.slice(5)]) warn.push(`${f}: ${h} is not in claims/holds.json (lifted?) — remove it from the markup`);
+    }
     const line = g.start != null ? src.slice(0, g.start).split("\n").length : 1;
     map.push({ file: f, line, kind: g.kind, value: g.value, status: v.status, shown: v.ok });
   }

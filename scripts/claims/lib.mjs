@@ -14,6 +14,8 @@
  *
  * Three more gates use the same machinery:
  *   data-claim="unledgered:<slug>"  copy with no ledger entry yet. Never shipped.
+ *   data-claim="<id> hold:<name>"   backed copy held off the site while
+ *                                   claims/holds.json lists <name>.
  *   data-host="<host>"              names an AI host. Shipped only when a proof
  *                                   file docs/host-proofs/<host>-YYYY-MM-DD*.{md,json,png,txt}
  *                                   exists (Lane H: never name an unproven host).
@@ -31,11 +33,15 @@ import { fileURLToPath } from "node:url";
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const SNAPSHOT = join(ROOT, "claims", "ledger-snapshot.json");
 export const PROOFS = join(ROOT, "docs", "host-proofs");
+export const HOLDS = join(ROOT, "claims", "holds.json");
 
 export const CLAIMABLE = new Set(["live", "shipping"]);
 
-export function loadSnapshot(path = SNAPSHOT) {
-  return JSON.parse(readFileSync(path, "utf8"));
+/** The ledger snapshot, with site-level holds attached as snapshot.holds. */
+export function loadSnapshot(path = SNAPSHOT, holdsPath = HOLDS) {
+  const snap = JSON.parse(readFileSync(path, "utf8"));
+  snap.holds = existsSync(holdsPath) ? JSON.parse(readFileSync(holdsPath, "utf8")).holds ?? {} : {};
+  return snap;
 }
 
 /** Hosts with at least one recorded end-to-end proof. */
@@ -61,11 +67,17 @@ export function judge(kind, value, snapshot, hosts) {
   const ids = value.split(/\s+/).filter(Boolean);
   for (const id of ids) {
     if (id.startsWith("unledgered:")) return { ok: false, status: "unledgered", reason: `${id} has no ledger entry` };
+    if (id.startsWith("hold:")) {
+      if (snapshot.holds?.[id.slice(5)]) return { ok: false, status: "on hold", reason: `${id}: ${snapshot.holds[id.slice(5)].reason}` };
+      continue; // hold lifted: the block is judged on its other ids
+    }
     const e = snapshot.entries[id];
     if (!e) return { ok: false, status: "unknown", reason: `${id} is not in the ledger snapshot` };
     if (!CLAIMABLE.has(e.status)) return { ok: false, status: e.status, reason: `${id} is ${e.status}` };
   }
-  return { ok: true, status: snapshot.entries[ids.at(-1)].status, reason: "" };
+  const led = ids.filter((id) => !id.startsWith("hold:"));
+  if (!led.length) return { ok: false, status: "unknown", reason: `${value}: a hold must sit beside a ledger id` };
+  return { ok: true, status: snapshot.entries[led.at(-1)].status, reason: "" };
 }
 
 // ── HTML scanning ────────────────────────────────────────────────────────────
@@ -136,10 +148,10 @@ export function pageClaim(html) {
 }
 
 /** Text-file fences: <!-- claim:<id> --> … <!-- /claim --> */
-const FENCE = /<!--\s*claim:([^\s>]+)\s*-->([\s\S]*?)<!--\s*\/claim\s*-->\n?/g;
+const FENCE = /<!--\s*claim:([^>]+?)\s*-->([\s\S]*?)<!--\s*\/claim\s*-->\n?/g;
 
 export function textFences(text) {
-  return [...text.matchAll(FENCE)].map((m) => ({ kind: "claim", value: m[1], start: m.index, end: m.index + m[0].length, body: m[2] }));
+  return [...text.matchAll(FENCE)].map((m) => ({ kind: "claim", value: m[1].trim(), start: m.index, end: m.index + m[0].length, body: m[2] }));
 }
 
 // ── Rendering ────────────────────────────────────────────────────────────────

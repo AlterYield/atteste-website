@@ -17,7 +17,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 import {
-  ROOT, judge, gatedElements, renderHtml, renderText, pageClaim, loadSnapshot, provenHosts, siteFiles, visibleText,
+  ROOT, judge, gatedElements, renderHtml, renderText, textFences, pageClaim, loadSnapshot, provenHosts, siteFiles, visibleText,
 } from "./lib.mjs";
 import { CEILINGS, RETIRED_PHRASES } from "./rules.mjs";
 
@@ -44,6 +44,10 @@ ok(!judge("claim", "g-091-no-commission", snap, hosts).ok, "retired entry is not
 ok(judge("claim", "g-nope", snap, hosts).status === "unknown", "unknown id is reported as unknown");
 ok(judge("claim", "unledgered:t1-account", snap, hosts).status === "unledgered", "unledgered: prefix never ships");
 ok(!judge("claim", "f-shared-cert-view g-111-trade-payments", snap, hosts).ok, "multi-id block needs every id claimable");
+snap.holds = { "lp-pii": { reason: "ceiling 5" } };
+ok(!judge("claim", "f-shared-cert-view hold:lp-pii", snap, hosts).ok, "a listed hold keeps a backed block off");
+ok(judge("claim", "f-shared-cert-view hold:other", snap, hosts).ok, "a lifted hold lets the block through on its ledger id");
+ok(!judge("claim", "hold:lp-pii", snap, hosts).ok && !judge("claim", "hold:gone", snap, hosts).ok, "a hold alone never ships");
 ok(judge("host", "claude", snap, hosts).ok && !judge("host", "grok", snap, hosts).ok, "host gate follows proofs");
 
 const page = `<html><head><title>x</title></head><body>
@@ -77,6 +81,10 @@ const txt = "Intro\n<!-- claim:g-111-trade-payments -->\nSell inside Attesté.\n
 const tp = renderText(txt, "production", snap, hosts).text;
 ok(!tp.includes("Sell inside") && tp.includes("Certificates.") && !tp.includes("claim:"), "text fences: planned dropped, live kept, fences stripped");
 ok(renderText(txt, "preview", snap, hosts).text.includes("[STAGED · g-111-trade-payments"), "text fences: preview labels staged text");
+const multi = "<!-- claim:f-shared-cert-view hold:lp-pii -->\nHeld line.\n<!-- /claim -->\n";
+ok(!renderText(multi, "production", snap, hosts).text.includes("Held line"), "text fences: multi-id fence (with a hold) is honoured");
+const stray = "<!-- claim:f-shared-cert-view -->\nNo closing fence.\n";
+ok(textFences(stray).length === 0, "text fences: an unclosed fence matches nothing (check.mjs flags it)");
 
 ok(gatedElements('<div data-claim="a"><p>one<p>two</div>').length === 1, "tolerates unclosed <p> inside a gated block");
 let threw = false;

@@ -555,6 +555,21 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 .att-social-rail .att-social { background:rgba(18,18,20,0.66); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
 @media (max-width:1100px){ .att-social-rail{ display:none; } }
 @media (prefers-reduced-motion:reduce){ .att-social-row .att-social,.att-social-rail .att-social{transition:none;} .att-social-row .att-social:hover,.att-social-rail .att-social:hover{transform:none;} }
+
+/* ===== G12 band: Connect your AI + Sell & get paid (2026-10) ===== */
+.g12-band { background: var(--cream); padding: 96px 48px; }
+.g12-inner { max-width: 1100px; margin: 0 auto; }
+.g12-eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
+.g12-band h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; color: var(--navy); margin-bottom: 14px; line-height: 1.2; }
+.g12-band h2 em { color: var(--gold); font-style: italic; font-weight: 500; }
+.g12-band .g12-lede { font-size: 17px; color: #3D3D3D; line-height: 1.75; max-width: 700px; margin-bottom: 40px; }
+.g12-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.g12-card { background: #fff; border: 1px solid rgba(201,169,110,0.25); border-radius: 20px; padding: 30px 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+.g12-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--navy); margin-bottom: 10px; }
+.g12-card p { font-size: 15px; color: #3D3D3D; line-height: 1.7; margin-bottom: 10px; }
+.g12-card code { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; background: #F5EFE0; padding: 2px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+.g12-card a { color: #9A7B44; font-weight: 600; font-size: 14px; }
+@media (max-width: 640px) { .g12-band { padding: 72px 16px; } .g12-band h2 { font-size: 28px; } }
 </style>
 </head>
 <body>
@@ -676,7 +691,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
 
 
 <!-- TALKING PROVENANCE — differentiator (demoted from hero 2026-06-20: money + convenience lead; provenance is the deep "why us") -->
-<section class="tp-section" id="voice-provenance">
+<section class="tp-section" id="voice-provenance" data-claim="g-042-talking-provenance hold:lp-pii-redaction">
   <div class="tp-container">
     <span class="tp-tag">New &middot; Talking Provenance</span>
     <h2 class="tp-headline">And every consigned work can <em>speak.</em></h2>
@@ -779,6 +794,32 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
           <h4>Provenance Request Bridge</h4>
           <p>Contribute exhibition history and sale records to collector provenance chains. Build trust through verified records.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- G12 (2026-10): Connect your AI + Sell & get paid. Claim-gated per card. -->
+<section class="g12-band" id="connected">
+  <div class="g12-inner">
+    <div class="g12-eyebrow">Your gallery, connected</div>
+    <h2>Let the AI your collectors use <em>check your certificates.</em></h2>
+    <p class="g12-lede">A collector asks their assistant about a work before they commit. With Attesté, the assistant can check the certificate you issued and its ownership history on the spot, instead of asking you to resend a PDF.</p>
+    <div class="g12-cards">
+      <div class="g12-card" data-claim="f-agent-connector-t0-verify">
+        <h3>Connect any MCP assistant</h3>
+        <p>Attesté runs a public, read-only connector. Anyone can add <code>https://mcp.atteste.art/mcp</code> to an assistant that supports MCP, paste a certificate link, and get the signature check, the Bitcoin timestamp proof and the ownership history as roles and dates, with a plain note on what it does and doesn&rsquo;t prove.</p>
+        <a href="/agents">Setup guide &rarr;</a>
+      </div>
+      <div class="g12-card" data-claim="g-111-trade-payments">
+        <h3>Sell &amp; get paid</h3>
+        <p>Close the sale inside Attesté. The buyer pays a licensed escrow service, or your own Peach Payments account for card sales in South Africa, and ownership and the certificate move to the buyer when the work arrives.</p>
+        <p>Attesté charges a 1% fee on sales paid through GoSafe escrow; the seller pays it, alongside GoSafe&rsquo;s 1.5%, and the buyer pays the price.</p>
+        <a href="sell.html">How selling works &rarr;</a>
+      </div>
+      <div class="g12-card" data-claim="g-109-agent-discovery">
+        <h3>Be found by AI assistants</h3>
+        <p>Opt individual works in to discovery by AI assistants. They can find the work, verify its certificate and Bitcoin anchor, and read your public gallery profile. Your contact details, clients and floor prices are never exposed.</p>
       </div>
     </div>
   </div>

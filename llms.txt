@@ -16,7 +16,9 @@
 - **AI Art Sommelier** — Profiles your aesthetic taste across 8 axes (representational ↔ abstract, bright ↔ muted, quiet ↔ energetic, etc.) to recommend artworks and artists you'll love.
 - **Art Fair Companion** — Rapid encounter logging for busy art fairs (Cape Town Art Fair, FNB Art Joburg, Frieze, Art Basel).
 - **Atelier** — Voice-first AI art companion with live camera vision (Gemini Live). Point your camera at an artwork and talk about it aloud; Atelier sees what you see, answers grounded in your collection's records, and saves each session as an Atelier Journal entry pinned to the work. Premium feature.
+<!-- claim:f-companion hold:lp-pii-redaction -->
 - **Talking Provenance** — Record AI-coached spoken commentary about an artwork (in the collector's, artist's, or gallery's own voice). Each recording is SHA-256 hash-chained, permanently attached to the work, and travels with it on every ownership transfer — institutional memory turned into a durable provenance asset.
+<!-- /claim -->
 - **Collector Gamification** — XP, achievements, and levelling so building a collection feels rewarding.
 - **Legacy Vault** — Preserve the story behind each artwork — artist interviews, acquisition context, condition history — so it survives intact across generations.
 - **Year in Art** — Annual recap of your collection's evolution (like Spotify Wrapped, for art).
