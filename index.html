@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Primary SEO -->
-<title>Attesté — AI Art Collection Management, Provenance & Discovery</title>
-<meta name="description" content="Strava for Art Collectors. Catalogue, authenticate and share with AI identification, SHA-256 provenance and discovery trails. Free tier. From $9.99/mo.">
-<meta name="keywords" content="art collection management, art provenance software, digital art catalog, AI art identification, art collector app, gallery CRM, art fair companion, cryptographic provenance, art cataloguing software, strava for art">
+<title>Attesté — Your art, connected. Art certificates, provenance & AI</title>
+<meta name="description" content="Give every artwork a signed, Bitcoin-timestamped certificate anyone can check, keep its whole story in one app, and look it up from any MCP-compatible AI assistant. Free to start.">
+<meta name="keywords" content="art collection management, art provenance software, art certificate verification, MCP connector for art, AI assistant art provenance, digital art catalog, AI art identification, art collector app, gallery CRM, art fair companion, cryptographic provenance, art cataloguing software, strava for art">
 <meta name="author" content="Yield SPM (Pty) Ltd">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="theme-color" content="#1A1A2E">
@@ -41,8 +41,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://atteste.art/">
 <meta property="og:site_name" content="Attesté">
-<meta property="og:title" content="Attesté — AI Art Collection Management, Provenance & Discovery">
-<meta property="og:description" content="The Strava for Art Collectors. Catalogue, authenticate and share your art collection with AI-powered identification and cryptographic provenance certificates.">
+<meta property="og:title" content="Attesté — Your art, connected. Art certificates, provenance & AI">
+<meta property="og:description" content="Your art, connected. Signed certificates anyone can check, the whole story of every work in one place, and a connector for the AI you already use.">
 <meta property="og:image" content="https://atteste.art/assets/3d/atteste-og-banner.jpg">
 <meta property="og:image:alt" content="Attesté — Your Art Collection Deserves a Memory">
 <meta property="og:image:width" content="1200">
@@ -55,8 +55,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@atteste_art">
 <meta name="twitter:creator" content="@atteste_art">
-<meta name="twitter:title" content="Attesté — AI Art Collection Management, Provenance & Discovery">
-<meta name="twitter:description" content="The Strava for Art Collectors. AI-powered art identification, SHA-256 provenance certificates, and curated discovery trails.">
+<meta name="twitter:title" content="Attesté — Your art, connected. Art certificates, provenance & AI">
+<meta name="twitter:description" content="Your art, connected. Signed certificates anyone can check, the whole story of every work in one place, and a connector for the AI you already use.">
 <meta name="twitter:image" content="https://atteste.art/assets/3d/atteste-og-banner.jpg">
 <meta name="twitter:image:alt" content="Attesté — Your Art Collection Deserves a Memory">
 
@@ -307,6 +307,14 @@
   "@type": "FAQPage",
   "@id": "https://atteste.art/#faq",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can my AI assistant check an Attesté certificate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Attesté runs a public, read-only connector at https://mcp.atteste.art/mcp that any assistant supporting the Model Context Protocol (MCP) can use. Paste a certificate link and the assistant can check the certificate's signature, fetch its Bitcoin timestamp proof, read its ownership history as roles and dates, and explain what the certificate proves and does not prove. It cannot see your collection, change anything, or buy or sell."
+      }
+    },
     {
       "@type": "Question",
       "name": "What is Attesté?",
@@ -1619,6 +1627,54 @@
   .atelier-lede { font-size: 18px; }
   .store-badges { justify-content: flex-start; }
 }
+
+/* ========== G12 — "Your art, connected." (2026-10) ========== */
+.hero-staged { margin: -20px 0 32px; font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.hero-staged a { color: var(--gold-light); border-bottom: 1px solid rgba(224,207,166,0.4); }
+.connected { background: var(--cream); padding: 112px 48px; }
+.connected-inner { max-width: 1200px; margin: 0 auto; }
+.connected h2 { font-size: 40px; color: var(--text-dark); margin-bottom: 16px; letter-spacing: -0.3px; max-width: 760px; }
+.connected h2 em { color: var(--gold); font-style: italic; font-weight: 500; }
+.connected .lede { font-size: 18px; color: var(--text-muted); max-width: 640px; line-height: 1.75; margin-bottom: 56px; }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.pillar { background: var(--white); border: 1px solid rgba(201,169,110,0.22); border-radius: var(--radius-lg); padding: 32px 28px; box-shadow: var(--shadow-subtle); }
+.pillar-verb { font-family: var(--font-display); font-size: 30px; color: var(--text-dark); margin-bottom: 4px; }
+.pillar-verb span { color: var(--gold); }
+.pillar-what { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
+.pillar p { font-size: 15px; color: var(--text-body); line-height: 1.7; }
+.pillar a { color: #9A7B44; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 12px; }
+.connect-ai { background: var(--gold-pale); padding: 112px 48px; }
+.connect-ai-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: start; }
+.connect-ai h2 { font-size: 40px; color: var(--text-dark); margin-bottom: 16px; letter-spacing: -0.3px; }
+.connect-ai h2 em { color: var(--gold); font-style: italic; font-weight: 500; }
+.connect-ai p { font-size: 16px; color: var(--text-body); line-height: 1.75; margin-bottom: 16px; }
+.connect-ai ul { list-style: none; margin: 8px 0 24px; }
+.connect-ai li { position: relative; padding-left: 26px; margin-bottom: 10px; font-size: 15px; line-height: 1.6; color: var(--text-body); }
+.connect-ai li::before { content: ''; position: absolute; left: 4px; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.connect-url { display: block; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 15px; background: var(--white); border: 1px solid rgba(201,169,110,0.4); border-radius: var(--radius-sm); padding: 14px 16px; margin: 8px 0 20px; color: var(--text-dark); overflow-wrap: anywhere; }
+.connect-chat { background: var(--white); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-card); }
+.connect-chat .turn { font-size: 15px; line-height: 1.6; padding: 12px 16px; border-radius: 14px; margin-bottom: 12px; }
+.connect-chat .turn span { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+.connect-chat .you { background: var(--cream-dark); margin-left: 32px; }
+.connect-chat .you span { color: var(--text-muted); }
+.connect-chat .ai { background: var(--gold-pale); margin-right: 32px; }
+.connect-chat .ai span { color: #9A7B44; }
+.connect-chat .note { font-size: 12px; color: var(--text-muted); margin: 8px 0 0; }
+.connect-hosts { margin-top: 28px; }
+.connect-hosts h3 { font-size: 20px; color: var(--text-dark); margin: 0 0 8px; }
+.connect-hosts .host { background: rgba(255,255,255,0.6); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 12px; font-size: 15px; line-height: 1.6; }
+.connect-soon { margin-top: 24px; border-top: 1px solid rgba(201,169,110,0.35); padding-top: 20px; }
+@media (max-width: 1024px) {
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .connect-ai-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 640px) {
+  .connected, .connect-ai { padding: 80px 16px; }
+  .connected h2, .connect-ai h2 { font-size: 30px; }
+  .pillars { grid-template-columns: 1fr; }
+  .connect-chat .you { margin-left: 12px; }
+  .connect-chat .ai { margin-right: 12px; }
+}
 </style>
 </head>
 <body>
@@ -1627,8 +1683,10 @@
 <nav class="nav" id="nav">
   <div class="nav-logo">Attest<span>é</span></div>
   <ul class="nav-links">
+    <li><a href="#connected">What it does</a></li>
+    <li><a href="#connect-ai">Connect your AI</a></li>
+    <li data-claim="g-111-trade-payments a-055-trade-payments"><a href="sell.html">Sell</a></li>
     <li><a href="#atelier">Atelier</a></li>
-    <li><a href="#features">Features</a></li>
     <li><a href="#provenance">Provenance</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="artists.html">Artists</a></li>
@@ -1657,8 +1715,9 @@
         <span class="hero-badge-dot"></span>
         Now on iOS &amp; Android
       </div>
-      <h1>Your Art Collection Deserves <em>a Memory</em></h1>
-      <p class="hero-sub">Capture every encounter. Document every provenance. Talk with every work. Attesté turns your collection into a living, verified story — sealed in cryptographic truth.</p>
+      <h1>Your art, <em>connected.</em></h1>
+      <p class="hero-sub" data-claim="f-shared-cert-view f-shared-cert-verify-result f-agent-connector-t0-verify">Give every work a signed certificate anyone can check, keep its whole story in one place, and ask the AI you already use to look it up for you. Goodbye, PDF certificates. Goodbye, provenance scattered across WhatsApp.</p>
+      <p class="hero-staged" data-claim="g-111-trade-payments a-055-trade-payments">And when it sells, sell it inside Attesté: the buyer&rsquo;s money waits with a licensed escrow service until the work arrives. <a href="sell.html">How selling works</a></p>
       <div class="store-badges">
         <a href="https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&amp;ct=website&amp;mt=8" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store">
           <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-apple" width="120" height="40">
@@ -1700,7 +1759,7 @@
     </div>
     <div class="proof-item">
       <div class="proof-number">NFC</div>
-      <div class="proof-label">tap-to-verify<br>certificates</div>
+      <div class="proof-label">tap a tag,<br>open the record</div>
     </div>
     <div class="proof-item">
       <div class="proof-number">Dual AI</div>
@@ -1709,36 +1768,83 @@
   </div>
 </div>
 
+
+<!-- PROVE · OWN · SHOW · SELL · TALK (G12, 2026-10). Every card is claim-gated:
+     a card whose ledger entry is not live|shipping is removed from production
+     and shown as STAGED on deploy previews (scripts/claims/). -->
+<section class="connected" id="connected">
+  <div class="connected-inner">
+    <div class="section-label">From studio to wall, and onwards</div>
+    <h2>One place for the whole life of a <em>work of art.</em></h2>
+    <p class="lede">Make it, buy it, hang it, lend it, pass it on. Attesté keeps the record straight at every step, so the story of a work never depends on someone finding the right email.</p>
+    <div class="pillars">
+      <div class="pillar" data-claim="f-shared-cert-view f-shared-cert-verify-result">
+        <div class="pillar-verb">Prove<span>.</span></div>
+        <div class="pillar-what">A certificate anyone can check</div>
+        <p>Every work gets an Attesté certificate, signed when it&rsquo;s issued and timestamped on Bitcoin. Share the link or the QR code; whoever opens it sees whether the record still matches, with no account and no app.</p>
+      </div>
+      <div class="pillar" data-claim="f-collector-collection-list f-collector-condition-vault f-collector-insurance-vault">
+        <div class="pillar-verb">Own<span>.</span></div>
+        <div class="pillar-what">The paperwork, finally in one place</div>
+        <p>Invoices, condition notes and valuations live with the work they belong to. When the insurer asks, you export one tidy PDF instead of an afternoon in the filing cabinet.</p>
+      </div>
+      <div class="pillar" data-claim="a-041-public-artist-profile g-001-directory-listing">
+        <div class="pillar-verb">Show<span>.</span></div>
+        <div class="pillar-what">Out in the world</div>
+        <p>Artists get a public profile of their works and certificates. Galleries get a place in the Attesté gallery directory, where collectors go looking.</p>
+      </div>
+      <div class="pillar" data-claim="a-032-provenance-transfer f-shared-transfers-hub">
+        <div class="pillar-verb">Pass it on<span>.</span></div>
+        <div class="pillar-what">The record travels with the work</div>
+        <p>Sold, gifted or consigned, the work&rsquo;s record moves to its next owner, and every hand-over is signed and added to the chain.</p>
+      </div>
+      <div class="pillar" data-claim="g-111-trade-payments a-055-trade-payments">
+        <div class="pillar-verb">Sell &amp; get paid<span>.</span></div>
+        <div class="pillar-what">No more wire-and-pray</div>
+        <p>Sell inside Attesté. The buyer pays a licensed escrow service, not a stranger&rsquo;s bank account, and the money is released once the buyer confirms the work arrived. Ownership and the certificate move to the buyer at the same time.</p>
+        <a href="sell.html">How selling works &rarr;</a>
+      </div>
+      <div class="pillar" data-claim="f-agent-connector-t0-verify">
+        <div class="pillar-verb">Talk<span>.</span></div>
+        <div class="pillar-what">From the AI you already use</div>
+        <p>Plug Attesté into any assistant that supports MCP, paste a certificate link, and ask. It checks the signature, the Bitcoin timestamp and the ownership history for you, and says plainly what that does and doesn&rsquo;t prove.</p>
+        <a href="#connect-ai">Connect your AI &darr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- THE PROBLEM -->
 <section class="section" id="problem">
   <div class="problem-grid">
     <div>
-      <div class="section-label">The Quiet Crisis</div>
-      <h2>Art Stories Are Dying With Their Owners</h2>
-      <p class="section-desc" style="margin-bottom:24px;">Every art collection holds decades of stories — the gallery where you first saw it, the artist who signed it, the trip that changed your taste. But without a system to capture these moments, they vanish. Receipts fade. Memories blur. Heirs inherit art they know nothing about.</p>
-      <p style="font-size:15px; color:var(--text-muted); line-height:1.8; max-width:560px;">Insurance valuations expire in drawers. Provenance lives on Post-it notes. And the personal journey — the most valuable part of any collection — is never recorded at all.</p>
+      <div class="section-label">The Trust Gap</div>
+      <h2>Art still changes hands on a PDF and a promise</h2>
+      <p class="section-desc" style="margin-bottom:24px;">Thursday, 21:40. A collector is about to pay for a painting they first saw on Instagram. What they have to go on: a &ldquo;certificate of authenticity&rdquo; someone made in Word, a long WhatsApp thread, and bank details for a person they&rsquo;ve never met. Pay, and hope.</p>
+      <p style="font-size:15px; color:var(--text-muted); line-height:1.8; max-width:560px;" data-claim="f-shared-cert-view f-shared-cert-verify-result a-032-provenance-transfer">Attesté closes that gap one work at a time. Its certificate is signed when it&rsquo;s issued and timestamped on Bitcoin, so anyone can check that the record still matches what was signed and that it existed before a specific block. When the work moves on, the record goes with it.</p>
+      <p style="font-size:15px; color:var(--text-muted); line-height:1.8; max-width:560px; margin-top:16px;" data-claim="g-111-trade-payments a-055-trade-payments">And when the sale happens inside Attesté, the buyer&rsquo;s money waits with a licensed escrow service instead of in a stranger&rsquo;s account.</p>
     </div>
     <div class="problem-visual">
       <div class="problem-card">
-        <div class="problem-quote">"My children will inherit the art. But not the stories behind it."</div>
-        <div class="problem-attribution">— The question every serious collector eventually faces</div>
+        <div class="problem-quote">&ldquo;Can you send the certificate?&rdquo;<br>&ldquo;Sure, I&rsquo;ll WhatsApp it.&rdquo;</div>
+        <div class="problem-attribution">&mdash; How a lot of art still changes hands</div>
       </div>
       <div class="problem-stats">
         <div class="problem-stat">
-          <div class="problem-stat-value">Paper</div>
-          <div class="problem-stat-label">where most provenance still lives — and fades</div>
+          <div class="problem-stat-value">PDFs</div>
+          <div class="problem-stat-label">certificates anyone can make, and anyone can edit</div>
         </div>
         <div class="problem-stat">
-          <div class="problem-stat-value">Drawers</div>
-          <div class="problem-stat-label">where valuations expire, unseen by anyone</div>
+          <div class="problem-stat-value">Chats</div>
+          <div class="problem-stat-label">where the provenance lives, between the voice notes</div>
         </div>
         <div class="problem-stat">
-          <div class="problem-stat-value">Estates</div>
-          <div class="problem-stat-label">where the stories vanish, one transfer at a time</div>
+          <div class="problem-stat-value">Wires</div>
+          <div class="problem-stat-label">paid to a stranger before the work has shipped</div>
         </div>
-        <div class="problem-stat">
-          <div class="problem-stat-value">One app</div>
-          <div class="problem-stat-label">built around the collector's journey, start to legacy</div>
+        <div class="problem-stat" data-claim="f-shared-cert-verify-result">
+          <div class="problem-stat-value">One link</div>
+          <div class="problem-stat-label">to a signed record anyone can check, for free</div>
         </div>
       </div>
     </div>
@@ -1809,6 +1915,57 @@
       </div>
     </div>
     <p class="atelier-footnote">Illustrative conversation &middot; Atelier is a Premium feature &middot; voice &amp; vision powered by Gemini Live</p>
+  </div>
+</section>
+
+<!-- CONNECT YOUR AI (G12, 2026-10). The connector serves exactly four tools
+     (live tools/list on mcp.atteste.art, 2026-10-09): verify_certificate,
+     get_bitcoin_anchor, get_provenance_timeline, explain_attestation.
+     Hosts are named only inside data-host blocks, which ship once a recorded
+     end-to-end run exists in docs/host-proofs/. -->
+<section class="connect-ai" id="connect-ai" data-claim="f-agent-connector-t0-verify">
+  <div class="connect-ai-inner">
+    <div>
+      <div class="section-label">Connect your AI</div>
+      <h2>Ask the AI you <em>already use.</em></h2>
+      <p>Attesté runs a public connector that any assistant supporting the Model Context Protocol (MCP) can plug into. Add it once, then paste a certificate link into the chat and ask away. Your assistant can:</p>
+      <ul>
+        <li>check whether a certificate&rsquo;s signature holds, and what it records</li>
+        <li>fetch the Bitcoin timestamp proof, so anyone can check it without Attesté</li>
+        <li>read the work&rsquo;s ownership history, shown as roles and dates, never names</li>
+        <li>explain what all of that proves, and what it doesn&rsquo;t</li>
+      </ul>
+      <p>Then put it to work. Ask it to draft the caption, the listing or the insurance note, and it writes from the certificate&rsquo;s facts instead of guessing them. The assistant does the writing. Attesté supplies the truth.</p>
+      <p style="margin-bottom:6px;"><strong>Add a custom connector (MCP server) with this URL:</strong></p>
+      <code class="connect-url">https://mcp.atteste.art/mcp</code>
+      <p style="font-size:14px; color:var(--text-muted);">Read-only. Nothing to sign in to. It can&rsquo;t see your collection, change anything, or buy or sell. <a href="/agents" style="color:#9A7B44; font-weight:600;">Full setup guide &rarr;</a></p>
+
+      <div class="connect-hosts">
+        <div class="host" data-host="claude"><strong>Claude.</strong> Settings &rarr; Connectors &rarr; Add custom connector, then paste the URL.</div>
+        <div class="host" data-host="grok"><strong>Grok.</strong> Open grok.com/connectors, choose New Connector &rarr; Custom, then paste the URL.</div>
+        <div class="host" data-host="chatgpt"><strong>ChatGPT.</strong> Turn on developer mode under Settings &rarr; Apps &amp; Connectors, create a connector, then paste the URL.</div>
+      </div>
+
+      <div class="connect-soon" data-claim="unledgered:t1-account-collection-read">
+        <h3 style="font-size:20px; color:var(--text-dark); margin-bottom:8px;">Your whole collection, in the chat</h3>
+        <p>Sign in once and choose what your assistant may read: your works, certificates, condition notes and, if you allow it, the values you recorded. Ask &ldquo;what&rsquo;s due for a condition check?&rdquo; and get an answer from your own records.</p>
+      </div>
+      <div class="connect-soon" data-claim="g-109-agent-discovery a-053-agent-discovery">
+        <h3 style="font-size:20px; color:var(--text-dark); margin-bottom:8px;">Be found by the assistants buyers use</h3>
+        <p>Choose individual works to list for AI discovery. Assistants can find them, check the certificate and Bitcoin timestamp, and read your public profile. Your contact details, clients and floor prices are never exposed.</p>
+      </div>
+      <div class="connect-soon" data-claim="unledgered:t2-listings-offers g-111-trade-payments">
+        <h3 style="font-size:20px; color:var(--text-dark); margin-bottom:8px;">List, field offers and close, from the chat</h3>
+        <p>Draft a listing, answer an offer and accept a sale by talking to your assistant. Anything that moves a work or money still waits for you to confirm it in Attesté.</p>
+      </div>
+    </div>
+    <div class="connect-chat" aria-label="Example conversation with an AI assistant using the Attesté connector">
+      <div class="turn you"><span>You</span>Can you check this Attesté certificate? atteste.art/v/3PQT&hellip;</div>
+      <div class="turn ai"><span>Assistant</span>The seal is valid and the record hasn&rsquo;t changed since it was issued on 31 May 2026. Its fingerprint was timestamped on Bitcoin the same day; here&rsquo;s the proof file if you want to check it yourself. No change of ownership has been recorded yet.</div>
+      <div class="turn you"><span>You</span>So it&rsquo;s definitely by that artist?</div>
+      <div class="turn ai"><span>Assistant</span>Not from this alone. It&rsquo;s an artist certificate, but Attesté doesn&rsquo;t check who opened the artist profile, so it records a claim to be the artist rather than proving it. It also doesn&rsquo;t say the work is authentic or what it&rsquo;s worth.</div>
+      <p class="note">Example conversation, paraphrasing the connector&rsquo;s real response for a live certificate on 9 October 2026.</p>
+    </div>
   </div>
 </section>
 
@@ -2259,6 +2416,10 @@
     <details class="faq-item" open>
       <summary>What is Attesté?</summary>
       <p>Attesté is an AI-powered art collection management platform. It helps collectors catalogue their art, verify provenance with SHA-256 cryptographic certificates, discover new galleries and artists via GPS-gated trails, and document collection history across generations.</p>
+    </details>
+    <details class="faq-item" data-claim="f-agent-connector-t0-verify">
+      <summary>Can my AI assistant check an Attesté certificate?</summary>
+      <p>Yes. Attesté runs a public, read-only connector at <code>https://mcp.atteste.art/mcp</code> that any assistant supporting the Model Context Protocol (MCP) can use. Paste a certificate link and the assistant can check the signature, fetch the Bitcoin timestamp proof, read the ownership history as roles and dates, and explain what the certificate proves and doesn&rsquo;t. It can&rsquo;t see your collection, change anything, or buy or sell. <a href="/agents">Setup guide</a>.</p>
     </details>
     <details class="faq-item">
       <summary>How much does Attesté cost?</summary>
