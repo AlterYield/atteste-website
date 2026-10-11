@@ -10,7 +10,9 @@ import { urlToFile } from './check.mjs';
 const ROOT = new URL('../..', import.meta.url).pathname;
 const git = (...a) => execFileSync('git', a, { cwd: ROOT, encoding: 'utf8' }).trim();
 const today = new Date().toISOString().slice(0, 10);
-const dirty = new Set(git('status', '--porcelain').split('\n').filter(Boolean).map((l) => l.slice(3)));
+// Not via git(): its trim() would eat the leading space of the first porcelain line (" M file").
+const porcelain = execFileSync('git', ['status', '--porcelain'], { cwd: ROOT, encoding: 'utf8' });
+const dirty = new Set(porcelain.split('\n').filter(Boolean).map((l) => l.slice(3)));
 const path = join(ROOT, 'sitemap.xml');
 let changed = 0;
 const out = readFileSync(path, 'utf8').replace(/<url>([\s\S]*?)<\/url>/g, (block, inner) => {
