@@ -85,3 +85,16 @@ When asked to create copy, campaigns, emails, ads, or any marketing material:
 2. Reference `03c-fomo-content-templates.md` there for the messaging matrix
 3. Match content to the appropriate persona segment and tier
 4. Follow the FOMO ethics charter in `03e-fomo-tactics.md`
+
+## Definition of done for ANY site change — SEO/GEO + claims (standard, Charl 2026-10-11)
+
+A website change is not finished until both gates pass locally and in CI:
+
+1. **Claim gate** — `node scripts/claims/check.mjs` (every visible claim on a live|shipping Promise-Ledger entry).
+2. **SEO/GEO gate** — `node scripts/seo/sync-sitemap.mjs && node scripts/seo/check.mjs`:
+   one `<h1>`, title 15–70 chars, meta description 50–170, canonical = sitemap URL, `og:*` + `twitter:card`,
+   valid JSON-LD, sitemap `<lastmod>` ≥ the file's last commit, AI search crawlers allowed in `robots.txt`,
+   `llms.txt` present. New top-level pages go in `sitemap.xml` (or `NOT_INDEXED` with a reason).
+3. **Content pass** (judgement, not automated): run the `seo-geo` skill on changed pages — front-load a
+   self-contained answer in the first ~60 words, question-style H2s where they fit, and update
+   `llms.txt` / `llms-full.txt` + Organization JSON-LD when positioning or pages change.
