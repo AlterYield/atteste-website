@@ -5,7 +5,7 @@
   <!-- Atelier Notes journal -->
   <url>
     <loc>https://atteste.art/notes/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -52,7 +52,7 @@
   <!-- Home -->
   <url>
     <loc>https://atteste.art/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://atteste.art/"/>
@@ -65,21 +65,21 @@
   <!-- Marketing pages -->
   <url>
     <loc>https://atteste.art/features.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/artists.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/galleries.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -94,14 +94,14 @@
   <!-- Claim-gated (g-111/a-055): the production build drops this entry and the page until the entry is live|shipping. -->
   <url>
     <loc>https://atteste.art/sell</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/glossary.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -109,21 +109,21 @@
   <!-- Comparison / alternative pages (competitive SEO + GEO) -->
   <url>
     <loc>https://atteste.art/compare/artwork-archive-alternative</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/compare/art-galleria-alternative</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/compare/artwork-archive-vs-art-galleria</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -131,55 +131,55 @@
   <!-- Legal — canonical URLs without .html extension (per Netlify rewrite + build_legal_html.js template) -->
   <url>
     <loc>https://atteste.art/privacy</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/terms</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/ai-disclosure</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/community-guidelines</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/cookies</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://atteste.art/refunds</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/legacy-disclaimer</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/delete-account</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -187,7 +187,7 @@
   <!-- Public Provenance Graph — certificate index -->
   <url>
     <loc>https://atteste.art/cert/</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -195,21 +195,21 @@
   <!-- Demonstration Attesté Certificates — seed the provenance graph -->
   <url>
     <loc>https://atteste.art/cert/eea6ca5adfe61561.html</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/cert/24ba0fa15c430b83.html</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/cert/60898db221a2008c.html</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -218,84 +218,84 @@
   <!-- Help Centre -->
   <url>
     <loc>https://atteste.art/help/</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/getting-started-collectors.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/getting-started-artists.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/getting-started-galleries.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/subscriptions-and-billing.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/account-and-data.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/provenance-and-certificates.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/nfc-tags.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/ai-features.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/gallery-tools.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/troubleshooting.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://atteste.art/help/contact.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

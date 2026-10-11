@@ -1,0 +1,29 @@
+# SEO/GEO gate (standard since 2026-10-11): every change to atteste.art must keep the search and
+# AI-search basics intact — one h1, title/description in range, canonical, Open Graph, Twitter
+# card, valid JSON-LD, fresh sitemap lastmod, AI crawlers allowed, llms.txt present.
+# Fix a stale lastmod with: node scripts/seo/sync-sitemap.mjs
+name: seo-geo gate
+
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  seo:
+    name: SEO/GEO gate (meta · canonical · OG · JSON-LD · sitemap · robots)
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # lastmod is compared with each file's last commit date
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/seo/test-check.mjs
+      - run: node scripts/seo/check.mjs

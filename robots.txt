@@ -1,4 +1,4 @@
-# Attesté — The AI-powered art collection platform
+# Attesté — Your art, connected. Certificates, provenance and AI for art.
 # https://atteste.art
 
 User-agent: *
@@ -9,6 +9,12 @@ User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
 Allow: /
 
 User-agent: Claude-Web
