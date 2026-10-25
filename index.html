@@ -411,2014 +411,482 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css?v=20260717">
+<link rel="preload" as="image" href="assets/landing/hero.jpg">
 <style>
-/* ========================================
-   ATTESTÉ MARKETING SITE
-   Design system: Dark #1A1A2E + Gold #C9A96E
-   Fonts: Playfair Display (headings), Inter (body)
-   ======================================== */
+/* ===== Landing v2 (2026-10-25) — bright gallery-white. Scoped under body.lp ===== */
+body.lp{--ink:#1A1A2E;--ink2:#3b3b4f;--mute:#6b6b7d;--line:#e9e3d8;--cream:#FAF8F5;--paper:#fff;--gold:#C9A96E;--gold-d:#9A7B44;
+  --r:22px;--max:1200px;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body.lp *{box-sizing:border-box}
+.lp-wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.lp-eyebrow{font:600 12px/1 Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d)}
+.lp-h2{font:600 clamp(34px,4.6vw,58px)/1.06 'Playfair Display',Georgia,serif;letter-spacing:-.01em;margin:14px 0 0;color:var(--ink)}
+.lp-h2 em,.lp-h1 em{font-style:italic;color:var(--gold-d);font-weight:500}
+.lp-lede{font:400 clamp(17px,1.5vw,20px)/1.6 Inter;color:var(--ink2);max-width:640px;margin:18px 0 0}
+.lp-btn{display:inline-flex;align-items:center;gap:10px;font:600 15px Inter;padding:15px 26px;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
+.lp-btn:hover{transform:translateY(-1px)}
+.lp-btn-dark{background:var(--ink);color:#fff;box-shadow:0 10px 30px rgba(26,26,46,.18)}
+.lp-btn-gold{background:var(--gold);color:var(--ink)}
+.lp-btn-line{border:1.5px solid rgba(26,26,46,.18);color:var(--ink);background:rgba(255,255,255,.6)}
+.lp-reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.lp-reveal.in{opacity:1;transform:none}
 
+/* nav */
+.lp-nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s,backdrop-filter .3s}
+.lp-nav .lp-wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.lp-logo{font:600 26px 'Playfair Display',serif;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.lp-logo span{color:var(--gold-d)}
+.lp-links{display:flex;gap:28px;align-items:center;list-style:none;margin:0;padding:0}
+.lp-links a{font:500 14.5px Inter;color:var(--ink);text-decoration:none;opacity:.85}
+.lp-links a:hover{opacity:1}
+.lp-links .lp-btn{opacity:1;padding:11px 20px;font-size:14px;color:#fff}
+.lp-nav.scrolled{background:rgba(250,248,245,.86);backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 1px 0 var(--line)}
+.lp-burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.lp-burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
 
+/* hero */
+.lp-hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:#efe9df}
+.lp-hero video,.lp-hero .lp-hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lp-hero .v-mobile{display:none}
+.lp-hero::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(250,248,245,.94) 0%,rgba(250,248,245,.82) 30%,rgba(250,248,245,.15) 62%,rgba(250,248,245,0) 80%),
+  linear-gradient(0deg,rgba(250,248,245,.9) 0%,rgba(250,248,245,0) 34%)}
+.lp-hero-in{position:relative;z-index:2;width:100%;padding:140px 0 72px}
+.lp-hero-copy{max-width:640px}
+.lp-h1{font:600 clamp(52px,8.2vw,112px)/.98 'Playfair Display',Georgia,serif;letter-spacing:-.02em;margin:18px 0 0;color:var(--ink)}
+.lp-hero-sub{font:400 clamp(17px,1.6vw,21px)/1.55 Inter;color:var(--ink2);margin:22px 0 0;max-width:560px}
+.lp-roles{display:inline-flex;gap:6px;margin:32px 0 0;padding:6px;border-radius:999px;background:rgba(255,255,255,.8);box-shadow:0 8px 30px rgba(26,26,46,.08);border:1px solid var(--line)}
+.lp-roles button{font:600 14px Inter;border:0;background:none;color:var(--ink2);padding:11px 18px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
+.lp-roles button[aria-selected="true"]{background:var(--ink);color:#fff}
+.lp-role-panel{margin-top:22px;min-height:118px}
+.lp-role-panel[hidden]{display:none}
+.lp-role-panel p{font:500 16px/1.5 Inter;color:var(--ink);margin:0 0 16px;max-width:520px}
+.lp-badges{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.lp-badges img{height:46px;width:auto;display:block}
+.lp-hero-note{font:400 12.5px Inter;color:var(--mute);margin-top:26px}
+.lp-scroll{position:absolute;z-index:2;right:28px;bottom:28px;font:600 11px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);writing-mode:vertical-rl}
 
+/* living strip */
+.lp-strip{padding:96px 0 40px;overflow:hidden}
+.lp-strip-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.lp-marquee{margin-top:44px;display:flex;gap:18px;width:max-content;animation:lp-slide 70s linear infinite}
+.lp-marquee:hover{animation-play-state:paused}
+.lp-tile{width:220px;aspect-ratio:9/16;border-radius:18px;overflow:hidden;position:relative;background:#e9e3d8;box-shadow:0 18px 40px rgba(26,26,46,.12);flex:none}
+.lp-tile video{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes lp-slide{to{transform:translateX(-50%)}}
+.lp-strip-note{font:400 12.5px Inter;color:var(--mute);margin-top:18px}
 
-/* ========== HERO ========== */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background: var(--navy);
-  overflow: hidden;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,169,110,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 20% 80%, rgba(201,169,110,0.04) 0%, transparent 50%),
-    linear-gradient(180deg, var(--navy) 0%, #0D0D1A 100%);
-}
-/* Animated gold particles */
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.particle {
-  position: absolute;
-  width: 2px; height: 2px;
-  background: var(--gold);
-  border-radius: 50%;
-  opacity: 0;
-  animation: float-particle 8s infinite;
-}
-.particle:nth-child(1) { left: 15%; top: 20%; animation-delay: 0s; animation-duration: 7s; }
-.particle:nth-child(2) { left: 35%; top: 60%; animation-delay: 1.5s; animation-duration: 9s; }
-.particle:nth-child(3) { left: 55%; top: 30%; animation-delay: 3s; animation-duration: 6s; }
-.particle:nth-child(4) { left: 75%; top: 70%; animation-delay: 0.5s; animation-duration: 8s; }
-.particle:nth-child(5) { left: 85%; top: 15%; animation-delay: 2s; animation-duration: 10s; }
-.particle:nth-child(6) { left: 25%; top: 80%; animation-delay: 4s; animation-duration: 7s; }
-.particle:nth-child(7) { left: 65%; top: 50%; animation-delay: 1s; animation-duration: 9s; }
-.particle:nth-child(8) { left: 45%; top: 10%; animation-delay: 3.5s; animation-duration: 8s; }
+/* pillars */
+.lp-pillars{padding:110px 0}
+.lp-pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.lp-pillar{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:34px 30px;transition:transform .3s,box-shadow .3s}
+.lp-pillar:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(26,26,46,.08)}
+.lp-verb{font:600 36px 'Playfair Display',serif;color:var(--ink)}
+.lp-verb span{color:var(--gold)}
+.lp-what{font:600 15px Inter;color:var(--gold-d);margin:6px 0 12px}
+.lp-pillar p{font:400 15.5px/1.65 Inter;color:var(--ink2);margin:0}
+.lp-pillar a{display:inline-block;margin-top:14px;font:600 14px Inter;color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--gold)}
 
-@keyframes float-particle {
-  0% { opacity: 0; transform: translateY(0) scale(1); }
-  20% { opacity: 0.6; }
-  80% { opacity: 0.3; }
-  100% { opacity: 0; transform: translateY(-120px) scale(0.5); }
-}
+/* role sections */
+.lp-role{padding:70px 0}
+.lp-role .lp-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.lp-role.flip .lp-media{order:2}
+.lp-media{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 40px 80px rgba(26,26,46,.16);background:#e9e3d8}
+.lp-media video{width:100%;height:100%;object-fit:cover;display:block}
+.lp-media .lp-chip{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:9px 15px;font:600 12.5px Inter;color:var(--ink)}
+.lp-role ul{list-style:none;padding:0;margin:26px 0 0}
+.lp-role li{position:relative;padding:0 0 16px 30px;font:400 16px/1.6 Inter;color:var(--ink2)}
+.lp-role li strong{color:var(--ink);font-weight:600}
+.lp-role li::before{content:"";position:absolute;left:0;top:9px;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e8d3a6,var(--gold) 70%)}
+.lp-role .lp-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.lp-price-line{font:500 14px Inter;color:var(--mute);margin-top:16px}
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 140px 48px 100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.hero-text { max-width: 560px; }
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(201,169,110,0.25);
-  padding: 8px 18px;
-  border-radius: 100px;
-  margin-bottom: 32px;
-  backdrop-filter: blur(10px);
-  background: rgba(201,169,110,0.05);
-}
-.hero-badge-dot {
-  width: 6px; height: 6px;
-  background: var(--gold);
-  border-radius: 50%;
-  animation: pulse-dot 2s infinite;
-}
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-.hero h1 {
-  font-size: 56px;
-  color: var(--white);
-  margin-bottom: 24px;
-  letter-spacing: -0.5px;
-}
-.hero h1 em {
-  color: var(--gold);
-  font-style: italic;
-  font-weight: 500;
-}
-.hero-sub {
-  font-size: 18px;
-  color: var(--text-light);
-  line-height: 1.7;
-  margin-bottom: 40px;
-  font-weight: 300;
-}
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
+/* proof */
+.lp-proof{padding:120px 0;background:linear-gradient(180deg,var(--cream),#f3eee6)}
+.lp-phones{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:64px}
+.lp-phone{text-align:center}
+.lp-phone .frame{margin:0 auto;width:min(270px,100%);aspect-ratio:9/19.3;border-radius:42px;padding:10px;background:#121222;box-shadow:0 40px 70px rgba(26,26,46,.25);overflow:hidden}
+.lp-phone .frame img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:33px;display:block}
+.lp-phone h3{font:600 22px 'Playfair Display',serif;margin:28px 0 8px;color:var(--ink)}
+.lp-phone p{font:400 15px/1.6 Inter;color:var(--ink2);max-width:300px;margin:0 auto}
 
-/* Hero device — Rotato video slot (replaced the CSS-drawn phone mockup, 2026-06) */
-.hero-visual {
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-.hero-device {
-  position: relative;
-  width: 300px;
-  border-radius: 44px;
-  padding: 10px;
-  background: linear-gradient(160deg, #2E2E4E 0%, #15152A 100%);
-  box-shadow: 0 60px 120px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,169,110,0.22), inset 0 0 0 1px rgba(255,255,255,0.06);
-  animation: device-rise 1.1s cubic-bezier(0.22,1,0.36,1) both 0.25s;
-}
-.hero-device::after {
-  content: '';
-  position: absolute;
-  inset: -24px;
-  border-radius: 64px;
-  border: 1px solid rgba(201,169,110,0.16);
-  pointer-events: none;
-}
-.hero-device video,
-.hero-device img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1000 / 1586;
-  object-fit: cover;
-  border-radius: 35px;
-  background: #15152A;
-}
-@keyframes device-rise {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+/* AI */
+.lp-ai{padding:120px 0}
+.lp-ai .lp-wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.lp-ai-card{max-width:430px;margin:0 auto;border-radius:28px;overflow:hidden;box-shadow:0 40px 80px rgba(26,26,46,.14);background:#fff;border:1px solid var(--line)}
+.lp-ai-card video{width:100%;display:block}
+.lp-ai ul{margin:22px 0 0;padding:0 0 0 20px;color:var(--ink2);font:400 16px/1.75 Inter}
+.lp-url{display:flex;align-items:center;gap:10px;margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 8px 8px 18px;max-width:440px}
+.lp-url code{font:500 15px ui-monospace,'SF Mono',Menlo,monospace;color:var(--ink);flex:1}
+.lp-url button{font:600 13px Inter;border:0;background:var(--ink);color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer}
+.lp-small{font:400 14px/1.6 Inter;color:var(--mute);margin-top:14px}
+.lp-small a{color:var(--gold-d);font-weight:600}
 
-.hero-tertiary {
-  margin-top: 26px;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  letter-spacing: 0.3px;
-}
-.hero-tertiary a {
-  color: var(--gold-light);
-  border-bottom: 1px solid rgba(201,169,110,0.4);
-  padding-bottom: 1px;
-  transition: color var(--transition);
-}
-.hero-tertiary a:hover { color: var(--gold); }
+/* pricing */
+.lp-pricing{padding:110px 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lp-prices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.lp-pcard{border:1px solid var(--line);border-radius:var(--r);padding:32px;background:var(--cream)}
+.lp-pcard h3{font:600 26px 'Playfair Display',serif;margin:0;color:var(--ink)}
+.lp-pcard .who{font:500 14px Inter;color:var(--mute);margin:6px 0 20px}
+.lp-tier{display:flex;justify-content:space-between;gap:14px;padding:14px 0;border-top:1px solid var(--line);font:400 14.5px/1.5 Inter;color:var(--ink2)}
+.lp-tier b{color:var(--ink);font-weight:600}
+.lp-tier .amt{white-space:nowrap;font-weight:600;color:var(--gold-d)}
+.lp-pcard .lp-btn{margin-top:20px}
 
-/* Store badge — coming-soon state (Play listing not live yet) */
-.store-soon { position: relative; display: inline-flex; align-items: center; cursor: default; }
-.store-soon img { opacity: 0.38; filter: grayscale(55%); }
-.soon-tag {
-  position: absolute;
-  left: 50%;
-  bottom: -5px;
-  transform: translateX(-50%);
-  font-family: 'Inter', sans-serif;
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  background: rgba(13,13,26,0.88);
-  border: 1px solid rgba(201,169,110,0.4);
-  padding: 3px 9px;
-  border-radius: 100px;
-  white-space: nowrap;
-}
+/* story + faq + cta */
+.lp-story{padding:110px 0}
+.lp-story .lp-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.lp-quote{font:500 italic clamp(26px,2.6vw,36px)/1.35 'Playfair Display',serif;color:var(--ink)}
+.lp-faq{padding:40px 0 110px}
+.lp-faq details{border-top:1px solid var(--line);max-width:820px;margin:0 auto}
+.lp-faq details:last-child{border-bottom:1px solid var(--line)}
+.lp-faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 2px;position:relative;font:600 19px/1.4 'Playfair Display',serif;color:var(--ink)}
+.lp-faq summary::-webkit-details-marker{display:none}
+.lp-faq summary::after{content:"+";position:absolute;right:6px;top:18px;font:300 28px Inter;color:var(--gold-d)}
+.lp-faq details[open] summary::after{content:"–"}
+.lp-faq details p{margin:0 2px 22px;font:400 16px/1.7 Inter;color:var(--ink2);max-width:72ch}
+.lp-final{position:relative;padding:130px 0;text-align:center;overflow:hidden;background:#151527;color:#fff}
+.lp-final video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.lp-final .lp-wrap{position:relative}
+.lp-final h2{font:600 clamp(38px,5vw,64px)/1.05 'Playfair Display',serif;margin:0;color:#fff}
+.lp-final h2 em{color:var(--gold);font-weight:500}
+.lp-final p{font:400 18px/1.6 Inter;color:rgba(255,255,255,.8);max-width:560px;margin:20px auto 0}
+.lp-final .lp-badges{justify-content:center;margin-top:30px}
+.lp-final form{margin-top:48px}
+.lp-final .att-inline-form{display:flex;gap:10px;max-width:480px;margin:0 auto}
+.lp-final .att-input{flex:1;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font:400 15px Inter}
+.lp-final .att-consent{display:flex;gap:10px;font:400 13px/1.5 Inter;color:rgba(255,255,255,.7);max-width:520px;margin:14px auto 0;text-align:left}
+.lp-final .att-consent a{color:var(--gold)}
 
-/* Film sound toggle — corner button on phone-frame videos */
-.film-sound {
-  position: absolute;
-  right: 22px;
-  bottom: 22px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(13,13,26,0.62);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(201,169,110,0.45);
-  cursor: pointer;
-  padding: 0;
-  transition: all var(--transition);
-  z-index: 2;
-}
-.film-sound:hover { background: rgba(201,169,110,0.25); border-color: var(--gold); }
-.film-sound svg {
-  width: 17px;
-  height: 17px;
-  stroke: var(--gold-light);
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.film-sound .ico-on { display: none; }
-.film-sound[aria-pressed="true"] .ico-on { display: block; }
-.film-sound[aria-pressed="true"] .ico-off { display: none; }
-
-/* ========== FIELD NOTES — collector films (Higgsfield, 2026-06) ========== */
-.wild {
-  background: linear-gradient(180deg, var(--navy) 0%, #14142A 100%);
-  padding: 110px 48px;
-}
-.wild-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 64px;
-  align-items: center;
-}
-.wild h2 {
-  font-size: 40px;
-  color: white;
-  line-height: 1.15;
-  margin-bottom: 18px;
-}
-.wild h2 em { color: var(--gold); font-style: italic; }
-.wild-lede {
-  font-family: 'Inter', sans-serif;
-  font-size: 16.5px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 12px;
-}
-.wild-sub {
-  font-family: 'Inter', sans-serif;
-  font-size: 13.5px;
-  color: rgba(255,255,255,0.45);
-  margin-bottom: 30px;
-}
-.film-phone { margin: 0; }
-.film-frame {
-  position: relative;
-  width: 100%;
-  max-width: 280px;
-  margin: 0 auto;
-  border-radius: 40px;
-  padding: 9px;
-  background: linear-gradient(160deg, #2E2E4E 0%, #15152A 100%);
-  box-shadow: 0 40px 90px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,169,110,0.22), inset 0 0 0 1px rgba(255,255,255,0.06);
-}
-.film-frame video {
-  display: block;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  object-fit: cover;
-  border-radius: 32px;
-  background: #15152A;
-}
-.film-frame .film-sound { right: 18px; bottom: 18px; }
-.film-cap {
-  margin: 18px auto 0;
-  max-width: 300px;
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.6);
-}
-.film-cap strong { color: var(--gold-light); font-weight: 600; }
-.film-phone--hero .film-frame { max-width: 300px; }
-.wild-secondary {
-  max-width: 980px;
-  margin: 56px auto 0;
-  padding-top: 44px;
-  border-top: 1px solid rgba(201,169,110,0.16);
-  display: grid;
-  grid-template-columns: 190px 1fr;
-  gap: 48px;
-  align-items: center;
-}
-.film-phone--sm .film-frame { max-width: 190px; }
-.wild-secondary-copy h3 { color: #fff; font-size: 26px; line-height: 1.2; margin: 8px 0 12px; }
-.wild-secondary-copy p {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px; line-height: 1.7;
-  color: rgba(255,255,255,0.7); max-width: 460px;
-}
-@media (max-width: 1080px) {
-  .wild-inner { grid-template-columns: 1fr; gap: 40px; }
-  .wild-secondary { grid-template-columns: 1fr; gap: 28px; text-align: center; max-width: 460px; }
-  .wild-secondary-copy p { margin: 0 auto; }
-}
-@media (max-width: 640px) {
-  .wild { padding: 80px 24px; }
-  .wild-inner { grid-template-columns: 1fr; gap: 44px; }
-  .wild h2 { font-size: 32px; }
-}
-
-/* ========== SOCIAL PROOF BAR ========== */
-.proof-bar {
-  background: var(--navy);
-  border-top: 1px solid rgba(201,169,110,0.1);
-  padding: 32px 48px;
-}
-.proof-bar-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  align-items: center;
-}
-.proof-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.proof-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--gold);
-}
-.proof-label {
-  font-size: 12px;
-  color: rgba(255,255,255,0.45);
-  line-height: 1.4;
-}
-
-/* ========== SECTION UTILITY ========== */
-.section {
-  padding: 120px 48px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.section-dark {
-  background: var(--navy);
-  max-width: none;
-  color: var(--white);
-}
-.section-dark .section-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.section-cream {
-  background: var(--cream-dark);
-  max-width: none;
-}
-.section-cream .section-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.section-label {
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-.section h2 {
-  font-size: 40px;
-  color: var(--text-dark);
-  margin-bottom: 16px;
-  letter-spacing: -0.3px;
-}
-.section-dark h2 { color: var(--white); }
-.section-desc {
-  font-size: 17px;
-  color: var(--text-muted);
-  max-width: 560px;
-  line-height: 1.8;
-  margin-bottom: 48px;
-}
-.section-dark .section-desc { color: var(--text-light); }
-
-/* ========== PROBLEM SECTION ========== */
-.problem-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.problem-visual {
-  position: relative;
-}
-.problem-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 48px;
-  box-shadow: var(--shadow-elevated);
-  position: relative;
-}
-.problem-card::before {
-  content: '';
-  position: absolute;
-  top: -1px; left: 40px; right: 40px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  border-radius: 0 0 4px 4px;
-}
-.problem-quote {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-style: italic;
-  color: var(--text-dark);
-  line-height: 1.5;
-  margin-bottom: 24px;
-}
-.problem-attribution {
-  font-size: 13px;
-  color: var(--text-muted);
-}
-.problem-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 32px;
-}
-.problem-stat {
-  background: var(--cream);
-  border-radius: var(--radius-md);
-  padding: 24px;
-}
-.problem-stat-value {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--navy);
-}
-.problem-stat-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-top: 4px;
-  line-height: 1.5;
-}
-
-/* ========== HOW IT WORKS ========== */
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 48px;
-}
-.step {
-  position: relative;
-  padding: 40px 32px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(201,169,110,0.1);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition);
-}
-.step:hover {
-  background: rgba(201,169,110,0.06);
-  border-color: rgba(201,169,110,0.25);
-  transform: translateY(-4px);
-}
-.step-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  font-weight: 800;
-  color: rgba(201,169,110,0.15);
-  line-height: 1;
-  margin-bottom: 16px;
-}
-.step h3 {
-  font-size: 22px;
-  color: var(--white);
-  margin-bottom: 12px;
-}
-.step p {
-  font-size: 14px;
-  color: var(--text-light);
-  line-height: 1.7;
-}
-.step-icon {
-  width: 48px; height: 48px;
-  border-radius: var(--radius-md);
-  background: rgba(201,169,110,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.step-icon svg {
-  width: 24px; height: 24px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* ========== FEATURES ========== */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.feature-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  border: 1px solid rgba(0,0,0,0.05);
-  transition: all var(--transition);
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-.feature-card:hover {
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
-}
-.feature-icon-wrap {
-  width: 52px; height: 52px;
-  min-width: 52px;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-}
-.feature-card h3 {
-  font-size: 18px;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-}
-.feature-card p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-.feature-tag {
-  display: inline-block;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: rgba(201,169,110,0.1);
-  padding: 3px 10px;
-  border-radius: 100px;
-  margin-top: 10px;
-  font-weight: 600;
-}
-
-/* ========== PROVENANCE SECTION ========== */
-.provenance-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.provenance-chain {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.chain-node {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  position: relative;
-  padding-bottom: 32px;
-}
-.chain-node:last-child { padding-bottom: 0; }
-.chain-line {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 32px;
-}
-.chain-dot {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 0 4px rgba(201,169,110,0.15);
-  flex-shrink: 0;
-  margin-top: 4px;
-}
-.chain-connector {
-  width: 2px;
-  flex: 1;
-  background: linear-gradient(to bottom, var(--gold), rgba(201,169,110,0.2));
-  min-height: 40px;
-  margin-top: 4px;
-}
-.chain-content h4 {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 4px;
-}
-.chain-content p {
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-.chain-hash {
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  font-size: 9px;
-  color: var(--gold);
-  background: rgba(201,169,110,0.08);
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-top: 6px;
-  display: inline-block;
-  letter-spacing: 0.3px;
-}
-.provenance-text h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  color: var(--text-dark);
-  margin-bottom: 16px;
-}
-.provenance-text p {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.8;
-  margin-bottom: 16px;
-}
-.trust-badges {
-  display: flex;
-  gap: 16px;
-  margin-top: 24px;
-}
-.trust-badge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-dark);
-  padding: 8px 16px;
-  background: var(--cream);
-  border-radius: 100px;
-}
-.trust-badge svg {
-  width: 16px; height: 16px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 2;
-}
-
-/* ========== PRICING ========== */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 48px;
-}
-.price-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(201,169,110,0.1);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  transition: all var(--transition);
-  position: relative;
-}
-.price-card.featured {
-  background: rgba(201,169,110,0.06);
-  border-color: var(--gold);
-}
-.price-card.featured::before {
-  content: 'Most Popular';
-  position: absolute;
-  top: -12px; left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--navy);
-  background: var(--gold);
-  padding: 4px 16px;
-  border-radius: 100px;
-  font-weight: 700;
-}
-.price-tier {
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-.price-amount {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-.price-amount span {
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--text-light);
-}
-.price-desc {
-  font-size: 13px;
-  color: var(--text-light);
-  margin-bottom: 28px;
-  line-height: 1.6;
-}
-.price-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 32px;
-}
-.price-features li {
-  font-size: 13px;
-  color: rgba(255,255,255,0.7);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.price-features li::before {
-  content: '';
-  width: 18px; height: 18px;
-  min-width: 18px;
-  border-radius: 50%;
-  background: rgba(201,169,110,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23C9A96E' stroke-width='3' stroke-linecap='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 10px;
-}
-.btn-price {
-  width: 100%;
-  padding: 14px;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: center;
-  transition: all var(--transition);
-}
-.btn-price-primary {
-  background: var(--gold);
-  color: var(--navy);
-}
-.btn-price-primary:hover { background: var(--gold-light); }
-.btn-price-outline {
-  background: transparent;
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.2);
-}
-.btn-price-outline:hover { border-color: var(--gold); color: var(--gold); }
-
-/* ========== GALLERY TEASER ========== */
-.gallery-teaser {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-  border-radius: var(--radius-xl);
-  padding: 64px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-  margin-top: 48px;
-}
-.gallery-teaser h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  color: var(--white);
-  margin-bottom: 16px;
-}
-.gallery-teaser p {
-  font-size: 15px;
-  color: var(--text-light);
-  line-height: 1.8;
-  margin-bottom: 24px;
-}
-.gallery-metrics {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.gallery-metric {
-  background: rgba(255,255,255,0.05);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  border: 1px solid rgba(201,169,110,0.1);
-}
-.gallery-metric-label {
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 8px;
-}
-.gallery-metric-value {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  color: var(--white);
-  font-weight: 700;
-}
-.gallery-metric-sub {
-  font-size: 11px;
-  color: rgba(255,255,255,0.4);
-  margin-top: 2px;
-}
-
-/* ========== STORY SECTION ========== */
-.story-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.story-visual {
-  position: relative;
-}
-.story-card {
-  background: var(--navy);
-  border-radius: var(--radius-xl);
-  padding: 48px;
-  color: var(--white);
-  position: relative;
-  overflow: hidden;
-}
-.story-card::before {
-  content: '';
-  position: absolute;
-  top: -40%; right: -30%;
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(201,169,110,0.1) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.story-card-label {
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-  position: relative;
-}
-.story-card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  margin-bottom: 12px;
-  position: relative;
-}
-.story-card p {
-  font-size: 14px;
-  color: var(--text-light);
-  line-height: 1.7;
-  position: relative;
-}
-.story-text h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  color: var(--text-dark);
-  margin-bottom: 16px;
-}
-.story-text p {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.8;
-  margin-bottom: 16px;
-}
-.story-values {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 24px;
-}
-.story-value {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-.story-value-icon {
-  width: 36px; height: 36px;
-  min-width: 36px;
-  border-radius: 10px;
-  background: rgba(201,169,110,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-}
-.story-value-text h4 {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 2px;
-}
-.story-value-text p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* ========== CTA / DOWNLOAD ========== */
-.cta-section {
-  background: var(--navy);
-  max-width: none;
-  padding: 120px 48px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.cta-section::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: 50%;
-  transform: translateX(-50%);
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 60%);
-  border-radius: 50%;
-}
-.cta-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 640px;
-  margin: 0 auto;
-}
-.cta-section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  color: var(--white);
-  margin-bottom: 16px;
-}
-.cta-section p {
-  font-size: 17px;
-  color: var(--text-light);
-  margin-bottom: 40px;
-  line-height: 1.7;
-}
-
-/* ========== FOOTER ========== */
-.footer {
-  background: #0D0D1A;
-  padding: 64px 48px 40px;
-  color: rgba(255,255,255,0.4);
-}
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
-}
-.footer-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 12px;
-}
-.footer-brand span { color: var(--gold); }
-.footer-tagline {
-  font-size: 13px;
-  color: rgba(255,255,255,0.4);
-  line-height: 1.7;
-  max-width: 300px;
-}
-.footer-col h4 {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 16px;
-  font-weight: 600;
-}
-.footer-col a {
-  display: block;
-  font-size: 13px;
-  color: rgba(255,255,255,0.45);
-  margin-bottom: 10px;
-  transition: color var(--transition);
-}
-.footer-col a:hover { color: var(--gold-light); }
-.footer-bottom {
-  max-width: 1200px;
-  margin: 48px auto 0;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-}
-.footer-sa {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 1024px) {
-  .hero-content { grid-template-columns: 1fr; gap: 48px; }
-  .hero-visual { order: 2; }
-  .hero-device { width: 240px; }
-  .hero h1 { font-size: 44px; }
-  .problem-grid { grid-template-columns: 1fr; gap: 48px; }
-  .provenance-layout { grid-template-columns: 1fr; gap: 48px; }
-  .story-layout { grid-template-columns: 1fr; gap: 48px; }
-  .gallery-teaser { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 768px) {
-  .nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  .nav-toggle { display: flex; }
-  .hero-content { padding: 120px 24px 80px; }
-  .hero h1 { font-size: 36px; }
-  .hero-sub { font-size: 16px; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .section { padding: 80px 24px; }
-  .section h2 { font-size: 32px; }
-  .section-dark, .section-cream { padding: 80px 24px; }
-  .steps-grid { grid-template-columns: 1fr; }
-  .features-grid { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .price-card.featured { transform: none; }
-  .proof-bar-inner { flex-direction: column; gap: 24px; }
-  .gallery-teaser { padding: 40px 24px; }
-  .gallery-metrics { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 8px; }
-}
-
-/* ========== REDESIGN 2026-06 — Provenance Hand editorial layer ========== */
-
-
-/* ATELIER — the velvet room */
-.atelier {
-  position: relative;
-  background:
-    radial-gradient(ellipse 70% 55% at 50% 8%, rgba(201,169,110,0.10) 0%, transparent 55%),
-    linear-gradient(180deg, #0D0D1A 0%, #13131F 60%, #1A1A2E 100%);
-  padding: 140px 48px 110px;
-  overflow: hidden;
-}
-.atelier-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
-.atelier-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 28px;
-}
-.atelier-label::before, .atelier-label::after {
-  content: '—';
-  color: rgba(201,169,110,0.45);
-  margin: 0 14px;
-}
-.atelier h2 { font-size: 52px; color: var(--white); margin-bottom: 26px; letter-spacing: -0.5px; }
-.atelier h2 em { color: var(--gold); font-style: italic; font-weight: 500; }
-.atelier-lede {
-  max-width: 680px;
-  margin: 0 auto 64px;
-  font-size: 20px;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.72);
-}
-.atelier-stage {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 56px;
-  align-items: center;
-  text-align: left;
-  margin-bottom: 40px;
-}
-.atelier-dialogue {
-  border: 1px solid rgba(201,169,110,0.22);
-  border-radius: 4px;
-  padding: 40px 40px 32px;
-  background: rgba(19,19,31,0.6);
-  position: relative;
-}
-.atelier-dialogue::before {
-  content: 'A CONVERSATION, IN THE ATELIER';
-  position: absolute;
-  top: -9px; left: 32px;
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  color: var(--gold);
-  background: #101020;
-  padding: 0 12px;
-}
-.atelier-turn { margin-bottom: 22px; font-size: 17.5px; line-height: 1.65; color: rgba(255,255,255,0.82); }
-.atelier-turn:last-child { margin-bottom: 0; }
-.atelier-turn span {
-  display: block;
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-.atelier-turn.you span { color: rgba(255,255,255,0.45); }
-.atelier-turn.ai span { color: var(--gold); }
-.atelier-turn.ai { font-style: italic; color: var(--gold-pale); }
-.atelier-points { display: flex; flex-direction: column; gap: 30px; }
-.atelier-point { border-left: 1px solid rgba(201,169,110,0.35); padding-left: 24px; }
-.atelier-point h4 { font-size: 22px; color: var(--gold-light); margin-bottom: 8px; font-weight: 600; }
-.atelier-point p { font-size: 16.5px; color: rgba(255,255,255,0.65); line-height: 1.7; }
-.atelier-footnote {
-  font-family: 'Inter', sans-serif;
-  font-size: 11.5px;
-  letter-spacing: 1px;
-  color: rgba(255,255,255,0.38);
-  text-align: center;
-}
-
-/* Pulse vignette — illustrative morning briefing (galleries teaser) */
-.pulse-vignette {
-  border: 1px solid rgba(201,169,110,0.25);
-  border-radius: 16px;
-  background: linear-gradient(180deg, #1C1C30 0%, #13131F 100%);
-  padding: 28px;
-  color: var(--white);
-  box-shadow: var(--shadow-elevated);
-  align-self: start;
-}
-.pulse-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  border-bottom: 1px solid rgba(201,169,110,0.18);
-  padding-bottom: 14px;
-  margin-bottom: 18px;
-}
-.pulse-header h4 { font-size: 19px; color: var(--gold-light); }
-.pulse-header span {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-}
-.pulse-row { display: flex; gap: 12px; margin-bottom: 14px; font-size: 15.5px; line-height: 1.55; color: rgba(255,255,255,0.78); }
-.pulse-row:last-of-type { margin-bottom: 0; }
-.pulse-dot { flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); margin-top: 8px; }
-.pulse-row strong { color: var(--gold-light); font-weight: 600; }
-.pulse-caption {
-  margin-top: 16px;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: rgba(255,255,255,0.35);
-  letter-spacing: 0.5px;
-}
-
-/* Download CTA seal */
-.cta-seal {
-  width: 132px;
-  height: 132px;
-  border-radius: 50%;
-  margin: 0 auto 32px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,169,110,0.25);
-}
-
-/* Illustrative captions under metric panels */
-.metrics-caption {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: var(--text-muted);
-  text-align: right;
-  margin-top: 10px;
-}
-
-/* SVG iconography (replaces emoji) */
-.feature-icon-wrap svg, .story-value-icon svg {
-  width: 24px;
-  height: 24px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* Motion restraint */
-@media (prefers-reduced-motion: reduce) {
-  .particle, .hero-badge-dot { animation: none !important; opacity: 0 !important; }
-  .hero-device { animation: none; }
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
-}
-
-@media (max-width: 1024px) {
-  .atelier-stage { grid-template-columns: 1fr; gap: 40px; }
-  .atelier h2 { font-size: 38px; }
-}
-@media (max-width: 768px) {
-  .atelier { padding: 90px 24px 80px; }
-  .atelier h2 { font-size: 32px; }
-  .atelier-dialogue { padding: 32px 24px 26px; }
-  .atelier-lede { font-size: 18px; }
-  .store-badges { justify-content: flex-start; }
-}
-
-/* ========== G12 — "Your art, connected." (2026-10) ========== */
-.nav-links a { white-space: nowrap; }
-.hero-staged { margin: -20px 0 32px; font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.6; }
-.hero-staged a { color: var(--gold-light); border-bottom: 1px solid rgba(224,207,166,0.4); }
-.connected { background: var(--cream); padding: 112px 48px; }
-.connected-inner { max-width: 1200px; margin: 0 auto; }
-.connected h2 { font-size: 40px; color: var(--text-dark); margin-bottom: 16px; letter-spacing: -0.3px; max-width: 760px; }
-.connected h2 em { color: var(--gold); font-style: italic; font-weight: 500; }
-.connected .lede { font-size: 18px; color: var(--text-muted); max-width: 640px; line-height: 1.75; margin-bottom: 56px; }
-.pillars { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
-.pillars > .pillar { flex: 0 1 calc((100% - 48px) / 3); min-width: 0; }
-.pillar { background: var(--white); border: 1px solid rgba(201,169,110,0.22); border-radius: var(--radius-lg); padding: 32px 28px; box-shadow: var(--shadow-subtle); }
-.pillar-verb { font-family: var(--font-display); font-size: 30px; color: var(--text-dark); margin-bottom: 4px; }
-.pillar-verb span { color: var(--gold); }
-.pillar-what { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
-.pillar p { font-size: 15px; color: var(--text-body); line-height: 1.7; }
-.pillar a { color: #9A7B44; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 12px; }
-.connect-ai { background: var(--gold-pale); padding: 112px 48px; }
-.connect-ai-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: start; }
-.connect-ai h2 { font-size: 40px; color: var(--text-dark); margin-bottom: 16px; letter-spacing: -0.3px; }
-.connect-ai h2 em { color: var(--gold); font-style: italic; font-weight: 500; }
-.connect-ai p { font-size: 16px; color: var(--text-body); line-height: 1.75; margin-bottom: 16px; }
-.connect-ai ul { list-style: none; margin: 8px 0 24px; }
-.connect-ai li { position: relative; padding-left: 26px; margin-bottom: 10px; font-size: 15px; line-height: 1.6; color: var(--text-body); }
-.connect-ai li::before { content: ''; position: absolute; left: 4px; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
-.connect-url { display: block; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 15px; background: var(--white); border: 1px solid rgba(201,169,110,0.4); border-radius: var(--radius-sm); padding: 14px 16px; margin: 8px 0 20px; color: var(--text-dark); overflow-wrap: anywhere; }
-.connect-chat { background: var(--white); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-card); }
-.connect-chat .turn { font-size: 15px; line-height: 1.6; padding: 12px 16px; border-radius: 14px; margin-bottom: 12px; }
-.connect-chat .turn span { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
-.connect-chat .you { background: var(--cream-dark); margin-left: 32px; }
-.connect-chat .you span { color: var(--text-muted); }
-.connect-chat .ai { background: var(--gold-pale); margin-right: 32px; }
-.connect-chat .ai span { color: #9A7B44; }
-.connect-chat .note { font-size: 12px; color: var(--text-muted); margin: 8px 0 0; }
-.connect-hosts { margin-top: 28px; }
-.connect-hosts h3 { font-size: 20px; color: var(--text-dark); margin: 0 0 8px; }
-.connect-hosts .host { background: rgba(255,255,255,0.6); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 12px; font-size: 15px; line-height: 1.6; }
-.connect-soon { margin-top: 24px; border-top: 1px solid rgba(201,169,110,0.35); padding-top: 20px; }
-@media (max-width: 1024px) {
-  .pillars > .pillar { flex-basis: calc((100% - 24px) / 2); }
-  .connect-ai-inner { grid-template-columns: 1fr; gap: 40px; }
-}
-@media (max-width: 640px) {
-  .connected, .connect-ai { padding: 80px 16px; }
-  .connected h2, .connect-ai h2 { font-size: 30px; }
-  .pillars > .pillar { flex-basis: 100%; }
-  .connect-chat .you { margin-left: 12px; }
-  .connect-chat .ai { margin-right: 12px; }
-}
+/* responsive */
+@media (max-width:980px){
+  .lp-links{display:none}
+  .lp-links.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:18px;padding:24px 28px;background:var(--cream);box-shadow:0 20px 40px rgba(26,26,46,.1)}
+  .lp-burger{display:block}
+  .lp-pgrid,.lp-phones,.lp-prices{grid-template-columns:1fr}
+  .lp-role .lp-wrap,.lp-ai .lp-wrap,.lp-story .lp-wrap{grid-template-columns:1fr;gap:36px}
+  .lp-role.flip .lp-media{order:0}
+}
+@media (max-width:700px){
+  .lp-wrap{padding:0 20px}
+  .lp-hero .v-desktop{display:none}.lp-hero .v-mobile{display:block}
+  .lp-hero::after{background:linear-gradient(0deg,rgba(250,248,245,.97) 0%,rgba(250,248,245,.88) 46%,rgba(250,248,245,.35) 64%,rgba(250,248,245,0) 78%)}
+  .lp-hero-in{padding:120px 0 40px}
+  .lp-roles{display:flex;width:100%}.lp-roles button{flex:1;padding:11px 8px;font-size:13px}
+  .lp-scroll{display:none}
+  .lp-tile{width:160px}
+  .lp-final .att-inline-form{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){.lp-marquee{animation:none}.lp-reveal{opacity:1;transform:none}}
 </style>
 </head>
-<body>
+<body class="lp">
 
-<!-- NAVIGATION -->
-<nav class="nav" id="nav">
-  <div class="nav-logo">Attest<span>é</span></div>
-  <ul class="nav-links">
-    <li><a href="#connect-ai">Connect your AI</a></li>
-    <li data-claim="g-111-trade-payments a-055-trade-payments"><a href="sell.html">Sell</a></li>
-    <li><a href="#atelier">Atelier</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="artists.html">Artists</a></li>
-    <li><a href="galleries.html">Galleries</a></li>
-    <li><a href="/compare/artwork-archive-vs-art-galleria">Compare</a></li>
-    <li><a href="#story">Our Story</a></li>
-    <li><a href="#download" class="nav-cta">Get the App</a></li>
-  </ul>
-  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('mobile-show')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<nav class="lp-nav" id="nav" aria-label="Main">
+  <div class="lp-wrap">
+    <a href="/" class="lp-logo" aria-label="Attesté home">Attest<span>é</span></a>
+    <ul class="lp-links" id="lp-links">
+      <li><a href="#collectors">Collectors</a></li>
+      <li><a href="#artists">Artists</a></li>
+      <li><a href="#galleries">Galleries</a></li>
+      <li><a href="#ask-ai">Ask your AI</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#download" class="lp-btn lp-btn-dark">Get the app</a></li>
+    </ul>
+    <button class="lp-burger" aria-label="Menu" aria-controls="lp-links" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-particles">
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-text">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Now on iOS &amp; Android
-      </div>
-      <h1>Your art, <em>connected.</em></h1>
-      <p class="hero-sub" data-claim="f-shared-cert-view f-shared-cert-verify-result f-agent-connector-t0-verify">Give every work a signed certificate anyone can check, keep its whole story in one place, and ask the AI you already use to look it up for you. Goodbye, PDF certificates. Goodbye, provenance scattered across WhatsApp.</p>
-      <p class="hero-staged" data-claim="g-111-trade-payments a-055-trade-payments">And when it sells, sell it inside Attesté: the buyer&rsquo;s money waits with a licensed escrow service until the work arrives. <a href="sell.html">How selling works</a></p>
-      <div class="store-badges">
-        <a href="https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&amp;ct=website&amp;mt=8" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store">
-          <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-apple" width="120" height="40">
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=art.atteste.atteste&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dstore-badge" target="_blank" rel="noopener" aria-label="Get Attesté on Google Play">
-          <img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" class="store-badge-google" width="134" height="40">
-        </a>
-      </div>
-      <p class="hero-tertiary">Free to start — your first 25 works, on us. <a href="#atelier">Meet Atelier &darr;</a></p>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-device">
-        <!-- Collector film (Higgsfield, 2026-06): a first-time explorer walks through
-             the app. Autoplays muted; corner toggle unmutes. -->
-        <video autoplay muted loop playsinline preload="metadata" data-ambient
-               poster="assets/video/collector-explorer-poster.jpg"
-               aria-label="A first-time collector tours the Attesté app — free to start">
-          <source src="assets/video/collector-explorer.mp4" type="video/mp4">
-        </video>
-        <button class="film-sound" type="button" aria-label="Unmute film" aria-pressed="false">
-          <svg class="ico-off" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-          <svg class="ico-on" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-        </button>
+<!-- HERO: our own demo paintings on a gallery wall, brought to life with Higgsfield (Kling 3.0 Turbo), 2026-10-25 -->
+<header class="lp-hero" id="top">
+  <video class="v-desktop" autoplay muted loop playsinline preload="auto" poster="assets/landing/hero.jpg" aria-hidden="true">
+    <source src="assets/landing/hero.mp4" type="video/mp4">
+  </video>
+  <video class="v-mobile" autoplay muted loop playsinline preload="metadata" poster="assets/landing/hero-mobile.jpg" aria-hidden="true">
+    <source src="assets/landing/hero-mobile.mp4" type="video/mp4">
+  </video>
+  <div class="lp-hero-in">
+    <div class="lp-wrap">
+      <div class="lp-hero-copy">
+        <div class="lp-eyebrow">For collectors, artists &amp; galleries</div>
+        <h1 class="lp-h1">Your art, <em>connected.</em></h1>
+        <p class="lp-hero-sub" data-claim="f-shared-cert-view f-shared-cert-verify-result f-agent-connector-t0-verify">Give every work a signed certificate anyone can check, keep its whole story in one place, and ask the AI you already use to look it up for you.</p>
+
+        <div class="lp-roles" role="tablist" aria-label="I am">
+          <button role="tab" id="t-col" aria-controls="p-col" aria-selected="true">I collect</button>
+          <button role="tab" id="t-art" aria-controls="p-art" aria-selected="false">I make art</button>
+          <button role="tab" id="t-gal" aria-controls="p-gal" aria-selected="false">I run a gallery</button>
+        </div>
+        <div class="lp-role-panel" id="p-col" role="tabpanel" aria-labelledby="t-col">
+          <p>Photograph the invoice, keep the paperwork with the work, and export one tidy PDF when the insurer asks. Free for your first 25 works.</p>
+          <div class="lp-badges">
+            <a href="https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&amp;ct=website-hero&amp;mt=8" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" width="138" height="46"></a>
+            <a href="https://play.google.com/store/apps/details?id=art.atteste.atteste&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dhero" target="_blank" rel="noopener" aria-label="Get Attesté on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" width="155" height="46"></a>
+          </div>
+        </div>
+        <div class="lp-role-panel" id="p-art" role="tabpanel" aria-labelledby="t-art" hidden>
+          <p>Issue source certificates from the studio and show your work on a public page at atteste.art/artist/<em>your-name</em>. 14-day free trial.</p>
+          <div class="lp-badges"><a class="lp-btn lp-btn-dark" href="artists.html">For artists &rarr;</a></div>
+        </div>
+        <div class="lp-role-panel" id="p-gal" role="tabpanel" aria-labelledby="t-gal" hidden>
+          <p>Wake up to a daily Pulse briefing, an AI concierge that knows your inventory by name, and a place in the in-app gallery directory.</p>
+          <div class="lp-badges"><a class="lp-btn lp-btn-dark" href="https://galleria.atteste.art" target="_blank" rel="noopener">Launch Galleria &rarr;</a><a class="lp-btn lp-btn-line" href="galleries.html">For galleries</a></div>
+        </div>
+        <p class="lp-hero-note">Paintings from the Attesté demo collection, brought to life with AI.</p>
       </div>
     </div>
   </div>
+  <div class="lp-scroll" aria-hidden="true">Scroll</div>
+</header>
+
+<!-- LIVING STRIP -->
+<section class="lp-strip" aria-labelledby="strip-h">
+  <div class="lp-wrap lp-strip-head lp-reveal">
+    <div>
+      <div class="lp-eyebrow">Every work has a story</div>
+      <h2 class="lp-h2" id="strip-h">Keep it with the work, <em>for good.</em></h2>
+    </div>
+    <p class="lp-lede" style="max-width:420px">Make it, buy it, hang it, lend it, pass it on. Attesté keeps the record straight at every step, so the story of a work never depends on someone finding the right email.</p>
+  </div>
+  <div class="lp-marquee" aria-hidden="true">
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-06.jpg"><source src="assets/landing/alive-06.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-01.jpg"><source src="assets/landing/alive-01.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-10.jpg"><source src="assets/landing/alive-10.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-03.jpg"><source src="assets/landing/alive-03.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-07.jpg"><source src="assets/landing/alive-07.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-11.jpg"><source src="assets/landing/alive-11.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-09.jpg"><source src="assets/landing/alive-09.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-08.jpg"><source src="assets/landing/alive-08.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-fynbos.jpg"><source src="assets/landing/alive-fynbos.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-tablemountain.jpg"><source src="assets/landing/alive-tablemountain.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-jazz.jpg"><source src="assets/landing/alive-jazz.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-12.jpg"><source src="assets/landing/alive-12.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-06.jpg"><source src="assets/landing/alive-06.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-01.jpg"><source src="assets/landing/alive-01.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-10.jpg"><source src="assets/landing/alive-10.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-03.jpg"><source src="assets/landing/alive-03.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-07.jpg"><source src="assets/landing/alive-07.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-11.jpg"><source src="assets/landing/alive-11.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-09.jpg"><source src="assets/landing/alive-09.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-08.jpg"><source src="assets/landing/alive-08.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-fynbos.jpg"><source src="assets/landing/alive-fynbos.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-tablemountain.jpg"><source src="assets/landing/alive-tablemountain.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-jazz.jpg"><source src="assets/landing/alive-jazz.mp4" type="video/mp4"></video></div>
+    <div class="lp-tile"><video muted loop playsinline preload="none" data-ambient poster="assets/landing/alive-12.jpg"><source src="assets/landing/alive-12.mp4" type="video/mp4"></video></div>
+  </div>
+  <div class="lp-wrap"><p class="lp-strip-note">AI-animated works from the Attesté demo collection.</p></div>
 </section>
 
-<!-- PROOF BAR -->
-<div class="proof-bar">
-  <div class="proof-bar-inner">
-    <div class="proof-item">
-      <div class="proof-number">35+</div>
-      <div class="proof-label">integrated<br>features</div>
+<!-- PILLARS (claim-gated, G12) -->
+<section class="lp-pillars" id="connected">
+  <div class="lp-wrap">
+    <div class="lp-reveal">
+      <div class="lp-eyebrow">From studio to wall, and onwards</div>
+      <h2 class="lp-h2">One place for the whole life of a <em>work of art.</em></h2>
     </div>
-    <div class="proof-item">
-      <div class="proof-number">SHA-256</div>
-      <div class="proof-label">sealed<br>provenance</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-number">NFC</div>
-      <div class="proof-label">tap a tag,<br>open the record</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-number">Dual AI</div>
-      <div class="proof-label">Gemini + Claude<br>inside</div>
-    </div>
-  </div>
-</div>
-
-
-<!-- PROVE · OWN · SHOW · SELL · TALK (G12, 2026-10). Every card is claim-gated:
-     a card whose ledger entry is not live|shipping is removed from production
-     and shown as STAGED on deploy previews (scripts/claims/). -->
-<section class="connected" id="connected">
-  <div class="connected-inner">
-    <div class="section-label">From studio to wall, and onwards</div>
-    <h2>One place for the whole life of a <em>work of art.</em></h2>
-    <p class="lede">Make it, buy it, hang it, lend it, pass it on. Attesté keeps the record straight at every step, so the story of a work never depends on someone finding the right email.</p>
-    <div class="pillars">
-      <div class="pillar" data-claim="f-shared-cert-view f-shared-cert-verify-result">
-        <div class="pillar-verb">Prove<span>.</span></div>
-        <div class="pillar-what">A certificate anyone can check</div>
+    <div class="lp-pgrid">
+      <div class="lp-pillar lp-reveal" data-claim="f-shared-cert-view f-shared-cert-verify-result">
+        <div class="lp-verb">Prove<span>.</span></div>
+        <div class="lp-what">A certificate anyone can check</div>
         <p>Every work gets an Attesté certificate, signed when it&rsquo;s issued and timestamped on Bitcoin. Share the link or the QR code; whoever opens it sees whether the record still matches, with no account and no app.</p>
       </div>
-      <div class="pillar" data-claim="f-collector-collection-list f-collector-condition-vault f-collector-insurance-vault">
-        <div class="pillar-verb">Own<span>.</span></div>
-        <div class="pillar-what">The paperwork, finally in one place</div>
+      <div class="lp-pillar lp-reveal" data-claim="f-collector-collection-list f-collector-condition-vault f-collector-insurance-vault">
+        <div class="lp-verb">Own<span>.</span></div>
+        <div class="lp-what">The paperwork, finally in one place</div>
         <p>Invoices, condition notes and valuations live with the work they belong to. When the insurer asks, you export one tidy PDF instead of an afternoon in the filing cabinet.</p>
       </div>
-      <div class="pillar" data-claim="a-041-public-artist-profile g-001-directory-listing">
-        <div class="pillar-verb">Show<span>.</span></div>
-        <div class="pillar-what">Out in the world</div>
+      <div class="lp-pillar lp-reveal" data-claim="a-041-public-artist-profile g-001-directory-listing">
+        <div class="lp-verb">Show<span>.</span></div>
+        <div class="lp-what">Out in the world</div>
         <p>Artists get a public page at atteste.art/artist/<em>their-name</em>, with their works and certificates on it. Galleries get a place in the gallery directory inside the app, where collectors browse before a Saturday of gallery-hopping.</p>
       </div>
-      <div class="pillar" data-claim="a-032-provenance-transfer f-shared-transfers-hub">
-        <div class="pillar-verb">Pass it on<span>.</span></div>
-        <div class="pillar-what">The record travels with the work</div>
+      <div class="lp-pillar lp-reveal" data-claim="a-032-provenance-transfer f-shared-transfers-hub">
+        <div class="lp-verb">Pass it on<span>.</span></div>
+        <div class="lp-what">The record travels with the work</div>
         <p>Sold, gifted or consigned, the work&rsquo;s record moves to its next owner, and every hand-over is signed and added to the chain.</p>
       </div>
-      <div class="pillar" data-claim="g-111-trade-payments a-055-trade-payments">
-        <div class="pillar-verb">Sell &amp; get paid<span>.</span></div>
-        <div class="pillar-what">No more wire-and-pray</div>
+      <div class="lp-pillar lp-reveal" data-claim="g-111-trade-payments a-055-trade-payments">
+        <div class="lp-verb">Sell<span>.</span></div>
+        <div class="lp-what">No more wire-and-pray</div>
         <p>Sell inside Attesté. The buyer pays a licensed escrow service, not a stranger&rsquo;s bank account, and the money is released once the buyer confirms the work arrived. Ownership and the certificate move to the buyer at the same time.</p>
         <a href="sell.html">How selling works &rarr;</a>
       </div>
-      <div class="pillar" data-claim="f-agent-connector-t0-verify">
-        <div class="pillar-verb">Talk<span>.</span></div>
-        <div class="pillar-what">From the AI you already use</div>
+      <div class="lp-pillar lp-reveal" data-claim="f-agent-connector-t0-verify">
+        <div class="lp-verb">Ask<span>.</span></div>
+        <div class="lp-what">From the AI you already use</div>
         <p>Plug Attesté into any assistant that supports MCP, paste a certificate link, and ask. It checks the signature, the Bitcoin timestamp and the ownership history for you, and says plainly what that does and doesn&rsquo;t prove.</p>
-        <a href="#connect-ai">Connect your AI &darr;</a>
+        <a href="#ask-ai">Connect your AI &darr;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE PROBLEM -->
-<section class="section" id="problem">
-  <div class="problem-grid">
-    <div>
-      <div class="section-label">The Trust Gap</div>
-      <h2>Art still changes hands on a PDF and a promise</h2>
-      <p class="section-desc" style="margin-bottom:24px;">Thursday, 21:40. A collector is about to pay for a painting they first saw on Instagram. What they have to go on: a &ldquo;certificate of authenticity&rdquo; someone made in Word, a long WhatsApp thread, and bank details for a person they&rsquo;ve never met. Pay, and hope.</p>
-      <p style="font-size:15px; color:var(--text-muted); line-height:1.8; max-width:560px;" data-claim="f-shared-cert-view f-shared-cert-verify-result a-032-provenance-transfer">Attesté closes that gap one work at a time. Its certificate is signed when it&rsquo;s issued and timestamped on Bitcoin, so anyone can check that the record still matches what was signed and that it existed before a specific block. When the work moves on, the record goes with it.</p>
-      <p style="font-size:15px; color:var(--text-muted); line-height:1.8; max-width:560px; margin-top:16px;" data-claim="g-111-trade-payments a-055-trade-payments">And when the sale happens inside Attesté, the buyer&rsquo;s money waits with a licensed escrow service instead of in a stranger&rsquo;s account.</p>
+<!-- COLLECTORS -->
+<section class="lp-role" id="collectors">
+  <div class="lp-wrap">
+    <div class="lp-media lp-reveal">
+      <video muted loop playsinline preload="none" data-ambient poster="assets/landing/scene-collector.jpg" aria-hidden="true"><source src="assets/landing/scene-collector.mp4" type="video/mp4"></video>
+      <span class="lp-chip">For collectors</span>
     </div>
-    <div class="problem-visual">
-      <div class="problem-card">
-        <div class="problem-quote">&ldquo;Can you send the certificate?&rdquo;<br>&ldquo;Sure, I&rsquo;ll WhatsApp it.&rdquo;</div>
-        <div class="problem-attribution">&mdash; How a lot of art still changes hands</div>
+    <div class="lp-reveal">
+      <div class="lp-eyebrow">Collectors</div>
+      <h2 class="lp-h2">The art is real. <em>Now the archive is too.</em></h2>
+      <ul>
+        <li data-claim="f-shared-document-ocr-autofill"><strong>Snap the invoice.</strong> Price, seller and date fill themselves in for you to check.</li>
+        <li data-claim="f-collector-collection-list f-collector-insurance-vault"><strong>See the gaps.</strong> The vault shows which works have no policy and no condition report, and exports the schedule your broker asks for.</li>
+        <li data-claim="f-shared-cert-view f-shared-cert-verify-result"><strong>Prove it, anywhere.</strong> A certificate anyone can open from a link or a QR code.</li>
+        <li data-claim="f-collector-add-discovery-flow"><strong>Fall for a painting with no label?</strong> Photograph it with Quick Discovery and read about its style, technique and context.</li>
+      </ul>
+      <div class="lp-ctas"><a class="lp-btn lp-btn-dark" href="#download">Start free</a><a class="lp-btn lp-btn-line" href="features.html">All features</a></div>
+      <p class="lp-price-line">Free for 25 works &middot; Collector $9.99/mo &middot; Premium $19.99/mo</p>
+    </div>
+  </div>
+</section>
+
+<!-- ARTISTS -->
+<section class="lp-role flip" id="artists">
+  <div class="lp-wrap">
+    <div class="lp-media lp-reveal">
+      <video muted loop playsinline preload="none" data-ambient poster="assets/landing/scene-artist.jpg" aria-hidden="true"><source src="assets/landing/scene-artist.mp4" type="video/mp4"></video>
+      <span class="lp-chip">For artists</span>
+    </div>
+    <div class="lp-reveal">
+      <div class="lp-eyebrow">Artists</div>
+      <h2 class="lp-h2">Provenance that starts <em>in the studio.</em></h2>
+      <ul>
+        <li><strong>Source certificates.</strong> Issue one from the studio and it becomes the first line of the record collectors carry forward.</li>
+        <li data-claim="a-041-public-artist-profile"><strong>A public page.</strong> Bio, statement and a curated portfolio at atteste.art/artist/<em>your-handle</em>.</li>
+        <li><strong>Your whole catalogue.</strong> Every work you&rsquo;ve made, in one master record that stays with you.</li>
+      </ul>
+      <div class="lp-ctas"><a class="lp-btn lp-btn-dark" href="artists.html">For artists &rarr;</a><a class="lp-btn lp-btn-line" href="mailto:artists@atteste.art">Talk to us</a></div>
+      <p class="lp-price-line">Studio $14.99/mo with a 14-day free trial &middot; Professional $24.99/mo &middot; Represented: free, gallery-paid</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERIES -->
+<section class="lp-role" id="galleries">
+  <div class="lp-wrap">
+    <div class="lp-media lp-reveal">
+      <video muted loop playsinline preload="none" data-ambient poster="assets/landing/scene-gallery.jpg" aria-hidden="true"><source src="assets/landing/scene-gallery.mp4" type="video/mp4"></video>
+      <span class="lp-chip">For galleries</span>
+    </div>
+    <div class="lp-reveal">
+      <div class="lp-eyebrow">Galleries</div>
+      <h2 class="lp-h2">Your gallery wakes up <em>briefed.</em></h2>
+      <ul>
+        <li><strong>Daily Pulse.</strong> A briefing computed overnight from real collector activity, with suggested next actions.</li>
+        <li><strong>Almanac.</strong> Ask your gallery anything, in voice or text, grounded in your live inventory and exhibitions.</li>
+        <li><strong>Six AI writers.</strong> Exhibition copy, artist bios, artwork descriptions and follow-up emails, drafted for you to review.</li>
+        <li data-claim="g-001-directory-listing"><strong>Found by collectors.</strong> A place in the in-app gallery directory.</li>
+      </ul>
+      <div class="lp-ctas"><a class="lp-btn lp-btn-dark" href="https://galleria.atteste.art" target="_blank" rel="noopener">Launch Galleria</a><a class="lp-btn lp-btn-line" href="galleries.html">For galleries</a></div>
+      <p class="lp-price-line">Boutique $64.99/mo &middot; Professional $158.99/mo &middot; Enterprise $259/mo</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="lp-proof" id="provenance">
+  <div class="lp-wrap">
+    <div class="lp-reveal" style="text-align:center">
+      <div class="lp-eyebrow">The proof</div>
+      <h2 class="lp-h2">Proof that outlives <em>any app.</em></h2>
+      <p class="lp-lede" style="margin-left:auto;margin-right:auto" data-claim="f-shared-cert-view f-shared-cert-verify-result a-032-provenance-transfer">Its certificate is signed when it&rsquo;s issued and timestamped on Bitcoin, so anyone can check that the record still matches what was signed and that it existed before a specific block. When the work moves on, the record goes with it.</p>
+    </div>
+    <div class="lp-phones">
+      <div class="lp-phone lp-reveal" data-claim="f-shared-cert-view">
+        <div class="frame"><img src="assets/landing/app-cert-qr.jpg" alt="An Attesté certificate in the app, with its verification QR code" loading="lazy" width="600" height="1300"></div>
+        <h3>A certificate with a QR code</h3>
+        <p>Print it, frame it, send it. Whoever scans it opens the live record.</p>
       </div>
-      <div class="problem-stats">
-        <div class="problem-stat">
-          <div class="problem-stat-value">PDFs</div>
-          <div class="problem-stat-label">certificates anyone can make, and anyone can edit</div>
-        </div>
-        <div class="problem-stat">
-          <div class="problem-stat-value">Chats</div>
-          <div class="problem-stat-label">where the provenance lives, between the voice notes</div>
-        </div>
-        <div class="problem-stat">
-          <div class="problem-stat-value">Wires</div>
-          <div class="problem-stat-label">paid to a stranger before the work has shipped</div>
-        </div>
-        <div class="problem-stat" data-claim="f-shared-cert-verify-result">
-          <div class="problem-stat-value">One link</div>
-          <div class="problem-stat-label">to a signed record anyone can check, for free</div>
-        </div>
+      <div class="lp-phone lp-reveal" data-claim="f-shared-cert-verify-result">
+        <div class="frame"><img src="assets/landing/app-btc-anchor.jpg" alt="The Bitcoin anchor panel on an Attesté certificate" loading="lazy" width="600" height="1300"></div>
+        <h3>Timestamped on Bitcoin</h3>
+        <p>A short fingerprint of the record, never your data. Anyone can check the proof without Attesté.</p>
+      </div>
+      <div class="lp-phone lp-reveal" data-claim="f-shared-cert-nfc-scan">
+        <div class="frame"><img src="assets/landing/app-nfc-verified.jpg" alt="Scanning an NFC tag opens the work's certificate in Attesté" loading="lazy" width="600" height="1300"></div>
+        <h3>Tap the frame</h3>
+        <p>A small NFC tag on the back of the frame opens the work&rsquo;s certificate on your phone.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section-dark" id="how">
-  <div style="padding:120px 48px; max-width:1200px; margin:0 auto;">
-    <div class="section-label">How It Works</div>
-    <h2 style="color:white; font-size:40px; margin-bottom:16px;">Three Steps to a Living Collection</h2>
-    <p class="section-desc">From gallery floor to generational legacy — Attesté turns every encounter into documented history.</p>
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        </div>
-        <div class="step-number">01</div>
-        <h3>Encounter</h3>
-        <p>See something you love? Photograph it. Our AI identifies the artist, medium, and period instantly. Log the encounter — where you saw it, how it made you feel. Every gallery visit, every fair, every studio becomes part of your story.</p>
-      </div>
-      <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>
-        </div>
-        <div class="step-number">02</div>
-        <h3>Document</h3>
-        <p>Build a living record of your collection with cryptographic integrity. Upload invoices, track condition, generate certificates. Whether it's your first print or your fiftieth oil painting — every piece deserves provenance.</p>
-      </div>
-      <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="step-number">03</div>
-        <h3>Share &amp; Grow</h3>
-        <p>Walk Discovery Trails in cities worldwide. Earn XP for encounters and acquisitions. Get weekly AI recommendations matched to your taste. Share your Year in Art. Level up from Apprentice to Grand Master — your art journey, quantified and celebrated.</p>
-      </div>
+<!-- ASK YOUR AI (claim-gated: tier 0 only) -->
+<section class="lp-ai" id="ask-ai" data-claim="f-agent-connector-t0-verify">
+  <div class="lp-wrap">
+    <div class="lp-ai-card lp-reveal">
+      <video muted loop playsinline preload="none" data-ambient poster="assets/landing/ai-chat.jpg" aria-label="An AI assistant checks an Attesté certificate through the public connector"><source src="assets/landing/ai-chat.mp4" type="video/mp4"></video>
     </div>
-  </div>
-</section>
-
-<!-- ATELIER — the signature experience -->
-<section class="atelier" id="atelier">
-  <div class="atelier-inner">
-    <div class="atelier-label">The Signature Experience</div>
-    <h2>Stand Before a Work.<br><em>And Simply Ask.</em></h2>
-    <p class="atelier-lede">Atelier is a voice-first AI companion that sees what you see. Point your camera at a painting and talk — about the brushwork, the period, the provenance. It answers aloud, in your language, grounded in your collection's own records.</p>
-    <div class="atelier-stage">
-      <div class="atelier-dialogue" aria-label="Illustrative Atelier conversation">
-        <div class="atelier-turn you"><span>You</span>What am I looking at here — this ridge in the paint, near the horizon?</div>
-        <div class="atelier-turn ai"><span>Atelier</span>That's palette-knife impasto — Wenning built his dusk skies in layers. Your acquisition note places this work in the 1918 Cape series, bought at Everard Read.</div>
-        <div class="atelier-turn you"><span>You</span>Keep that with the painting.</div>
-        <div class="atelier-turn ai"><span>Atelier</span>Saved to the journal — pinned to the work, part of its story now.</div>
-      </div>
-      <div class="atelier-points">
-        <div class="atelier-point">
-          <h4>It sees</h4>
-          <p>Live camera vision. Pan across a canvas and ask about exactly what's in frame — the AI watches with you, in real time.</p>
-        </div>
-        <div class="atelier-point">
-          <h4>It speaks</h4>
-          <p>Natural voice conversation about style, technique, history — and your own works' documented provenance.</p>
-        </div>
-        <div class="atelier-point">
-          <h4>It remembers</h4>
-          <p>Every session becomes an Atelier Journal entry, pinned to the artwork. Your conversations join the provenance.</p>
-        </div>
-      </div>
-    </div>
-    <p class="atelier-footnote">Illustrative conversation &middot; Atelier is a Premium feature &middot; voice &amp; vision powered by Gemini Live</p>
-  </div>
-</section>
-
-<!-- CONNECT YOUR AI (G12, 2026-10). The connector serves exactly four tools
-     (live tools/list on mcp.atteste.art, 2026-10-09): verify_certificate,
-     get_bitcoin_anchor, get_provenance_timeline, explain_attestation.
-     Hosts are named only inside data-host blocks, which ship once a recorded
-     end-to-end run exists in docs/host-proofs/. -->
-<section class="connect-ai" id="connect-ai" data-claim="f-agent-connector-t0-verify">
-  <div class="connect-ai-inner">
-    <div>
-      <div class="section-label">Connect your AI</div>
-      <h2>Ask the AI you <em>already use.</em></h2>
-      <p>Attesté runs a public connector that any assistant supporting the Model Context Protocol (MCP) can plug into. Add it once, then paste a certificate link into the chat and ask away. Your assistant can:</p>
+    <div class="lp-reveal">
+      <div class="lp-eyebrow">Connect your AI</div>
+      <h2 class="lp-h2">Ask the AI you <em>already use.</em></h2>
+      <p class="lp-lede">Attesté runs a public connector that any assistant supporting the Model Context Protocol (MCP) can plug into. Add it once, then paste a certificate link into the chat. Your assistant can:</p>
       <ul>
         <li>check whether a certificate&rsquo;s signature holds, and what it records</li>
         <li>fetch the Bitcoin timestamp proof, so anyone can check it without Attesté</li>
         <li>read the work&rsquo;s ownership history, shown as roles and dates, never names</li>
         <li>explain what all of that proves, and what it doesn&rsquo;t</li>
       </ul>
-      <p>Then put it to work. Ask it to draft the caption, the listing or the insurance note, and it writes from the certificate&rsquo;s facts instead of guessing them. The assistant does the writing. Attesté supplies the truth.</p>
-      <p style="margin-bottom:6px;"><strong>Add a custom connector (MCP server) with this URL:</strong></p>
-      <code class="connect-url">https://mcp.atteste.art/mcp</code>
-      <p style="font-size:14px; color:var(--text-muted);">Read-only. Nothing to sign in to. It can&rsquo;t see your collection, change anything, or buy or sell. <a href="/agents" style="color:#9A7B44; font-weight:600;">Full setup guide &rarr;</a></p>
-
-      <div class="connect-hosts">
-        <div class="host" data-host="claude"><strong>Claude.</strong> Settings &rarr; Connectors &rarr; Add custom connector, then paste the URL.</div>
-        <div class="host" data-host="grok"><strong>Grok.</strong> Open grok.com/connectors, choose New Connector &rarr; Custom, then paste the URL.</div>
-        <div class="host" data-host="chatgpt"><strong>ChatGPT.</strong> Turn on developer mode under Settings &rarr; Apps &amp; Connectors, create a connector, then paste the URL.</div>
-      </div>
-
-      <div class="connect-soon" data-claim="unledgered:t1-account-collection-read">
-        <h3 style="font-size:20px; color:var(--text-dark); margin-bottom:8px;">Your whole collection, in the chat</h3>
-        <p>Sign in once and choose what your assistant may read: your works, certificates, condition notes and, if you allow it, the values you recorded. Ask &ldquo;what&rsquo;s due for a condition check?&rdquo; and get an answer from your own records.</p>
-      </div>
-      <div class="connect-soon" data-claim="g-109-agent-discovery a-053-agent-discovery">
-        <h3 style="font-size:20px; color:var(--text-dark); margin-bottom:8px;">Be found by the assistants buyers use</h3>
-        <p>Choose individual works to list for AI discovery. Assistants can find them, check the certificate and Bitcoin timestamp, and read your public profile. Your contact details, clients and floor prices are never exposed.</p>
-      </div>
-      <div class="connect-soon" data-claim="unledgered:t2-listings-offers g-111-trade-payments">
-        <h3 style="font-size:20px; color:var(--text-dark); margin-bottom:8px;">List, field offers and close, from the chat</h3>
-        <p>Draft a listing, answer an offer and accept a sale by talking to your assistant. Anything that moves a work or money still waits for you to confirm it in Attesté.</p>
-      </div>
-    </div>
-    <div class="connect-chat" aria-label="Example conversation with an AI assistant using the Attesté connector">
-      <div class="turn you"><span>You</span>Can you check this Attesté certificate? atteste.art/v/3PQT&hellip;</div>
-      <div class="turn ai"><span>Assistant</span>The seal is valid and the record hasn&rsquo;t changed since it was issued on 31 May 2026. Its fingerprint was timestamped on Bitcoin the same day; here&rsquo;s the proof file if you want to check it yourself. No change of ownership has been recorded yet.</div>
-      <div class="turn you"><span>You</span>So it&rsquo;s definitely by that artist?</div>
-      <div class="turn ai"><span>Assistant</span>Not from this alone. It&rsquo;s an artist certificate, but Attesté doesn&rsquo;t check who opened the artist profile, so it records a claim to be the artist rather than proving it. It also doesn&rsquo;t say the work is authentic or what it&rsquo;s worth.</div>
-      <p class="note">Example conversation, paraphrasing the connector&rsquo;s real response for a live certificate on 9 October 2026.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="section" id="features">
-  <div class="section-label">The Platform</div>
-  <h2>Everything Your Collection Needs</h2>
-  <p class="section-desc">More than thirty-five integrated features designed around one idea: your art journey is worth remembering. Every feature earns its place.</p>
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-      <div>
-        <h3>Attesté Certificate</h3>
-        <p>Living digital provenance with SHA-256 integrity hashing, tiered certification, QR codes, and shareable certificate faces. Your artwork's verified biography.</p>
-        <span class="feature-tag">Provenance</span>
-      </div>
-    </div>
-    <div class="feature-card" data-claim="f-companion hold:lp-pii-redaction">
-      <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M2 12h3"/><path d="M19 12h3"/><path d="M8.5 8.5a5 5 0 0 1 7 0"/><path d="M6 6a9 9 0 0 1 12 0"/><circle cx="12" cy="13" r="2"/><path d="M12 15v4"/></svg></div>
-      <div>
-        <h3>Talking Provenance</h3>
-        <p>Tap your phone to the NFC tag on a work and hear its story told aloud — the artist, the journey, the proof. Provenance that speaks, for anyone standing in front of the piece.</p>
-        <span class="feature-tag">Signature</span>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-      <div>
-        <h3>AI Art Scout</h3>
-        <p>Photograph any artwork. Attesté's vision AI identifies the artist, medium, and period in seconds — with an honest confidence score, never a bluff.</p>
-        <span class="feature-tag">AI-Powered</span>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 15v7"/><path d="M12 15a5 5 0 0 0 5-5V3H7v7a5 5 0 0 0 5 5z"/></svg></div>
-      <div>
-        <h3>AI Art Sommelier</h3>
-        <p>Taste profiling that learns your aesthetic across eight axes. Weekly discovery digests introduce you to artists you'll love but haven't found yet.</p>
-        <span class="feature-tag">AI-Powered</span>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-      <div>
-        <h3>Discovery Trails</h3>
-        <p>Walk curated art trails through Cape Town, Johannesburg, and beyond. GPS geofencing triggers stories at each stop. Create and share your own.</p>
-        <span class="feature-tag">Community</span>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><path d="M16.24 7.76l1.42-1.42"/></svg></div>
-      <div>
-        <h3>Year in Art</h3>
-        <p>Your collecting year, wrapped — encounters, acquisitions, taste evolution, milestones — auto-curated into a story worth sharing.</p>
-        <span class="feature-tag">Celebrate</span>
-      </div>
-    </div>
-  </div>
-  <div style="text-align:center; margin-top:48px;">
-    <a href="features.html" class="btn-primary" style="display:inline-flex;">View All Features <span style="margin-left:8px;">→</span></a>
-  </div>
-</section>
-
-<!-- FIELD NOTES — collector films -->
-<section class="wild" id="field-notes">
-  <div class="wild-inner">
-    <div class="wild-copy">
-      <div class="section-label">Field Notes</div>
-      <h2>Collectors, <em>In the Wild</em></h2>
-      <p class="wild-lede">Fifteen seconds at a time: a legacy collection kept assessor-ready in the Insurance Vault, and a Stellenbosch wine-and-art route navigated stop by stop on the day.</p>
-      <p class="wild-sub">Filmed phone-in-hand — the app as collectors actually hold it. Tap the corner toggle for sound.</p>
-      <div class="store-badges">
-        <a href="https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&amp;ct=website&amp;mt=8" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store">
-          <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-apple" width="120" height="40" loading="lazy">
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=art.atteste.atteste&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dstore-badge" target="_blank" rel="noopener" aria-label="Get Attesté on Google Play">
-          <img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" class="store-badge-google" width="134" height="40" loading="lazy">
-        </a>
-      </div>
-    </div>
-    <figure class="film-phone film-phone--hero">
-      <div class="film-frame">
-        <video muted loop playsinline preload="none" data-ambient
-               poster="assets/video/collector-vault-poster.jpg"
-               aria-label="A legacy collector reviews the Insurance Vault — portfolio summary, valuation certificates and coverage gaps">
-          <source src="assets/video/collector-vault.mp4" type="video/mp4">
-        </video>
-        <button class="film-sound" type="button" aria-label="Unmute film" aria-pressed="false">
-          <svg class="ico-off" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-          <svg class="ico-on" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-        </button>
-      </div>
-      <figcaption class="film-cap"><strong>The Insurance Vault.</strong> Valuations, coverage gaps, condition history — the collection your family inherits, organised.</figcaption>
-    </figure>
-  </div>
-  <div class="wild-secondary">
-    <figure class="film-phone film-phone--sm">
-      <div class="film-frame">
-        <video muted loop playsinline preload="none" data-ambient
-               poster="assets/video/collector-routes-poster.jpg"
-               aria-label="A collector follows a Stellenbosch wine-and-art estates route in the app, with mapped stops and navigation">
-          <source src="assets/video/collector-routes.mp4" type="video/mp4">
-        </video>
-        <button class="film-sound" type="button" aria-label="Unmute film" aria-pressed="false">
-          <svg class="ico-off" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-          <svg class="ico-on" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-        </button>
-      </div>
-    </figure>
-    <div class="wild-secondary-copy">
-      <div class="section-label">Also on the trail</div>
-      <h3>Art Routes</h3>
-      <p>Stellenbosch's wine-and-art estates, mapped stop by stop — collect the day, not just the work. Follow the route, check in at each stop, and let every encounter log itself.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PROVENANCE -->
-<section class="section-cream" id="provenance">
-  <div style="padding:120px 48px; max-width:1200px; margin:0 auto;">
-    <div class="provenance-layout">
-      <div>
-        <div class="section-label">The Provenance Promise</div>
-        <div class="provenance-text">
-          <h3>Bank-Grade Integrity for Art</h3>
-          <p>Every record in Attesté is secured with SHA-256 cryptographic hashing — the same standard used in financial transactions. Our provenance chain is append-only: records can be added but never altered or deleted.</p>
-          <p>This isn't blockchain hype. It's the quiet certainty that your collection's story — every acquisition, every valuation, every transfer — is sealed in cryptographic truth. Permanent. Verifiable. Yours.</p>
-          <p style="font-weight:500; color:var(--text-dark);">And our valuation philosophy is simple: invoice is king. AI provides experimental insight, but your portfolio totals only reflect documented, professional valuations. We believe trust is earned through honesty, not inflated numbers.</p>
-          <p><strong>First Witness.</strong> When a work is born in an artist’s studio on Attesté, its chain begins at creation — the artist’s own recorded account, sealed and Bitcoin-anchored as the origin every later record links back to. Provenance written forward, not reconstructed.</p>
-        </div>
-        <div class="trust-badges">
-          <div class="trust-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            SHA-256 Integrity
-          </div>
-          <div class="trust-badge">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            Append-Only Chain
-          </div>
-          <div class="trust-badge">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Invoice First
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="provenance-chain">
-          <div class="chain-node">
-            <div class="chain-line">
-              <div class="chain-dot"></div>
-              <div class="chain-connector"></div>
-            </div>
-            <div class="chain-content">
-              <h4>Acquisition</h4>
-              <p>Purchased at Everard Read Gallery, Cape Town. Invoice R45,000. Oil on canvas, 60×80cm.</p>
-              <span class="chain-hash">sha256:7f83b...e4a1c</span>
-            </div>
-          </div>
-          <div class="chain-node">
-            <div class="chain-line">
-              <div class="chain-dot"></div>
-              <div class="chain-connector"></div>
-            </div>
-            <div class="chain-content">
-              <h4>Professional Valuation</h4>
-              <p>The Valuator Group appraisal. Estimated replacement cost R68,000. Paul Myson (FRSA, FIFAAAA).</p>
-              <span class="chain-hash">sha256:3a9f1...b72d8</span>
-            </div>
-          </div>
-          <div class="chain-node">
-            <div class="chain-line">
-              <div class="chain-dot"></div>
-              <div class="chain-connector"></div>
-            </div>
-            <div class="chain-content">
-              <h4>Condition Assessment</h4>
-              <p>AI condition analysis: Excellent. Minor frame wear noted. UV-protected glass recommended.</p>
-              <span class="chain-hash">sha256:9c2d5...a83f7</span>
-            </div>
-          </div>
-          <div class="chain-node">
-            <div class="chain-line">
-              <div class="chain-dot"></div>
-            </div>
-            <div class="chain-content">
-              <h4>Attesté Certificate Issued</h4>
-              <p>Enhanced-tier certificate #ATC-2026-0042. Provenance quality score: 4/5. QR verification active.</p>
-              <span class="chain-hash">sha256:1b4e8...d56c3</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="lp-url"><code>https://mcp.atteste.art/mcp</code><button type="button" data-copy="https://mcp.atteste.art/mcp">Copy</button></div>
+      <p class="lp-small">Read-only. Nothing to sign in to. It can&rsquo;t see your collection, change anything, or buy or sell. <a href="/agents">Full setup guide &rarr;</a></p>
+      <p class="lp-small">The chat on the left replays the connector&rsquo;s real answer for a live certificate.</p>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="section-dark" id="pricing">
-  <div style="padding:120px 48px; max-width:1200px; margin:0 auto;">
-    <div style="text-align:center; margin-bottom:16px;">
-      <div class="section-label">Pricing</div>
-      <h2 style="color:white; font-size:40px; margin-bottom:16px;">Start Free. Grow With Your Collection.</h2>
-      <p class="section-desc" style="margin:0 auto 16px; text-align:center;">Every collector starts somewhere. Attesté grows with you — from your first encounter to your legacy.</p>
-      <p style="font-size:14px; color:var(--gold-light); margin-bottom:48px;">Every new account includes a 14-day Premium trial — experience everything before you choose.</p>
+<section class="lp-pricing" id="pricing">
+  <div class="lp-wrap">
+    <div class="lp-reveal" style="text-align:center">
+      <div class="lp-eyebrow">Pricing</div>
+      <h2 class="lp-h2">Start free. <em>Grow with your collection.</em></h2>
     </div>
-    <div class="pricing-grid">
-      <!-- Explorer -->
-      <div class="price-card">
-        <div class="price-tier">Explorer</div>
-        <div class="price-amount">Free <span>/ forever</span></div>
-        <div class="price-desc">Start your art journey. Walk trails, log encounters, earn XP.</div>
-        <ul class="price-features">
-          <li>Up to 25 artworks</li>
-          <li>5 AI analyses per month</li>
-          <li>Walk existing trails</li>
-          <li>Log unlimited encounters</li>
-          <li>Earn XP &amp; achievements</li>
-          <li>14-day Premium trial</li>
-        </ul>
-        <a href="#download" class="btn-price btn-price-outline" style="display:block;">Start Exploring</a>
+    <div class="lp-prices">
+      <div class="lp-pcard lp-reveal">
+        <h3>Collectors</h3><div class="who">In the iOS and Android app</div>
+        <div class="lp-tier"><span><b>Explorer</b><br>Up to 25 artworks, 5 AI analyses a month</span><span class="amt">Free</span></div>
+        <div class="lp-tier"><span><b>Collector</b><br>200 artworks, certificates + QR, condition vault</span><span class="amt">$9.99/mo</span></div>
+        <div class="lp-tier"><span><b>Premium</b><br>Unlimited artworks, Legacy &amp; Estate Vault</span><span class="amt">$19.99/mo</span></div>
+        <a class="lp-btn lp-btn-dark" href="#download">Get the app</a>
       </div>
-      <!-- Collector -->
-      <div class="price-card featured">
-        <div class="price-tier">Collector</div>
-        <div class="price-amount">$9.99 <span>/ month</span></div>
-        <div class="price-desc">For collectors who want full documentation and AI insight. Annual: $99.99/yr (save ~17%).</div>
-        <ul class="price-features">
-          <li>Up to 200 artworks</li>
-          <li>50 AI analyses per month</li>
-          <li>Attesté Certificates + QR</li>
-          <li>Full provenance chain</li>
-          <li>AI Art Sommelier</li>
-          <li>Condition Vault + reports</li>
-          <li>Auction intelligence</li>
-          <li>Art Fair Companion</li>
-        </ul>
-        <a href="#download" class="btn-price btn-price-primary" style="display:block;">Become a Collector</a>
+      <div class="lp-pcard lp-reveal">
+        <h3>Artists</h3><div class="who">14-day free trial on Studio</div>
+        <div class="lp-tier"><span><b>Studio</b><br>50 works, 5 source certificates a month, public profile</span><span class="amt">$14.99/mo</span></div>
+        <div class="lp-tier"><span><b>Professional</b><br>500 works, unlimited certificates</span><span class="amt">$24.99/mo</span></div>
+        <div class="lp-tier"><span><b>Represented</b><br>Provisioned by your gallery</span><span class="amt">Free</span></div>
+        <a class="lp-btn lp-btn-dark" href="artists.html">For artists</a>
       </div>
-      <!-- Premium -->
-      <div class="price-card">
-        <div class="price-tier">Premium</div>
-        <div class="price-amount">$19.99 <span>/ month</span></div>
-        <div class="price-desc">For collectors who want the complete platform and creative tools. Annual: $199.99/yr (save ~17%).</div>
-        <ul class="price-features">
-          <li>Unlimited artworks</li>
-          <li>Unlimited AI analyses</li>
-          <li>Legacy &amp; Estate Vault</li>
-          <li>Year in Art wrap</li>
-          <li>Public collector profile</li>
-          <li>Community trail creation</li>
-          <li>AI Trail Generator</li>
-          <li>Collection memoirs</li>
-          <li>Priority AI processing</li>
-        </ul>
-        <a href="#download" class="btn-price btn-price-outline" style="display:block;">Go Premium</a>
+      <div class="lp-pcard lp-reveal">
+        <h3>Galleries</h3><div class="who">Attesté Galleria, on the web</div>
+        <div class="lp-tier"><span><b>Boutique</b><br>50 artworks, 6 exhibitions a year, directory listing</span><span class="amt">$64.99/mo</span></div>
+        <div class="lp-tier"><span><b>Professional</b><br>100 artworks, 12 exhibitions, AI social posts</span><span class="amt">$158.99/mo</span></div>
+        <div class="lp-tier"><span><b>Enterprise</b><br>Unlimited artworks and exhibitions, priority support</span><span class="amt">$259/mo</span></div>
+        <a class="lp-btn lp-btn-dark" href="galleries.html">For galleries</a>
       </div>
     </div>
+    <p class="lp-small" style="text-align:center">Annual plans save about 17% on collector and artist tiers. Prices in USD.</p>
+  </div>
+</section>
 
-    <!-- Referral program — live on web since 2026-07-18; keep copy in sync with /r/index.html -->
-    <div id="referral" style="margin-top:64px; background:var(--navy-mid); border:1px solid rgba(201,169,110,0.35); border-radius:var(--radius-lg); padding:48px 32px; text-align:center; box-shadow:var(--shadow-card);">
-      <div class="section-label">Refer a Friend</div>
-      <h3 style="font-family:var(--font-display); font-size:var(--fs-h3); color:var(--white); margin-bottom:14px;">Give a month, <em style="color:var(--gold-light);">get a month.</em></h3>
-      <p style="font-size:var(--fs-lead); line-height:1.7; color:rgba(255,255,255,0.75); max-width:620px; margin:0 auto 12px;">Invite a friend and they start with a month of Premium free. When they join with your code, a month of Premium is added to your account too.</p>
-      <p style="font-size:var(--fs-small); line-height:1.7; color:rgba(255,255,255,0.55); max-width:560px; margin:0 auto 28px;">Your invite link looks like <code style="font-family:ui-monospace,'SF Mono',Menlo,monospace; color:var(--gold-light);">atteste.art/r/yourcode</code>. New members redeem within their first week of signing up — one redemption per account.</p>
-      <a href="https://atteste-b6409.web.app/?utm_source=website&amp;utm_medium=pricing-cta" target="_blank" rel="noopener" class="btn-price btn-price-primary" style="display:inline-block; width:auto; padding-left:36px; padding-right:36px;">Get your invite link &rarr;</a>
-      <p style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:16px;">Available now in the Attest&eacute; web app &mdash; the iOS and Android apps pick it up in their next release.</p>
+<!-- STORY -->
+<section class="lp-story" id="story">
+  <div class="lp-wrap">
+    <div class="lp-reveal"><p class="lp-quote">Every collection outlives its collector. Its stories should too.</p></div>
+    <div class="lp-reveal">
+      <div class="lp-eyebrow">Built in South Africa</div>
+      <h2 class="lp-h2">A father&rsquo;s project became his <em>daughters&rsquo; business.</em></h2>
+      <p class="lp-lede">Attesté started when a private collector realised his children would inherit his art, but not the stories behind it. Today it&rsquo;s a family enterprise in Stellenbosch: built by a father, operated by three daughters, and powered by the belief that every collection tells a story worth keeping.</p>
     </div>
   </div>
 </section>
 
-<!-- FOR ARTISTS -->
-<section class="section-cream" id="artists">
-  <div class="section-label">For Artists</div>
-  <h2>Your Studio. Your Work. Verified.</h2>
-  <p class="section-desc">A serious tool for working artists — public profile, master catalogue, source certificates, and a verification trail collectors can trust. From $14.99/mo with a 14-day free trial.</p>
-  <div class="gallery-teaser">
-    <div>
-      <h3>Built for the Artist's Working Life.</h3>
-      <p>Catalogue every work you've ever made. Issue source certificates that follow each piece into every collector's portfolio. Stay in the conversation long after the work leaves the studio.</p>
-      <p style="margin-top:12px;"><strong style="color:var(--gold);">Public Profile.</strong> A clean, gallery-grade artist page hosted at <code style="color:var(--gold-light);">atteste.art/artist/your-handle</code>. Bio, signature, statement, and a curated portfolio — searchable inside the app.</p>
-      <p style="margin-top:8px;"><strong style="color:var(--gold);">Source Certificates.</strong> Issue one from the studio and it becomes the first line of the record collectors carry forward. Their re-sale, your provenance.</p>
-      <p style="margin-top:8px;"><strong style="color:var(--gold);">Verification Inbox.</strong> Collectors and galleries request authentication directly. You decide what's verified — without back-channel emails or photographs of photographs.</p>
-      <div style="margin-top:32px; padding:24px; border-radius:16px; background:rgba(201,169,110,0.06); border:1px solid rgba(201,169,110,0.15);">
-        <h4 style="color:var(--gold); margin-bottom:12px; font-size:16px;">Artist Tiers</h4>
-        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; font-size:14px;">
-          <div>
-            <strong>Studio</strong> <span style="color:var(--gold);">$14.99/mo</span><br>
-            <span style="color:var(--text-muted);">$149.99/yr (save ~17%). 14-day free trial. 50 works, 5 source certs/mo, public profile, basic analytics.</span>
-          </div>
-          <div>
-            <strong>Professional</strong> <span style="color:var(--gold);">$24.99/mo</span><br>
-            <span style="color:var(--text-muted);">$249.99/yr (save ~17%). 500 works, unlimited certs, AI descriptions, exhibition history, priority verification.</span>
-          </div>
-          <div>
-            <strong>Represented</strong> <span style="color:var(--gold);">Free</span><br>
-            <span style="color:var(--text-muted);">Gallery-paid. Provisioned by your gallery on Professional or Enterprise. Unlimited works, unlimited certificates.</span>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:20px; display:flex; gap:12px; align-items:center;">
-        <a href="artists.html" class="btn-primary" style="display:inline-flex;">Learn More <span style="margin-left:8px;">→</span></a>
-        <a href="mailto:artists@atteste.art" class="btn-secondary" style="display:inline-flex;">Contact Us</a>
-      </div>
-    </div>
-    <div>
-      <div class="gallery-metrics">
-        <div class="gallery-metric">
-          <div class="gallery-metric-label">Works Catalogued</div>
-          <div class="gallery-metric-value">312</div>
-          <div class="gallery-metric-sub">across studio + archive</div>
-        </div>
-        <div class="gallery-metric">
-          <div class="gallery-metric-label">Certs Issued</div>
-          <div class="gallery-metric-value">87</div>
-          <div class="gallery-metric-sub">last 12 months</div>
-        </div>
-        <div class="gallery-metric">
-          <div class="gallery-metric-label">Verification</div>
-          <div class="gallery-metric-value">100%</div>
-          <div class="gallery-metric-sub">artist-confirmed</div>
-        </div>
-        <div class="gallery-metric">
-          <div class="gallery-metric-label">Collectors Reached</div>
-          <div class="gallery-metric-value">1,240</div>
-          <div class="gallery-metric-sub">via Sommelier</div>
-        </div>
-      </div>
-      <div class="metrics-caption">Illustrative — a working studio on Attesté</div>
-    </div>
-  </div>
-</section>
-
-<!-- FOR GALLERIES -->
-<section class="section" id="galleries">
-  <div class="section-label">For Galleries</div>
-  <h2>Your Gallery Wakes Up <em style="color:var(--gold); font-style:italic; font-weight:500;">Briefed</em></h2>
-  <p class="section-desc">The new Attesté gallery experience is rolling out now: a daily Pulse briefing computed overnight from real collector activity, an AI concierge that knows your inventory by name, and six AI writers on staff.</p>
-  <div class="gallery-teaser">
-    <div>
-      <h3>Almanac. Ask Your Gallery Anything.</h3>
-      <p>"Who should I call today?" "What moved this week?" "Draft a follow-up for the collector who watchlisted the Khumalo." Almanac answers in voice or text — grounded in your live inventory, exhibitions, collector activity, and pipeline.</p>
-      <p style="margin-top:12px;"><strong style="color:var(--gold);">Daily Pulse.</strong> Every morning, a briefing computed overnight: new encounters, watchlists, certificate scans, inquiries — with suggested next actions, not just numbers.</p>
-      <p style="margin-top:8px;"><strong style="color:var(--gold);">A living collector stream.</strong> Every encounter, watchlist, and scan on your works flows into one feed. No CRM data entry, ever. All anonymised — no tracking individuals.</p>
-      <p style="margin-top:8px;"><strong style="color:var(--gold);">Six AI writers.</strong> Exhibition copy, artist bios, artwork descriptions, follow-up emails, on-demand insights — and Gallery Wrapped, your year auto-curated into a shareable story.</p>
-      <p style="margin-top:8px;"><strong style="color:var(--gold);">Every venue, one home.</strong> Multi-venue support scales from a single boutique space to an unlimited Enterprise estate.</p>
-      <div style="margin-top:32px; padding:24px; border-radius:16px; background:rgba(201,169,110,0.06); border:1px solid rgba(201,169,110,0.15);">
-        <h4 style="color:var(--gold); margin-bottom:12px; font-size:16px;">Attest&eacute; Galleria &mdash; monthly plans, on the web</h4>
-        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; font-size:14px;">
-          <div>
-            <strong>Boutique</strong> <span style="color:var(--gold);">$64.99/mo</span><br>
-            <span style="color:var(--text-muted);">50 artworks, 6 exhibitions a year, anonymous collector analytics, directory listing. Founding galleries: 30% off the first 12 months.</span>
-          </div>
-          <div>
-            <strong>Professional</strong> <span style="color:var(--gold);">$158.99/mo</span><br>
-            <span style="color:var(--text-muted);">100 artworks, 12 exhibitions, Talking Provenance Curator's Commentary, AI social posts, content calendar, collector pipeline.</span>
-          </div>
-          <div>
-            <strong>Enterprise</strong> <span style="color:var(--gold);">$259.00/mo</span><br>
-            <span style="color:var(--text-muted);">Unlimited artworks and exhibitions, AI artist reports, promotion push to matched collectors, priority support.</span>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:20px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-        <a href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;">Launch Galleria</a>
-        <a href="galleries.html" class="btn-secondary" style="display:inline-flex;">Learn More <span style="margin-left:8px;">→</span></a>
-        <a href="mailto:galleries@atteste.art" class="btn-secondary" style="display:inline-flex;">Contact Us</a>
-      </div>
-    </div>
-    <div>
-      <div class="pulse-vignette" aria-label="Illustrative daily Pulse briefing">
-        <div class="pulse-header">
-          <h4>This Morning's Pulse</h4>
-          <span>Tuesday &middot; 07:00</span>
-        </div>
-        <div class="pulse-row"><span class="pulse-dot"></span><p><strong>3 new encounters</strong> overnight — two on the Khumalo charcoal, one in your winter group show.</p></div>
-        <div class="pulse-row"><span class="pulse-dot"></span><p>The <strong>Wenning landscape</strong> was watchlisted twice this week. A collector who saw it in March is back in town.</p></div>
-        <div class="pulse-row"><span class="pulse-dot"></span><p>Certificate <strong>#ATC-2026-0042</strong> was scanned in Rosebank — your provenance is travelling.</p></div>
-        <div class="pulse-row"><span class="pulse-dot"></span><p><strong>Suggested:</strong> follow up with the Khumalo collector. Almanac has drafted the note — review and send.</p></div>
-        <div class="pulse-caption">Illustrative briefing &middot; Pulse is computed nightly from your gallery's real activity</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OUR STORY -->
-<section class="section-cream" id="story">
-  <div style="padding:120px 48px; max-width:1200px; margin:0 auto;">
-    <div class="story-layout">
-      <div class="story-visual">
-        <div class="story-card">
-          <div class="story-card-label">Built in South Africa</div>
-          <h4>A father's project became his daughters' business</h4>
-          <p>Attesté started when a private collector realised his children would inherit his art — but not the stories behind it. What began as a weekend project to digitise one collection grew into a platform that could serve every collector.</p>
-          <p style="margin-top:16px; font-size:14px; color:var(--text-light); line-height:1.7; position:relative;">Today, Attesté is a family enterprise: built by a father, operated by three daughters, and powered by the belief that every art collection tells a story worth preserving.</p>
-        </div>
-      </div>
-      <div class="story-text">
-        <div class="section-label">Our Story</div>
-        <h3>Built for Art. Powered by Integrity.</h3>
-        <p>We didn't set out to build a startup. We set out to solve a real problem for a real collection. That honesty is coded into every decision we've made — from our "invoice is king" valuation philosophy to our append-only provenance chain.</p>
-        <div class="story-values">
-          <div class="story-value">
-            <div class="story-value-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
-            <div class="story-value-text">
-              <h4>Proven Infrastructure</h4>
-              <p>SHA-256 integrity chain with append-only provenance records. Every record is cryptographically sealed and independently verifiable.</p>
-            </div>
-          </div>
-          <div class="story-value">
-            <div class="story-value-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></div>
-            <div class="story-value-text">
-              <h4>AI That Amplifies, Never Replaces</h4>
-              <p>Dual AI (Google Gemini + Anthropic Claude) provides insight and discovery. But your documented provenance always comes first.</p>
-            </div>
-          </div>
-          <div class="story-value">
-            <div class="story-value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-            <div class="story-value-text">
-              <h4>Born in South Africa, Built for Every Collector</h4>
-              <p>Auction intelligence across multiple markets. Discovery trails in cities worldwide. A platform designed for collectors everywhere.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA / DOWNLOAD -->
-<!-- FAQ (visible counterpart to the FAQPage JSON-LD at #faq — GEO-citable, Google-policy-compliant). Added 2026-07-10. -->
-<style>
-  #faq-visible .faq-list{max-width:760px;margin:24px auto 0}
-  #faq-visible .faq-item{border-top:1px solid rgba(0,0,0,.12);padding:0}
-  #faq-visible .faq-item:last-child{border-bottom:1px solid rgba(0,0,0,.12)}
-  #faq-visible summary{list-style:none;cursor:pointer;padding:20px 40px 20px 4px;position:relative;
-    font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-weight:600;line-height:1.4}
-  #faq-visible summary::-webkit-details-marker{display:none}
-  #faq-visible summary::after{content:'+';position:absolute;right:6px;top:18px;font-size:1.6rem;
-    font-weight:400;color:#B8732A;transition:transform .2s}
-  #faq-visible details[open] summary::after{content:'\2013'}
-  #faq-visible .faq-item p{margin:0 4px 22px;line-height:1.7;opacity:.85;max-width:70ch}
-</style>
-<section class="section-cream" id="faq-visible">
-  <div class="section-label">Questions &amp; Answers</div>
-  <h2 style="text-align:center;margin-bottom:6px;">Frequently Asked</h2>
-  <p class="section-desc" style="text-align:center;">Straight answers on cost, privacy, provenance, and how the AI works.</p>
-  <div class="faq-list">
+<!-- FAQ (visible counterpart of the FAQPage JSON-LD) -->
+<section class="lp-faq" id="faq-visible">
+  <div class="lp-wrap">
+    <div class="lp-reveal" style="text-align:center;margin-bottom:34px"><div class="lp-eyebrow">Questions &amp; answers</div><h2 class="lp-h2">Frequently asked</h2></div>
+    <div class="faq-list">
     <details class="faq-item" open>
       <summary>What is Attesté?</summary>
       <p>Attesté is an AI-powered art collection management platform. It helps collectors catalogue their art, verify provenance with SHA-256 cryptographic certificates, discover new galleries and artists via GPS-gated trails, and document collection history across generations.</p>
@@ -2464,28 +932,20 @@
       <p>Attesté is built by Yield SPM (Pty) Ltd, founded by Charl le Roux, with its place of business in Stellenbosch, Western Cape, South Africa. Company registration: 2024/185151/07. The same team also operates Practacular, an AI practice management platform for accountants.</p>
     </details>
   </div>
+  </div>
 </section>
 
-<section class="cta-section" id="download">
-  <div class="cta-inner">
-    <img src="assets/3d/atteste-seal-3d.jpg" alt="The Attesté seal" class="cta-seal" width="132" height="132" loading="lazy">
-    <h2>Begin Your Collection's Story</h2>
-    <p>Attesté is live on the App Store and Google Play. Start free with your first 25 works — every account opens with a 14-day Premium trial. Your collection's memory begins with the first encounter.</p>
-    <div class="store-badges" style="justify-content:center; margin-top:32px;">
-      <a href="https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&amp;ct=website&amp;mt=8" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store">
-        <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-apple" width="120" height="40" loading="lazy">
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=art.atteste.atteste&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dstore-badge" target="_blank" rel="noopener" aria-label="Get Attesté on Google Play">
-        <img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" class="store-badge-google" width="134" height="40" loading="lazy">
-      </a>
+<!-- DOWNLOAD -->
+<section class="lp-final" id="download">
+  <video muted loop playsinline preload="none" data-ambient poster="assets/landing/hero.jpg" aria-hidden="true"><source src="assets/landing/hero.mp4" type="video/mp4"></video>
+  <div class="lp-wrap">
+    <h2>Begin your collection&rsquo;s <em>story.</em></h2>
+    <p>Attesté is live on the App Store and Google Play. Start free with your first 25 works, and every account opens with a 14-day Premium trial.</p>
+    <div class="lp-badges">
+      <a href="https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&amp;ct=website&amp;mt=8" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" width="138" height="46" loading="lazy"></a>
+      <a href="https://play.google.com/store/apps/details?id=art.atteste.atteste&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dstore-badge" target="_blank" rel="noopener" aria-label="Get Attesté on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" width="155" height="46" loading="lazy"></a>
     </div>
-    <div class="cta-note">Free to start. No credit card required.</div>
-
-    <!-- Email capture — lighter variant of the artist/gallery forms (Netlify Forms) -->
-    <div style="margin-top:56px; padding-top:40px; border-top:1px solid rgba(201,169,110,0.18);">
-      <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:22px; color:var(--white); margin-bottom:8px;">Rather start in your inbox?</h3>
-      <p style="font-size:15px; color:var(--text-light); max-width:460px; margin:0 auto;">Occasional collecting stories and news from Attest&eacute; &mdash; a letter, not a feed.</p>
-      <form name="atteste-updates" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" aria-label="Get Attesté updates by email">
+    <form name="atteste-updates" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" aria-label="Get Attesté updates by email">
         <input type="hidden" name="form-name" value="atteste-updates">
         <p style="display:none;" aria-hidden="true">
           <label>Don&rsquo;t fill this in if you&rsquo;re human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
@@ -2500,7 +960,6 @@
           <span>I&rsquo;d like Attest&eacute; to email me occasional updates and collecting stories &mdash; <a href="/privacy.html">Privacy Policy</a>.</span>
         </label>
       </form>
-    </div>
   </div>
 </section>
 
@@ -2561,74 +1020,54 @@
   </div>
 </footer>
 
-<!-- SCROLL NAV EFFECT -->
 <script>
-
-  // Ambient films: respect reduced motion, play only while on screen
-  const films = document.querySelectorAll('video[data-ambient]');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  films.forEach(v => {
-    if (reduceMotion) {
-      v.removeAttribute('autoplay');
-      v.pause();
-    } else if ('IntersectionObserver' in window) {
-      new IntersectionObserver(entries => {
-        entries.forEach(e => { e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause(); });
-      }, { threshold: 0.15 }).observe(v);
-    }
-  });
-
-  // Film sound toggles — one voice at a time
-  document.querySelectorAll('.film-sound').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const video = btn.parentElement.querySelector('video');
-      if (!video) return;
-      const unmuting = video.muted;
-      if (unmuting) {
-        films.forEach(v => { v.muted = true; });
-        document.querySelectorAll('.film-sound').forEach(b => {
-          b.setAttribute('aria-pressed', 'false');
-          b.setAttribute('aria-label', 'Unmute film');
-        });
-        video.muted = false;
-        video.play().catch(() => {});
-      } else {
-        video.muted = true;
-      }
-      btn.setAttribute('aria-pressed', unmuting ? 'true' : 'false');
-      btn.setAttribute('aria-label', unmuting ? 'Mute film' : 'Unmute film');
-    });
-  });
-
+(() => {
   const nav = document.getElementById('nav');
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    if (scrollY > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-    lastScroll = scrollY;
-  });
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Close mobile nav if open
-        document.querySelector('.nav-links').classList.remove('mobile-show');
-      }
-    });
+  const burger = document.querySelector('.lp-burger'), links = document.getElementById('lp-links');
+  burger.addEventListener('click', () => {
+    const open = links.classList.toggle('open'); burger.setAttribute('aria-expanded', open);
   });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // role switcher (tabs)
+  const tabs = [...document.querySelectorAll('.lp-roles [role=tab]')];
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(o => { const on = o === t; o.setAttribute('aria-selected', on);
+      document.getElementById(o.getAttribute('aria-controls')).hidden = !on; });
+  }));
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // reveal on scroll
+  // reveal on scroll — position check, not IntersectionObserver alone (throttled tabs can skip
+  // IO callbacks and leave content invisible); a timed fallback guarantees nothing stays hidden
+  let rv = [...document.querySelectorAll('.lp-reveal')];
+  const showAll = () => { rv.forEach(e => e.classList.add('in')); rv = []; };
+  if (reduce) showAll();
+  else {
+    let ticking = false;
+    const check = () => { ticking = false; const h = window.innerHeight * 0.94;
+      rv = rv.filter(e => { if (e.getBoundingClientRect().top < h) { e.classList.add('in'); return false; } return true; }); };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(check); } }, { passive: true });
+    window.addEventListener('resize', check); check(); setTimeout(showAll, 4000);
+  }
+
+  // ambient films: play only while on screen, never with reduced motion
+  const films = document.querySelectorAll('video[data-ambient]');
+  if (reduce) films.forEach(v => v.pause());
+  else if ('IntersectionObserver' in window) {
+    const vo = new IntersectionObserver(es => es.forEach(e => { e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause(); }), { threshold: .1 });
+    films.forEach(v => vo.observe(v));
+  }
+  if (reduce) document.querySelectorAll('.lp-hero video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => {
+    navigator.clipboard && navigator.clipboard.writeText(b.dataset.copy).then(() => { b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy', 1600); });
+  }));
+})();
 </script>
-
-<style>
-  
-</style>
 
 <!-- Floating social rail — follows scroll, centre-right; hidden below 1100px (footer carries the icons on smaller screens) -->
 <nav class="att-social-rail" aria-label="Follow Attesté on social media">
