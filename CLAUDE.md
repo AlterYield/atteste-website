@@ -24,7 +24,8 @@ The previous "Gallery Launch Kit" (R5,000 once-off) was deprecated 2026-04-24 an
 
 ## Project Structure
 
-- `index.html` — Main marketing website homepage
+- `index.html` — Main marketing website homepage. **Since 2026-10-25 it is BUILT** by `python3 scripts/landing/build.py` from `scripts/landing/body.part` (the v2 design) plus the shared head/FAQ/form/footer/scripts taken verbatim from `classic.html`. Edit `body.part` (or `classic.html` for the shared parts), then rebuild — never hand-edit `index.html`. Media lives in `assets/landing/` (Higgsfield-animated demo paintings; real app capture frames).
+- `classic.html` — the previous homepage, `noindex`, canonical `/`, served at `/classic` for rollback (exempt in `scripts/seo/check.mjs` NOT_INDEXED)
 - `features.html` — Features page
 - `galleries.html` — Dedicated gallery page (Boutique / Professional / Enterprise annual tiers, ROI, founding gallery discount)
 - `artists.html` — Dedicated artists page (Studio / Professional / Represented tiers, source certificates, public profile)
