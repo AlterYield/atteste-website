@@ -131,7 +131,7 @@
   <!-- Legal — canonical URLs without .html extension (per Netlify rewrite + build_legal_html.js template) -->
   <url>
     <loc>https://atteste.art/privacy</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
