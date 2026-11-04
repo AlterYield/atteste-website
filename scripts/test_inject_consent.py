@@ -8,10 +8,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from inject_consent import audit_csp, audit_page, audit_script  # noqa: E402
 
-BARE = '<head><script defer src="/assets/js/consent.js?v=abc"></script></head>'
-MANAGE = '<head><script defer src="/assets/js/consent.js?v=abc" data-manage-only></script></head>'
+FOOT = "<footer></footer>"
+NO_FOOT = '<head><script defer src="/assets/js/consent.js?v=abc"></script></head>'
+BARE = NO_FOOT + FOOT
+MANAGE = '<head><script defer src="/assets/js/consent.js?v=abc" data-manage-only></script></head>' + FOOT
 VIEW = ('<head><script defer src="/assets/js/consent.js?v=abc" data-fb-events="ViewContent" '
-        'data-fb-content="features"></script></head>')
+        'data-fb-content="features"></script></head>' + FOOT)
 NONE = "<head></head>"
 CSP = ("Content-Security-Policy: default-src 'self'; script-src 'self' https://connect.facebook.net; "
        "img-src https://www.facebook.com; connect-src https://www.facebook.com")
@@ -34,8 +36,10 @@ CASES = [
     ("a new cert page gains the tag", audit_page("cert/abc.html", BARE), "forbidden"),
     ("private page gains a click event",
      audit_page("cert/abc.html", '<a data-fb-click="Lead">x</a>'), "forbidden"),
-    ("privacy.html held for PR #36, tag absent", audit_page("privacy.html", NONE), ""),
-    ("privacy.html held for PR #36, tag present", audit_page("privacy.html", MANAGE), ""),
+    ("privacy notice is manage-only", audit_page("privacy.html", MANAGE), ""),
+    ("privacy notice shows the banner", audit_page("privacy.html", BARE), "attributes"),
+    ("privacy notice loses the tag", audit_page("privacy.html", NONE + FOOT), "missing"),
+    ("page with the banner has no footer", audit_page("help/index.html", NO_FOOT), "no-footer"),
     ("inline fbq in a page", audit_page("help/index.html", BARE + "<script>fbq('init')</script>"), "pixel-ref"),
     ("noscript beacon in a page",
      audit_page("help/index.html", BARE + '<img src="https://www.facebook.com/tr?id=1">'), "pixel-ref"),

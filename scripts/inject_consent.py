@@ -54,16 +54,13 @@ EXCLUDE_PREFIXES = {
     "cert/": "public certificate records of a named artist's work, not marketing",
 }
 
-# Not governed yet: privacy.html is being rewritten in PR #36 (soc2/w13-privacy-v2.3).
-# When that lands, move it to MANAGE_ONLY and run this script.
-HELD = {"privacy.html"}
-
 # Policy pages: no banner over legal text, preferences centre only.
 MANAGE_ONLY = {
     "ai-disclosure.html",
     "community-guidelines.html",
     "cookies.html",
     "legacy-disclaimer.html",
+    "privacy.html",
     "refunds.html",
     "terms.html",
 }
@@ -91,6 +88,7 @@ VIEW_CONTENT = {
 PIXEL_REF_RE = re.compile(r'\bfbq\b|\b_fbq\b|fbevents|connect\.facebook\.net|facebook\.com/tr\b')
 CLICK_RE = re.compile(r'\bdata-fb-click="([^"]*)"')
 FB_ATTR_RE = re.compile(r'\bdata-fb-(?:click|events|content)\b')
+FOOTER_RE = re.compile(r'<footer\b')
 EVENT_NAME_RE = re.compile(r'^[A-Za-z][A-Za-z0-9]{1,39}$')
 
 # (CSP directive, host) pairs the Pixel needs. _headers is the only CSP here.
@@ -131,12 +129,15 @@ def audit_page(rel: str, text: str) -> list[str]:
             problems.append(f"forbidden   {rel}: loads consent.js ({exclusion(rel)})")
         if FB_ATTR_RE.search(text):
             problems.append(f"forbidden   {rel}: carries a data-fb-* attribute")
-    elif rel not in HELD:
+    else:
         if not match:
             problems.append(f"missing     {rel}: no consent.js")
         elif match.group(2).rstrip() != wanted_attrs(rel):
             problems.append(f"attributes  {rel}: has '{match.group(2).strip()}', "
                             f"policy wants '{wanted_attrs(rel).strip()}'")
+        if not FOOTER_RE.search(text):
+            problems.append(f"no-footer   {rel}: consent.js adds the Cookie preferences link "
+                            "to the <footer>, and this page has none")
 
     for name in CLICK_RE.findall(text):
         if not EVENT_NAME_RE.match(name):
@@ -171,8 +172,6 @@ def apply(rel: str, path: Path) -> str:
             return "ok"
         path.write_text(COMMENT_RE.sub("", TAG_RE.sub("", text)), encoding="utf-8")
         return "removed"
-    if rel in HELD:
-        return "ok"
     if not match:
         if "</head>" not in text:
             return "no-head"
