@@ -29,6 +29,7 @@ The previous "Gallery Launch Kit" (R5,000 once-off) was deprecated 2026-04-24 an
 - `features.html` — Features page
 - `galleries.html` — Dedicated gallery page (Boutique / Professional / Enterprise annual tiers, ROI, founding gallery discount)
 - `artists.html` — Dedicated artists page (Studio / Professional / Represented tiers, source certificates, public profile)
+- `coa/` + `claim/` — free, no-signup COA generator (`/coa/`, four medium guides) and its QR landing (`/claim/`, noindex). **Built** by `python3 scripts/coa/build.py` (then `node scripts/asset-versions.mjs`); logic in `assets/js/coa-core.js` (shared payload contract — do not change), `coa.js`, `claim.js`; jsPDF 4.2.1 + qrcode-generator 1.4.4 are self-hosted pinned npm builds in `assets/js/`. Test: `node scripts/coa/test-coa.mjs`.
 - `_headers` — Netlify HTTP security headers
 - `_redirects` — Netlify redirect rules
 ## Marketing Personas (11 total)

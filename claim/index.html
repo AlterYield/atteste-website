@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Certificate record — Attesté</title>
+<meta name="description" content="The record printed on an artist-issued certificate of authenticity, opened from its QR code. Add the work to your Attesté collection.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://atteste.art/claim/">
+<meta name="theme-color" content="#1A1A2E">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Attesté">
+<meta property="og:url" content="https://atteste.art/claim/">
+<meta property="og:title" content="Certificate record — Attesté">
+<meta property="og:description" content="The record printed on an artist-issued certificate of authenticity, opened from its QR code. Add the work to your Attesté collection.">
+<meta property="og:image" content="https://atteste.art/assets/3d/atteste-og-banner.jpg">
+<meta property="og:image:alt" content="Attesté — Your art, connected.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@atteste_art">
+<meta name="twitter:title" content="Certificate record — Attesté">
+<meta name="twitter:description" content="The record printed on an artist-issued certificate of authenticity, opened from its QR code. Add the work to your Attesté collection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/coa.css?v=7f7c5ddb">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Certificate record — Attesté",
+  "description": "The record printed on an artist-issued certificate of authenticity, opened from its QR code. Add the work to your Attesté collection.",
+  "url": "https://atteste.art/claim/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Attesté",
+    "url": "https://atteste.art/"
+  }
+}
+</script>
+</head>
+<body>
+<header class="coa-top">
+  <a class="coa-logo" href="/">Attest<span>é</span></a>
+  <nav aria-label="COA generator">
+    <a href="/coa/">COA generator</a>
+    <a href="/artists.html">For artists</a>
+    <a href="/help/">Help</a>
+  </nav>
+</header>
+<main>
+  <div id="claim-loading" class="claim-error"><p>Reading the certificate record…</p>
+    <noscript><p>This page reads the record from the QR link in your browser and needs JavaScript switched on.</p></noscript></div>
+
+  <div id="claim-error" class="claim-error" hidden>
+    <h2>We couldn't read this certificate link</h2>
+    <p id="claim-error-detail">The link is missing its record, or part of it was cut off.</p>
+    <p>Scan the QR code on the certificate again, or copy the whole link. If the link came in a message, it may have been shortened on the way.</p>
+    <p>Artist? <a href="/coa/">Make a free certificate of authenticity</a>.</p>
+  </div>
+
+  <article id="claim-view" hidden>
+    <div class="cert">
+      <p class="eyebrow">Certificate of authenticity · record</p>
+      <h1 id="c-title"></h1>
+      <p class="by">by <span id="c-artist"></span></p>
+      <dl>
+        <dt>Year</dt><dd id="c-year"></dd>
+        <dt>Medium</dt><dd id="c-medium"></dd>
+        <dt id="c-dims-l">Dimensions</dt><dd id="c-dims"></dd>
+        <dt id="c-edition-l">Edition</dt><dd id="c-edition"></dd>
+        <dt>Issued</dt><dd id="c-issued"></dd>
+        <dt>Image SHA-256</dt><dd id="c-hash" class="coa-hash"></dd>
+      </dl>
+      <p class="note">Issued by the artist as their own statement of record. The SHA-256 fingerprint matches one specific image file: it shows that file is unchanged since issue, and nothing more. Attesté did not examine the work and does not check this statement.</p>
+    </div>
+    <h2 style="text-align:center">Own this work? Keep its record.</h2>
+    <div class="claim-actions" data-claim="f-collector-add-artwork f-collector-collection-list a-001-free-to-download">
+      <p><a id="claim-import" class="btn btn-gold" href="https://atteste-b6409.web.app/import-coa" rel="noopener">Add this work to my Attesté collection</a></p>
+      <p class="small">Attesté is free to download.</p>
+      <div class="store-badges">
+          <a href="https://apps.apple.com/app/apple-store/id6763944507?pt=128824584&amp;ct=coa-claim&amp;mt=8" target="_blank" rel="noopener" aria-label="Download Attesté on the App Store"><img src="/assets/badges/app-store-badge.svg" alt="Download on the App Store" width="132" height="44"></a>
+          <a href="https://play.google.com/store/apps/details?id=art.atteste.atteste&amp;referrer=utm_source%3Dcoa-claim%26utm_medium%3Dclaim-page" target="_blank" rel="noopener" aria-label="Get Attesté on Google Play"><img src="/assets/badges/google-play-badge.png" alt="Get it on Google Play" width="148" height="44"></a>
+          <a class="btn btn-ghost" href="https://atteste-b6409.web.app/?utm_source=coa-claim&amp;utm_medium=claim-page" target="_blank" rel="noopener">Open the web app</a>
+        </div>
+    </div>
+  </article>
+</main>
+<footer class="coa-foot">
+  <p><a href="/coa/">Free COA generator</a> · Guides: <a href="/coa/painting/">Painting</a> · <a href="/coa/photography/">Photography</a> · <a href="/coa/prints/">Prints</a> · <a href="/coa/sculpture/">Sculpture</a></p>
+  <p>Attesté does not examine artworks or check what a certificate says. A certificate made here is the artist's own statement of record.</p>
+  <p>Operator: Yield SPM (Pty) Ltd, Republic of South Africa · <a href="mailto:info@atteste.art">info@atteste.art</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+</footer>
+<script defer src="/assets/js/coa-core.js?v=5ccb95d3"></script>
+<script defer src="/assets/js/claim.js?v=9d1de925"></script>
+<script defer src="/assets/js/attribution.js?v=9216b441"></script>
+</body>
+</html>
