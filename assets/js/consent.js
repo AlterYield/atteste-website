@@ -10,19 +10,29 @@
    the site — an image beacon would fire without consent.
 
    Include on a page with:
-     <script defer src="/assets/js/consent.js?v=20260801"></script>
+     <script defer src="/assets/js/consent.js?v=CONTENTHASH"></script>
    Optional attributes on the script tag:
      data-manage-only        don't auto-show the banner (policy pages);
                              only the preferences centre is available
-     data-fb-events="Lead"   comma-separated extra Meta standard events
-                             fired after PageView (e.g. on /thanks)
+     data-fb-events="Lead"   comma-separated extra Meta events fired after
+                             PageView (e.g. on /thanks)
+     data-fb-content="slug"  static page label sent as content_name with
+                             ViewContent. Never a person's or artwork's data.
    Any element with [data-cookie-prefs] reopens the preferences centre.
+
+   Meta click events (only ever sent after marketing opt-in):
+     data-fb-click="Contact" on any element tracks that event when clicked.
+     App Store / Google Play links need no attribute: they are recognised by
+     host, the same rule as attribution.js, so no store link can be forgotten.
+
+   This file is the ONLY place allowed to touch fbq. Which pages may load it
+   is policy, not habit: see scripts/inject_consent.py (CI-enforced).
    ========================================================================== */
 (function () {
   'use strict';
 
   // "Atteste Pixel" dataset in Meta Events Manager, owned by the
-  // "Charl le Roux" Business portfolio (verified 2026-08-01).
+  // Yield SPM Business portfolio, 1769024997391775 (verified 2026-11-04).
   // If ever emptied, the pixel simply never loads — even for visitors
   // who opt in; their consent is stored and honoured once an ID lands.
   var META_PIXEL_ID = '2040419150235877';
@@ -30,10 +40,21 @@
   var GA_ID = 'G-6VBQZX830K';
   var STORAGE_KEY = 'atteste_consent_v1';
 
+  // Everything else goes through trackCustom: fbq('track') rejects a name
+  // that is not on Meta's standard list.
+  var FB_STANDARD_EVENTS = [
+    'AddPaymentInfo', 'AddToCart', 'AddToWishlist', 'CompleteRegistration',
+    'Contact', 'CustomizeProduct', 'Donate', 'FindLocation', 'InitiateCheckout',
+    'Lead', 'PageView', 'Purchase', 'Schedule', 'Search', 'StartTrial',
+    'SubmitApplication', 'Subscribe', 'ViewContent'
+  ];
+  var FB_STORE_HOSTS = { 'apps.apple.com': 'app_store', 'play.google.com': 'google_play' };
+
   var script = document.currentScript;
   var manageOnly = script && script.hasAttribute('data-manage-only');
   var fbExtraEvents = (script && script.getAttribute('data-fb-events') || '')
     .split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+  var fbContent = script && script.getAttribute('data-fb-content') || '';
 
   var loaded = { analytics: false, marketing: false };
   var banner = null;
@@ -84,9 +105,32 @@
       n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
       s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
     }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    // Must precede init. Stops the pixel scraping button text, JSON-LD and
+    // form metadata on its own: it sends only the events named below, which
+    // is what the privacy notice promises. COA generator fields stay local.
+    window.fbq('set', 'autoConfig', false, META_PIXEL_ID);
     window.fbq('init', META_PIXEL_ID);
-    window.fbq('track', 'PageView');
-    fbExtraEvents.forEach(function (ev) { window.fbq('track', ev); });
+    fbTrack('PageView');
+    fbExtraEvents.forEach(function (ev) {
+      fbTrack(ev, ev === 'ViewContent' && fbContent ? { content_name: fbContent } : undefined);
+    });
+  }
+
+  function fbTrack(name, params) {
+    var method = FB_STANDARD_EVENTS.indexOf(name) === -1 ? 'trackCustom' : 'track';
+    if (params) window.fbq(method, name, params);
+    else window.fbq(method, name);
+  }
+
+  // Parameters are fixed values chosen here. Link text, hrefs and page data
+  // never reach Meta through this path.
+  function trackClick(target) {
+    if (!loaded.marketing || !target || !target.closest) return;
+    var tagged = target.closest('[data-fb-click]');
+    var link = target.closest('a[href]');
+    var store = link && FB_STORE_HOSTS[link.hostname];
+    if (tagged) fbTrack(tagged.getAttribute('data-fb-click'), store ? { store: store } : undefined);
+    else if (store) fbTrack('AppDownloadClick', { store: store });
   }
 
   function applyConsent(consent) {
@@ -219,6 +263,7 @@
     document.addEventListener('click', function (e) {
       var el = e.target && e.target.closest && e.target.closest('[data-cookie-prefs]');
       if (el) { e.preventDefault(); window.attesteConsent.open(); }
+      trackClick(e.target);
     });
     var consent = readConsent();
     if (consent) {
