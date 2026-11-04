@@ -20,6 +20,7 @@ const NOT_INDEXED = {
   '404.html': 'error page',
   'thanks.html': 'post-form confirmation',
   'sell.html': 'staged on g-111/a-055 — production build drops it (claim gate)',
+  'classic.html': 'previous homepage, kept for rollback at /classic (noindex, canonical /)',
 };
 const AI_CRAWLERS = ['GPTBot', 'OAI-SearchBot', 'ClaudeBot', 'Claude-SearchBot', 'PerplexityBot', 'Google-Extended'];
 export const fails = [];

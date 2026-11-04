@@ -24,10 +24,13 @@ The previous "Gallery Launch Kit" (R5,000 once-off) was deprecated 2026-04-24 an
 
 ## Project Structure
 
-- `index.html` — Main marketing website homepage
+- `index.html` — Main marketing website homepage. **Since 2026-10-25 it is BUILT** by `python3 scripts/landing/build.py` from `scripts/landing/body.part` (the v2 design) plus the shared head/FAQ/form/footer/scripts taken verbatim from `classic.html`. Edit `body.part` (or `classic.html` for the shared parts), then rebuild — never hand-edit `index.html`. Media lives in `assets/landing/` (Higgsfield-animated demo paintings; real app capture frames).
+- `classic.html` — the previous homepage, `noindex`, canonical `/`, served at `/classic` for rollback (exempt in `scripts/seo/check.mjs` NOT_INDEXED)
 - `features.html` — Features page
 - `galleries.html` — Dedicated gallery page (Boutique / Professional / Enterprise annual tiers, ROI, founding gallery discount)
 - `artists.html` — Dedicated artists page (Studio / Professional / Represented tiers, source certificates, public profile)
+- `coa/` + `claim/` — free, no-signup COA generator (`/coa/`, four medium guides) and its QR landing (`/claim/`, noindex). **Built** by `python3 scripts/coa/build.py` (then `node scripts/asset-versions.mjs`); logic in `assets/js/coa-core.js` (shared payload contract — do not change), `coa.js`, `claim.js`; jsPDF 4.2.1 + qrcode-generator 1.4.4 are self-hosted pinned npm builds in `assets/js/`. Test: `node scripts/coa/test-coa.mjs`.
+- `assets/js/consent.js` — cookie banner and the ONLY file allowed to touch GA or the Meta Pixel. Which pages load it is policy in `scripts/inject_consent.py` (CI: `--check`): new pages default to marketing, private pages go in `EXCLUDE` with a reason. Events: `data-fb-events` / `data-fb-content` on the tag, `data-fb-click` on an element; store links are tracked by host; a script with no click to hang on calls `window.attesteConsent.track(name)`, name listed in `FB_PAGE_EVENTS`, no parameters (COA: `CoaDownload`, after `doc.save` in `coa.js`). Every page with the tag needs a `<footer>`: consent.js adds the Cookie preferences link there. After adding a page: `python3 scripts/inject_consent.py && node scripts/asset-versions.mjs`.
 - `_headers` — Netlify HTTP security headers
 - `_redirects` — Netlify redirect rules
 ## Marketing Personas (11 total)

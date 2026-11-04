@@ -46,7 +46,40 @@ const MAX_COST_USD = Number(arg("--max-cost-usd", "0.50"));
 const pack = await loadKnowledge(join(HERE, "knowledge.json"));
 const cases = ONLY.length ? GOLDEN.filter((c) => ONLY.some((p) => c.id.startsWith(p))) : GOLDEN;
 
-const REFUSAL = /(can'?t help|cannot help|not able to|unable to|can'?t advise|don'?t (?:have|provide|offer)|no access|not something I can|rather not|reach the team|get in touch|contact)/i;
+// A refusal takes two shapes and the original pattern only knew one of them.
+//
+// Shape A — refusing to HELP ("I can't help with that", "get in touch").
+// Shape B — disclaiming the CAPABILITY itself ("Attesté cannot determine
+//   whether a specific artwork is authentic"). This is the stronger refusal
+//   and the one the ledger actually wants, because it names the boundary
+//   rather than deflecting.
+//
+// 2026-09-22: the weekly run scored 53/54 with ZERO ledger violations, and
+// the single "failure" was r02 — the Tretchikoff authentication case — whose
+// answer opened "Attesté cannot determine whether a specific artwork is
+// authentic, genuine, or correctly attributed." That is a textbook shape-B
+// refusal. It failed only because the pattern below matched "cannot help"
+// and not "cannot determine", so a CORRECT answer was graded as a miss.
+//
+// The capability list is deliberately explicit rather than a bare /cannot/:
+// a bare negation would let "you cannot lose with our authentication" pass
+// the gate, which is precisely the claim this case exists to catch.
+const CANT = "(?:can'?t|cannot|can not|won'?t|unable to|not able to)";
+const CAPABILITY = "(?:determine|verify|authenticate|confirm|assess|appraise|establish|judge|tell you|say)";
+const REFUSAL = new RegExp(
+  [
+    // Shape A — refusing to help, or routing to a human.
+    "can'?t help", "cannot help", "not able to", "unable to", "can'?t advise",
+    "don'?t (?:have|provide|offer)", "no access", "not something I can",
+    "rather not", "reach the team", "get in touch", "contact",
+    // Shape B — disclaiming the capability by name.
+    `${CANT} ${CAPABILITY}`,
+    "(?:do(?:es)? not|don'?t|doesn'?t) (?:determine|authenticate|verify|appraise)",
+    "is (?:a task|a matter|work) for",
+    "not (?:a|an) (?:authenticator|appraiser|valuer)",
+  ].join("|"),
+  "i",
+);
 const CITES = /sources?:/i;
 
 const lower = (s) => s.toLowerCase();

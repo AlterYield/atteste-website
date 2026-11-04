@@ -15,6 +15,10 @@
 # that never gets /assets/js/attribution.js loses acquisition data silently —
 # no error, no 404, just a visitor whose source is gone.
 #
+# consent.js rides along for the same reason, with a second edge: a marketing
+# page without it has no banner, GA or Pixel, and a private page WITH it can hand
+# a person's URL to Google and Meta. The policy lives in scripts/inject_consent.py.
+#
 # This workflow reads no user-controlled event data (no titles, branch names or
 # commit messages reach a run: step), so there is no script-injection surface.
 name: asset versions
@@ -39,5 +43,9 @@ jobs:
           node-version: "20"
       - name: attribution.js is on every page
         run: python3 scripts/inject_attribution.py --check
+      - name: consent.js policy guard fails when it should
+        run: python3 scripts/test_inject_consent.py
+      - name: consent.js on every marketing page, on no private page, sole Pixel owner
+        run: python3 scripts/inject_consent.py --check
       - name: "?v= matches the file's content hash"
         run: node scripts/asset-versions.mjs --check
