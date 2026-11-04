@@ -394,6 +394,22 @@ Attesté is about cataloguing physical and digital artworks a collector owns —
 
 ---
 
+## Free certificate of authenticity (COA) generator
+
+URL: https://atteste.art/coa/ — free, no account, for artists issuing a COA for their own work.
+
+- **What it makes:** an A4 PDF certificate with title, artist, year, medium, dimensions, edition, an optional statement, one image of the work, a declaration and signature lines, the SHA-256 fingerprint of the image file, the issue date, and a 30 mm QR code labelled "Register this work on Attesté".
+- **Privacy:** the image is read, fingerprinted and drawn into the PDF by the visitor's own browser. Nothing is uploaded; the page adds no analytics.
+- **What the fingerprint shows:** only that a given image file is unchanged since the certificate was issued. It says nothing about who made the work. The certificate is the artist's own statement of record; Attesté does not examine the work or check the statement.
+- **The QR code** opens `https://atteste.art/claim/#<record>`. The record (title, artist, year, medium, fingerprint, issue date; dimensions and edition when they fit) travels in the URL fragment, so no server stores it.
+- **Guides by medium:**
+  - Painting — https://atteste.art/coa/painting/ — medium and support separately, unframed size height first, signature and verso, varnish.
+  - Photography — https://atteste.art/coa/photography/ — print process and paper, capture date vs print date, who printed it, edition across all sizes.
+  - Prints — https://atteste.art/coa/prints/ — edition numbering (12/50), artist's proofs (AP), printer's proofs (PP), bon à tirer (BAT), trial proofs, hors commerce, printer and matrix.
+  - Sculpture — https://atteste.art/coa/sculpture/ — cast numbering and artist's casts, foundry and foundry mark, patina, size and weight, base.
+
+---
+
 ## What Attesté is NOT
 
 - Not an authentication service for pre-existing third-party works (it preserves records and source certificates from artists, but does not certify a Picasso is real)

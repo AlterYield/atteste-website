@@ -51,6 +51,11 @@
 - **Rails** — South Africa: GoSafe escrow, funded by PayShap or EFT; or card into the seller's own Peach Payments account. International: escrow.com (USD or EUR, US$1,000 minimum); below that, PayPal with no escrow. Details: https://atteste.art/sell
 <!-- /claim -->
 
+## Free tools
+
+- **Free certificate of authenticity (COA) generator** — https://atteste.art/coa/ — for artists: enter title, artist, year, medium, dimensions and edition, add one image, and download an A4 PDF certificate. Free, no account. Runs entirely in the browser: the image is never uploaded. The PDF prints the SHA-256 fingerprint of the image file and a QR code to `https://atteste.art/claim/#<record>`, which shows the record carried in the link itself. The certificate is the artist's own statement of record; the fingerprint shows only that the image file is unchanged since issue. Attesté does not examine the work or check the statement.
+- Medium guides: [painting](https://atteste.art/coa/painting/), [photography](https://atteste.art/coa/photography/), [prints and editions (AP, PP, BAT)](https://atteste.art/coa/prints/), [sculpture (casts, foundry)](https://atteste.art/coa/sculpture/).
+
 ## Who it's for
 
 - **Individual art collectors** — From first-painting buyers to established collectors with 200+ pieces
@@ -182,6 +187,7 @@ Real collector and artist certificates appear at these URLs as users opt in (per
 - [Features page](https://atteste.art/features.html) — Full product capabilities
 - [Artists page](https://atteste.art/artists.html) — Artist tiers, source certificates, public profiles
 - [Galleries page](https://atteste.art/galleries.html) — B2B partnership details
+- [Free COA generator](https://atteste.art/coa/) — certificate of authenticity PDF for artists, in the browser, no sign-up
 - [Artwork Archive alternative](https://atteste.art/compare/artwork-archive-alternative) — comparison + how to switch
 - [Art Galleria alternative](https://atteste.art/compare/art-galleria-alternative) — comparison + pricing
 - [Artwork Archive vs Art Galleria](https://atteste.art/compare/artwork-archive-vs-art-galleria) — incumbent head-to-head + the AI-native option
