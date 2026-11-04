@@ -18,12 +18,20 @@
                              PageView (e.g. on /thanks)
      data-fb-content="slug"  static page label sent as content_name with
                              ViewContent. Never a person's or artwork's data.
-   Any element with [data-cookie-prefs] reopens the preferences centre.
+   Any element with [data-cookie-prefs] reopens the preferences centre. A page
+   whose footer has none gets a "Cookie preferences" link added here, so the
+   promise in the banner and the privacy notice holds on every page, generated
+   ones included. A page with no <footer> fails scripts/inject_consent.py --check.
 
    Meta click events (only ever sent after marketing opt-in):
      data-fb-click="Contact" on any element tracks that event when clicked.
      App Store / Google Play links need no attribute: they are recognised by
      host, the same rule as attribution.js, so no store link can be forgotten.
+
+   Meta events with no click to hang them on (only ever sent after opt-in):
+     window.attesteConsent.track('CoaDownload'). The name must be listed in
+     FB_PAGE_EVENTS, and the caller cannot pass parameters. Any page script
+     that wants one has to go through here, never through fbq.
 
    This file is the ONLY place allowed to touch fbq. Which pages may load it
    is policy, not habit: see scripts/inject_consent.py (CI-enforced).
@@ -49,6 +57,7 @@
     'SubmitApplication', 'Subscribe', 'ViewContent'
   ];
   var FB_STORE_HOSTS = { 'apps.apple.com': 'app_store', 'play.google.com': 'google_play' };
+  var FB_PAGE_EVENTS = ['CoaDownload'];
 
   var script = document.currentScript;
   var manageOnly = script && script.hasAttribute('data-manage-only');
@@ -256,10 +265,35 @@
 
   window.attesteConsent = {
     open: function () { showBanner('prefs', readConsent() || undefined); },
-    status: readConsent
+    status: readConsent,
+    // Name only, and only from FB_PAGE_EVENTS: nothing a page knows can reach
+    // Meta this way. Does nothing without marketing consent.
+    track: function (name) {
+      if (loaded.marketing && FB_PAGE_EVENTS.indexOf(name) !== -1) fbTrack(name);
+    }
   };
 
+  // Next to the Cookie Policy link where there is one, else after the last
+  // link. A block or flex-item link stacks; an inline one needs a separator.
+  function addFooterControl() {
+    var footers = document.querySelectorAll('footer');
+    var footer = footers[footers.length - 1];
+    if (!footer || footer.querySelector('[data-cookie-prefs]')) return;
+    var link = document.createElement('a');
+    link.href = '#';
+    link.setAttribute('data-cookie-prefs', '');
+    link.textContent = 'Cookie preferences';
+    var links = footer.querySelectorAll('a[href]');
+    var anchor = footer.querySelector('a[href*="cookies"]') || links[links.length - 1];
+    if (!anchor) { footer.appendChild(link); return; }
+    anchor.parentNode.insertBefore(link, anchor.nextSibling);
+    if (window.getComputedStyle(anchor).display === 'inline') {
+      anchor.parentNode.insertBefore(document.createTextNode(' \u00b7 '), link);
+    }
+  }
+
   function init() {
+    addFooterControl();
     document.addEventListener('click', function (e) {
       var el = e.target && e.target.closest && e.target.closest('[data-cookie-prefs]');
       if (el) { e.preventDefault(); window.attesteConsent.open(); }
