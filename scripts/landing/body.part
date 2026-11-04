@@ -215,7 +215,7 @@ body.lp *{box-sizing:border-box}
         </div>
         <div class="lp-role-panel" id="p-gal" role="tabpanel" aria-labelledby="t-gal" hidden>
           <p>Wake up to a daily Pulse briefing, an AI concierge that knows your inventory by name, and a place in the in-app gallery directory.</p>
-          <div class="lp-badges"><a class="lp-btn lp-btn-dark" href="https://galleria.atteste.art" target="_blank" rel="noopener">Launch Galleria &rarr;</a><a class="lp-btn lp-btn-line" href="galleries.html">For galleries</a></div>
+          <div class="lp-badges"><a data-fb-click="LaunchGalleria" class="lp-btn lp-btn-dark" href="https://galleria.atteste.art" target="_blank" rel="noopener">Launch Galleria &rarr;</a><a class="lp-btn lp-btn-line" href="galleries.html">For galleries</a></div>
         </div>
         <p class="lp-hero-note">Paintings from the Attesté demo collection, brought to life with AI.</p>
       </div>
@@ -342,7 +342,7 @@ body.lp *{box-sizing:border-box}
         <li><strong>Six AI writers.</strong> Exhibition copy, artist bios, artwork descriptions and follow-up emails, drafted for you to review.</li>
         <li data-claim="g-001-directory-listing"><strong>Found by collectors.</strong> A place in the in-app gallery directory.</li>
       </ul>
-      <div class="lp-ctas"><a class="lp-btn lp-btn-dark" href="https://galleria.atteste.art" target="_blank" rel="noopener">Launch Galleria</a><a class="lp-btn lp-btn-line" href="galleries.html">For galleries</a></div>
+      <div class="lp-ctas"><a data-fb-click="LaunchGalleria" class="lp-btn lp-btn-dark" href="https://galleria.atteste.art" target="_blank" rel="noopener">Launch Galleria</a><a class="lp-btn lp-btn-line" href="galleries.html">For galleries</a></div>
       <p class="lp-price-line">Boutique $64.99/mo &middot; Professional $158.99/mo &middot; Enterprise $259/mo</p>
     </div>
   </div>

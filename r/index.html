@@ -16,9 +16,10 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- Consent-gated analytics & marketing (same property as the rest of the site).
-     Nothing loads before an explicit opt-in — see /assets/js/consent.js. -->
-<script defer src="/assets/js/consent.js?v=ebd395e1"></script>
+<!-- No consent.js here: /r/{code} carries a member's referral code, and GA and the
+     Pixel send the full URL (policy: scripts/inject_consent.py). The referrer meta
+     keeps the code out of document.referrer when the visitor moves to another page. -->
+<meta name="referrer" content="strict-origin">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

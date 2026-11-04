@@ -37,6 +37,12 @@ MEDIA = [
 ]
 
 
+def consent_tag(content):
+    """Banner, GA and Pixel for the public pages. /claim/ must never get this: its
+    URL fragment is the certificate. Policy: scripts/inject_consent.py."""
+    return f'<script defer src="/assets/js/consent.js" data-fb-events="ViewContent" data-fb-content="{content}"></script>\n'
+
+
 def esc(s):
     return s.replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;").replace(">", "&gt;")
 
@@ -251,7 +257,7 @@ def page_generator():
 """
     scripts = ["/assets/js/jspdf-4.2.1.umd.min.js", "/assets/js/qrcode-generator-1.4.4.js",
                "/assets/js/coa-core.js", "/assets/js/coa.js", "/assets/js/attribution.js"]
-    return head(path=path, title=title, desc=desc, jsonld=jsonld) + body + foot(scripts)
+    return head(path=path, title=title, desc=desc, jsonld=jsonld, extra=consent_tag("coa-generator")) + body + foot(scripts)
 
 
 # ── Medium guides ───────────────────────────────────────────────────────────
@@ -389,7 +395,7 @@ def page_guide(slug):
   </div>
 </main>
 """
-    return head(path=path, title=g["title"], desc=g["desc"], jsonld=jsonld) + body + foot(["/assets/js/attribution.js"])
+    return head(path=path, title=g["title"], desc=g["desc"], jsonld=jsonld, extra=consent_tag(f"coa-{slug}")) + body + foot(["/assets/js/attribution.js"])
 
 
 def page_claim():

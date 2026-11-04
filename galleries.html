@@ -115,7 +115,7 @@
 </script>
 <!-- Consent-gated analytics & marketing (Google Analytics + Meta Pixel).
      Nothing loads before an explicit opt-in — see assets/js/consent.js. -->
-<script defer src="/assets/js/consent.js?v=ebd395e1"></script>
+<script defer src="/assets/js/consent.js?v=6b0dec03" data-fb-events="ViewContent" data-fb-content="galleries"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -595,8 +595,8 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
   <h1>Sell more art. <em>Skip the busywork.</em></h1>
   <p class="subtitle">Galleria does the busywork &mdash; drafting invoices and certificates, following up with collectors, posting exhibitions &mdash; and turns collector insights into action. It eases the workflows you already run, so your team spends its hours selling, not on admin.</p>
   <div class="hero-ctas">
-    <a href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-primary">Launch Galleria</a>
-    <a href="#contact" class="btn-secondary">Book a Demo</a>
+    <a data-fb-click="LaunchGalleria" href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-primary">Launch Galleria</a>
+    <a data-fb-click="Contact" href="#contact" class="btn-secondary">Book a Demo</a>
     <a href="#tiers" class="btn-secondary">Gallery Plans</a>
     <a href="#how-it-works" class="btn-secondary">See how it works</a>
   </div>
@@ -854,7 +854,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
           <li class="locked">Content calendar</li>
           <li class="locked">Exhibition promotion push</li>
         </ul>
-        <a href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-outline-gold" style="width:100%; justify-content:center;">Start with Boutique</a>
+        <a data-fb-click="InitiateCheckout" href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-outline-gold" style="width:100%; justify-content:center;">Start with Boutique</a>
       </div>
 
       <!-- Professional -->
@@ -877,7 +877,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
           <li class="locked">AI artist reports</li>
           <li class="locked">Exhibition promotion push</li>
         </ul>
-        <a href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-primary" style="width:100%; justify-content:center;">Start with Professional</a>
+        <a data-fb-click="InitiateCheckout" href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-primary" style="width:100%; justify-content:center;">Start with Professional</a>
       </div>
 
       <!-- Enterprise -->
@@ -896,7 +896,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
           <li>Collector targeting by aesthetic taste profile</li>
           <li>Priority support</li>
         </ul>
-        <a href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-outline-gold" style="width:100%; justify-content:center;">Start with Enterprise</a>
+        <a data-fb-click="InitiateCheckout" href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-outline-gold" style="width:100%; justify-content:center;">Start with Enterprise</a>
       </div>
 
     </div>
@@ -953,8 +953,8 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 7
           <li style="display:flex; gap:12px; padding:7px 0; color:var(--text-light); font-size:15px;"><span style="color:var(--gold); font-weight:700;">&#10003;</span> No obligation &mdash; explore at your own pace</li>
         </ul>
         <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
-          <a href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-primary">Launch Galleria</a>
-          <a href="mailto:info@atteste.art?subject=Gallery%20Subscription%20Enquiry" class="btn-secondary">info@atteste.art</a>
+          <a data-fb-click="LaunchGalleria" href="https://galleria.atteste.art" target="_blank" rel="noopener" class="btn-primary">Launch Galleria</a>
+          <a data-fb-click="Contact" href="mailto:info@atteste.art?subject=Gallery%20Subscription%20Enquiry" class="btn-secondary">info@atteste.art</a>
         </div>
       </div>
       <form class="att-form-card" name="gallery-demo-request" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" aria-label="Book a Galleria demo">
