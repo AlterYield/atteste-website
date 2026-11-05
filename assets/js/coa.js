@@ -1,7 +1,8 @@
 /**
  * Free COA generator (/coa/). Everything happens in this browser tab:
  * the image is read locally, hashed with SHA-256 and drawn into a PDF.
- * No upload, no analytics, no network call — unless ANCHOR_ENDPOINT is set.
+ * No image upload, no analytics. The one network call sends only the SHA-256
+ * fingerprint to ANCHOR_ENDPOINT for a timestamp receipt (on since 2026-11-05).
  *
  * Depends on (self-hosted, pinned): /assets/js/jspdf-4.2.1.umd.min.js,
  * /assets/js/qrcode-generator-1.4.4.js, /assets/js/coa-core.js.
@@ -10,7 +11,7 @@
   'use strict';
 
   /**
-   * Timestamp-anchoring hook. OFF while null.
+   * Timestamp-anchoring hook. ON since 2026-11-05 (null switches it off).
    * When set to a URL, the generator POSTs {"h":"<sha256 hex>"} to it after
    * hashing and prints "Timestamp receipt: <receiptId>" on the PDF if the
    * response is JSON with a string `receiptId`. Only the hash is sent — never
@@ -19,7 +20,7 @@
    * _headers (the site CSP blocks other origins), and the /coa/ privacy copy
    * updated to say the hash is sent.
    */
-  var ANCHOR_ENDPOINT = null;
+  var ANCHOR_ENDPOINT = 'https://us-central1-atteste-b6409.cloudfunctions.net/anchorCoaHash';
 
   var QR_MAX_MODULES = 65;   // QR version 12: ~0.46 mm per module at 30 mm
   var QR_SIZE_MM = 30;
