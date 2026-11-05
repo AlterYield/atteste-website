@@ -43,6 +43,8 @@ jobs:
           node-version: "20"
       - name: attribution.js is on every page
         run: python3 scripts/inject_attribution.py --check
+      - name: consent.js sends each event only where the visitor said yes
+        run: node scripts/test-consent-events.mjs
       - name: consent.js policy guard fails when it should
         run: python3 scripts/test_inject_consent.py
       - name: consent.js on every marketing page, on no private page, sole Pixel owner
