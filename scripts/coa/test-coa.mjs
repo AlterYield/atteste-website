@@ -9,7 +9,7 @@
  * 4. /claim/: claim.js against a stub DOM — a missing or malformed fragment shows the
  *    error panel and never the record; a good one renders and links /import-coa#<same payload>.
  * 5. The pages: ANCHOR_ENDPOINT is hash-only + CSP-allowed; /claim/ is noindex; no banned wording.
- * 6. The download event: fires only after doc.save, only through consent.js, name only.
+ * 6. The generator carries no consent.js, so no Pixel or GA can read what a visitor enters.
  */
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -242,18 +242,15 @@ await test("no verify/authenticate/prove or blockchain/token/crypto/NFT wording 
 });
 
 // 6 ────────────────────────────────────────────────────────────────────────
-await test("download event: after doc.save, through consent.js, name only", async () => {
+await test("generator page: no consent.js, and coa.js reports nothing to it", async () => {
   const coa = readFileSync(join(ROOT, "assets/js/coa.js"), "utf8");
-  const consent = readFileSync(join(ROOT, "assets/js/consent.js"), "utf8");
-  const save = coa.indexOf("doc.save(");
-  const track = coa.indexOf("window.attesteConsent.track('CoaDownload')");
-  assert.ok(save > -1 && track > save, "coa.js must track after doc.save");
-  assert.doesNotMatch(coa, /\bfbq\b/);
-  assert.match(consent, /FB_PAGE_EVENTS = \[[^\]]*'CoaDownload'/);
-  assert.match(consent, /track: function \(name\) \{/, "track must not accept parameters");
+  assert.doesNotMatch(coa, /\bfbq\b|attesteConsent|gtag/);
   const generator = readFileSync(join(ROOT, "coa/index.html"), "utf8");
   assert.match(generator, /src="\/assets\/js\/coa\.js/);
-  assert.match(generator, /src="\/assets\/js\/consent\.js/);
+  assert.doesNotMatch(generator, /consent\.js/);
+  assert.match(generator, /this page adds no analytics/);
+  const guide = readFileSync(join(ROOT, "coa/painting/index.html"), "utf8");
+  assert.match(guide, /src="\/assets\/js\/consent\.js/);
 });
 
 console.log(`\n${n} COA tests passed`);

@@ -28,11 +28,6 @@
      App Store / Google Play links need no attribute: they are recognised by
      host, the same rule as attribution.js, so no store link can be forgotten.
 
-   Meta events with no click to hang them on (only ever sent after opt-in):
-     window.attesteConsent.track('CoaDownload'). The name must be listed in
-     FB_PAGE_EVENTS, and the caller cannot pass parameters. Any page script
-     that wants one has to go through here, never through fbq.
-
    This file is the ONLY place allowed to touch fbq. Which pages may load it
    is policy, not habit: see scripts/inject_consent.py (CI-enforced).
    ========================================================================== */
@@ -61,7 +56,6 @@
     'SubmitApplication', 'Subscribe', 'ViewContent'
   ];
   var FB_STORE_HOSTS = { 'apps.apple.com': 'app_store', 'play.google.com': 'google_play' };
-  var FB_PAGE_EVENTS = ['CoaDownload'];
 
   var script = document.currentScript;
   var manageOnly = script && script.hasAttribute('data-manage-only');
@@ -286,12 +280,7 @@
 
   window.attesteConsent = {
     open: function () { showBanner('prefs', readConsent() || undefined); },
-    status: readConsent,
-    // Name only, and only from FB_PAGE_EVENTS: nothing a page knows can reach
-    // Meta this way. Does nothing without marketing consent.
-    track: function (name) {
-      if (loaded.marketing && FB_PAGE_EVENTS.indexOf(name) !== -1) fbTrack(name);
-    }
+    status: readConsent
   };
 
   // Next to the Cookie Policy link where there is one, else after the last

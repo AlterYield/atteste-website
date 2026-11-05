@@ -12,8 +12,9 @@ this one is a privacy control as well as a coverage tag. It fails both ways:
 
 `--check` exits non-zero on drift and gates CI (.github/workflows/asset-versions.yml).
 It also fails if anything but assets/js/consent.js references the Meta Pixel,
-if a tag carries a bad click event, if the CSP stops allowing the Pixel, or if
-the notices or banner lose what they must tell people about the Pixel.
+if a tag carries a bad click event, if the CSP stops allowing the Pixel, if a
+page with the tag gains a login or a file picker, or if the notices or banner
+lose what they must tell people about the Pixel.
 
 The default is deliberate: a NEW page is treated as marketing and must carry
 the tag. Deciding a page is private means adding it to EXCLUDE with a reason.
@@ -45,6 +46,9 @@ SKIP_DIRS = (".git/", ".claude/", "node_modules/", "legacy/", "docs/", "scripts/
 # test is what the URL or the page says about a person, not whether the page is
 # indexed. A page in here must not gain the tag or any data-fb-* attribute.
 EXCLUDE = {
+    "coa/index.html": "the visitor's name, title, statement and image of their work sit on this "
+                      "page once filled in, it promises they stay on the device, and Meta's AI "
+                      "may read what a pixel page shows",
     "claim/index.html": "the certificate payload (artist, title, image hash) sits in the URL "
                         "fragment, and the Pixel sends location.href with the fragment on it",
     "delete-account.html": "data-subject right in progress; no tracking on someone leaving",
@@ -66,7 +70,7 @@ MANAGE_ONLY = {
     "terms.html",
 }
 
-# Key product, pricing and COA pages fire ViewContent. The value is a fixed
+# Key product, pricing and COA guide pages fire ViewContent. The value is a fixed
 # label sent as content_name, never anything from the visitor or the URL.
 VIEW_CONTENT = {
     "index.html": "home",
@@ -78,7 +82,6 @@ VIEW_CONTENT = {
     "compare/art-galleria-alternative.html": "compare-art-galleria",
     "compare/artwork-archive-alternative.html": "compare-artwork-archive",
     "compare/artwork-archive-vs-art-galleria.html": "compare-artwork-archive-vs-art-galleria",
-    "coa/index.html": "coa-generator",
     "coa/painting/index.html": "coa-painting",
     "coa/photography/index.html": "coa-photography",
     "coa/prints/index.html": "coa-prints",
@@ -91,6 +94,9 @@ CLICK_RE = re.compile(r'\bdata-fb-click="([^"]*)"')
 FB_ATTR_RE = re.compile(r'\bdata-fb-(?:click|events|content)\b')
 FOOTER_RE = re.compile(r'<footer\b')
 EVENT_NAME_RE = re.compile(r'^[A-Za-z][A-Za-z0-9]{1,39}$')
+# Meta's AI may read what a pixel page shows, and the notices say these pages have
+# no login. A login, or a tool showing a visitor's own file, belongs in EXCLUDE.
+PRIVATE_INPUT_RE = re.compile(r'<input\b[^>]*\btype="(?:password|file)"')
 
 # (CSP directive, host) pairs the Pixel needs. _headers is the only CSP here.
 CSP_NEEDS = (
@@ -157,6 +163,9 @@ def audit_page(rel: str, text: str) -> list[str]:
         elif match.group(2).rstrip() != wanted_attrs(rel):
             problems.append(f"attributes  {rel}: has '{match.group(2).strip()}', "
                             f"policy wants '{wanted_attrs(rel).strip()}'")
+        if PRIVATE_INPUT_RE.search(text):
+            problems.append(f"private-ui  {rel}: a login or file picker on a page with the tag; "
+                            "the Pixel may read what it shows, so it belongs in EXCLUDE")
         if not FOOTER_RE.search(text):
             problems.append(f"no-footer   {rel}: consent.js adds the Cookie preferences link "
                             "to the <footer>, and this page has none")
