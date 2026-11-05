@@ -12,7 +12,8 @@ this one is a privacy control as well as a coverage tag. It fails both ways:
 
 `--check` exits non-zero on drift and gates CI (.github/workflows/asset-versions.yml).
 It also fails if anything but assets/js/consent.js references the Meta Pixel,
-if a tag carries a bad click event, or if the CSP stops allowing the Pixel.
+if a tag carries a bad click event, if the CSP stops allowing the Pixel, or if
+the notices or banner lose what they must tell people about the Pixel.
 
 The default is deliberate: a NEW page is treated as marketing and must carry
 the tag. Deciding a page is private means adding it to EXCLUDE with a reason.
@@ -99,6 +100,27 @@ CSP_NEEDS = (
 )
 
 
+# What each surface must keep saying, and what must not come back: the features
+# are on in Events Manager whether or not the words are here.
+PIXEL_DISCLOSURE = (
+    "Extra page details.",
+    "read details from the page you are viewing",
+    "Measuring ads on your device.",
+    "Our pages that carry the pixel have no such login",
+    "We do not add your name, email address or anything you type",
+)
+NOTICE_NEEDS = {
+    "privacy.html": PIXEL_DISCLOSURE,
+    "cookies.html": PIXEL_DISCLOSURE,
+    "assets/js/consent.js": ("details from those pages",),
+}
+NOTICE_BANNED = {
+    "privacy.html": ("We do not send Meta your name", "limited browsing data", "limited website browsing data"),
+    "cookies.html": ("We do not send Meta your name",),
+    "assets/js/consent.js": ("var STORAGE_KEY = 'atteste_consent_v1'",),
+}
+
+
 def exclusion(rel: str) -> str | None:
     if rel in EXCLUDE:
         return EXCLUDE[rel]
@@ -162,6 +184,13 @@ def audit_csp(headers: str) -> list[str]:
             for name, host in CSP_NEEDS if host not in directives.get(name, "")]
 
 
+def audit_notice(rel: str, text: str) -> list[str]:
+    flat = " ".join(text.split())
+    problems = [f"disclosure  {rel}: must say {need!r}" for need in NOTICE_NEEDS[rel] if need not in flat]
+    problems += [f"disclosure  {rel}: must not say {bad!r}" for bad in NOTICE_BANNED[rel] if bad in flat]
+    return problems
+
+
 def apply(rel: str, path: Path) -> str:
     """Return 'added' | 'removed' | 'updated' | 'ok' | 'no-head'."""
     text = path.read_text(encoding="utf-8")
@@ -216,6 +245,8 @@ def main() -> None:
     for path in sorted((SITE / "assets" / "js").glob("*.js")):
         problems += audit_script(path.relative_to(SITE).as_posix(), path.read_text(encoding="utf-8"))
     problems += audit_csp((SITE / "_headers").read_text(encoding="utf-8"))
+    for rel in NOTICE_NEEDS:
+        problems += audit_notice(rel, (SITE / rel).read_text(encoding="utf-8"))
 
     if problems:
         print("Consent policy violations:\n  " + "\n  ".join(problems))

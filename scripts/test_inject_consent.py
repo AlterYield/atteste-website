@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from inject_consent import audit_csp, audit_page, audit_script  # noqa: E402
+from inject_consent import PIXEL_DISCLOSURE, audit_csp, audit_notice, audit_page, audit_script  # noqa: E402
 
 FOOT = "<footer></footer>"
 NO_FOOT = '<head><script defer src="/assets/js/consent.js?v=abc"></script></head>'
@@ -17,6 +17,8 @@ VIEW = ('<head><script defer src="/assets/js/consent.js?v=abc" data-fb-events="V
 NONE = "<head></head>"
 CSP = ("Content-Security-Policy: default-src 'self'; script-src 'self' https://connect.facebook.net; "
        "img-src https://www.facebook.com; connect-src https://www.facebook.com")
+NOTICE = " ".join(PIXEL_DISCLOSURE)
+BANNER = "details from those pages"
 
 CASES = [
     # name, problems found, the word expected in them ("" = must be clean)
@@ -50,6 +52,17 @@ CASES = [
     ("good click event name", audit_page("help/index.html", BARE + '<a data-fb-click="Contact">x</a>'), ""),
     ("fbq in another script", audit_script("assets/js/chat-widget.js", "window.fbq('track')"), "pixel-ref"),
     ("fbq in consent.js is the rule", audit_script("assets/js/consent.js", "window.fbq('track')"), ""),
+    ("notice carries the disclosure", audit_notice("privacy.html", NOTICE), ""),
+    ("cookie policy carries it", audit_notice("cookies.html", NOTICE), ""),
+    ("notice loses extra page details",
+     audit_notice("privacy.html", NOTICE.replace("Extra page details.", "")), "disclosure"),
+    ("cookie policy loses on-device measurement",
+     audit_notice("cookies.html", NOTICE.replace("Measuring ads on your device.", "")), "disclosure"),
+    ("old promise comes back", audit_notice("privacy.html", NOTICE + " We do not send Meta your name"), "disclosure"),
+    ("banner names the new data", audit_notice("assets/js/consent.js", BANNER), ""),
+    ("banner loses the new data", audit_notice("assets/js/consent.js", "the pages you view"), "disclosure"),
+    ("stored consent version goes back",
+     audit_notice("assets/js/consent.js", BANNER + " var STORAGE_KEY = 'atteste_consent_v1'"), "disclosure"),
     ("CSP allows the Pixel", audit_csp(CSP), ""),
     ("CSP drops the Pixel script host", audit_csp(CSP.replace("https://connect.facebook.net", "")), "csp"),
     ("CSP drops the beacon host", audit_csp(CSP.replace("connect-src https://www.facebook.com", "connect-src 'self'")), "csp"),
