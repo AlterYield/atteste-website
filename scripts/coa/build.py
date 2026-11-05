@@ -154,7 +154,7 @@ def breadcrumbs(items):
 
 GEN_STEPS = [
     ("Enter the work's details", "Title, artist, year and medium are required; dimensions, edition and a short statement are optional."),
-    ("Add one image of the work", "Choose a JPEG or PNG. Your browser computes its SHA-256 fingerprint on your device; the image is not uploaded."),
+    ("Add one image of the work", "Choose a JPEG or PNG. Your browser computes its SHA-256 fingerprint on your device; the image is not uploaded. Only that fingerprint is sent, to get a timestamp receipt."),
     ("Download the PDF", "The A4 certificate prints the details, the image, the fingerprint and a QR code labelled Register this work on Attesté."),
     ("Sign it and keep the original file", "Sign the printed certificate by hand, and keep the exact image file you used: the fingerprint matches only that file."),
 ]
@@ -221,7 +221,7 @@ def page_generator():
   <p class="eyebrow">Free tool · No sign-up</p>
   <h1>Free certificate of authenticity generator</h1>
   <p class="lede">Create a certificate of authenticity (COA) for an artwork you made, free and without an account. Enter the details, add one image, and download an A4 PDF that prints the SHA-256 fingerprint of that image and a QR code the next owner can scan. The image is processed in your browser and never leaves your device.</p>
-  <div class="privacy-note"><span aria-hidden="true">🔒</span><div><strong>Your image stays on this device.</strong> The fingerprint and the PDF are made by your own browser. Nothing you type or choose here is uploaded, and this page adds no analytics.</div></div>
+  <div class="privacy-note"><span aria-hidden="true">🔒</span><div><strong>Your image stays on this device.</strong> The fingerprint and the PDF are made by your own browser. Nothing you type and no image is uploaded, and this page adds no analytics. Only the fingerprint, a 64-character code that cannot be turned back into your image, is sent to Attesté to get a timestamp receipt for your PDF.</div></div>
 
 {FORM}
 
