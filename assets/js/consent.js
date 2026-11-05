@@ -28,7 +28,12 @@
      App Store / Google Play links need no attribute: they are recognised by
      host, the same rule as attribution.js, so no store link can be forgotten.
 
-   This file is the ONLY place allowed to touch fbq. Which pages may load it
+   Google Analytics events (only ever sent after analytics opt-in, and the two
+   choices are independent, so one never opens the other):
+     data-fb-events="Lead" also sends generate_lead (GA_PAGE_EVENTS).
+     A store link click also sends app_download_click with { store }.
+
+   This file is the ONLY place allowed to touch fbq or gtag. Which pages may load it
    is policy, not habit: see scripts/inject_consent.py (CI-enforced).
    ========================================================================== */
 (function () {
@@ -55,7 +60,11 @@
     'Lead', 'PageView', 'Purchase', 'Schedule', 'Search', 'StartTrial',
     'SubmitApplication', 'Subscribe', 'ViewContent'
   ];
-  var FB_STORE_HOSTS = { 'apps.apple.com': 'app_store', 'play.google.com': 'google_play' };
+  var STORE_HOSTS = { 'apps.apple.com': 'app_store', 'play.google.com': 'google_play' };
+
+  // Page events Google Analytics also receives, by the name GA4 recommends.
+  // A page event with no entry here stays Meta-only.
+  var GA_PAGE_EVENTS = { Lead: 'generate_lead' };
 
   var script = document.currentScript;
   var manageOnly = script && script.hasAttribute('data-manage-only');
@@ -109,6 +118,9 @@
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
     window.gtag('config', GA_ID);
+    fbExtraEvents.forEach(function (ev) {
+      if (GA_PAGE_EVENTS[ev]) window.gtag('event', GA_PAGE_EVENTS[ev]);
+    });
   }
 
   function loadPixel() {
@@ -144,12 +156,14 @@
   }
 
   // Parameters are fixed values chosen here. Link text, hrefs and page data
-  // never reach Meta through this path.
+  // never reach Meta or Google through this path.
   function trackClick(target) {
-    if (!loaded.marketing || !target || !target.closest) return;
-    var tagged = target.closest('[data-fb-click]');
+    if (!target || !target.closest) return;
     var link = target.closest('a[href]');
-    var store = link && FB_STORE_HOSTS[link.hostname];
+    var store = link && STORE_HOSTS[link.hostname];
+    if (store && loaded.analytics) window.gtag('event', 'app_download_click', { store: store });
+    if (!loaded.marketing) return;
+    var tagged = target.closest('[data-fb-click]');
     if (tagged) fbTrack(tagged.getAttribute('data-fb-click'), store ? { store: store } : undefined);
     else if (store) fbTrack('AppDownloadClick', { store: store });
   }

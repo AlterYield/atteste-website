@@ -88,8 +88,8 @@ VIEW_CONTENT = {
     "coa/sculpture/index.html": "coa-sculpture",
 }
 
-# Only consent.js may touch the Pixel. fbq in a page would bypass the opt-in.
-PIXEL_REF_RE = re.compile(r'\bfbq\b|\b_fbq\b|fbevents|connect\.facebook\.net|facebook\.com/tr\b')
+# Only consent.js may touch the Pixel or gtag. Either in a page would bypass the opt-in.
+PIXEL_REF_RE = re.compile(r'\bfbq\b|\b_fbq\b|fbevents|connect\.facebook\.net|facebook\.com/tr\b|\bgtag\s*\(')
 CLICK_RE = re.compile(r'\bdata-fb-click="([^"]*)"')
 FB_ATTR_RE = re.compile(r'\bdata-fb-(?:click|events|content)\b')
 FOOTER_RE = re.compile(r'<footer\b')
@@ -178,14 +178,14 @@ def audit_page(rel: str, text: str) -> list[str]:
         if not EVENT_NAME_RE.match(name):
             problems.append(f"click       {rel}: bad event name {name!r}")
     if PIXEL_REF_RE.search(text):
-        problems.append(f"pixel-ref   {rel}: references the Pixel outside consent.js")
+        problems.append(f"pixel-ref   {rel}: references the Pixel or gtag outside consent.js")
     return problems
 
 
 def audit_script(rel: str, text: str) -> list[str]:
     if rel == "assets/js/consent.js" or not PIXEL_REF_RE.search(text):
         return []
-    return [f"pixel-ref   {rel}: references the Pixel outside consent.js"]
+    return [f"pixel-ref   {rel}: references the Pixel or gtag outside consent.js"]
 
 
 def audit_csp(headers: str) -> list[str]:
