@@ -303,7 +303,7 @@
   <!-- Free COA generator (2026-11-04). /claim/ is noindex and deliberately absent. -->
   <url>
     <loc>https://atteste.art/coa/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
