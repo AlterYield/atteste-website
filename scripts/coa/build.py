@@ -38,8 +38,9 @@ MEDIA = [
 
 
 def consent_tag(content):
-    """Banner, GA and Pixel for the public pages. /claim/ must never get this: its
-    URL fragment is the certificate. Policy: scripts/inject_consent.py."""
+    """Banner, GA and Pixel for the public guide pages. /claim/ must never get this,
+    because its URL fragment is the certificate, and nor must the generator, which
+    shows what the visitor enters. Policy: scripts/inject_consent.py."""
     return f'<script defer src="/assets/js/consent.js" data-fb-events="ViewContent" data-fb-content="{content}"></script>\n'
 
 
@@ -257,7 +258,7 @@ def page_generator():
 """
     scripts = ["/assets/js/jspdf-4.2.1.umd.min.js", "/assets/js/qrcode-generator-1.4.4.js",
                "/assets/js/coa-core.js", "/assets/js/coa.js", "/assets/js/attribution.js"]
-    return head(path=path, title=title, desc=desc, jsonld=jsonld, extra=consent_tag("coa-generator")) + body + foot(scripts)
+    return head(path=path, title=title, desc=desc, jsonld=jsonld) + body + foot(scripts)
 
 
 # ── Medium guides ───────────────────────────────────────────────────────────

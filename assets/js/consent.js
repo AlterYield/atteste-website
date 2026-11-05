@@ -28,11 +28,6 @@
      App Store / Google Play links need no attribute: they are recognised by
      host, the same rule as attribution.js, so no store link can be forgotten.
 
-   Meta events with no click to hang them on (only ever sent after opt-in):
-     window.attesteConsent.track('CoaDownload'). The name must be listed in
-     FB_PAGE_EVENTS, and the caller cannot pass parameters. Any page script
-     that wants one has to go through here, never through fbq.
-
    This file is the ONLY place allowed to touch fbq. Which pages may load it
    is policy, not habit: see scripts/inject_consent.py (CI-enforced).
    ========================================================================== */
@@ -46,7 +41,11 @@
   var META_PIXEL_ID = '2040419150235877';
 
   var GA_ID = 'G-6VBQZX830K';
-  var STORAGE_KEY = 'atteste_consent_v1';
+  // Bump when the banner promises something new. A stored yes to marketing under
+  // the old wording no longer counts, so that visitor is asked again; a no stands,
+  // because a refusal of less is a refusal of more. See retireOldConsent.
+  var STORAGE_KEY = 'atteste_consent_v2';
+  var OLD_STORAGE_KEY = 'atteste_consent_v1';
 
   // Everything else goes through trackCustom: fbq('track') rejects a name
   // that is not on Meta's standard list.
@@ -57,7 +56,6 @@
     'SubmitApplication', 'Subscribe', 'ViewContent'
   ];
   var FB_STORE_HOSTS = { 'apps.apple.com': 'app_store', 'play.google.com': 'google_play' };
-  var FB_PAGE_EVENTS = ['CoaDownload'];
 
   var script = document.currentScript;
   var manageOnly = script && script.hasAttribute('data-manage-only');
@@ -88,6 +86,18 @@
     } catch (e) { /* storage blocked — treat as no consent */ }
   }
 
+  function retireOldConsent() {
+    try {
+      var raw = localStorage.getItem(OLD_STORAGE_KEY);
+      if (!raw) return;
+      localStorage.removeItem(OLD_STORAGE_KEY);
+      var old = JSON.parse(raw);
+      if (old.marketing === false && typeof old.analytics === 'boolean' && !readConsent()) {
+        writeConsent(old.analytics, false);
+      }
+    } catch (e) { /* unreadable old record: ask again */ }
+  }
+
   function loadAnalytics() {
     if (loaded.analytics) return;
     loaded.analytics = true;
@@ -114,9 +124,11 @@
       n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
       s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
     }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-    // Must precede init. Stops the pixel scraping button text, JSON-LD and
-    // form metadata on its own: it sends only the events named below, which
-    // is what the privacy notice promises. COA generator fields stay local.
+    // Must precede init. Turns off the pixel's automatic form and button capture,
+    // so we fire only the events named below. Not proven to cover the dataset's
+    // "detailed page and product info" setting, which is on by Charl's ruling and
+    // disclosed in privacy 10.4 and cookies 2.4. So a page carrying the pixel must
+    // show only public content: see EXCLUDE in scripts/inject_consent.py.
     window.fbq('set', 'autoConfig', false, META_PIXEL_ID);
     window.fbq('init', META_PIXEL_ID);
     fbTrack('PageView');
@@ -198,12 +210,15 @@
     '<h2>Your call on cookies</h2>' +
     '<p>We&rsquo;d love to use optional cookies to see how the site is doing (analytics) and to help ' +
     'our ads reach the right people (marketing). None are set unless you say yes &mdash; and ' +
-    '&ldquo;no&rdquo; is one tap too. Details in our <a href="/cookies.html">Cookie Policy</a>.</p>' +
+    '&ldquo;no&rdquo; is one tap too. If you accept marketing, Meta receives the pages you view, ' +
+    'details from those pages and the actions you take here. ' +
+    'Details in our <a href="/cookies.html">Cookie Policy</a>.</p>' +
     '<div class="ac-panel">' +
     '<label><input type="checkbox" class="ac-cb-analytics"><span><strong>Analytics</strong> &mdash; e.g. Google Analytics. ' +
     'Helps us see which pages resonate. Off by default.</span></label>' +
     '<label><input type="checkbox" class="ac-cb-marketing"><span><strong>Marketing</strong> &mdash; e.g. the Meta Pixel. ' +
-    'Measures our Facebook/Instagram ads and enables retargeting. Off by default.</span></label>' +
+    'Measures our Facebook/Instagram ads and enables retargeting. Meta receives the pages you view, ' +
+    'details from those pages and the actions you take here. Off by default.</span></label>' +
     '</div>' +
     '<div class="ac-actions">' +
     '<button type="button" class="ac-save">Save choices</button>' +
@@ -265,12 +280,7 @@
 
   window.attesteConsent = {
     open: function () { showBanner('prefs', readConsent() || undefined); },
-    status: readConsent,
-    // Name only, and only from FB_PAGE_EVENTS: nothing a page knows can reach
-    // Meta this way. Does nothing without marketing consent.
-    track: function (name) {
-      if (loaded.marketing && FB_PAGE_EVENTS.indexOf(name) !== -1) fbTrack(name);
-    }
+    status: readConsent
   };
 
   // Next to the Cookie Policy link where there is one, else after the last
@@ -293,6 +303,7 @@
   }
 
   function init() {
+    retireOldConsent();
     addFooterControl();
     document.addEventListener('click', function (e) {
       var el = e.target && e.target.closest && e.target.closest('[data-cookie-prefs]');

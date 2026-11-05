@@ -170,8 +170,6 @@
     anchor(record.h).then(function (receipt) {
       var doc = buildPdf(record, statement, fit, receipt);
       doc.save(fileName(record));
-      // Consent-gated and carries no certificate data. See consent.js.
-      if (window.attesteConsent) window.attesteConsent.track('CoaDownload');
       showDone(record, fit, receipt);
       setStatus('Done. Your PDF has downloaded.');
     }).catch(function (e) {
