@@ -8,8 +8,8 @@
  * 3. QR fitting: drops d and e first, never h, t or a; typical records fit at 30 mm.
  * 4. /claim/: claim.js against a stub DOM — a missing or malformed fragment shows the
  *    error panel and never the record; a good one renders and links /import-coa#<same payload>.
- * 5. The pages: ANCHOR_ENDPOINT ships null; /claim/ is noindex; no banned wording.
- * 6. The download event: fires only after doc.save, only through consent.js, name only.
+ * 5. The pages: ANCHOR_ENDPOINT is hash-only + CSP-allowed; /claim/ is noindex; no banned wording.
+ * 6. The generator carries no consent.js, so no Pixel or GA can read what a visitor enters.
  */
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -210,9 +210,17 @@ await test("/claim/: optional fields absent → their rows hidden", async () => 
 });
 
 // 5 pages ─────────────────────────────────────────────────────────────────
-await test("ANCHOR_ENDPOINT ships null", async () => {
+await test("ANCHOR_ENDPOINT is the hash-only Atteste function, allowed by the CSP", async () => {
   const src = readFileSync(join(ROOT, "assets/js/coa.js"), "utf8");
-  assert.match(src, /var ANCHOR_ENDPOINT = null;/);
+  const m = src.match(/var ANCHOR_ENDPOINT = '([^']+)';/);
+  assert.ok(m, "ANCHOR_ENDPOINT must be a quoted URL (or edit this test if switching off)");
+  const origin = new URL(m[1]).origin;
+  assert.equal(origin, "https://us-central1-atteste-b6409.cloudfunctions.net");
+  assert.match(readFileSync(join(ROOT, "_headers"), "utf8"), new RegExp("connect-src[^;]*" + origin.replace(/[.]/g, "\\.")));
+  // only the hash leaves the browser
+  assert.match(src, /body: JSON\.stringify\(\{ h: h \}\)/);
+  // the privacy note must say the fingerprint is sent
+  assert.match(readFileSync(join(ROOT, "coa/index.html"), "utf8"), /Only the fingerprint/);
 });
 await test("/claim/ is noindex; generator pages are indexable", async () => {
   assert.match(readFileSync(join(ROOT, "claim/index.html"), "utf8"), /<meta name="robots" content="noindex/);
@@ -234,18 +242,15 @@ await test("no verify/authenticate/prove or blockchain/token/crypto/NFT wording 
 });
 
 // 6 ────────────────────────────────────────────────────────────────────────
-await test("download event: after doc.save, through consent.js, name only", async () => {
+await test("generator page: no consent.js, and coa.js reports nothing to it", async () => {
   const coa = readFileSync(join(ROOT, "assets/js/coa.js"), "utf8");
-  const consent = readFileSync(join(ROOT, "assets/js/consent.js"), "utf8");
-  const save = coa.indexOf("doc.save(");
-  const track = coa.indexOf("window.attesteConsent.track('CoaDownload')");
-  assert.ok(save > -1 && track > save, "coa.js must track after doc.save");
-  assert.doesNotMatch(coa, /\bfbq\b/);
-  assert.match(consent, /FB_PAGE_EVENTS = \[[^\]]*'CoaDownload'/);
-  assert.match(consent, /track: function \(name\) \{/, "track must not accept parameters");
+  assert.doesNotMatch(coa, /\bfbq\b|attesteConsent|gtag/);
   const generator = readFileSync(join(ROOT, "coa/index.html"), "utf8");
   assert.match(generator, /src="\/assets\/js\/coa\.js/);
-  assert.match(generator, /src="\/assets\/js\/consent\.js/);
+  assert.doesNotMatch(generator, /consent\.js/);
+  assert.match(generator, /this page adds no analytics/);
+  const guide = readFileSync(join(ROOT, "coa/painting/index.html"), "utf8");
+  assert.match(guide, /src="\/assets\/js\/consent\.js/);
 });
 
 console.log(`\n${n} COA tests passed`);
