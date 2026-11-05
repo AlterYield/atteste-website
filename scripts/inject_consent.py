@@ -114,16 +114,20 @@ PIXEL_DISCLOSURE = (
     "Measuring ads on your device.",
     "Our pages that carry the pixel have no such login",
     "We do not add your name, email address or anything you type",
+    "Automatic button and page data.",
+    "It does not send what you type into a form.",
 )
+SWITCHED_OFF = "automatic form and button capture"
 NOTICE_NEEDS = {
     "privacy.html": PIXEL_DISCLOSURE,
     "cookies.html": PIXEL_DISCLOSURE,
     "assets/js/consent.js": ("details from those pages",),
 }
 NOTICE_BANNED = {
-    "privacy.html": ("We do not send Meta your name", "limited browsing data", "limited website browsing data"),
-    "cookies.html": ("We do not send Meta your name",),
-    "assets/js/consent.js": ("var STORAGE_KEY = 'atteste_consent_v1'",),
+    "privacy.html": ("We do not send Meta your name", "limited browsing data", "limited website browsing data",
+                     SWITCHED_OFF),
+    "cookies.html": ("We do not send Meta your name", SWITCHED_OFF),
+    "assets/js/consent.js": ("var STORAGE_KEY = 'atteste_consent_v1'", "'autoConfig', false"),
 }
 
 

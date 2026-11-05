@@ -124,12 +124,12 @@
       n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
       s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
     }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-    // Must precede init. Turns off the pixel's automatic form and button capture,
-    // so we fire only the events named below. Not proven to cover the dataset's
-    // "detailed page and product info" setting, which is on by Charl's ruling and
-    // disclosed in privacy 10.4 and cookies 2.4. So a page carrying the pixel must
-    // show only public content: see EXCLUDE in scripts/inject_consent.py.
-    window.fbq('set', 'autoConfig', false, META_PIXEL_ID);
+    // Automatic configuration stays on by Charl's ruling (2026-11-05), so Meta also
+    // receives button clicks and page details, disclosed in privacy 10.4 and cookies
+    // 2.4. A page carrying the pixel must show only public content: see EXCLUDE in
+    // scripts/inject_consent.py. Automatic website matching must stay off in Events
+    // Manager: Meta's script reads form values when it is on, and the notices say
+    // typed text is not sent.
     window.fbq('init', META_PIXEL_ID);
     fbTrack('PageView');
     fbExtraEvents.forEach(function (ev) {
