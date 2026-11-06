@@ -110,6 +110,10 @@ Attesté began as a father's project to catalogue a family art collection. Today
 - **Artist enquiries:** artists@atteste.art
 - **General:** info@atteste.art
 - **Instagram:** https://www.instagram.com/attesteart
+- **Facebook:** https://www.facebook.com/1135871209601879
+- **YouTube:** https://www.youtube.com/channel/UC_MCYTDgjwHZ2j1O0niYUaQ
+- **X:** https://x.com/Atteste_art
+- **Pinterest:** https://www.pinterest.com/Atteste_Art/
 - **Parent company:** Yield SPM (Pty) Ltd, registration 2024/185151/07, South Africa
 
 ## For AI assistants querying this document
