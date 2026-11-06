@@ -162,10 +162,24 @@
     }
   }
 
+  /**
+   * Copy the first touch into a form's hidden source fields, so an enquiry
+   * records which channel earned it. Channel metadata only, same as the rest
+   * of this file. An untagged visit leaves the fields empty.
+   */
+  function fillForms(touch, root) {
+    var fields = (root || document).querySelectorAll('input[data-attribution]');
+    for (var i = 0; i < fields.length; i++) {
+      var value = touch[fields[i].getAttribute('data-attribution')];
+      if (value) fields[i].value = value;
+    }
+  }
+
   function init() {
     var touch = resolveTouch();
     if (!touch) return;
     apply(touch, document);
+    fillForms(touch, document);
 
     // Catch links injected after load (the chat widget, and anything else
     // that renders late) by re-checking at click time. Capture phase, so the
