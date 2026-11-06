@@ -499,7 +499,7 @@
    "heading": "Problems?",
    "kind": "help",
    "audience": "all",
-   "text": "- Troubleshooting — login, purchases not showing, NFC, web limitations\n\n- Contact support — who to email and what to include\n\nQuick contacts\n\nGeneral & account: info@atteste.art\n\nGalleries: galleries@atteste.art\n\nEnterprise priority support: priority-support@atteste.art\n\nPolicy pages: Terms of Service · Privacy Policy · Refunds & Cancellation · Account deletion · Community Guidelines · AI Disclosure"
+   "text": "- Troubleshooting — login, purchases not showing, NFC, web limitations\n\n- Contact support — who to email and what to include\n\nQuick contacts\n\nGeneral & account: info@atteste.art\n\nGalleries: galleries@atteste.art\n\nEnterprise priority support: info@atteste.art\n\nPolicy pages: Terms of Service · Privacy Policy · Refunds & Cancellation · Account deletion · Community Guidelines · AI Disclosure"
   },
   {
    "id": "help/getting-started-collectors.html#0",
@@ -609,7 +609,7 @@
    "heading": "Need help?",
    "kind": "help",
    "audience": "gallery",
-   "text": "Email galleries@atteste.art . Enterprise galleries can use priority-support@atteste.art with guaranteed response times."
+   "text": "Email galleries@atteste.art . Enterprise galleries can use info@atteste.art with guaranteed response times."
   },
   {
    "id": "help/provenance-and-certificates.html#0",
@@ -909,7 +909,7 @@
    "heading": "Enterprise priority support",
    "kind": "help",
    "audience": "gallery",
-   "text": "Enterprise galleries have a contractual support SLA:\n\n- First response within 2 business hours (08:00–18:00 SAST, weekdays) via priority-support@atteste.art or the in-app Priority Support tile\n\n- WhatsApp line (shared in your welcome packet): 30-minute response in business hours\n\n- Critical issues: acknowledged within 30 minutes on weekdays, with a fix or workaround targeted within 4 business hours — and a 15% credit on the next month's bill if we miss it"
+   "text": "Enterprise galleries have a contractual support SLA:\n\n- First response within 2 business hours (08:00–18:00 SAST, weekdays) via info@atteste.art or the in-app Priority Support tile\n\n- WhatsApp line (shared in your welcome packet): 30-minute response in business hours\n\n- Critical issues: acknowledged within 30 minutes on weekdays, with a fix or workaround targeted within 4 business hours — and a 15% credit on the next month's bill if we miss it"
   },
   {
    "id": "help/gallery-tools.html#6",
@@ -919,7 +919,7 @@
    "heading": "Support",
    "kind": "help",
    "audience": "gallery",
-   "text": "All galleries: galleries@atteste.art . Enterprise: priority-support@atteste.art ."
+   "text": "All galleries: galleries@atteste.art . Enterprise: info@atteste.art ."
   },
   {
    "id": "help/troubleshooting.html#0",

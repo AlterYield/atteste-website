@@ -427,7 +427,7 @@ URL: https://atteste.art/coa/ — free, no account, for artists issuing a COA fo
 - **Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste (live on Google Play; package: art.atteste.atteste)
 - **Support / general:** info@atteste.art
 - **Gallery partnerships:** galleries@atteste.art
-- **Artist enquiries:** artists@atteste.art
+- **Artist enquiries:** info@atteste.art
 - **Instagram:** https://www.instagram.com/attesteart
 - **Facebook:** https://www.facebook.com/1135871209601879
 - **YouTube:** https://www.youtube.com/channel/UC_MCYTDgjwHZ2j1O0niYUaQ
