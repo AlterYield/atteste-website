@@ -107,7 +107,7 @@ Attesté began as a father's project to catalogue a family art collection. Today
 - **iOS app:** https://apps.apple.com/app/id6763944507
 - **Android app:** https://play.google.com/store/apps/details?id=art.atteste.atteste (live on Google Play; package: art.atteste.atteste)
 - **Gallery partnerships:** galleries@atteste.art
-- **Artist enquiries:** artists@atteste.art
+- **Artist enquiries:** info@atteste.art
 - **General:** info@atteste.art
 - **Instagram:** https://www.instagram.com/attesteart
 - **Facebook:** https://www.facebook.com/1135871209601879
