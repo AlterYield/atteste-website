@@ -73,3 +73,10 @@ footer.coa-foot { max-width:960px; margin:0 auto; padding:1.5rem 0 3rem; border-
 .claim-actions { text-align:center; margin:2rem 0; }
 .claim-actions .store-badges { justify-content:center; }
 .claim-error { max-width:40rem; margin:2rem auto; }
+
+/* Footer social links (markup from scripts/inject_social.py; same rules as its FOOTER_CSS). */
+.att-social-row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin:0 0 1rem; }
+.att-social-row .att-social { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; border:1px solid rgba(201,169,110,.6); background:none; box-shadow:none; color:inherit; }
+.att-social-row .att-social:hover, .att-social-row .att-social:focus-visible { border-color:#c9a96e; background:rgba(201,169,110,.16); box-shadow:none; color:inherit; }
+.att-social-row .att-social svg { width:19px; height:19px; fill:currentColor; display:block; }
+@media print { .att-social-row { display:none; } }

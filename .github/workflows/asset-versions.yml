@@ -19,6 +19,10 @@
 # page without it has no banner, GA or Pixel, and a private page WITH it can hand
 # a person's URL to Google and Meta. The policy lives in scripts/inject_consent.py.
 #
+# The footer social links ride along too (scripts/inject_social.py): one block,
+# read from classic.html, on every page with a footer. On 2026-11-12 it was on
+# 11 pages and missing from 36, and nothing failed.
+#
 # This workflow reads no user-controlled event data (no titles, branch names or
 # commit messages reach a run: step), so there is no script-injection surface.
 name: asset versions
@@ -49,5 +53,9 @@ jobs:
         run: python3 scripts/test_inject_consent.py
       - name: consent.js on every marketing page, on no private page, sole Pixel owner
         run: python3 scripts/inject_consent.py --check
+      - name: footer social links guard fails when it should
+        run: python3 scripts/test_inject_social.py
+      - name: footer social links on every page with a footer, none to the wrong account
+        run: python3 scripts/inject_social.py --check
       - name: "?v= matches the file's content hash"
         run: node scripts/asset-versions.mjs --check
