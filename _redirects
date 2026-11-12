@@ -77,3 +77,11 @@ https://www.atteste.art/* https://atteste.art/:splat 301!
 /f04  /features?utm_source=social&utm_medium=video&utm_campaign=feature-04  302
 /f05  /features?utm_source=social&utm_medium=video&utm_campaign=feature-05  302
 /f06  /features?utm_source=social&utm_medium=video&utm_campaign=feature-06  302
+
+# Creator links. The slug travels as the campaign, so the app's signup stamp and
+# Apple's `ct` both carry it with no app change. Keep slugs to 22 characters:
+# Apple's `ct` limit is 30 and attribution.js prefixes `creator-`. Slugs live here
+# only as a pattern, so nobody's name is published before they've agreed to anything.
+/c/coa     /coa?utm_source=instagram&utm_medium=keyword&utm_campaign=coa-dm  302
+/c/:slug   /artists?utm_source=creator&utm_medium=social&utm_campaign=:slug  302
+/g/:slug   /galleries?utm_source=creator&utm_medium=social&utm_campaign=:slug  302
