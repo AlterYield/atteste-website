@@ -67,6 +67,8 @@ CASES = [
     ("cookie policy loses on-device measurement",
      audit_notice("cookies.html", NOTICE.replace("Measuring ads on your device.", "")), "disclosure"),
     ("old promise comes back", audit_notice("privacy.html", NOTICE + " We do not send Meta your name"), "disclosure"),
+    ("no-tracking-in-the-app promise comes back",
+     audit_notice("privacy.html", NOTICE + " tracking technologies inside the Atteste application"), "disclosure"),
     ("notice loses the automatic data paragraph",
      audit_notice("privacy.html", NOTICE.replace("Automatic button and page data.", "")), "disclosure"),
     ("cookie policy loses the form sentence",
