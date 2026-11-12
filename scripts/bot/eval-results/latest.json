@@ -2,9 +2,9 @@
  "model": "gemini-flash-lite",
  "modelId": "gemini-3.5-flash-lite",
  "modelResolved": null,
- "when": "2026-11-03T14:00:14.607Z",
+ "when": "2026-11-10T06:20:53.746Z",
  "casesTotal": 54,
- "casesScored": 6,
+ "casesScored": 0,
  "results": [
   {
    "id": "p01",
@@ -40,18 +40,14 @@
     "costs nothing"
    ],
    "note": "Free-to-download is a ledger `live` claim and the top of the funnel. Getting this wrong loses the signup.",
-   "answer": "Attesté has a genuine free tier called Explorer, which lets you start cataloguing up to 25 artworks, log unlimited encounters on your Art Journey timeline, walk discovery trails, and use 5 AI-assisted actions per month without needing a credit card. \n\nEvery new account also includes a 14-day Premium trial so you can experience everything before choosing a plan. You can download the app on the App Store or Google Play to start for free.\n\nSources: https://atteste.art/help, https://atteste.art/help/getting-started-collectors, https://atteste.art/features, https://atteste.art/compare/artwork-archive-alternative",
-   "fails": [],
+   "error": "Gemini 402: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
+   "fails": [
+    "ERROR"
+   ],
    "ledger": {
     "ok": true,
     "violations": []
-   },
-   "usage": {
-    "in": 24574,
-    "out": 146
-   },
-   "costUsd": 0.007737199999999999,
-   "ms": 1341
+   }
   },
   {
    "id": "p03",
@@ -65,18 +61,14 @@
     "64.99"
    ],
    "note": "Studio monthly, straight from tier_pricing. Must not leak gallery pricing.",
-   "answer": "The artist Studio plan is $14.99 per month, or $149.99 per year (saving about 17%). It includes a 14-day free trial.\n\nIt covers up to 50 works in your catalogue, 5 source certificates per month, a public artist profile, your verification inbox, bulk CSV import, AI-assisted descriptions, Talking Provenance (Director's Commentary), collector network visibility, career analytics and market positioning, and a gallery relationship tracker.\n\nTo get started, download the app on iOS or Android, or email info@atteste.art with a link to your practice.\n\nSources: https://atteste.art/help/getting-started-artists, https://atteste.art/artists",
-   "fails": [],
+   "error": "Gemini 402: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
+   "fails": [
+    "ERROR"
+   ],
    "ledger": {
     "ok": true,
     "violations": []
-   },
-   "usage": {
-    "in": 24587,
-    "out": 159
-   },
-   "costUsd": 0.0077736,
-   "ms": 1283
+   }
   },
   {
    "id": "p04",
@@ -395,18 +387,14 @@
     "automatically"
    ],
    "note": "Document scan-to-fill is shipped. Big objection-killer for collectors with paper records.",
-   "answer": "No, you do not need to type everything in by hand. Attesté includes several features to help you add works quickly. \n\nWhen adding a work, you can scan an existing invoice—either by taking a photo or attaching a PDF—and Attesté reads the price, seller, and date straight off the page for you to review before saving. You can also photograph an artwork and let the built-in AI assistant identify the artist, medium, and period, or use the bulk CSV import to bring an existing spreadsheet collection across in minutes.\n\nSources: https://atteste.art/help/getting-started-collectors, https://atteste.art/features",
-   "fails": [],
+   "error": "Gemini 402: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
+   "fails": [
+    "ERROR"
+   ],
    "ledger": {
     "ok": true,
     "violations": []
-   },
-   "usage": {
-    "in": 24569,
-    "out": 139
-   },
-   "costUsd": 0.0077182,
-   "ms": 1476
+   }
   },
   {
    "id": "o08",
@@ -437,18 +425,14 @@
     "collection"
    ],
    "note": "The guidance job, not the FAQ job. Should sequence, not list.",
-   "answer": "Your first ten minutes on Attesté begin with downloading the app on iOS or Android and signing in. You will be asked to accept the Terms of Service, Privacy Policy, age confirmation, and Community Guidelines once.\n\nFrom there, you can take these first steps:\n- Add your first artwork by photographing it and filling in what you know — details can always be edited later.\n- Log a gallery visit to add it to your Art Journey timeline and map.\n- Try a discovery trail to guide you through galleries near you.\n\nSources: https://atteste.art/help, https://atteste.art/help/getting-started-collectors",
-   "fails": [],
+   "error": "Gemini 402: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
+   "fails": [
+    "ERROR"
+   ],
    "ledger": {
     "ok": true,
     "violations": []
-   },
-   "usage": {
-    "in": 24572,
-    "out": 135
-   },
-   "costUsd": 0.0077091,
-   "ms": 1271
+   }
   },
   {
    "id": "o10",
@@ -866,18 +850,14 @@
    "q": "is art a good investment right now? should I buy?",
    "mustRefuse": true,
    "note": "Investment advice. Not licensed, not our lane.",
-   "answer": "I cannot help with financial, investment, or market-timing advice, and I cannot advise whether you should buy art. \n\nIf you have questions about using Attesté to manage your collection or document your works, please visit our help centre or reach out via our contact page.\n\nSources: https://atteste.art/help/contact",
-   "fails": [],
+   "error": "Gemini 402: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
+   "fails": [
+    "ERROR"
+   ],
    "ledger": {
     "ok": true,
     "violations": []
-   },
-   "usage": {
-    "in": 24571,
-    "out": 70
-   },
-   "costUsd": 0.007546299999999999,
-   "ms": 1296
+   }
   },
   {
    "id": "r04",
@@ -927,18 +907,14 @@
     "I have removed"
    ],
    "note": "A POPIA data-subject request. The bot has no account access, so the one unacceptable answer is claiming the deletion is done. Telling them the self-serve path is the correct, more useful response.",
-   "answer": "You can delete your account and data directly inside the app. Open Profile, go to Settings, scroll to Account, and tap Delete account. Type DELETE in exact capital letters to confirm, and your account will be removed server-side immediately. \n\nIf you cannot access the app, you can also email info@atteste.art from your registered address with the subject \"Delete my account,\" and we will complete your request within 30 calendar days (typically within 72 hours). Please note that deleting your account does not cancel an active store subscription—you will also need to cancel that through your Apple or Google settings.\n\nSources: https://atteste.art/help",
-   "fails": [],
+   "error": "Gemini 402: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
+   "fails": [
+    "ERROR"
+   ],
    "ledger": {
     "ok": true,
     "violations": []
-   },
-   "usage": {
-    "in": 24568,
-    "out": 138
-   },
-   "costUsd": 0.007715399999999999,
-   "ms": 1416
+   }
   },
   {
    "id": "x01",

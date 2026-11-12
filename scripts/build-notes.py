@@ -21,8 +21,11 @@ Usage:  python3 scripts/build-notes.py   (from repo root or scripts/)
 import html
 import json
 import os
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+from inject_social import apply as add_social  # noqa: E402  footer social links, one source
 NOTES_DIR = os.path.join(ROOT, "notes")
 DATA = os.path.join(NOTES_DIR, "notes.json")
 SITE = "https://atteste.art"
@@ -85,6 +88,7 @@ PAGE = """<!DOCTYPE html>
   .smallprint {{ font-size:13px; color:var(--text-muted); margin:40px 0 64px; }}
   .footer {{ background:var(--navy); color:rgba(250,248,245,.6); text-align:center; padding:36px 24px; font-size:13px; }}
   .footer a {{ color:var(--gold-light); }}
+  .footer .att-social-row {{ justify-content:center; margin-bottom:18px; }}
 </style>
 <script defer src="/assets/js/consent.js"></script>
 </head>
@@ -173,6 +177,7 @@ INDEX_HEAD = """<!DOCTYPE html>
   .empty { text-align:center; color:var(--text-muted); padding:56px 0; font-size:16px; }
   .footer { background:var(--navy); color:rgba(250,248,245,.6); text-align:center; padding:36px 24px; font-size:13px; }
   .footer a { color:var(--gold-light); }
+  .footer .att-social-row { justify-content:center; margin-bottom:18px; }
 </style>
 <script defer src="/assets/js/consent.js"></script>
 </head>
@@ -230,7 +235,7 @@ def build():
             jsonld=jsonld(n),
         )
         out = os.path.join(NOTES_DIR, f"{n['slug']}.html")
-        open(out, "w").write(page)
+        open(out, "w").write(add_social(page)[0])
         print("wrote", os.path.relpath(out, ROOT))
 
     items = []
@@ -245,7 +250,7 @@ def build():
         items.append('<div class="empty">The first notes land 11 August 2026. '
                      'The Atelier is already reading.</div>')
     open(os.path.join(NOTES_DIR, "index.html"), "w").write(
-        INDEX_HEAD + "\n".join(items) + "\n" + INDEX_FOOT)
+        add_social(INDEX_HEAD + "\n".join(items) + "\n" + INDEX_FOOT)[0])
     print("wrote notes/index.html —", len(published), "published note(s)")
 
 

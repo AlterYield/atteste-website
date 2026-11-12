@@ -20,8 +20,11 @@ about the Attesté app sits in a data-claim block on a live|shipping entry.
 import json
 import os
 import re
+import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+from inject_social import apply as add_social  # noqa: E402  footer social links, one source
 ORIGIN = "https://atteste.art"
 OG_IMAGE = f"{ORIGIN}/assets/3d/atteste-og-banner.jpg"
 
@@ -447,6 +450,7 @@ def page_claim():
 
 
 def write(rel, html):
+    html = add_social(html)[0]
     p = os.path.join(ROOT, rel)
     os.makedirs(os.path.dirname(p), exist_ok=True)
     # Keep any ?v= hashes asset-versions.mjs already stamped, so a rebuild is a no-op.
