@@ -12,9 +12,13 @@ this one is a privacy control as well as a coverage tag. It fails both ways:
 
 `--check` exits non-zero on drift and gates CI (.github/workflows/asset-versions.yml).
 It also fails if anything but assets/js/consent.js references the Meta Pixel,
-if a tag carries a bad click event, if the CSP stops allowing the Pixel, if a
-page with the tag gains a login or a file picker, or if the notices or banner
-lose what they must tell people about the Pixel.
+or loads a Google tag, if a tag carries a bad click event, if the CSP stops
+allowing the Pixel, if a page with the tag gains a login or a file picker, if
+the notices or banner lose what they must tell people about the Pixel, if the
+banner stops naming Google advertising under Marketing, or if a Google Ads or
+Tag Manager id appears in consent.js (the only Google id on this site is the
+Analytics one). What Google is told for each choice is proven by
+scripts/test-consent-events.mjs.
 
 The default is deliberate: a NEW page is treated as marketing and must carry
 the tag. Deciding a page is private means adding it to EXCLUDE with a reason.
@@ -88,8 +92,10 @@ VIEW_CONTENT = {
     "coa/sculpture/index.html": "coa-sculpture",
 }
 
-# Only consent.js may touch the Pixel or gtag. Either in a page would bypass the opt-in.
-PIXEL_REF_RE = re.compile(r'\bfbq\b|\b_fbq\b|fbevents|connect\.facebook\.net|facebook\.com/tr\b|\bgtag\s*\(')
+# Only consent.js may touch the Pixel or gtag, or load a Google tag. Any of them in
+# a page would bypass the opt-in and the consent signals Google is sent.
+PIXEL_REF_RE = re.compile(r'\bfbq\b|\b_fbq\b|fbevents|connect\.facebook\.net|facebook\.com/tr\b|\bgtag\s*\('
+                          r'|googletagmanager\.com')
 CLICK_RE = re.compile(r'\bdata-fb-click="([^"]*)"')
 FB_ATTR_RE = re.compile(r'\bdata-fb-(?:click|events|content)\b')
 FOOTER_RE = re.compile(r'<footer\b')
@@ -121,13 +127,18 @@ SWITCHED_OFF = "automatic form and button capture"
 NOTICE_NEEDS = {
     "privacy.html": PIXEL_DISCLOSURE,
     "cookies.html": PIXEL_DISCLOSURE,
-    "assets/js/consent.js": ("details from those pages",),
+    # Marketing is the tick that lets Google use a visit for advertising, so the
+    # banner has to name Google there, not only Meta.
+    "assets/js/consent.js": ("details from those pages", "the Meta Pixel and Google advertising"),
 }
 NOTICE_BANNED = {
     "privacy.html": ("We do not send Meta your name", "limited browsing data", "limited website browsing data",
                      SWITCHED_OFF),
     "cookies.html": ("We do not send Meta your name", SWITCHED_OFF),
-    "assets/js/consent.js": ("var STORAGE_KEY = 'atteste_consent_v1'", "'autoConfig', false"),
+    # A yes stored before Marketing named Google must not count (v1, v2). No Google
+    # Ads or Tag Manager tag belongs on this site (Charl, 2026-11-12).
+    "assets/js/consent.js": ("var STORAGE_KEY = 'atteste_consent_v1'", "var STORAGE_KEY = 'atteste_consent_v2'",
+                             "'autoConfig', false", "AW-", "GTM-"),
 }
 
 

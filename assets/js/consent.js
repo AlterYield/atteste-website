@@ -3,7 +3,8 @@
 
    Nothing non-essential loads before an explicit opt-in:
    - Analytics  = Google Analytics 4 (gtag.js)
-   - Marketing  = Meta Pixel (fbevents.js)
+   - Marketing  = Meta Pixel (fbevents.js), and Google's use of an analytics
+                  visit for advertising (Consent Mode v2, see googleConsent)
 
    Declining is one click, same prominence as accepting. No choice = no
    cookies. There is deliberately NO <noscript> pixel fallback anywhere on
@@ -33,6 +34,13 @@
      data-fb-events="Lead" also sends generate_lead (GA_PAGE_EVENTS).
      A store link click also sends app_download_click with { store }.
 
+   Google Consent Mode v2: every Google Analytics hit carries the visitor's two
+   choices. Analytics grants analytics_storage only. Marketing grants ad_storage,
+   ad_user_data and ad_personalization. All four are set to denied before
+   Google's script is requested. gtag.js still loads only on an analytics yes,
+   so with marketing alone Google receives nothing at all. No Google Ads tag
+   belongs on this site: the only Google id here is the Analytics one.
+
    This file is the ONLY place allowed to touch fbq or gtag. Which pages may load it
    is policy, not habit: see scripts/inject_consent.py (CI-enforced).
    ========================================================================== */
@@ -49,8 +57,9 @@
   // Bump when the banner promises something new. A stored yes to marketing under
   // the old wording no longer counts, so that visitor is asked again; a no stands,
   // because a refusal of less is a refusal of more. See retireOldConsent.
-  var STORAGE_KEY = 'atteste_consent_v2';
-  var OLD_STORAGE_KEY = 'atteste_consent_v1';
+  // v3 (2026-11-12): Marketing now also covers Google advertising.
+  var STORAGE_KEY = 'atteste_consent_v3';
+  var OLD_STORAGE_KEYS = ['atteste_consent_v2', 'atteste_consent_v1']; // newest first
 
   // Everything else goes through trackCustom: fbq('track') rejects a name
   // that is not on Meta's standard list.
@@ -96,26 +105,45 @@
   }
 
   function retireOldConsent() {
-    try {
-      var raw = localStorage.getItem(OLD_STORAGE_KEY);
-      if (!raw) return;
-      localStorage.removeItem(OLD_STORAGE_KEY);
-      var old = JSON.parse(raw);
-      if (old.marketing === false && typeof old.analytics === 'boolean' && !readConsent()) {
-        writeConsent(old.analytics, false);
-      }
-    } catch (e) { /* unreadable old record: ask again */ }
+    OLD_STORAGE_KEYS.forEach(function (key) {
+      try {
+        var raw = localStorage.getItem(key);
+        if (!raw) return;
+        localStorage.removeItem(key);
+        var old = JSON.parse(raw);
+        if (old.marketing === false && typeof old.analytics === 'boolean' && !readConsent()) {
+          writeConsent(old.analytics, false);
+        }
+      } catch (e) { /* unreadable old record: ask again */ }
+    });
   }
 
-  function loadAnalytics() {
+  // The four Consent Mode v2 signals for a choice. The three advertising signals
+  // follow the Marketing tick and nothing else, so an analytics yes alone never
+  // lets Google use a visit for advertising.
+  function googleConsent(consent) {
+    var ads = consent.marketing ? 'granted' : 'denied';
+    return {
+      ad_storage: ads,
+      ad_user_data: ads,
+      ad_personalization: ads,
+      analytics_storage: consent.analytics ? 'granted' : 'denied'
+    };
+  }
+
+  function loadAnalytics(consent) {
     if (loaded.analytics) return;
     loaded.analytics = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    // Denied first, then the visitor's choice. Both are queued before Google's
+    // script is requested, so it never runs without them.
+    window.gtag('consent', 'default', googleConsent({ analytics: false, marketing: false }));
+    window.gtag('consent', 'update', googleConsent(consent));
     var s = document.createElement('script');
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
     window.gtag('config', GA_ID);
     fbExtraEvents.forEach(function (ev) {
@@ -168,8 +196,13 @@
     else if (store) fbTrack('AppDownloadClick', { store: store });
   }
 
+  // Taking a yes away reloads the page (see decide), so the only change that can
+  // reach a running Google tag is marketing being added after analytics.
   function applyConsent(consent) {
-    if (consent.analytics) loadAnalytics();
+    if (consent.analytics) {
+      if (loaded.analytics) window.gtag('consent', 'update', googleConsent(consent));
+      else loadAnalytics(consent);
+    }
     if (consent.marketing) loadPixel();
   }
 
@@ -225,14 +258,15 @@
     '<p>We&rsquo;d love to use optional cookies to see how the site is doing (analytics) and to help ' +
     'our ads reach the right people (marketing). None are set unless you say yes &mdash; and ' +
     '&ldquo;no&rdquo; is one tap too. If you accept marketing, Meta receives the pages you view, ' +
-    'details from those pages and the actions you take here. ' +
+    'details from those pages and the actions you take here, and Google may use your visits for advertising. ' +
     'Details in our <a href="/cookies.html">Cookie Policy</a>.</p>' +
     '<div class="ac-panel">' +
     '<label><input type="checkbox" class="ac-cb-analytics"><span><strong>Analytics</strong> &mdash; e.g. Google Analytics. ' +
     'Helps us see which pages resonate. Off by default.</span></label>' +
-    '<label><input type="checkbox" class="ac-cb-marketing"><span><strong>Marketing</strong> &mdash; e.g. the Meta Pixel. ' +
-    'Measures our Facebook/Instagram ads and enables retargeting. Meta receives the pages you view, ' +
-    'details from those pages and the actions you take here. Off by default.</span></label>' +
+    '<label><input type="checkbox" class="ac-cb-marketing"><span><strong>Marketing</strong> &mdash; the Meta Pixel and Google advertising. ' +
+    'Measures our Facebook, Instagram and Google ads and enables retargeting. Meta receives the pages you view, ' +
+    'details from those pages and the actions you take here. Google may use what Google Analytics records ' +
+    'here for advertising, if Analytics is on too. Off by default.</span></label>' +
     '</div>' +
     '<div class="ac-actions">' +
     '<button type="button" class="ac-save">Save choices</button>' +
