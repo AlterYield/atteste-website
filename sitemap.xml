@@ -52,7 +52,7 @@
   <!-- Home -->
   <url>
     <loc>https://atteste.art/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://atteste.art/"/>
@@ -65,7 +65,7 @@
   <!-- Marketing pages -->
   <url>
     <loc>https://atteste.art/features.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
