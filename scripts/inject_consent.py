@@ -125,8 +125,9 @@ NOTICE_NEEDS = {
 }
 NOTICE_BANNED = {
     "privacy.html": ("We do not send Meta your name", "limited browsing data", "limited website browsing data",
-                     SWITCHED_OFF),
-    "cookies.html": ("We do not send Meta your name", SWITCHED_OFF),
+                     SWITCHED_OFF, "tracking technologies inside the Atteste application"),
+    "cookies.html": ("We do not send Meta your name", SWITCHED_OFF, "does not use any analytics cookies",
+                     "contains no advertising technologies"),
     "assets/js/consent.js": ("var STORAGE_KEY = 'atteste_consent_v1'", "'autoConfig', false"),
 }
 
