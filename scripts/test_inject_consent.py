@@ -18,7 +18,7 @@ NONE = "<head></head>"
 CSP = ("Content-Security-Policy: default-src 'self'; script-src 'self' https://connect.facebook.net; "
        "img-src https://www.facebook.com; connect-src https://www.facebook.com")
 NOTICE = " ".join(PIXEL_DISCLOSURE)
-BANNER = "details from those pages"
+BANNER = "details from those pages; the Meta Pixel and Google advertising"
 
 CASES = [
     # name, problems found, the word expected in them ("" = must be clean)
@@ -79,6 +79,22 @@ CASES = [
      audit_notice("assets/js/consent.js", BANNER + " window.fbq('set', 'autoConfig', false, ID)"), "disclosure"),
     ("stored consent version goes back",
      audit_notice("assets/js/consent.js", BANNER + " var STORAGE_KEY = 'atteste_consent_v1'"), "disclosure"),
+    ("stored consent from before Google was named comes back",
+     audit_notice("assets/js/consent.js", BANNER + " var STORAGE_KEY = 'atteste_consent_v2'"), "disclosure"),
+    ("banner stops naming Google under Marketing",
+     audit_notice("assets/js/consent.js", "details from those pages; e.g. the Meta Pixel"), "disclosure"),
+    ("a Google Ads id in consent.js",
+     audit_notice("assets/js/consent.js", BANNER + " window.gtag('config', 'AW-123')"), "disclosure"),
+    ("a Tag Manager id in consent.js",
+     audit_notice("assets/js/consent.js", BANNER + " var ID = 'GTM-ABC123'"), "disclosure"),
+    ("a Google tag loaded by a page",
+     audit_page("help/index.html", BARE + '<script src="https://www.googletagmanager.com/gtag/js?id=G-X"></script>'),
+     "pixel-ref"),
+    ("a Tag Manager container in a page",
+     audit_page("help/index.html", BARE + '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-X">'),
+     "pixel-ref"),
+    ("a Google tag loaded by another script",
+     audit_script("assets/js/chat-widget.js", "s.src = 'https://www.googletagmanager.com/gtm.js'"), "pixel-ref"),
     ("CSP allows the Pixel", audit_csp(CSP), ""),
     ("CSP drops the Pixel script host", audit_csp(CSP.replace("https://connect.facebook.net", "")), "csp"),
     ("CSP drops the beacon host", audit_csp(CSP.replace("connect-src https://www.facebook.com", "connect-src 'self'")), "csp"),
